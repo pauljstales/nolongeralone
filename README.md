@@ -45,7 +45,7 @@ If this game becomes unexpectedly popular, this may change.
 4. Are you using BEM? *Somewhat, the blocks, elements belonging to blocks, the modifiers, the naming…*
 5. Why not a library for the internationalization? *Similar to #1, I wanted to demonstrate the core technology free of libraries.*
 6. Why are you using constants, but still have hard-coded strings? *I wanted to use constants to refer to the same things via constant in the JS, but without templates, libraries, etc. it would be quite difficult to have a single, central “source” of constants.*
-7. Why Battleship? *It is a very boring game that could be so much better with some adjustments… and here are some of those adjustments. *
+7. Why Battleship? *It is a very boring game that could be so much better with some adjustments… and here are some of those adjustments.*
 ## License
 
 [GNU]GNU General Public License v3.0

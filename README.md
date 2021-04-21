@@ -20,10 +20,9 @@ https://nolongeralone.netlify.app
 
 ## Usage
 
-This game has 3 main goals  
-1 A demonstration of core HTML5, CSS3, and JS/ES6 for Paul J Stales' portfolio  
-2 Something fun to pass a few minutes... and surely, you can take a few minutes to save the Earth, right?  
-3 Show off Rob Vince's incredible music skills... seriously, listen to this stuff!
+1. Click the link under installation
+2. Save the earth by clicking a grid quickly and accurately
+3. Lament that you failed to save the Earth
 
 ## Contributing
 

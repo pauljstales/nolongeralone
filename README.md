@@ -33,8 +33,8 @@ If this game becomes unexpectedly popular, this may change.
 
 **Game Concept**: Paul J Stales, https://twitter.com/pauljstales  
 **Programmer**: Paul J Stales  
-**Graphic Design**: tbd  
-**Sound**: Robert Vince, and others check resources/music_credits.txt for more details  
+**Graphic Design**: Robert Vince  
+**Sound**: Robert Vince (possibly others, if so, check credits.txt for more details)  
 **Localization**: Possibly Spanish, Arabic, Russian, Hindi - tbd  
 **Testing**: Samuel Soto
 

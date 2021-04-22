@@ -11,8 +11,20 @@
     <title>No Longer Alone - Landing</title>
   </head>
   <body>
-    <div id="screen_landing" class="screen screen--showAsFlex">
-      <a class="button" href="\screens\intro\intro.html">go to intro</a>
+    <div id="progress-bar-container" class="progress-bar-container">
+      <label for="progress-bar">GAME LOADING:</label>
+      <br />
+      <progress
+        id="progress-bar"
+        class="progress-bar"
+        value="51"
+        max="100"
+      ></progress>
+    </div>
+    <div id="screen_landing" class="screen screen--displayAsNone">
+      <a class="button button--size-large" href="\screens\intro\intro.html">
+        LOAD GAME
+      </a>
       <br />
       <select id="language" class="screen__select" name="language">
         <option value="english">ENGLISH</option>
@@ -27,7 +39,14 @@
         <option value="german">DEUTSCHE</option>
       </select>
       <br />
-      <a class="button" href="\screens\credits\credits.html">go to credits</a>
+      <a class="button button--size-large" href="\screens\credits\credits.html"
+        >CREDITS</a
+      >
+      <div id="scripts">
+        <script src="landing-model.js"></script>
+        <script src="landing-view.js"></script>
+        <script src="landing-controller.js"></script>
+      </div>
     </div>
   </body>
 </html>

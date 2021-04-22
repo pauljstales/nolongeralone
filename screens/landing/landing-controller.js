@@ -1,5 +1,10 @@
+/**
+ * This function is immediately invoked to progress the loading bar.
+ * The loading allows for any resources to be pre-loaded for better performance.
+ */
 (function () {
   let loadProgress = 0;
+  const TIME_PER_INTERVAL = 1; // for production, 20
   let loadProgressInterval = setInterval(() => {
     document.getElementById("progress-bar").value = loadProgress;
     loadProgress++;
@@ -13,5 +18,5 @@
         .classList.remove("screen--displayAsNone");
       clearInterval(loadProgressInterval);
     }
-  }, 10);
+  }, TIME_PER_INTERVAL);
 })();

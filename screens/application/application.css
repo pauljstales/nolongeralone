@@ -15,7 +15,7 @@
 
 body {
   background-color: black;
-  color: #53ff53;
+  color: var(--color-green)
 }
 
 /* ************************ */
@@ -36,6 +36,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .screen--displayAsFlexCol {
@@ -43,6 +44,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .screen--displayAsGrid {
@@ -64,25 +66,35 @@ body {
   text-decoration: none;
   text-align: center;
   cursor: pointer;
+  letter-spacing: 0.1rem;
 }
 
-.button--size-large {
+.button--size--extra-large {
+  border: 2px var(--color-green) solid;
+  padding: 8px 20px;
+  width: 80%;
+}
+
+.button--size--large {
   border: 2px var(--color-green) solid;
   padding: 8px 20px;
   width: 60%;
-  letter-spacing: 0.2rem;
 }
 
-.button--size-medium {
+.button--size--medium {
   border: 1.5px var(--color-green) solid;
   padding: 6px 15px;
   width: 45%;
-  letter-spacing: 0.2rem;
 }
 
-.button--size-small {
+.button--size--small {
   border: 1px var(--color-green) solid;
   padding: 4px 10px;
   width: 30%;
-  letter-spacing: 0.2rem;
+}
+
+.button--size---extra-small {
+  border: 1px var(--color-green) solid;
+  padding: 4px 10px;
+  width: 15%;
 }

@@ -11,42 +11,45 @@
     <title>No Longer Alone - Landing</title>
   </head>
   <body>
-    <div id="progress-bar-container" class="progress-bar-container">
-      <label for="progress-bar">GAME LOADING:</label>
-      <br />
-      <progress
-        id="progress-bar"
-        class="progress-bar"
-        value="51"
-        max="100"
-      ></progress>
-    </div>
-    <div id="screen_landing" class="screen screen--displayAsNone">
-      <a class="button button--size-large" href="\screens\intro\intro.html">
-        LOAD GAME
-      </a>
-      <br /><br />
-      <a class="button button--size-large" href="\screens\credits\credits.html">
-        CREDITS
-      </a>
-      <br /><br />
-      <select id="language" class="screen__select" name="language">
-        <option value="english">ENGLISH</option>
-        <option value="chinese">中国人</option>
-        <option value="hindi">हिंदी</option>
-        <option value="spanish">ESPAÑOL</option>
-        <option value="french">FRANÇAIS</option>
-        <option value="arabic">عربى</option>
-        <option value="russian">РУССКИЙ</option>
-        <option value="portuguese">PORTUGUÊS</option>
-        <option value="japanese">日本語</option>
-        <option value="german">DEUTSCHE</option>
-      </select>
-      <div id="scripts">
-        <script src="landing-model.js"></script>
-        <script src="landing-view.js"></script>
-        <script src="landing-controller.js"></script>
+    <div class="landing-screen-container">
+      <div id="progress-bar-container" class="progress-bar-container">
+        <label for="progress-bar">GAME LOADING:</label>
+        <br />
+        <progress
+          id="progress-bar"
+          class="progress-bar"
+          max="100"
+        ></progress>
       </div>
+      <div id="screen_landing" class="screen screen--displayAsNone">
+        <a class="button button--size--large" href="\screens\intro\intro.html">
+          LOAD GAME
+        </a>
+        <br /><br />
+        <a class="button button--size--large" href="\screens\credits\credits.html">
+          CREDITS
+        </a>
+        <br /><br />
+        <select id="language" class="screen__select" name="language">
+          <option value="english">ENGLISH</option>
+          <option value="chinese">中国人</option>
+          <option value="hindi">हिंदी</option>
+          <option value="spanish">ESPAÑOL</option>
+          <option value="french">FRANÇAIS</option>
+          <option value="arabic">عربى</option>
+          <option value="russian">РУССКИЙ</option>
+          <option value="portuguese">PORTUGUÊS</option>
+          <option value="japanese">日本語</option>
+          <option value="german">DEUTSCHE</option>
+        </select>
+        
+      </div>
+    </div>
+    
+    <div id="scripts">
+      <script src="landing-model.js"></script>
+      <script src="landing-view.js"></script>
+      <script src="landing-controller.js"></script>
     </div>
   </body>
 </html>

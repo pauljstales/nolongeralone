@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  --color-green: #53ff53;
+  --color-black: #000000;
+  --color-gray-dark: #383535;
+  --color-gray: #788585;
+  --color-gray-light: #9caea9;
+  --color-dark-red: #770000;
+}
+
+body {
+  background-color: black;
+  color: #53ff53;
+}
+
+/* ************************ */
+/* Screen CSS               */
+/* ************************ */
+
+.screen {
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+}
+
+.screen--displayAsFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen--displayAsFlexCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen--displayAsGrid {
+  display: grid;
+}
+
+.screen--displayAsNone {
+  display: none;
+}
+
+/* ************************ */
+/* Button CSS               */
+/* ************************ */
+
+.button {
+  background-color: var(--color-gray-dark);
+  color: var(--color-green);
+  width: 25vw;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button--size-large {
+  border: 2px var(--color-green) solid;
+  padding: 8px 20px;
+  width: 60%;
+  letter-spacing: 0.2rem;
+}
+
+.button--size-medium {
+  border: 1.5px var(--color-green) solid;
+  padding: 6px 15px;
+  width: 45%;
+  letter-spacing: 0.2rem;
+}
+
+.button--size-small {
+  border: 1px var(--color-green) solid;
+  padding: 4px 10px;
+  width: 30%;
+  letter-spacing: 0.2rem;
+}

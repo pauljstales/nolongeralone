@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  --color-green: #53ff53;
+  --color-black: #000000;
+  --color-gray-dark: #6f6866;
+  --color-gray: #788585;
+  --color-gray-light: #9caea9;
+  --color-dark-red: #770000;
+}
+
+body {
+  background-color: black;
+}

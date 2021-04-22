@@ -5,13 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Paul J Stales, pauljstales at gmail.com" />
+    <link rel="stylesheet" href="/screens/application/application.css" />
+    <link rel="stylesheet" href="/screens/landing/landing.css" />
     <meta name="copyright" content="Paul J Stales" />
     <title>No Longer Alone - Landing</title>
   </head>
   <body>
-    <h1>landing</h1>
-    <a href="\screens\intro\intro.html">go to intro</a>
-    <h2>placeholder for language dropdown</h2>
-    <a href="\screens\credits\credits.html">go to credits</a>
+    <div id="screen_landing" class="screen screen--showAsFlex">
+      <a class="button" href="\screens\intro\intro.html">go to intro</a>
+      <br />
+      <select id="language" class="screen__select" name="language">
+        <option value="english">ENGLISH</option>
+        <option value="chinese">中国人</option>
+        <option value="hindi">हिंदी</option>
+        <option value="spanish">ESPAÑOL</option>
+        <option value="french">FRANÇAIS</option>
+        <option value="arabic">عربى</option>
+        <option value="russian">РУССКИЙ</option>
+        <option value="portuguese">PORTUGUÊS</option>
+        <option value="japanese">日本語</option>
+        <option value="german">DEUTSCHE</option>
+      </select>
+      <br />
+      <a class="button" href="\screens\credits\credits.html">go to credits</a>
+    </div>
   </body>
 </html>

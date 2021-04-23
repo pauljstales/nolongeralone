@@ -18,7 +18,8 @@
   --color-gray-dark: #383535;
   --color-gray: #788585;
   --color-gray-light: #9caea9;
-  --color-dark-red: #770000;
+  --color-red-dark: #770000;
+  --color-red-light: #ff4b4b;
 }
 
 body {
@@ -111,11 +112,29 @@ body {
 /* ************************************** */
 
 .button {
-  background-color: var(--color-gray-dark);
-  color: var(--color-green);
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+}
+
+.button--color--default {
+  background-color: var(--color-gray-dark);
+  color: var(--color-green);
+}
+
+.button--color--lightgrayblack {
+  background-color: var(--color-gray-light);
+  color: var(--color-black);
+}
+
+.button--color--red {
+  background-color: var(--color-red-dark);
+  color: var(--color-red-light);
+}
+
+.button--color--red-inverse {
+  background-color: var(--color-red-light);
+  color: var(--color-red-dark);
 }
 
 .button__text {

@@ -12,61 +12,90 @@
   }
   
   /* row 1, col 1 */
-  .screen__play {
-    height: 10vh;
-    width: 33vw;
+  .screen__grid-play {
     grid-area: ply;
   }
   
   /* row 1, col 2 */
-  .screen__win {
-    height: 10vh;
-    width: 34vw;
+  .screen__grid-win {
     grid-area: win;
   }
   
   /* row 1, col 3 */
-  .screen__lose {
-    height: 10vh;
-    width: 33vw;
+  .screen__grid-lose {
     grid-area: lse;
   }
   
   /* row 2, col 1 */
-  .screen__weapons {
-    height: 10vh;
-    width: 33vw;
+  .screen__grid-weapons {
     grid-area: wep;
   }
   
   /* row 2, col 2 */
-  .screen__other {
+  .screen__grid-other {
     height: 10vh;
-    width: 34vw;
     grid-area: oth;
   }
   
   /* row 2, col 3 */
-  .screen__return {
-    height: 10vh;
-    width: 33vw;
+  .screen__grid-return {
     grid-area: ret;
   }
   
   /* row 3 */
-  .subscreen__tutorial-text {
-    height: 70vh;
-    width: 100vw;
+  .subscreen__grid-tutorial-text {
     grid-area: txt;
   }
   
   /* row 4 */
-  .subscreen__bottom {
-    background-color: blue;
-    height: 10vh;
-    width: 100vw;
+  .subscreen__grid-bottom {
     grid-area: btm;
   }
+
+/* ************************ */
+/* Grid Area CSS            */
+/* ************************ */
+
+.screen__grid-play {
+  height: 10vh;
+  width: 33vw;
+}
+
+.screen__grid-win {
+  height: 10vh;
+  width: 34vw;
+}
+
+.screen__lose {
+  height: 10vh;
+  width: 33vw;
+}
+
+.screen__weapons {
+  height: 10vh;
+  width: 33vw;
+}
+
+.screen__other {
+  height: 10vh;
+  width: 34vw;
+}
+
+.screen__return {
+  height: 10vh;
+  width: 33vw;
+}
+
+.subscreen__tutorial-text {
+  height: 70vh;
+  width: 100vw;
+}
+
+.subscreen__bottom {
+  background-color: blue;
+  height: 10vh;
+  width: 100vw;
+}
   
 /* ************************ */
 /* Tutorial Text Padding    */

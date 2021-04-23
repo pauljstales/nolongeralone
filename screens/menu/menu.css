@@ -25,13 +25,12 @@
   .screen__subscreen--size--full {
     max-width: 570px;
   }
-  /* overriding inherited, because link-as-buttons exist on half screens */
-  .link-as-button--size--medium {
-    width: 30vw;
+  .link-as-button--width--half {
+    max-width: 171px;
   }
 }
 
-/* Laptop, aiming at 56w-100h ratio */
+/* Laptop and Desktop, aiming at 56w-100h ratio */
 @media screen and (min-width: 768px) {
   .screen__subscreen--size--half {
     max-width: 384px;
@@ -39,15 +38,8 @@
   .screen__subscreen--size--full {
     max-width: 768px;
   }
-}
-
-/* Desktop, aiming at 56w-100h ratio */
-@media screen and (min-width: 1366px) {
-  .screen__subscreen--size--half {
-    max-width: 537.5px;
-  }
-  .screen__subscreen--size--full {
-    max-width: 1075px;
+  .link-as-button {
+    max-width: 230px;
   }
 }
 

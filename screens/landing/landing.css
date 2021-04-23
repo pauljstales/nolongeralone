@@ -91,10 +91,3 @@
     max-width: 461px;
   }
 }
-
-/* Desktop, aiming at at 60% max width */
-@media screen and (min-width: 1366px) {
-  .screen__select {
-    max-width: 820px;
-  }
-}

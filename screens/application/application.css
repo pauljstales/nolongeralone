@@ -34,7 +34,6 @@ body {
   color: var(--color-green);
 
   margin: auto;
-  padding: 0.25rem;
 
   height: 100vh;
   width: 100vw;
@@ -47,7 +46,6 @@ body {
 /* Tablet, aiming at 56w-100h ratio */
 @media screen and (min-width: 400px) {
   .screen {
-    padding: 0.5rem;
     max-width: 570px;
   }
 }
@@ -55,7 +53,6 @@ body {
 /* Laptop, aiming at 56w-100h ratio */
 @media screen and (min-width: 768px) {
   .screen {
-    padding: 0.75rem;
     max-width: 768px;
   }
 }
@@ -63,7 +60,6 @@ body {
 /* Desktop, aiming at 56w-100h ratio */
 @media screen and (min-width: 1366px) {
   .screen {
-    padding: 1rem;
     max-width: 1075px;
   }
 }
@@ -106,7 +102,7 @@ body {
 .button--size--extra-large {
   border: 2px var(--color-green) solid;
   padding: 7px;
-  width: 80%;
+  width: 80vw;
   font-size: 0.9rem;
   letter-spacing: 0.09rem;
 }
@@ -114,7 +110,7 @@ body {
 .button--size--large {
   border: 2px var(--color-green) solid;
   padding: 6px;
-  width: 60%;
+  width: 60vw;
   font-size: 0.8rem;
   letter-spacing: 0.08rem;
 }
@@ -122,7 +118,7 @@ body {
 .button--size--medium {
   border: 1.5px var(--color-green) solid;
   padding: 5px;
-  width: 45%;
+  width: 40vw;
   font-size: 0.7rem;
   letter-spacing: 0.07rem;
 }
@@ -130,7 +126,7 @@ body {
 .button--size--small {
   border: 1px var(--color-green) solid;
   padding: 4px;
-  width: 30%;
+  width: 30vw;
   font-size: 0.6rem;
   letter-spacing: 0.06rem;
 }
@@ -138,7 +134,7 @@ body {
 .button--size---extra-small {
   border: 1px var(--color-green) solid;
   padding: 3px;
-  width: 15%;
+  width: 15vw;
   font-size: 0.5rem;
   letter-spacing: 0.05rem;
 }

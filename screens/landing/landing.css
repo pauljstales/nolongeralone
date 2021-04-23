@@ -85,7 +85,7 @@
   }
 }
 
-/* Laptop, aiming at at 60% max width */
+/* Laptop and Desktop, aiming at at 60% max width */
 @media screen and (min-width: 768px) {
   .screen__select {
     max-width: 461px;

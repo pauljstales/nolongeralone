@@ -16,18 +16,18 @@
 }
 
 /* ************************ */
-/* link-as-button           */
+/* button           */
 /* ************************ */
 
-.link-as-button--opacity--none {
+.button--opacity--none {
   opacity: 0;
 }
 
-.link-as-button--opacity--show {
+.button--opacity--show {
   opacity: 1;
   transition: opacity 2s ease;
 }
 
-.link-as-button--width--auto {
+.button--width--auto {
  width: auto;
 }

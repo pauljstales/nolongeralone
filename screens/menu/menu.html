@@ -12,52 +12,68 @@
   </head>
   <body>
     <div class="screen screen--display--grid">
-      <div
+      <section id="window"
         class="screen__subscreen screen__window screen--display--flexRow screen__subscreen--size--full"
       >
-        <p>window into space</p>
-      </div>
-      <div
+        <p class="screen__text">window into space</p>
+      </section>
+
+      <section  id="personnel"
         class="screen__subscreen screen__personnel screen--display--flexRow screen__subscreen--size--half"
-      ></div>
-      <div
+      ></section>
+
+      <section
+      id="subtitles"
         class="screen__subscreen screen__subtitles screen__subscreen--size--half"
       >
-        <p>sbt</p>
-      </div>
-      <div
+        <p class="screen__text screen__text--font--monospace">sbt</p>
+      </section>
+
+      <section  id="mission"
         class="screen__subscreen screen__mission screen__subscreen--size--half"
       >
-        <p>mss</p>
-      </div>
-      <div
+        <p class="screen__text screen__text--font--monospace">mss</p>
+      </section>
+
+      <section  id="weapons"
         class="screen__subscreen screen__weapons screen--display--flexCol screen__subscreen--size--half"
       >
-        <p>wep</p>
-      </div>
-      <div
+      <button class="button button__text button--size--small button--margin">
+        RADAR
+      </button>
+      <button class="button button__text button--size--small button--margin">
+        EMP FREEZE
+      </button>
+      <button class="button button__text button--size--small button--margin">
+        P.A.U.L.
+      </button>
+      </section>
+
+      <section  id="tutorial"
         class="screen__subscreen screen__tutorial screen--display--flexRow screen__subscreen--size--half"
       >
         <a
-          class="link-as-button link-as-button--size--medium"
+          class="button button__text button--size--medium"
           href="\screens\tutorial\tutorial.html"
           >TUTORIAL</a
         >
-      </div>
-      <div
+      </section>
+
+      <section  id="start"
         class="screen__subscreen screen__start screen--display--flexRow screen__subscreen--size--half"
       >
         <a
-          class="link-as-button link-as-button--size--medium"
+          class="button button__text button--size--medium"
           href="\screens\battle\battle.html"
           >ENTER BATTLE</a
         >
-      </div>
-      <div
+      </section>
+
+      <section
         class="screen__subscreen screen__bottom screen__subscreen--size--full"
       >
-        <p>btm</p>
-      </div>
+        <p >btm</p>
+      </section>
     </div>
     <div id="scripts">
       <script src="menu-model.js"></script>

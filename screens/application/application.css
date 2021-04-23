@@ -105,11 +105,12 @@ body {
   font-size: 0.5rem;
 }
 
-/* ******************* */
-/* link-as-button CSS  */
-/* ******************* */
+/* ************************************** */
+/* button CSS                             */
+/* Some <a> links are styled as buttons   */
+/* ************************************** */
 
-.link-as-button {
+.button {
   background-color: var(--color-gray-dark);
   color: var(--color-green);
   cursor: pointer;
@@ -117,21 +118,13 @@ body {
   text-align: center;
 }
 
-.link-as-button__text {
+.button__text {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   letter-spacing: 0.2rem;
 }
 
-.link-as-button {
-  background-color: var(--color-gray-dark);
-  color: var(--color-green);
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-}
-
-.link-as-button--size--extra-large {
+.button--size--extra-large {
   border: 2px var(--color-green) solid;
   padding: 7px;
   width: 75vw;
@@ -139,7 +132,7 @@ body {
   letter-spacing: 0.1rem;
 }
 
-.link-as-button--size--large {
+.button--size--large {
   border: 2px var(--color-green) solid;
   padding: 6px;
   width: 60vw;
@@ -147,7 +140,7 @@ body {
   letter-spacing: 0.09rem;
 }
 
-.link-as-button--size--medium {
+.button--size--medium {
   border: 1.5px var(--color-green) solid;
   padding: 5px;
   width: 45vw;
@@ -155,7 +148,7 @@ body {
   letter-spacing: 0.08rem;
 }
 
-.link-as-button--size--small {
+.button--size--small {
   border: 1px var(--color-green) solid;
   padding: 4px;
   width: 30vw;
@@ -163,7 +156,7 @@ body {
   letter-spacing: 0.07rem;
 }
 
-.link-as-button--size---extra-small {
+.button--size---extra-small {
   border: 1px var(--color-green) solid;
   padding: 3px;
   width: 15vw;
@@ -173,14 +166,14 @@ body {
 
 /* Tablet, aiming at at 60% max width */
 @media screen and (min-width: 400px) {
-  .link-as-button {
+  .button {
     max-width: 342px;
   }
 }
 
 /* Laptop and Desktop, aiming at at 60% max width */
 @media screen and (min-width: 768px) {
-  .link-as-button {
+  .button {
     max-width: 461px;
   }
 }

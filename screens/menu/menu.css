@@ -1,4 +1,14 @@
 /* ************************ */
+/* Font Import              */
+/* ************************ */
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+.screen__text--font--monospace {
+  font-family: 'Courier Prime', monospace;
+}
+
+/* ************************ */
 /* Grid Setup               */
 /* ************************ */
 
@@ -10,37 +20,6 @@
     "sbt wep"
     "tut srt"
     "btm btm";
-}
-
-.screen__subscreen {
-  box-sizing: border-box;
-  border: 1px solid var(--color-gray-light);
-}
-
-/* Tablet, aiming at 56w-100h ratio */
-@media screen and (min-width: 400px) {
-  .screen__subscreen--size--half {
-    max-width: 285px;
-  }
-  .screen__subscreen--size--full {
-    max-width: 570px;
-  }
-  .link-as-button--width--half {
-    max-width: 171px;
-  }
-}
-
-/* Laptop and Desktop, aiming at 56w-100h ratio */
-@media screen and (min-width: 768px) {
-  .screen__subscreen--size--half {
-    max-width: 384px;
-  }
-  .screen__subscreen--size--full {
-    max-width: 768px;
-  }
-  .link-as-button {
-    max-width: 230px;
-  }
 }
 
 /* row 1 */
@@ -66,6 +45,7 @@
   height: 25vh;
   width: 50vw;
   grid-area: mss;
+  padding: 5%;
 }
 
 /* row 3, col 1 */
@@ -73,6 +53,7 @@
   height: 25vh;
   width: 50vw;
   grid-area: sbt;
+  padding: 5%;
 }
 
 /* row 3, col 2 */
@@ -104,7 +85,54 @@
   grid-area: btm;
 }
 
+/* ****************************** */
+/* Screen Subscreen               */
+/* ****************************** */
+
+.screen__subscreen {
+  box-sizing: border-box;
+  border: 1px solid var(--color-gray-light);
+}
+
+/* Tablet, aiming at 56w-100h ratio */
+@media screen and (min-width: 400px) {
+  .screen__subscreen--size--half {
+    max-width: 285px;
+  }
+  .screen__subscreen--size--full {
+    max-width: 570px;
+  }
+  .button--width--half {
+    max-width: 171px;
+  }
+}
+
+/* Laptop and Desktop, aiming at 56w-100h ratio */
+@media screen and (min-width: 768px) {
+  .screen__subscreen--size--half {
+    max-width: 384px;
+  }
+  .screen__subscreen--size--full {
+    max-width: 768px;
+  }
+  .button {
+    max-width: 230px;
+  }
+}
+
+/* ************************ */
+/* Images                   */
+/* ************************ */
+
 .image {
   height: 100%;
   width: 100%;
+}
+
+/* ************************************** */
+/* Button CSS                             */
+/* ************************************** */
+
+.button--margin {
+  margin: 5%;
 }

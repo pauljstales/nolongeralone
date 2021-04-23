@@ -1,3 +1,77 @@
 /* ************************ */
-/* Progress Bar             */
+/* Grid Setup               */
 /* ************************ */
+
+.screen {
+    box-sizing: border-box;
+    grid-template-areas:
+      "ply win lse"
+      "wep oth ret"
+      "txt txt txt"
+      "btm btm btm";
+  }
+  
+  /* row 1, col 1 */
+  .screen__play {
+    height: 10vh;
+    width: 33vw;
+    grid-area: ply;
+  }
+  
+  /* row 1, col 2 */
+  .screen__win {
+    height: 10vh;
+    width: 34vw;
+    grid-area: win;
+  }
+  
+  /* row 1, col 3 */
+  .screen__lose {
+    height: 10vh;
+    width: 33vw;
+    grid-area: lse;
+  }
+  
+  /* row 2, col 1 */
+  .screen__weapons {
+    height: 10vh;
+    width: 33vw;
+    grid-area: wep;
+  }
+  
+  /* row 2, col 2 */
+  .screen__other {
+    height: 10vh;
+    width: 34vw;
+    grid-area: oth;
+  }
+  
+  /* row 2, col 3 */
+  .screen__return {
+    height: 10vh;
+    width: 33vw;
+    grid-area: ret;
+  }
+  
+  /* row 3 */
+  .screen__tutorial-text {
+    height: 70vh;
+    width: 100vw;
+    grid-area: txt;
+  }
+  
+  /* row 4 */
+  .screen__bottom {
+    background-color: blue;
+    height: 10vh;
+    width: 100vw;
+    grid-area: btm;
+  }
+  
+/* ************************ */
+/* Tutorial Text Padding    */
+/* ************************ */
+
+.screen__tutorial-text {
+  padding: 5%;
+}

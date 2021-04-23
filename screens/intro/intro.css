@@ -1,13 +1,9 @@
 /* ************************ */
-/* Screen Text              */
+/* Screen Text Modifiers    */
 /* ************************ */
 
-.screen__text {
+.screen__text--marginbottom-medium {
   margin-bottom: 2.5rem;
-}
-
-.screen__text--size--large {
-  font-size: 2rem;
 }
 
 .screen__text--opacity--none {
@@ -20,14 +16,18 @@
 }
 
 /* ************************ */
-/* Button                   */
+/* link-as-button           */
 /* ************************ */
 
-.button--opacity--none {
+.link-as-button--opacity--none {
   opacity: 0;
 }
 
-.button--opacity--show {
+.link-as-button--opacity--show {
   opacity: 1;
   transition: opacity 2s ease;
+}
+
+.link-as-button--width--auto {
+ width: auto;
 }

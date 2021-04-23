@@ -2,31 +2,32 @@
 /* Progress Bar             */
 /* ************************ */
 
-.progress-bar {
+.screen__progress-bar {
   border: none;
   background-color: black;
   color: var(--color-green);
 }
 
-.progress-bar::-webkit-progress-bar-value {
+.screen__progress-bar::-webkit-screen__progress-bar-value {
   background-color: black;
 }
 
-.progress-bar::-moz-progress-bar {
+.screen__progress-bar::-moz-screen__progress-bar {
   background-color: black;
 }
 
-.progress-bar::-webkit-progress-bar-value {
+.screen__progress-bar::-webkit-screen__progress-bar-value {
   background-color: black;
 }
 
-.progress-bar::-webkit-progress-bar {
+.screen__progress-bar::-webkit-screen__progress-bar {
   background-color: black;
 }
 
-/* ************************ */
-/* Select Drop-Down         */
-/* ************************ */
+/* ************************************* */
+/* Select Drop-Down                      */
+/* Width must mimic link-as-button sizes */
+/* ************************************* */
 
 .screen__select {
   background-color: var(--color-gray-dark);
@@ -40,39 +41,60 @@
 .screen__select--size--extra--large {
   border: 2px var(--color-green) solid;
   padding: 7px;
-  width: 80%;
-  font-size: 0.9rem;
-  letter-spacing: 0.09rem;
+  width: 75vw;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
 }
 
 .screen__select--size--large {
   border: 2px var(--color-green) solid;
   padding: 6px;
-  width: 60%;
-  font-size: 0.8rem;
-  letter-spacing: 0.08rem;
+  width: 60vw;
+  font-size: 0.9rem;
+  letter-spacing: 0.09rem;
 }
 
 .screen__select--size--medium {
   border: 1.5px var(--color-green) solid;
   padding: 5px;
-  width: 45%;
-  font-size: 0.7rem;
-  letter-spacing: 0.07rem;
+  width: 45vw;
+  font-size: 0.8rem;
+  letter-spacing: 0.08rem;
 }
 
 .screen__select--size--small {
   border: 1px var(--color-green) solid;
   padding: 4px;
-  width: 30%;
-  font-size: 0.6rem;
-  letter-spacing: 0.06rem;
+  width: 30vw;
+  font-size: 0.7rem;
+  letter-spacing: 0.07rem;
 }
 
 .screen__select--size---extra-small {
   border: 1px var(--color-green) solid;
   padding: 3px;
-  width: 15%;
-  font-size: 0.5rem;
-  letter-spacing: 0.05rem;
+  width: 15vw;
+  font-size: 0.6rem;
+  letter-spacing: 0.06rem;
+}
+
+/* Tablet, aiming at at 60% max width */
+@media screen and (min-width: 400px) {
+  .screen__select {
+    max-width: 342px;
+  }
+}
+
+/* Laptop, aiming at at 60% max width */
+@media screen and (min-width: 768px) {
+  .screen__select {
+    max-width: 461px;
+  }
+}
+
+/* Desktop, aiming at at 60% max width */
+@media screen and (min-width: 1366px) {
+  .screen__select {
+    max-width: 820px;
+  }
 }

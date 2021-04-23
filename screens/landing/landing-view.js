@@ -10,7 +10,7 @@
  */
 (function () {
   const SCREEN_LANDING_1 = document.getElementById("screen-landing-1");
-  const PROGRESS_BAR = document.getElementById("progress-bar");
+  const PROGRESS_BAR = document.getElementById("screen__progress-bar");
   const SCREEN_LANDING_2 = document.getElementById("screen-landing-2");
 
   const TIME_PER_INTERVAL = 1; // testing 1, production 20-25

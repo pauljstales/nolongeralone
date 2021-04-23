@@ -25,8 +25,8 @@
   .screen__subscreen--size--full {
     max-width: 570px;
   }
-  /* overriding inherited, because buttons exist on half screens */
-  .button--size--medium {
+  /* overriding inherited, because link-as-buttons exist on half screens */
+  .link-as-button--size--medium {
     width: 30vw;
   }
 }

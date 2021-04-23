@@ -19,25 +19,25 @@ loadIntroScrollingText();
  * -- From 3s-15s the introduction text is shown.
  * -- At 18s the introduction text is hidden.
  * -- At 18s the title text is shown.
- * -- At 21s the "prepare for battle" button is shown
+ * -- At 21s the "prepare for battle" link-as-button is shown
  */
 function loadIntroScrollingText() {
   /* production 
-  const TIME_PER_INTRO_TEXT = 3000;
-  const TIME_UNTIL_TITLE_TEXT = 18000;
-  const TIME_UNTIL_TITLE_BUTTON = 21000;
+  const TIME_PER_INTRO_TEXT = 2000;
+  const TIME_UNTIL_TITLE_TEXT = TIME_PER_INTRO_TEXT * 8;
+  const TIME_UNTIL_TITLE_LINK_AS_BUTTON = TIME_PER_INTRO_TEXT * 10;
   */
 
   // testing
-  const TIME_PER_INTRO_TEXT = 500;
-  const TIME_UNTIL_TITLE_TEXT = 4000;
-  const TIME_UNTIL_TITLE_BUTTON = 5000;
+  const TIME_PER_INTRO_TEXT = 250;
+  const TIME_UNTIL_TITLE_TEXT = TIME_PER_INTRO_TEXT * 8;
+  const TIME_UNTIL_TITLE_LINK_AS_BUTTON = TIME_PER_INTRO_TEXT * 10;
 
   console.log("load intro scroll");
   showIntroText();
   hideIntroText();
   showTitleText();
-  showPrepareBattleButton();
+  showPrepareBattlelinkAsButton();
 
   function showIntroText() {
     for (let i = 1; i <= 5; i++) {
@@ -76,14 +76,14 @@ function loadIntroScrollingText() {
     }, TIME_UNTIL_TITLE_TEXT);
   }
 
-  function showPrepareBattleButton() {
+  function showPrepareBattlelinkAsButton() {
     setTimeout(() => {
       document
-        .getElementById("button-prepare-for-battle")
-        .classList.remove("button--opacity--none");
+        .getElementById("link-as-button-prepare-for-battle")
+        .classList.remove("link-as-button--opacity--none");
       document
-        .getElementById("button-prepare-for-battle")
-        .classList.add("button--opacity--show");
-    }, TIME_UNTIL_TITLE_BUTTON);
+        .getElementById("link-as-button-prepare-for-battle")
+        .classList.add("link-as-button--opacity--show");
+    }, TIME_UNTIL_TITLE_LINK_AS_BUTTON);
   }
 }

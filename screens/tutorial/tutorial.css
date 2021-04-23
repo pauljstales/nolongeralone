@@ -54,14 +54,14 @@
   }
   
   /* row 3 */
-  .screen__tutorial-text {
+  .subscreen__tutorial-text {
     height: 70vh;
     width: 100vw;
     grid-area: txt;
   }
   
   /* row 4 */
-  .screen__bottom {
+  .subscreen__bottom {
     background-color: blue;
     height: 10vh;
     width: 100vw;
@@ -72,6 +72,6 @@
 /* Tutorial Text Padding    */
 /* ************************ */
 
-.screen__tutorial-text {
+.subscreen__tutorial-text {
   padding: 5%;
 }

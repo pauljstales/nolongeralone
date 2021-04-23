@@ -16,72 +16,49 @@
   box-sizing: border-box;
   grid-template-areas:
     "win win"
-    "per mss"
+    "adm mss"
     "sbt wep"
-    "tut srt"
+    "tut bat"
     "btm btm";
 }
 
 /* row 1 */
-.screen__window {
-  height: 25vh;
-  width: 100vw;
+.screen__grid-window {
   grid-area: win;
 }
 
 /* row 2, col 1 */
-.screen__personnel {
-  height: 25vh;
-  width: 50vw;
-
-  background-image: url("../../resources/images/pew_pew_logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  grid-area: per;
+.screen__grid-admiral {
+  grid-area: adm;
 }
 
 /* row 2, col 2 */
-.screen__mission {
-  height: 25vh;
-  width: 50vw;
+.screen__grid-mission {
   grid-area: mss;
-  padding: 5%;
 }
 
 /* row 3, col 1 */
-.screen__subtitles {
-  height: 25vh;
-  width: 50vw;
+.screen__grid-subtitles {
   grid-area: sbt;
-  padding: 5%;
 }
 
 /* row 3, col 2 */
-.screen__weapons {
-  height: 25vh;
-  width: 50vw;
+.screen__grid-weapons {
   grid-area: wep;
 }
 
 /* row 4, col 1 */
-.screen__tutorial {
-  height: 10vh;
-  width: 50vw;
+.screen__grid-tutorial {
   grid-area: tut;
 }
 
 /* row 4, col 2 */
-.screen__start {
-  height: 10vh;
-  width: 50vw;
-  grid-area: srt;
+.screen__grid-battle {
+  grid-area: bat;
 }
 
 /* row 5 */
-.screen__bottom {
-  background-color: blue;
-  height: 15vh;
-  width: 100vw;
+.screen__grid-bottom{
   grid-area: btm;
 }
 
@@ -92,6 +69,54 @@
 .screen__subscreen {
   box-sizing: border-box;
   border: 1px solid var(--color-gray-light);
+}
+
+
+.subscreen__window {
+  height: 25vh;
+  width: 100vw;
+}
+
+.subscreen__personnel {
+  height: 25vh;
+  width: 50vw;
+  background-image: url("../../resources/images/pew_pew_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+
+.subscreen__mission {
+  height: 25vh;
+  width: 50vw;
+  padding: 5%;
+}
+
+.subscreen__subtitles {
+  height: 25vh;
+  width: 50vw;
+  padding: 5%;
+}
+
+.screen__weapons {
+  height: 25vh;
+  width: 50vw;
+}
+
+.subscreen__tutorial {
+  height: 10vh;
+  width: 50vw;
+}
+
+.subscreen__start-battle {
+  height: 10vh;
+  width: 50vw;
+}
+
+.subscreen__bottom {
+  background-color: blue;
+  height: 15vh;
+  width: 100vw;
 }
 
 /* Tablet, aiming at 56w-100h ratio */

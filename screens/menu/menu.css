@@ -1,0 +1,118 @@
+/* ************************ */
+/* Grid Setup               */
+/* ************************ */
+
+.screen {
+  box-sizing: border-box;
+  grid-template-areas:
+    "win win"
+    "per mss"
+    "sbt wep"
+    "tut srt"
+    "btm btm";
+}
+
+.screen__subscreen {
+  box-sizing: border-box;
+  border: 1px solid var(--color-gray-light);
+}
+
+/* Tablet, aiming at 56w-100h ratio */
+@media screen and (min-width: 400px) {
+  .screen__subscreen--size--half {
+    max-width: 285px;
+  }
+  .screen__subscreen--size--full {
+    max-width: 570px;
+  }
+  /* overriding inherited, because buttons exist on half screens */
+  .button--size--medium {
+    width: 30vw;
+  }
+}
+
+/* Laptop, aiming at 56w-100h ratio */
+@media screen and (min-width: 768px) {
+  .screen__subscreen--size--half {
+    max-width: 384px;
+  }
+  .screen__subscreen--size--full {
+    max-width: 768px;
+  }
+}
+
+/* Desktop, aiming at 56w-100h ratio */
+@media screen and (min-width: 1366px) {
+  .screen__subscreen--size--half {
+    max-width: 537.5px;
+  }
+  .screen__subscreen--size--full {
+    max-width: 1075px;
+  }
+}
+
+/* row 1 */
+.screen__window {
+  height: 25vh;
+  width: 100vw;
+  grid-area: win;
+}
+
+/* row 2, col 1 */
+.screen__personnel {
+  height: 25vh;
+  width: 50vw;
+
+  background-image: url("../../resources/images/pew_pew_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  grid-area: per;
+}
+
+/* row 2, col 2 */
+.screen__mission {
+  height: 25vh;
+  width: 50vw;
+  grid-area: mss;
+}
+
+/* row 3, col 1 */
+.screen__subtitles {
+  height: 25vh;
+  width: 50vw;
+  grid-area: sbt;
+}
+
+/* row 3, col 2 */
+.screen__weapons {
+  height: 25vh;
+  width: 50vw;
+  grid-area: wep;
+}
+
+/* row 4, col 1 */
+.screen__tutorial {
+  height: 10vh;
+  width: 50vw;
+  grid-area: tut;
+}
+
+/* row 4, col 2 */
+.screen__start {
+  height: 10vh;
+  width: 50vw;
+  grid-area: srt;
+}
+
+/* row 5 */
+.screen__bottom {
+  background-color: blue;
+  height: 15vh;
+  width: 100vw;
+  grid-area: btm;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}

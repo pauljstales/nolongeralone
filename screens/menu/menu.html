@@ -11,10 +11,54 @@
     <title>No Longer Alone - Menu</title>
   </head>
   <body>
-    <h1>menu</h1>
-    <a href="\screens\tutorial\tutorial.html">go to tutorial</a>
-    <h2>placeholder for menu</h2>
-    <a href="\screens\battle\battle.html">go to battle</a>
+    <div class="screen screen--display--grid">
+      <div
+        class="screen__subscreen screen__window screen--display--flexRow screen__subscreen--size--full"
+      >
+        <p>window into space</p>
+      </div>
+      <div
+        class="screen__subscreen screen__personnel screen--display--flexRow screen__subscreen--size--half"
+      ></div>
+      <div
+        class="screen__subscreen screen__subtitles screen__subscreen--size--half"
+      >
+        <p>sbt</p>
+      </div>
+      <div
+        class="screen__subscreen screen__mission screen__subscreen--size--half"
+      >
+        <p>mss</p>
+      </div>
+      <div
+        class="screen__subscreen screen__weapons screen--display--flexCol screen__subscreen--size--half"
+      >
+        <p>wep</p>
+      </div>
+      <div
+        class="screen__subscreen screen__tutorial screen--display--flexRow screen__subscreen--size--half"
+      >
+        <a
+          class="button button--size--medium"
+          href="\screens\tutorial\tutorial.html"
+          >TUTORIAL</a
+        >
+      </div>
+      <div
+        class="screen__subscreen screen__start screen--display--flexRow screen__subscreen--size--half"
+      >
+        <a
+          class="button button--size--medium"
+          href="\screens\battle\battle.html"
+          >ENTER BATTLE</a
+        >
+      </div>
+      <div
+        class="screen__subscreen screen__bottom screen__subscreen--size--full"
+      >
+        <p>btm</p>
+      </div>
+    </div>
     <div id="scripts">
       <script src="menu-model.js"></script>
       <script src="menu-view.js"></script>

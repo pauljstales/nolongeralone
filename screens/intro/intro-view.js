@@ -22,7 +22,16 @@ loadIntroScrollingText();
  * -- At 21s the "prepare for battle" button is shown
  */
 function loadIntroScrollingText() {
-  const allTimeouts = [];
+  /* production 
+  const TIME_PER_INTRO_TEXT = 3000;
+  const TIME_UNTIL_TITLE_TEXT = 18000;
+  const TIME_UNTIL_TITLE_BUTTON = 21000;
+  */
+
+  // testing
+  const TIME_PER_INTRO_TEXT = 500;
+  const TIME_UNTIL_TITLE_TEXT = 4000;
+  const TIME_UNTIL_TITLE_BUTTON = 5000;
 
   console.log("load intro scroll");
   showIntroText();
@@ -39,7 +48,7 @@ function loadIntroScrollingText() {
         document
           .getElementById(`intro-text-${i}`)
           .classList.add("screen__text--opacity--show");
-      }, i * 3000);
+      }, i * TIME_PER_INTRO_TEXT);
     }
   }
 
@@ -53,7 +62,7 @@ function loadIntroScrollingText() {
       SCREEN_INTRO_1.innerHTML = "";
       SCREEN_INTRO_2.classList.add("screen--display--flexCol");
       SCREEN_INTRO_2.classList.remove("screen--display--none");
-    }, 18000);
+    }, TIME_UNTIL_TITLE_TEXT);
   }
 
   function showTitleText() {
@@ -64,7 +73,7 @@ function loadIntroScrollingText() {
       document
         .getElementById("intro-text-6")
         .classList.add("screen__text--opacity--show");
-    }, 18000);
+    }, TIME_UNTIL_TITLE_TEXT);
   }
 
   function showPrepareBattleButton() {
@@ -75,6 +84,6 @@ function loadIntroScrollingText() {
       document
         .getElementById("button-prepare-for-battle")
         .classList.add("button--opacity--show");
-    }, 21000);
+    }, TIME_UNTIL_TITLE_BUTTON);
   }
 }

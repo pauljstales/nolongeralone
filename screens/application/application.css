@@ -33,7 +33,6 @@ body {
   background-color: darkred; /* temporary, for testing */
   color: var(--color-green);
   margin: auto;
-  padding: 5%;
   height: 100vh;
   width: 100vw;
 }
@@ -45,17 +44,10 @@ body {
   }
 }
 
-/* Laptop, aiming at 56w-100h ratio */
+/* Laptop and Desktop, aiming at 56w-100h ratio */
 @media screen and (min-width: 768px) {
   .screen {
     max-width: 768px;
-  }
-}
-
-/* Desktop, aiming at 56w-100h ratio */
-@media screen and (min-width: 1366px) {
-  .screen {
-    max-width: 1075px;
   }
 }
 
@@ -89,6 +81,7 @@ body {
 .screen__text {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
+  padding: 0.25rem;
   letter-spacing: 0.2rem;
 }
 
@@ -185,16 +178,9 @@ body {
   }
 }
 
-/* Laptop, aiming at at 60% max width */
+/* Laptop and Desktop, aiming at at 60% max width */
 @media screen and (min-width: 768px) {
   .link-as-button {
     max-width: 461px;
-  }
-}
-
-/* Desktop, aiming at at 60% max width */
-@media screen and (min-width: 1366px) {
-  .link-as-button {
-    max-width: 820px;
   }
 }

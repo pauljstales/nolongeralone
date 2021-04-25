@@ -1,3 +1,140 @@
 /* ************************ */
-/* Progress Bar             */
+/* Grid Setup               */
 /* ************************ */
+
+.screen {
+  box-sizing: border-box;
+  grid-template-areas:
+    "btl btl btl"
+    "stt stt stt"
+    "tmr nrg wep"
+    "btm btm btm";
+}
+
+.screen__grid-battlefield {
+  grid-area: btl; /* row 1 */
+}
+
+.screen__grid-shot-status {
+  grid-area: stt; /* row 2 */
+}
+
+.screen__grid-timer {
+  grid-area: tmr; /* row 3, col 1 */
+}
+
+.screen__grid-energy {
+  grid-area: nrg; /* row 3, col 2 */
+}
+
+.screen__grid-weapon {
+  grid-area: wep; /* row 3, col 3 */
+}
+
+.screen__grid-bottom {
+  grid-area: btm; /* row 4 */
+}
+
+/* ****************************** */
+/* Screen Subscreen               */
+/* ****************************** */
+
+.screen__subscreen {
+  box-sizing: border-box;
+  border: 2px solid var(--color-gray-light);
+}
+
+/* ****************************** */
+/* Battlefield and Cells          */
+/* ****************************** */
+
+.screen__battlefield {
+  height: 100%;
+  width: 100%;
+}
+
+.battlefield {
+  border-collapse: collapse; /* table */
+  max-height: calc(7 * 45px);
+  max-width: calc(7 * 45px);
+}
+
+.screen__cell {
+  border: 1px solid var(--color-green); /* td */
+  height: 45px;
+  width: 45px;
+}
+
+/* Tablet, screen is 570px width max */
+@media screen and (min-width: 400px) {
+  .battlefield {
+    border-collapse: collapse; /* table */
+    max-height: calc(7 * 60px);
+    max-width: calc(7 * 60px);
+  }
+
+  .screen__cell {
+    border: 1px solid var(--color-green); /* td */
+    height: 60px;
+    width: 60px;
+  }
+}
+
+/* Laptop and Desktop, screen is 768px width max */
+@media screen and (min-width: 768px) {
+  .battlefield {
+    border-collapse: collapse; /* table */
+    max-height: calc(7 * 80px);
+    max-width: calc(7 * 80px);
+  }
+
+  .screen__cell {
+    border: 1px solid var(--color-green); /* td */
+    height: 80px;
+    width: 80px;
+  }
+}
+
+/* Laptop and Desktop, screen is 1024px width max */
+@media screen and (min-width: 1024px) {
+  .battlefield {
+    border-collapse: collapse; /* table */
+    max-height: calc(7 * 100px);
+    max-width: calc(7 * 100px);
+  }
+
+  .screen__cell {
+    border: 1px solid var(--color-green); /* td */
+    height: 100px;
+    width: 100px;
+  }
+}
+
+/* ****************************** */
+/* User Controls                  */
+/* ****************************** */
+
+.screen__shot-status {
+  height: 100%;
+  width: 100%;
+}
+
+.screen__timer {
+  height: 100%;
+  width: 100%;
+}
+
+.screen__energy {
+  height: 100%;
+  width: 100%;
+}
+
+.screen__weapon {
+  height: 100%;
+  width: 100%;
+}
+
+.screen__bottom {
+  height: 100%;
+  width: 100%;
+}

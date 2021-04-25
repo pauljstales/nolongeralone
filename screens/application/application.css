@@ -106,93 +106,114 @@ body {
   font-size: 0.5rem;
 }
 
-/* ************************************** */
-/* button CSS                             */
-/* Some <a> links are styled as buttons   */
-/* ************************************** */
+/* *************************************** */
+/* Button CSS                              */
+/* The <a> links are styled as buttons     */
+/* The <select> are also styled as buttons */
+/* *************************************** */
+
+/* *************************************** */
+/* ************ Button Colors ************ */
 
 .button {
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .button--color--default {
   background-color: var(--color-gray-dark);
   color: var(--color-green);
+  border: 2px var(--color-green) solid;
 }
 
 .button--color--lightgrayblack {
   background-color: var(--color-gray-light);
   color: var(--color-black);
+  border: 2px var(--color-black) solid;
 }
 
 .button--color--red {
   background-color: var(--color-red-dark);
   color: var(--color-red-light);
+  border: 2px var(--color-red-light) solid;
 }
 
 .button--color--red-inverse {
   background-color: var(--color-red-light);
   color: var(--color-red-dark);
+  border: 2px var(--color-red-dark) solid;
 }
 
-.button__text {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.2rem;
-}
+/* ********** Button Text Size ********** */
 
-.button--size--extra-large {
-  border: 2px var(--color-green) solid;
+.button__text--size--extra-large {
   padding: 7px;
-  width: 75vw;
   font-size: 1rem;
   letter-spacing: 0.1rem;
 }
 
-.button--size--large {
-  border: 2px var(--color-green) solid;
+.button__text--size--large {
   padding: 6px;
-  width: 60vw;
   font-size: 0.9rem;
   letter-spacing: 0.09rem;
 }
 
-.button--size--medium {
-  border: 1.5px var(--color-green) solid;
+.button__text--size--medium {
   padding: 5px;
-  width: 45vw;
   font-size: 0.8rem;
   letter-spacing: 0.08rem;
 }
 
-.button--size--small {
-  border: 1px var(--color-green) solid;
+.button__text--size--small {
   padding: 4px;
-  width: 30vw;
   font-size: 0.7rem;
   letter-spacing: 0.07rem;
 }
 
-.button--size---extra-small {
-  border: 1px var(--color-green) solid;
+.button__text--size---extra-small {
   padding: 3px;
-  width: 15vw;
   font-size: 0.6rem;
   letter-spacing: 0.06rem;
+}
+
+/* ************ Button Width ************ */
+
+.button--width--96 {
+  width: 96%;
+}
+
+.button--width--84 {
+  width: 84%;
+}
+
+.button--width--72 {
+  width: 72%;
+}
+
+.button--width--60 {
+  width: 60%;
+}
+
+.button--width--48 {
+  width: 48%;
+}
+
+.button--width--36 {
+  width: 36%;
 }
 
 /* Tablet, aiming at at 60% max width */
 @media screen and (min-width: 400px) {
   .button {
-    max-width: 342px;
+    max-width: 342px; /* screen max is 570px */
   }
 }
 
 /* Laptop and Desktop, aiming at at 60% max width */
 @media screen and (min-width: 768px) {
   .button {
-    max-width: 461px;
+    max-width: 461px; /* screen max is 768px */
   }
 }

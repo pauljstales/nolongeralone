@@ -3,104 +3,104 @@
 /* ************************ */
 
 .screen {
-    box-sizing: border-box;
-    grid-template-areas:
-      "ply win lse"
-      "wep oth ret"
-      "txt txt txt"
-      "btm btm btm";
-  }
-  
-  /* row 1, col 1 */
-  .screen__grid-play {
-    grid-area: ply;
-  }
-  
-  /* row 1, col 2 */
-  .screen__grid-win {
-    grid-area: win;
-  }
-  
-  /* row 1, col 3 */
-  .screen__grid-lose {
-    grid-area: lse;
-  }
-  
-  /* row 2, col 1 */
-  .screen__grid-weapons {
-    grid-area: wep;
-  }
-  
-  /* row 2, col 2 */
-  .screen__grid-other {
-    height: 10vh;
-    grid-area: oth;
-  }
-  
-  /* row 2, col 3 */
-  .screen__grid-return {
-    grid-area: ret;
-  }
-  
-  /* row 3 */
-  .subscreen__grid-tutorial-text {
-    grid-area: txt;
-  }
-  
-  /* row 4 */
-  .subscreen__grid-bottom {
-    grid-area: btm;
-  }
+  box-sizing: border-box;
+  grid-template-areas:
+    "ply win lse"
+    "wep oth mnu"
+    "txt txt txt"
+    "btm btm btm";
+}
+
+/* row 1, col 1 */
+.subscreen--gridname--play {
+  grid-area: ply;
+}
+
+/* row 1, col 2 */
+.subscreen--gridname--win {
+  grid-area: win;
+}
+
+/* row 1, col 3 */
+.screen--gridname--lose {
+  grid-area: lse;
+}
+
+/* row 2, col 1 */
+.subscreen--gridname--weapons {
+  grid-area: wep;
+}
+
+/* row 2, col 2 */
+.subscreen--gridname--other {
+  grid-area: oth;
+}
+
+/* row 2, col 3 */
+.subscreen--gridname--menu {
+  grid-area: mnu;
+}
+
+/* row 3 */
+.subscreen--gridname--text {
+  grid-area: txt;
+}
+
+/* row 4 */
+.subscreen--gridname--bottom {
+  grid-area: btm;
+}
 
 /* ************************ */
 /* Grid Area CSS            */
 /* ************************ */
 
-.screen__grid-play {
+.screen__play {
   height: 10vh;
-  width: 33vw;
+  width: 100%;
+  border: 2px solid yellow;
 }
 
-.screen__grid-win {
+.screen__win {
   height: 10vh;
-  width: 34vw;
+  width: 100%;
+  border: 2px solid yellow;
 }
 
 .screen__lose {
   height: 10vh;
-  width: 33vw;
+  width: 100%;
+  border: 2px solid yellow;
 }
 
 .screen__weapons {
   height: 10vh;
-  width: 33vw;
+  width: 100%;
+  border: 2px solid yellow;
 }
 
 .screen__other {
   height: 10vh;
-  width: 34vw;
+  width: 100%;
+  border: 2px solid yellow;
 }
 
-.screen__return {
+.screen__menu {
   height: 10vh;
-  width: 33vw;
+  width: 100%;
+  border: 2px solid yellow;
 }
 
-.subscreen__tutorial-text {
+.screen__tutorial-text {
   height: 70vh;
-  width: 100vw;
+  width: 100%;
+  padding: 5%;
+  border: 2px solid yellow;
 }
 
-.subscreen__bottom {
+.screen__bottom {
   background-color: blue;
   height: 10vh;
-  width: 100vw;
-}
-  
-/* ************************ */
-/* Tutorial Text Padding    */
-/* ************************ */
-
-.subscreen__tutorial-text {
-  padding: 5%;
+  width: 100%;
+  border: 2px solid yellow;
 }

@@ -16,7 +16,7 @@
 }
 
 /* ************************ */
-/* button           */
+/* Button                   */
 /* ************************ */
 
 .button--opacity--none {
@@ -26,8 +26,4 @@
 .button--opacity--show {
   opacity: 1;
   transition: opacity 2s ease;
-}
-
-.button--width--auto {
- width: auto;
 }

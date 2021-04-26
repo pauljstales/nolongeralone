@@ -47,6 +47,7 @@ If this game becomes unexpectedly popular, this may change.
 5. Why not a library for the internationalization? _Similar to #1, I wanted to demonstrate the core technology free of libraries._
 6. Why are you using constants, but still have hard-coded strings? _I wanted to use constants to refer to the same things via constant in the JS, but without templates, libraries, etc. it would be quite difficult to have a single, central “source” of constants._
 7. Why Battleship? _It is a very boring game that could be so much better with some adjustments… and here are some of those adjustments._
+8. Why is everything inside index.html? _It was not, at first, until I discovered iOS blocks just about every form of audio audioplay possible. Without frameworks and libraries, this was the best solution. The folder structure you see originally had separated html pages... thanks, iOS!_
 
 ## License
 

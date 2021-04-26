@@ -1,6 +1,6 @@
 /**
- * @fileoverview The view as part of the MVC design pattern, responsible for dealing with the UI.
- * @summary view object
+ * @fileoverview This file is for application-wide JavaScript.
+ * @summary application-wide JavaScript
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
  */

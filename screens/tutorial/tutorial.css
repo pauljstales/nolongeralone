@@ -2,8 +2,7 @@
 /* Grid Setup               */
 /* ************************ */
 
-.screen {
-  box-sizing: border-box;
+.screen-tutorial {
   grid-template-areas:
     "ply win lse"
     "wep oth mnu"
@@ -11,94 +10,90 @@
     "btm btm btm";
 }
 
-/* row 1, col 1 */
-.subscreen--gridname--play {
-  grid-area: ply;
+.screen-tutorial--grid--play {
+  grid-area: ply; /* row 1, col 1 */
 }
 
-/* row 1, col 2 */
-.subscreen--gridname--win {
-  grid-area: win;
+.screen-tutorial--grid--win {
+  grid-area: win; /* row 1, col 2 */
 }
 
-/* row 1, col 3 */
 .screen--gridname--lose {
-  grid-area: lse;
+  grid-area: lse; /* row 1, col 3 */
 }
 
-/* row 2, col 1 */
-.subscreen--gridname--weapons {
-  grid-area: wep;
+.screen-tutorial--grid--weapons {
+  grid-area: wep; /* row 2, col 1 */
 }
 
-/* row 2, col 2 */
-.subscreen--gridname--other {
-  grid-area: oth;
+.screen-tutorial--grid--other {
+  grid-area: oth; /* row 2, col 2 */
 }
 
-/* row 2, col 3 */
-.subscreen--gridname--menu {
-  grid-area: mnu;
+.screen-tutorial--grid--menu {
+  grid-area: mnu; /* row 2, col 3 */
 }
 
-/* row 3 */
-.subscreen--gridname--text {
-  grid-area: txt;
+.screen-tutorial--grid--text {
+  grid-area: txt; /* row 3 */
 }
 
-/* row 4 */
-.subscreen--gridname--bottom {
-  grid-area: btm;
+.screen-tutorial--grid--bottom {
+  grid-area: btm; /* row 4 */
 }
 
 /* ************************ */
-/* Grid Area CSS            */
+/* Subscreen CSS            */
 /* ************************ */
 
-.screen__play {
+.screen-tutorial__subscreen-play {
   height: 10vh;
   width: 100%;
   border: 2px solid yellow;
 }
 
-.screen__win {
+.screen-tutorial__subscreen-win {
   height: 10vh;
   width: 100%;
   border: 2px solid yellow;
 }
 
-.screen__lose {
+.screen-tutorial__subscreen-lose {
   height: 10vh;
   width: 100%;
   border: 2px solid yellow;
 }
 
-.screen__weapons {
+.screen-tutorial__subscreen-weapons {
   height: 10vh;
   width: 100%;
   border: 2px solid yellow;
 }
 
-.screen__other {
+.screen-tutorial__subscreen-other {
   height: 10vh;
   width: 100%;
   border: 2px solid yellow;
 }
 
-.screen__menu {
+.screen-tutorial__subscreen-menu {
   height: 10vh;
   width: 100%;
   border: 2px solid yellow;
 }
 
-.screen__tutorial-text {
+.screen-tutorial__subscreen-tutorial-text {
   height: 70vh;
   width: 100%;
   padding: 5%;
   border: 2px solid yellow;
 }
 
-.screen__bottom {
+/* ************************ */
+/* Botton Div               */
+/* ************************ */
+
+.screen-tutorial__subscreen-bottom {
   background-color: blue;
   height: 10vh;
   width: 100%;

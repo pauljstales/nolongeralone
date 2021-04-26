@@ -12,9 +12,9 @@
   </head>
   <body>
     <div id="screen-landing-1" class="screen screen--display--flexCol">
-      <label for="screen__progress-bar" class="screen__text"
-        >GAME LOADING:</label
-      >
+      <label for="screen__progress-bar" class="screen__text">
+        GAME LOADING:
+      </label>
       <br />
       <progress
         id="screen__progress-bar"
@@ -28,19 +28,19 @@
         src="../../resources/images/pewpew-clear-green.png"
         alt=""
       />
-      <a
+      <button
+        id="start-game"
         class="button button--color--default button__text button__text--size--large button--width--72"
-        href="\screens\intro\intro.html"
       >
-        LOAD GAME
-      </a>
+        START GAME
+      </button>
       <br /><br />
-      <a
+      <button
+        id="credits"
         class="button button--color--default button__text button__text--size--large button--width--72"
-        href="\screens\credits\credits.html"
       >
         CREDITS
-      </a>
+      </button>
       <br /><br />
       <select
         id="language"
@@ -58,7 +58,7 @@
         <option value="japanese">日本語</option>
         <option value="german">DEUTSCHE</option>
       </select>
-      <div class="bottom"></div>
+      <div class="screen-landing__bottom"></div>
     </div>
 
     <div id="scripts">

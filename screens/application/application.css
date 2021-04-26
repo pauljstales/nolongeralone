@@ -1,6 +1,11 @@
-/* ************************ */
-/* Imported Fonts           */
-/* ************************ */
+/* **************************************** */
+/* ******** APPLICATION WIDE CSS ********** */
+/* **************************************** */
+
+/* ********************************************** */
+/* Imported Fonts                                 */
+/* Noto Sans JP is the default font for the game  */
+/* ********************************************** */
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
 
@@ -38,20 +43,6 @@ body {
   width: 100vw;
 }
 
-/* Tablet, screen is 570px max */
-@media screen and (min-width: 400px) {
-  .screen {
-    max-width: 570px;
-  }
-}
-
-/* Laptop and Desktop, screen is 768px max */
-@media screen and (min-width: 768px) {
-  .screen {
-    max-width: 768px;
-  }
-}
-
 .screen--display--flexRow {
   display: flex;
   justify-content: center;
@@ -73,6 +64,25 @@ body {
 
 .screen--display--none {
   display: none;
+}
+
+/* ******************************** */
+/* Screen Media Queries             */
+/* Limit screen to 570px and 768px  */
+/* ******************************** */
+
+/* Tablet, screen is 570px max */
+@media screen and (min-width: 400px) {
+  .screen {
+    max-width: 570px;
+  }
+}
+
+/* Laptop and Desktop, screen is 768px max */
+@media screen and (min-width: 768px) {
+  .screen {
+    max-width: 768px;
+  }
 }
 
 /* ************************ */
@@ -206,16 +216,4 @@ body {
 
 .button--width--36 {
   width: 36%;
-}
-
-@media screen and (min-width: 400px) {
-  .button {
-    max-width: 342px; /* screen max is 570px */
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .button {
-    max-width: 461px; /* screen max is 768px */
-  }
 }

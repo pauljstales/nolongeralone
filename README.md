@@ -31,7 +31,7 @@ If this game becomes unexpectedly popular, this may change.
 
 ## Contributors
 
-**Game Concept**: Paul J Stales
+**Game Concept**: Paul J Stales  
 **Programmer**: Paul J Stales  
 **Graphic Design**: R.J. Vince  
 **Sound**: R.J. Vince  

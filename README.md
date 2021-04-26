@@ -31,12 +31,16 @@ If this game becomes unexpectedly popular, this may change.
 
 ## Contributors
 
-**Game Concept**: Paul J Stales, https://twitter.com/pauljstales  
+**Game Concept**: Paul J Stales
 **Programmer**: Paul J Stales  
 **Graphic Design**: R.J. Vince  
 **Sound**: R.J. Vince  
 **Localization**: Possibly Spanish, Arabic, Russian, Hindi - tbd  
-**Testing**: Samuel Soto
+**Testing**: Samuel Soto  
+
+Paul J Stales Twitter: https://twitter.com/pauljstales
+R.J. Vince Instagram: ~  
+R.J. Vince Soundcloud: ~  
 
 ## FAQ (Frequently Asked Questions)
 

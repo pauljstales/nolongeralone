@@ -38,7 +38,7 @@ If this game becomes unexpectedly popular, this may change.
 **Localization**: Possibly Spanish, Arabic, Russian, Hindi - tbd  
 **Testing**: Samuel Soto  
 
-Paul J Stales Twitter: https://twitter.com/pauljstales
+Paul J Stales Twitter: https://twitter.com/pauljstales  
 R.J. Vince Instagram: ~  
 R.J. Vince Soundcloud: ~  
 

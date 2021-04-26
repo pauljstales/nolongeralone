@@ -7,31 +7,76 @@
     <meta name="author" content="Paul J Stales, pauljstales at gmail.com" />
     <link rel="stylesheet" href="/screens/application/application.css" />
     <link rel="stylesheet" href="/screens/credits/credits.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
     <meta name="copyright" content="Paul J Stales" />
     <title>No Longer Alone - Credits</title>
   </head>
   <body>
-    <body>
-      <div class="screen">
-        <div class="credits-list">
-          credits, concept, programmer, graphics, music/sound, translations, testers
-        </div>
-        <div class="twitter">
-          twitter
-        </div>
-        <div class="github">
-          github
-        </div>
-        <div class="new-game">
-          <a href="\screens\intro\intro.html">new game</a>
-        </div>
+    <div class="screen screen--display--flexCol-space">
+      <h1
+        class="screen__text screen__text--size--extra-large screen__text--weight--bold"
+      >
+        CREDITS
+      </h1>
+      <h2
+        class="screen__text screen__text--size--large screen__text--weight--bold screen__text--decoration--underline"
+      >
+        Concept/Programming
+      </h2>
+      <section class="screen__flex-item--flexRow">
+        <a class="link" href="https://twitter.com/pauljstales" target="_blank"
+          ><i class="fab fa-twitter fa-3x"></i
+        ></a>
+
+        <p class="screen__text screen__text--size--large">Paul J Stales</p>
+        <a
+          class="link"
+          href="https://github.com/pauljstales/nolongeralone"
+          target="_blank"
+          ><i class="fab fa-github fa-3x"></i
+        ></a>
+      </section>
+      <h2
+        class="screen__text screen__text--size--large screen__text--weight--bold screen__text--decoration--underline"
+      >
+        Graphics/Audio
+      </h2>
+      <section class="screen__flex-item--flexRow">
+        <a href="" class="link" target="_blank">
+          <i class="fab fa-instagram fa-3x"></i>
+        </a>
+        <p class="screen__text screen__text--size--large">R.J. Vince</p>
+        <a href="" class="link" target="_blank"
+          ><i class="fab fa-soundcloud fa-3x"></i
+        ></a>
+      </section>
+
+      <div class="screen__flex-item--flexRow">
+        <h2
+          class="screen__text screen__text--size--medium screen__text--weight--bold"
+        >
+          Other Contributions:
+        </h2>
+        <p class="screen__text screen__text--size--medium">See readme.md</p>
       </div>
 
-      <div id="scripts">
-        <script src="credits-model.js"></script>
-        <script src="credits-view.js"></script>
-        <script src="credits-controller.js"></script>
-      </div>
-    </body>
+      <button
+        class="button button--color--default button__text--size--extra-large button--margin-5 button--width--72"
+      >
+        NEW GAME
+      </button>
+      <div class="bottom"></div>
+    </div>
+
+    <div id="scripts">
+      <script src="credits-model.js"></script>
+      <script src="credits-view.js"></script>
+      <script src="credits-controller.js"></script>
+    </div>
   </body>
 </html>

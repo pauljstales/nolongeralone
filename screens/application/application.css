@@ -81,7 +81,6 @@ body {
 
 .screen__text {
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 1rem;
   padding: 0.25rem;
   letter-spacing: 0.2rem;
 }
@@ -112,7 +111,6 @@ body {
 /* The <select> are also styled as buttons */
 /* *************************************** */
 
-/* *************************************** */
 /* ************ Button Colors ************ */
 
 .button {
@@ -132,6 +130,12 @@ body {
   background-color: var(--color-gray-light);
   color: var(--color-black);
   border: 2px var(--color-black) solid;
+}
+
+.button--color--disabled {
+  background-color: var(--color-gray-light);
+  color: gray;
+  border: 2px gray solid;
 }
 
 .button--color--red {
@@ -204,14 +208,12 @@ body {
   width: 36%;
 }
 
-/* Tablet, aiming at at 60% max width */
 @media screen and (min-width: 400px) {
   .button {
     max-width: 342px; /* screen max is 570px */
   }
 }
 
-/* Laptop and Desktop, aiming at at 60% max width */
 @media screen and (min-width: 768px) {
   .button {
     max-width: 461px; /* screen max is 768px */

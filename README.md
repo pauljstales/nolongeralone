@@ -34,18 +34,20 @@ If this game becomes unexpectedly popular, this may change.
 **Game Concept**: Paul J Stales, https://twitter.com/pauljstales  
 **Programmer**: Paul J Stales  
 **Graphic Design**: R.J. Vince  
-**Sound**: R.J. Vince (possibly others, if so, check credits.txt for more details)  
+**Sound**: R.J. Vince  
 **Localization**: Possibly Spanish, Arabic, Russian, Hindi - tbd  
 **Testing**: Samuel Soto
 
 ## FAQ (Frequently Asked Questions)
-1. Why didn't you use Phaser, React, framework, or library? *I wanted to demonstrate core HTML5, CSS3, and JavaScript/ES6 skills.*
-2. Why didn't you use Canvas? *Canvas is HTML5, but I wanted to demonstrate an understanding of DOM manipulation.*
-3. Why didn't you use Web Components? *I would have used React or Angular if I was going to use components!*
-4. Are you using BEM? *Somewhat, the blocks, elements belonging to blocks, the modifiers, the naming…*
-5. Why not a library for the internationalization? *Similar to #1, I wanted to demonstrate the core technology free of libraries.*
-6. Why are you using constants, but still have hard-coded strings? *I wanted to use constants to refer to the same things via constant in the JS, but without templates, libraries, etc. it would be quite difficult to have a single, central “source” of constants.*
-7. Why Battleship? *It is a very boring game that could be so much better with some adjustments… and here are some of those adjustments.*
+
+1. Why didn't you use Phaser, React, framework, or library? _I wanted to demonstrate core HTML5, CSS3, and JavaScript/ES6 skills._
+2. Why didn't you use Canvas? _Canvas is HTML5, but I wanted to demonstrate an understanding of DOM manipulation._
+3. Why didn't you use Web Components? _I would have used React or Angular if I was going to use components!_
+4. Are you using BEM? _Somewhat, the blocks, elements belonging to blocks, the modifiers, the naming…_
+5. Why not a library for the internationalization? _Similar to #1, I wanted to demonstrate the core technology free of libraries._
+6. Why are you using constants, but still have hard-coded strings? _I wanted to use constants to refer to the same things via constant in the JS, but without templates, libraries, etc. it would be quite difficult to have a single, central “source” of constants._
+7. Why Battleship? _It is a very boring game that could be so much better with some adjustments… and here are some of those adjustments._
+
 ## License
 
 [GNU]GNU General Public License v3.0

@@ -4,3 +4,6 @@
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
  */
+
+/* Upon screen load, play the music */
+new Audio("../../resources/music/NLA-03-Battle.mp3").play();

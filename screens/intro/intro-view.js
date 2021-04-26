@@ -33,7 +33,6 @@ function loadIntroScrollingText() {
   const TIME_UNTIL_TITLE_TEXT = TIME_PER_INTRO_TEXT * 8;
   const TIME_UNTIL_TITLE_LINK_AS_BUTTON = TIME_PER_INTRO_TEXT * 10;
 
-  console.log("load intro scroll");
   showIntroText();
   hideIntroText();
   showTitleText();

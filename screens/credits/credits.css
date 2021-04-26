@@ -3,6 +3,11 @@
   width: 100vw;
 }
 
+.screen__image-gameover {
+  height: 30%;
+  width: 50%;
+}
+
 .screen--display--flexCol-space {
   display: flex;
   flex-direction: column;
@@ -29,4 +34,12 @@
 
 .link {
   color: var(--color-gray-light);
+}
+
+/* ************************ */
+/* Bottom Div               */
+/* ************************ */
+
+.bottom {
+  height: 15vh;
 }

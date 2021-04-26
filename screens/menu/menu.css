@@ -76,12 +76,19 @@
   width: 100vw;
 }
 
-.subscreen__personnel {
+.screen__image-deepspace {
+  height: 100%;
+  width: 100%;
+}
+
+.subscreen__admiral {
   height: 25vh;
   width: 50vw;
-  background-image: url("../../resources/images/pew_pew_logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+}
+
+.screen__image-admiral {
+  height: 100%;
+  width: 100%;
 }
 
 .subscreen__mission {

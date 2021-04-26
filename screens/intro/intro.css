@@ -27,3 +27,11 @@
   opacity: 1;
   transition: opacity 2s ease;
 }
+
+/* ************************ */
+/* Bottom Div               */
+/* ************************ */
+
+.bottom {
+  height: 15vh;
+}

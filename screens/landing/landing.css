@@ -1,4 +1,13 @@
 /* ************************ */
+/* PEWPEW Image             */
+/* ************************ */
+
+.screen__image-pewpew {
+  height: 50%;
+  width: 75%;
+}
+
+/* ************************ */
 /* Progress Bar             */
 /* ************************ */
 
@@ -22,4 +31,12 @@
 
 .screen__progress-bar::-webkit-screen__progress-bar {
   background-color: black;
+}
+
+/* ************************ */
+/* Bottom Div               */
+/* ************************ */
+
+.bottom {
+  height: 20vh;
 }

@@ -5,5 +5,27 @@
  * Copyright (c) 2021
  */
 
-/* Upon screen load, play the music */
-new Audio("../../resources/music/NLA-02-Briefing.mp3").play();
+var buttonStartTutorial = document.getElementById("button-start-tutorial");
+buttonStartTutorial.addEventListener("click", () => {
+  document.location.href = "/screens/tutorial/tutorial.html";
+});
+
+var buttonStartBattle = document.getElementById("button-start-battle");
+buttonStartBattle.addEventListener("click", () => {
+  document.location.href = "/screens/battle/battle.html";
+});
+
+var buttonSelectRadar = document.getElementById("select-special-weapon-radar");
+buttonSelectRadar.addEventListener("click", () => {
+  console.log("radar");
+});
+
+var buttonSelectEMP = document.getElementById("select-special-weapon-emp");
+buttonSelectEMP.addEventListener("click", () => {
+  console.log("emp");
+});
+
+var buttonSelectPAUL = document.getElementById("select-special-weapon-paul");
+buttonSelectPAUL.addEventListener("click", () => {
+  console.log("paul");
+});

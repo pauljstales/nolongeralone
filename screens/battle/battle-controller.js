@@ -5,5 +5,9 @@
  * Copyright (c) 2021
  */
 
-/* Upon screen load, play the music */
-new Audio("../../resources/music/NLA-03-Battle.mp3").play();
+var buttonFireSpecialWeapon = document.getElementById(
+  "button-fire-special-weapon"
+);
+buttonFireSpecialWeapon.addEventListener("click", () => {
+  console.log("special weapon fire");
+});

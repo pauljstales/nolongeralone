@@ -5,12 +5,12 @@
  * Copyright (c) 2021
  */
 
-var buttonLoadGame = document.getElementById("start-game");
-buttonLoadGame.addEventListener("click", () => {
+var buttonStartGame = document.getElementById("button-start-game");
+buttonStartGame.addEventListener("click", () => {
   document.location.href = "/screens/intro/intro.html";
 });
 
-var buttonCredits = document.getElementById("credits");
-buttonCredits.addEventListener("click", () => {
+var buttonShowCredits = document.getElementById("button-show-credits");
+buttonShowCredits.addEventListener("click", () => {
   document.location.href = "/screens/credits/credits.html";
 });

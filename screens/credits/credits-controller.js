@@ -5,5 +5,7 @@
  * Copyright (c) 2021
  */
 
-/* Upon screen load, play the music */
-new Audio("../../resources/music/NLA-04-Game_Over.mp3").play();
+var buttonStartNewGame = document.getElementById("button-start-new-game");
+buttonStartNewGame.addEventListener("click", () => {
+  document.location.href = "/screens/menu/menu.html";
+});

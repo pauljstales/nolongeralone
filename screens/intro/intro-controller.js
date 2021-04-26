@@ -5,5 +5,14 @@
  * Copyright (c) 2021
  */
 
-/* Upon screen load, play the music */
-new Audio("../../resources/music/NLA-01-Title.mp3").play();
+var buttonSkipIntro = document.getElementById("button-skip-intro");
+buttonSkipIntro.addEventListener("click", () => {
+  document.location.href = "/screens/menu/menu.html";
+});
+
+var buttonPrepareForBattle = document.getElementById(
+  "button-prepare-for-battle"
+);
+buttonPrepareForBattle.addEventListener("click", () => {
+  document.location.href = "/screens/menu/menu.html";
+});

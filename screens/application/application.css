@@ -136,6 +136,12 @@ body {
   border: 2px var(--color-green) solid;
 }
 
+.button--color--default-selected {
+  background-color: var(--color-green);
+  color: var(--color-gray-dark);
+  border: 2px var(--color-gray-dark) solid;
+}
+
 .button--color--lightgrayblack {
   background-color: var(--color-gray-light);
   color: var(--color-black);

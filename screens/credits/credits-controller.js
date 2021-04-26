@@ -7,5 +7,5 @@
 
 var buttonStartNewGame = document.getElementById("button-start-new-game");
 buttonStartNewGame.addEventListener("click", () => {
-  document.location.href = "/screens/menu/menu.html";
+  document.location.href = "/screens/intro/intro.html";
 });

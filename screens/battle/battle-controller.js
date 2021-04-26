@@ -10,4 +10,6 @@ var buttonFireSpecialWeapon = document.getElementById(
 );
 buttonFireSpecialWeapon.addEventListener("click", () => {
   console.log("special weapon fire");
+  buttonFireSpecialWeapon.classList.remove("button--color--default");
+  buttonFireSpecialWeapon.classList.add("button--color--disabled");
 });

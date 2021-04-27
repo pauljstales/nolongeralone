@@ -9,8 +9,9 @@ var buttonStartGame = document.getElementById("button-start-game");
 buttonStartGame.addEventListener("click", () => {
   SCREEN_CONTAINER_LANDING.classList.remove("screen-container--display--block");
   SCREEN_CONTAINER_LANDING.classList.add("screen-container--display--none");
-  SCREEN_CONTAINER_MENU.classList.add("screen-container--display--block");
-  SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--none");
+  SCREEN_CONTAINER_INTRO.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_INTRO.classList.remove("screen-container--display--none");
+  SOUNDTRACK_INTRO.play();
 });
 
 var buttonShowCredits = document.getElementById("button-show-credits");
@@ -19,4 +20,5 @@ buttonShowCredits.addEventListener("click", () => {
   SCREEN_CONTAINER_LANDING.classList.add("screen-container--display--none");
   SCREEN_CONTAINER_CREDITS.classList.add("screen-container--display--block");
   SCREEN_CONTAINER_CREDITS.classList.remove("screen-container--display--none");
+  SOUNDTRACK_CREDITS.play();
 });

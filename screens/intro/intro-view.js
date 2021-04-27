@@ -22,14 +22,8 @@ loadIntroScrollingText();
  * -- At 21s the "prepare for battle" button is shown
  */
 function loadIntroScrollingText() {
-  /* production 
-  const TIME_PER_INTRO_TEXT = 2000;
-  const TIME_UNTIL_TITLE_TEXT = TIME_PER_INTRO_TEXT * 8;
-  const TIME_UNTIL_TITLE_LINK_AS_BUTTON = TIME_PER_INTRO_TEXT * 10;
-  */
-
-  // testing
-  const TIME_PER_INTRO_TEXT = 250;
+  const TIME_PER_INTRO_TEXT = 1000; // testing
+  // const TIME_PER_INTRO_TEXT = 2000; // production
   const TIME_UNTIL_TITLE_TEXT = TIME_PER_INTRO_TEXT * 8;
   const TIME_UNTIL_TITLE_LINK_AS_BUTTON = TIME_PER_INTRO_TEXT * 10;
 

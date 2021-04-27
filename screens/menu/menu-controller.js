@@ -11,6 +11,9 @@ buttonStartTutorial.addEventListener("click", () => {
   SCREEN_CONTAINER_MENU.classList.add("screen-container--display--none");
   SCREEN_CONTAINER_TUTORIAL.classList.add("screen-container--display--block");
   SCREEN_CONTAINER_TUTORIAL.classList.remove("screen-container--display--none");
+  SOUNDTRACK_MENU.pause();
+  SOUNDTRACK_MENU.currentTime = 0;
+  // need tutorial music
 });
 
 var buttonStartBattle = document.getElementById("button-start-battle");
@@ -19,6 +22,9 @@ buttonStartBattle.addEventListener("click", () => {
   SCREEN_CONTAINER_MENU.classList.add("screen-container--display--none");
   SCREEN_CONTAINER_BATTLE.classList.add("screen-container--display--block");
   SCREEN_CONTAINER_BATTLE.classList.remove("screen-container--display--none");
+  SOUNDTRACK_MENU.pause();
+  SOUNDTRACK_MENU.currentTime = 0;
+  SOUNDTRACK_BATTLE.play();
 });
 
 var buttonSelectRadar = document.getElementById("select-special-weapon-radar");
@@ -34,6 +40,11 @@ buttonSelectRadar.addEventListener("click", () => {
   });
   buttonSelectRadar.classList.remove("button--color--default");
   buttonSelectRadar.classList.add("button--color--default-selected");
+  SFX_EMP.pause();
+  SFX_PLASMA.pause();
+  SFX_EMP.currentTime = 0;
+  SFX_PLASMA.currentTime = 0;
+  SFX_RADAR.play();
 });
 
 buttonSelectEMP.addEventListener("click", () => {
@@ -44,6 +55,11 @@ buttonSelectEMP.addEventListener("click", () => {
   });
   buttonSelectEMP.classList.remove("button--color--default");
   buttonSelectEMP.classList.add("button--color--default-selected");
+  SFX_RADAR.pause();
+  SFX_PLASMA.pause();
+  SFX_RADAR.currentTime = 0;
+  SFX_PLASMA.currentTime = 0;
+  SFX_EMP.play();
 });
 
 buttonSelectPAUL.addEventListener("click", () => {
@@ -53,4 +69,9 @@ buttonSelectPAUL.addEventListener("click", () => {
     currentButton.classList.add("button--color--default");
   });
   buttonSelectPAUL.classList.add("button--color--default-selected");
+  SFX_RADAR.pause();
+  SFX_EMP.pause();
+  SFX_RADAR.currentTime = 0;
+  SFX_EMP.currentTime = 0;
+  SFX_PLASMA.play();
 });

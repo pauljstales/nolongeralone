@@ -29,3 +29,15 @@ const ALL_SCREEN_CONTAINERS = [
   SCREEN_CONTAINER_BATTLE,
   SCREEN_CONTAINER_CREDITS,
 ];
+
+const SOUNDTRACK_INTRO = new Audio("../../resources/music/NLA-01-Title.mp3");
+const SOUNDTRACK_MENU = new Audio("../../resources/music/NLA-02-Briefing.mp3");
+const SOUNDTRACK_BATTLE = new Audio("../../resources/music/NLA-03-Battle.mp3");
+const SOUNDTRACK_CREDITS = new Audio(
+  "../../resources/music/NLA-04-Game_Over.mp3"
+);
+
+const SFX_EMP = new Audio("../../resources/sfx/emp.mp3");
+const SFX_PLASMA = new Audio("../../resources/sfx/plasma.mp3");
+const SFX_RADAR = new Audio("../../resources/sfx/radar.mp3");
+const SFX_WARP = new Audio("../../resources/sfx/warp.mp3");

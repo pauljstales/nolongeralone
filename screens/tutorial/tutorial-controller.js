@@ -77,4 +77,5 @@ buttonReturnToMenu.addEventListener("click", () => {
   SCREEN_CONTAINER_TUTORIAL.classList.add("screen-container--display--none");
   SCREEN_CONTAINER_MENU.classList.add("screen-container--display--block");
   SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--none");
+  SOUNDTRACK_MENU.play();
 });

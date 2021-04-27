@@ -11,4 +11,7 @@ buttonStartNewGame.addEventListener("click", () => {
   SCREEN_CONTAINER_CREDITS.classList.add("screen-container--display--none");
   SCREEN_CONTAINER_INTRO.classList.add("screen-container--display--block");
   SCREEN_CONTAINER_INTRO.classList.remove("screen-container--display--none");
+  SOUNDTRACK_CREDITS.pause();
+  SOUNDTRACK_CREDITS.currentTime = 0;
+  SOUNDTRACK_INTRO.play();
 });

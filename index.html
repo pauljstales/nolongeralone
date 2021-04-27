@@ -15,6 +15,19 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
 -->
 
+<!--
+/**
+ * NOTE TO READER/REVIEWER
+ * The game is a technical demo of HTML5, CSS3, and JavaScript/ES6 without the use of libraries, frameworks, etc.
+ * Because of this, some choices were made to accomplish things that may seem weird - had I used React, Angular, etc. I would have done them much differently!
+ * But those libraries and frameworks hide manual DOM manipulation, understanding the cascade in CSS, etc., and I wanted to demonstrate I know these concepts.
+ * So keep in mind any "odd" programming choices were likely chosen for a reason, such as
+ * -- All HTML on one page -> workaround for iOS not allowing autoplay
+ * -- MVC -> Understanding of patterns, even if MVC is not the best for web
+ * -- And other things I am sure you will discover... enjoy the code!
+ */
+ -->
+
 <html lang="en">
   <head>
     <!-- ~~~~~~~~~~~~~~~~~~~~ Meta Information ~~~~~~~~~~~~~~~~~~~~ -->
@@ -192,8 +205,9 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             class="screen__text screen__text--size--small screen__text--font--monospace"
           >
-            ADM BOBERTS: Earth's defense depends on your ability to click a grid
-            quickly and accurately. Good luck.
+            ADM BOBERTS: We have limited time and energy. Earth's defense
+            depends on your ability to click a grid quickly and accurately. Good
+            luck.
           </p>
         </div>
 

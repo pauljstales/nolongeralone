@@ -25,6 +25,12 @@ buttonStartBattle.addEventListener("click", () => {
   SOUNDTRACK_MENU.pause();
   SOUNDTRACK_MENU.currentTime = 0;
   SOUNDTRACK_BATTLE.play();
+  SFX_RADAR.pause();
+  SFX_EMP.pause();
+  SFX_PLASMA.pause();
+  SFX_RADAR.currentTime = 0;
+  SFX_EMP.currentTime = 0;
+  SFX_PLASMA.currentTime = 0;
 });
 
 var buttonSelectRadar = document.getElementById("select-special-weapon-radar");

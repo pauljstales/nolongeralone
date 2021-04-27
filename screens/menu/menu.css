@@ -21,44 +21,36 @@
     "btm btm";
 }
 
-/* row 1 */
 .screen-menu--grid--window {
-  grid-area: win;
+  grid-area: win; /* row 1 */
 }
 
-/* row 2, col 1 */
 .screen-menu--grid--admiral {
-  grid-area: adm;
+  grid-area: adm; /* row 2, col 1 */
 }
 
-/* row 2, col 2 */
 .screen-menu--grid--mission {
-  grid-area: mss;
+  grid-area: mss; /* row 2, col 2 */
 }
 
-/* row 3, col 1 */
 .screen-menu--grid--subtitles {
-  grid-area: sbt;
+  grid-area: sbt; /* row 3, col 1 */
 }
 
-/* row 3, col 2 */
 .screen-menu--grid--weapons {
-  grid-area: wep;
+  grid-area: wep; /* row 3, col 2 */
 }
 
-/* row 4, col 1 */
 .screen-menu--grid--tutorial {
-  grid-area: tut;
+  grid-area: tut; /* row 4, col 1 */
 }
 
-/* row 4, col 2 */
 .screen-menu--grid--battle {
-  grid-area: bat;
+  grid-area: bat; /* row 4, col 2 */
 }
 
-/* row 5 */
 .screen-menu--grid--bottom {
-  grid-area: btm;
+  grid-area: btm; /* row 5 */
 }
 
 /* ****************************** */

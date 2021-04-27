@@ -1,16 +1,58 @@
 /* ************************ */
-/* Flexbox Spacing          */
+/* Screen Setup             */
 /* ************************ */
 
-.screen-credits--display--justifySpaceAround {
-  justify-content: space-around;
-  width: 320px;
+.screen-credits {
 }
 
-.screen-credits__image-gameover {
-  height: 30%;
+/* ************************ */
+/* Subscreen CSS            */
+/* ************************ */
+
+.screen-credits__image {
+  height: 30vh;
+}
+
+.screen-credits__pmgr {
+  height: 5vh;
+}
+
+.screen-credits__pjs {
+  height: 5vh;
+}
+
+.screen-credits__pjs-sm {
+  height: 5vh;
   width: 50%;
 }
+
+.screen-credits__art {
+  height: 5vh;
+}
+
+.screen-credits__rjv {
+  height: 5vh;
+}
+
+.screen-credits__rjv-sm {
+  height: 5vh;
+}
+
+.screen-credits__other {
+  height: 5vh;
+}
+
+.screen-credits__newgame {
+  height: 15vh;
+}
+
+.screen-credits__btm {
+  height: 20vh;
+}
+
+/* ************************ */
+/* Text Styling             */
+/* ************************ */
 
 .screen__text--decoration--underline {
   text-decoration: underline;
@@ -22,12 +64,39 @@
 
 .social-media-link {
   color: var(--color-gray-light);
+  margin: 1rem;
+  text-decoration: none;
+}
+
+/* ************************ */
+/* Images                   */
+/* ************************ */
+
+.screen-credits__image-gameover {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+/* Tablet, screen is 570px max */
+@media screen and (min-width: 400px) {
+  .screen-credits__image-gameover {
+    max-height: 240px;
+    max-width: 240px;
+  }
+}
+
+/* Laptop and Desktop, screen is 768px max */
+@media screen and (min-width: 768px) {
+  .screen-credits__image-gameover {
+    max-height: 300px;
+    max-width: 300px;
+  }
 }
 
 /* ************************ */
 /* Bottom Div               */
 /* ************************ */
 
-.screen-credits__bottom {
-  height: 15vh;
+.screen-credits__bottomzzzzzzzzz {
+  height: 20vh;
 }

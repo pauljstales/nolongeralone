@@ -49,44 +49,37 @@
 .screen-tutorial__subscreen-play {
   height: 10vh;
   width: 100%;
-  border: 2px solid yellow;
 }
 
 .screen-tutorial__subscreen-win {
   height: 10vh;
   width: 100%;
-  border: 2px solid yellow;
 }
 
 .screen-tutorial__subscreen-lose {
   height: 10vh;
   width: 100%;
-  border: 2px solid yellow;
 }
 
 .screen-tutorial__subscreen-weapons {
   height: 10vh;
   width: 100%;
-  border: 2px solid yellow;
 }
 
 .screen-tutorial__subscreen-other {
   height: 10vh;
   width: 100%;
-  border: 2px solid yellow;
 }
 
 .screen-tutorial__subscreen-menu {
   height: 10vh;
   width: 100%;
-  border: 2px solid yellow;
 }
 
 .screen-tutorial__subscreen-tutorial-text {
-  height: 70vh;
+  height: 65vh;
   width: 100%;
   padding: 5%;
-  border: 2px solid yellow;
 }
 
 /* ************************ */
@@ -95,7 +88,6 @@
 
 .screen-tutorial__subscreen-bottom {
   background-color: blue;
-  height: 10vh;
+  height: 15vh;
   width: 100%;
-  border: 2px solid yellow;
 }

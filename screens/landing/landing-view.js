@@ -13,7 +13,7 @@
   const PROGRESS_BAR = document.getElementById("screen__progress-bar");
   const SCREEN_LANDING_2 = document.getElementById("screen-landing-2");
 
-  const TIME_PER_INTERVAL = 1; // testing 1, production 20-25
+  const TIME_PER_INTERVAL = 5; // testing 1-5, production 20-25
   let processBarPercentage = 0;
 
   let processBarPercentageInterval = setInterval(() => {

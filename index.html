@@ -23,7 +23,7 @@ You should have received a copy of the GNU General Public License along with thi
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="keywords"
-      content="html, html5, css, css3, javascript, es6, game, gamedev, paul stales, paul j stales, pauljstales"
+      content="html, html5, css, css3, javascript, es6, game, gamedev, paul stales, paul j stales, pauljstales, R.J. Vince"
     />
     <meta
       name="description"
@@ -33,15 +33,540 @@ You should have received a copy of the GNU General Public License along with thi
     <meta name="robots" content="index,follow" />
     <meta name="author" content="Paul J Stales, pauljstales at gmail.com" />
     <meta name="copyright" content="Paul J Stales, R.J. Vince" />
-    <meta
-      http-equiv="refresh"
-      content="0; url = screens/landing/landing.html"
-    />
     <!-- ~~~~~~~~~~~~~~~~~~~~ CSS Links ~~~~~~~~~~~~~~~~~~~~ -->
-
+    <link rel="stylesheet" href="/screens/application/application.css" />
+    <link rel="stylesheet" href="/screens/landing/landing.css" />
+    <link rel="stylesheet" href="/screens/intro/intro.css" />
+    <link rel="stylesheet" href="/screens/menu/menu.css" />
+    <link rel="stylesheet" href="/screens/tutorial/tutorial.css" />
+    <link rel="stylesheet" href="/screens/battle/battle.css" />
+    <link rel="stylesheet" href="/screens/credits/credits.css" />
+    <!-- ~~~~~~~~~~~~~~~~~~~~ Font Awesome ~~~~~~~~~~~~~~~~~~~~ -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <!-- ~~~~~~~~~~~~~~~~~~~~ Title ~~~~~~~~~~~~~~~~~~~~ -->
     <title>No Longer Alone</title>
   </head>
   <body>
-    <div id="scripts"></div>
+    <!-- *************** SCREEN-CONTAINER-LANDING *************** -->
+    <div id="SCREEN-CONTAINER-LANDING" class="screen-container--display--block">
+      <div id="screen-landing-1" class="screen screen--display--flexCol">
+        <label for="screen__progress-bar" class="screen__text">
+          GAME LOADING:
+        </label>
+        <br />
+        <progress
+          id="screen__progress-bar"
+          class="screen__progress-bar"
+          max="100"
+        ></progress>
+      </div>
+      <div id="screen-landing-2" class="screen screen--display--none">
+        <img
+          class="screen__image-pewpew"
+          src="../../resources/images/pewpew-clear-green.png"
+          alt=""
+        />
+        <button
+          id="button-start-game"
+          class="button button--color--default button__text button__text--size--large button--width--72"
+        >
+          START GAME
+        </button>
+        <br /><br />
+        <button
+          id="button-show-credits"
+          class="button button--color--default button__text button__text--size--large button--width--72"
+        >
+          CREDITS
+        </button>
+        <br /><br />
+        <select
+          id="language"
+          class="button button--color--default button__text button__text--size--large button--width--72"
+          name="language"
+        >
+          <option value="english">ENGLISH</option>
+          <option value="chinese">中国人</option>
+          <option value="hindi">हिंदी</option>
+          <option value="spanish">ESPAÑOL</option>
+          <option value="french">FRANÇAIS</option>
+          <option value="arabic">عربى</option>
+          <option value="russian">РУССКИЙ</option>
+          <option value="portuguese">PORTUGUÊS</option>
+          <option value="japanese">日本語</option>
+          <option value="german">DEUTSCHE</option>
+        </select>
+        <div class="screen-landing__bottom"></div>
+      </div>
+    </div>
+
+    <!-- *************** SCREEN-CONTAINER-INTRO *************** -->
+    <div id="SCREEN-CONTAINER-INTRO" class="screen-container--display--none">
+      <div id="screen-intro-1" class="screen screen--display--flexCol">
+        <p
+          id="intro-text-1"
+          class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
+        >
+          The year is 2084
+        </p>
+        <p
+          id="intro-text-2"
+          class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
+        >
+          SETI detected signals close to Earth
+        </p>
+        <p
+          id="intro-text-3"
+          class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
+        >
+          The UN launched spacecraft to investigate
+        </p>
+        <p
+          id="intro-text-4"
+          class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
+        >
+          Shortly after launch, the UN spacecraft were destroyed
+        </p>
+        <p
+          id="intro-text-5"
+          class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
+        >
+          We are
+        </p>
+        <button
+          id="button-skip-intro"
+          class="button button--color--default button--color--blackgreen button__text--size--small button--width--36"
+        >
+          SKIP INTRO
+        </button>
+        <div class="screen-intro__bottom"></div>
+      </div>
+      <div id="screen-intro-2" class="screen screen--display--flexCol">
+        <p
+          id="intro-text-6"
+          class="screen__text screen__text--opacity--none screen__text--size--extra-large screen__text--marginbottom-medium"
+        >
+          no longer alone
+        </p>
+        <button
+          id="button-prepare-for-battle"
+          class="button button--color--default button__text button--color--blackgreen button__text--size--extra-large button--width--72 button--opacity--none"
+        >
+          PREPARE FOR BATTLE
+        </button>
+        <div class="screen-intro__bottom"></div>
+      </div>
+    </div>
+
+    <!-- *************** SCREEN-CONTAINER-MENU *************** -->
+    <div id="SCREEN-CONTAINER-MENU" class="screen-container--display--none">
+      <div class="screen screen--display--grid screen-menu">
+        <div
+          class="screen-menu--grid--window screen-menu__subscreen--border--gray screen-menu__subscreen-window screen-menu__subscreen--size--full screen--display--flexRow"
+        >
+          <img
+            class="screen__image-deepspace"
+            src="../../resources/images/window-deep-space.png"
+            alt=""
+          />
+        </div>
+
+        <div
+          class="screen-menu--grid--admiral screen-menu__subscreen--border--gray screen-menu__subscreen-admiral screen-menu__subscreen--size--half screen--display--flexRow"
+        >
+          <img
+            class="screen__image-admiral"
+            src="../../resources/images/comm-admiral.png"
+            alt=""
+          />
+        </div>
+
+        <div
+          class="screen-menu--grid--subtitles screen-menu__subscreen--border--gray screen-menu__subscreen-subtitles screen-menu__subscreen--size--half"
+        >
+          <p
+            class="screen__text screen__text--size--small screen__text--font--monospace"
+          >
+            ADM BOBERTS: Earth's defense depends on your ability to click a grid
+            quickly and accurately. Good luck.
+          </p>
+        </div>
+
+        <div
+          class="screen-menu--grid--mission screen-menu__subscreen--border--gray screen-menu__subscreen-mission screen-menu__subscreen--size--half"
+        >
+          <p
+            class="screen__text screen__text--size--small screen__text--font--monospace"
+          >
+            MISSION INFO:
+            <br />
+            The alien ships are cloaked, but, any damaged parts become visible.
+            Ships can also move at random.
+          </p>
+        </div>
+
+        <div
+          class="screen-menu--grid--weapons screen-menu__subscreen--border--gray screen-menu__subscreen-weapons screen-menu__subscreen--size--half screen--display--flexCol"
+        >
+          <button
+            id="select-special-weapon-radar"
+            class="button button--color--default button__text--size--small button--width--72 button--margin-5"
+          >
+            RADAR
+          </button>
+          <button
+            id="select-special-weapon-emp"
+            class="button button--color--default button__text--size--small button--margin-5 button--width--72"
+          >
+            EMP BOMB
+          </button>
+          <button
+            id="select-special-weapon-paul"
+            class="button button--color--default button__text--size--small button--margin-5 button--width--72"
+          >
+            P.A.U.L.
+          </button>
+        </div>
+
+        <div
+          class="screen-menu--grid--tutorial screen-menu__subscreen--border--gray screen-menu__subscreen-tutorial screen-menu__subscreen--size--half screen--display--flexRow"
+        >
+          <button
+            id="button-start-tutorial"
+            class="button button--color--default button__text--size--medium button--width--84"
+          >
+            TUTORIAL
+          </button>
+        </div>
+
+        <div
+          class="screen-menu--grid--battle screen-menu__subscreen--border--gray screen-menu__subscreen-battle screen-menu__subscreen--size--half screen--display--flexRow"
+        >
+          <button
+            id="button-start-battle"
+            class="button button--color--red button__text--size--medium button--width--84"
+            href="\screens\battle\battle.html"
+          >
+            ENTER BATTLE
+          </button>
+        </div>
+
+        <div
+          class="screen-menu--grid--bottom screen-menu__subscreen--border--gray screen-menu__subscreen-bottom screen-menu__subscreen--size--full screen--display--flexRow"
+        >
+          <p>btm</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- *************** SCREEN-CONTAINER-TUTORIAL *************** -->
+    <div id="SCREEN-CONTAINER-TUTORIAL" class="screen-container--display--none">
+      <div class="screen screen-tutorial screen--display--grid">
+        <div
+          class="screen-tutorial--grid--play screen-tutorial__subscreen-play screen--display--flexRow"
+        >
+          <button
+            id="button-how-to-play"
+            class="button button--color--default button__text--size--small button--width--84"
+          >
+            HOW TO PLAY
+          </button>
+        </div>
+        <div
+          class="screen-tutorial--grid--win screen-tutorial__subscreen-win screen--display--flexRow"
+        >
+          <button
+            id="button-how-to-win"
+            class="button button--color--default button__text--size--small button--width--84"
+          >
+            HOW TO WIN
+          </button>
+        </div>
+        <div
+          class="screen--gridname--lose screen-tutorial__subscreen-lose screen--display--flexRow"
+        >
+          <button
+            id="button-how-to-lose"
+            class="button button--color--default button__text--size--small button--width--84"
+          >
+            HOW TO LOSE
+          </button>
+        </div>
+        <div
+          class="screen-tutorial--grid--weapons screen-tutorial__subscreen-weapons screen--display--flexRow"
+        >
+          <button
+            id="button-special-weapons"
+            class="button button--color--default button__text--size--small button--width--84"
+          >
+            WEAPONS
+          </button>
+        </div>
+        <div
+          class="screen-tutorial--grid--other screen-tutorial__subscreen-other screen--display--flexRow"
+        >
+          <button
+            id="button-other"
+            class="button button--color--default button__text--size--small button--width--84"
+          >
+            OTHER
+          </button>
+        </div>
+        <div
+          class="screen-tutorial--grid--menu screen-tutorial__subscreen-menu screen--display--flexRow"
+        >
+          <button
+            id="button-return-to-menu"
+            class="button button--color--lightgrayblack button__text--size--small button--width--84"
+            href="\screens\menu\menu.html"
+          >
+            MENU
+          </button>
+        </div>
+        <div
+          id="tutorial-text"
+          class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text"
+        >
+          <p class="screen__text screen__text--size--medium">
+            * Click a square on the battlefield grid to fire your energy weapon.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * You have limited energy, and each shot takes 1 energy!
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * Click "weapons" to learn about the special weapons.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * The grid appears empty because the aliens are cloaked... hitting
+            their ship will permanently reveal that part of the ship.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * Alien ships can MOVE!
+          </p>
+        </div>
+        <div
+          class="screen-tutorial--grid--bottom screen-tutorial__subscreen-bottom"
+        >
+          bottom space
+        </div>
+      </div>
+    </div>
+
+    <!-- *************** SCREEN-CONTAINER-BATTLE *************** -->
+    <div id="SCREEN-CONTAINER-BATTLE" class="screen-container--display--none">
+      <div class="screen screen--display--grid screen-battle">
+        <div
+          class="screen-battle__subscreen screen-battle--grid--battlefield screen-battle__battlefield screen--display--flexRow"
+        >
+          <table class="battlefield">
+            <tr>
+              <td id="r1c1" class="screen-battle__cell">r1, c1</td>
+              <td id="r1c2" class="screen-battle__cell">r1, c2</td>
+              <td id="r1c3" class="screen-battle__cell">r1, c3</td>
+              <td id="r1c4" class="screen-battle__cell">r1, c4</td>
+              <td id="r1c5" class="screen-battle__cell">r1, c5</td>
+              <td id="r1c6" class="screen-battle__cell">r1, c6</td>
+              <td id="r1c7" class="screen-battle__cell">r1, c7</td>
+            </tr>
+            <tr>
+              <td id="r2c1" class="screen-battle__cell">r2, c1</td>
+              <td id="r2c2" class="screen-battle__cell">r2, c2</td>
+              <td id="r2c3" class="screen-battle__cell">r2, c3</td>
+              <td id="r2c4" class="screen-battle__cell">r2, c4</td>
+              <td id="r2c5" class="screen-battle__cell">r2, c5</td>
+              <td id="r2c6" class="screen-battle__cell">r2, c6</td>
+              <td id="r2c7" class="screen-battle__cell">r2, c7</td>
+            </tr>
+            <tr>
+              <td id="r3c1" class="screen-battle__cell">r3, c1</td>
+              <td id="r3c2" class="screen-battle__cell">r3, c2</td>
+              <td id="r3c3" class="screen-battle__cell">r3, c3</td>
+              <td id="r3c4" class="screen-battle__cell">r3, c4</td>
+              <td id="r3c5" class="screen-battle__cell">r3, c5</td>
+              <td id="r3c6" class="screen-battle__cell">r3, c6</td>
+              <td id="r3c7" class="screen-battle__cell">r3, c7</td>
+            </tr>
+            <tr>
+              <td id="r4c1" class="screen-battle__cell">r4, c1</td>
+              <td id="r4c2" class="screen-battle__cell">r4, c2</td>
+              <td id="r4c3" class="screen-battle__cell">r4, c3</td>
+              <td id="r4c4" class="screen-battle__cell">r4, c4</td>
+              <td id="r4c5" class="screen-battle__cell">r4, c5</td>
+              <td id="r4c6" class="screen-battle__cell">r4, c6</td>
+              <td id="r4c7" class="screen-battle__cell">r4, c7</td>
+            </tr>
+            <tr>
+              <td id="r5c1" class="screen-battle__cell">r5, c1</td>
+              <td id="r5c2" class="screen-battle__cell">r5, c2</td>
+              <td id="r5c3" class="screen-battle__cell">r5, c3</td>
+              <td id="r5c4" class="screen-battle__cell">r5, c4</td>
+              <td id="r5c5" class="screen-battle__cell">r5, c5</td>
+              <td id="r5c6" class="screen-battle__cell">r5, c6</td>
+              <td id="r5c7" class="screen-battle__cell">r5, c7</td>
+            </tr>
+            <tr>
+              <td id="r6c1" class="screen-battle__cell">r6, c1</td>
+              <td id="r6c2" class="screen-battle__cell">r6, c2</td>
+              <td id="r6c3" class="screen-battle__cell">r6, c3</td>
+              <td id="r6c4" class="screen-battle__cell">r6, c4</td>
+              <td id="r6c5" class="screen-battle__cell">r6, c5</td>
+              <td id="r6c6" class="screen-battle__cell">r6, c6</td>
+              <td id="r6c7" class="screen-battle__cell">r6, c7</td>
+            </tr>
+            <tr>
+              <td id="r7c1" class="screen-battle__cell">r7, c1</td>
+              <td id="r7c2" class="screen-battle__cell">r7, c2</td>
+              <td id="r7c3" class="screen-battle__cell">r7, c3</td>
+              <td id="r7c4" class="screen-battle__cell">r7, c4</td>
+              <td id="r7c5" class="screen-battle__cell">r7, c5</td>
+              <td id="r7c6" class="screen-battle__cell">r7, c6</td>
+              <td id="r7c7" class="screen-battle__cell">r7, c7</td>
+            </tr>
+          </table>
+        </div>
+        <div
+          class="screen-battle__subscreen screen-battle--grid--shot-status screen-battle__shot-status screen--display--flexCol"
+        >
+          <p class="screen__text screen__text--size--small">SHOT STATUS</p>
+          <p class="screen__text screen__text--size--small">
+            A -result- at -coordinate-, ship seems to be -status-!
+          </p>
+        </div>
+        <div
+          class="screen-battle__subscreen screen-battle--grid--timer screen-battle__timer screen--display--flexCol"
+        >
+          <p class="screen__text screen__text--size--small">TIMER</p>
+          <p class="screen__text screen__text--size--small">1:59</p>
+        </div>
+        <div
+          class="screen-battle__subscreen screen-battle--grid--energy screen-battle__energy screen--display--flexCol"
+        >
+          <p class="screen__text screen__text--size--small">ENERGY</p>
+          <p class="screen__text screen__text--size--small">24</p>
+        </div>
+        <div
+          class="screen-battle__subscreen screen-battle--grid--weapon screen-battle__weapon screen--display--flexCol"
+        >
+          <button
+            id="button-fire-special-weapon"
+            class="button button--color--default button__text--size--small button--margin-5 button--width--84"
+          >
+            SPECIAL WEAPON
+          </button>
+        </div>
+        <div
+          class="screen-battle__subscreen screen-battle--grid--bottom screen-battle__bottom"
+        >
+          bottom
+        </div>
+      </div>
+    </div>
+
+    <!-- *************** SCREEN-CONTAINER-CREDITS *************** -->
+    <div id="SCREEN-CONTAINER-CREDITS" class="screen-container--display--none">
+      <div class="screen screen--display--flexCol screen-credits">
+        <div class="screen-credits__image">
+          <img
+            class="screen-credits__image-gameover"
+            src="../../resources/images/game-over-alt-clear.png"
+            alt=""
+          />
+        </div>
+        <div class="screen-credits__pmgr">
+          <p
+            class="screen__text screen__text--size--medium screen__text--decoration--underline screen__text--weight--bold"
+          >
+            Concept/Programming
+          </p>
+        </div>
+        <div class="screen-credits__pjs">
+          <p class="screen__text screen__text--size--medium">Paul J Stales</p>
+        </div>
+        <div class="screen-credits__pjs-sm screen--display--flexRow">
+          <a
+            class="social-media-link"
+            href="https://twitter.com/pauljstales"
+            target="_blank"
+          >
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+          <a
+            class="social-media-link"
+            href="https://github.com/pauljstales/nolongeralone"
+            target="_blank"
+          >
+            <i class="fab fa-github fa-2x"></i>
+          </a>
+        </div>
+        <div class="screen-credits__art">
+          <p
+            class="screen__text screen__text--size--medium screen__text--decoration--underline screen__text--weight--bold"
+          >
+            Artwork/Sound
+          </p>
+        </div>
+        <div class="screen-credits__rjv">
+          <p class="screen__text screen__text--size--medium">R.J. Vince</p>
+        </div>
+        <div class="screen-credits__rjv-sm">
+          <a
+            class="social-media-link"
+            href="https://google.com"
+            target="_blank"
+          >
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <a
+            class="social-media-link"
+            href="https://google.com"
+            target="_blank"
+          >
+            <i class="fab fa-soundcloud fa-2x"></i>
+          </a>
+        </div>
+        <div class="screen-credits__other">
+          <p class="screen__text screen__text--size--small">
+            Other Contributors: See readme.md
+          </p>
+        </div>
+        <div class="screen-credits__newgame">
+          <button
+            id="button-start-new-game"
+            class="button button--color--default button__text--size--medium button--width--96"
+            href="\screens\intro\intro.html"
+          >
+            START NEW GAME
+          </button>
+        </div>
+        <div class="screen-credits__btm">btm</div>
+      </div>
+    </div>
+
+    <div id="scripts">
+      <script src="/screens/application/application.js"></script>
+      <script src="/screens/landing/landing-model.js"></script>
+      <script src="/screens/landing/landing-view.js"></script>
+      <script src="/screens/landing/landing-controller.js"></script>
+      <script src="/screens/intro/intro-model.js"></script>
+      <script src="/screens/intro/intro-view.js"></script>
+      <script src="/screens/intro/intro-controller.js"></script>
+      <script src="/screens/menu/menu-model.js"></script>
+      <script src="/screens/menu/menu-view.js"></script>
+      <script src="/screens/menu/menu-controller.js"></script>
+      <script src="/screens/tutorial/tutorial-model.js"></script>
+      <script src="/screens/tutorial/tutorial-view.js"></script>
+      <script src="/screens/tutorial/tutorial-controller.js"></script>
+      <script src="/screens/battle/battle-model.js"></script>
+      <script src="/screens/battle/battle-view.js"></script>
+      <script src="/screens/battle/battle-controller.js"></script>
+      <script src="/screens/credits/credits-model.js"></script>
+      <script src="/screens/credits/credits-view.js"></script>
+      <script src="/screens/credits/credits-controller.js"></script>
+    </div>
   </body>
 </html>

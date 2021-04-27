@@ -7,22 +7,28 @@
 
 var buttonStartTutorial = document.getElementById("button-start-tutorial");
 buttonStartTutorial.addEventListener("click", () => {
-  document.location.href = "/screens/tutorial/tutorial.html";
+  SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--block");
+  SCREEN_CONTAINER_MENU.classList.add("screen-container--display--none");
+  SCREEN_CONTAINER_TUTORIAL.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_TUTORIAL.classList.remove("screen-container--display--none");
 });
 
 var buttonStartBattle = document.getElementById("button-start-battle");
 buttonStartBattle.addEventListener("click", () => {
-  document.location.href = "/screens/battle/battle.html";
+  SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--block");
+  SCREEN_CONTAINER_MENU.classList.add("screen-container--display--none");
+  SCREEN_CONTAINER_BATTLE.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_BATTLE.classList.remove("screen-container--display--none");
 });
 
 var buttonSelectRadar = document.getElementById("select-special-weapon-radar");
 var buttonSelectEMP = document.getElementById("select-special-weapon-emp");
 var buttonSelectPAUL = document.getElementById("select-special-weapon-paul");
-var allButtons = [buttonSelectRadar, buttonSelectEMP, buttonSelectPAUL];
+var allMenuButtons = [buttonSelectRadar, buttonSelectEMP, buttonSelectPAUL];
 
 buttonSelectRadar.addEventListener("click", () => {
   console.log("radar");
-  allButtons.forEach((currentButton) => {
+  allMenuButtons.forEach((currentButton) => {
     currentButton.classList.remove("button--color--default-selected");
     currentButton.classList.add("button--color--default");
   });
@@ -32,7 +38,7 @@ buttonSelectRadar.addEventListener("click", () => {
 
 buttonSelectEMP.addEventListener("click", () => {
   console.log("emp");
-  allButtons.forEach((currentButton) => {
+  allMenuButtons.forEach((currentButton) => {
     currentButton.classList.remove("button--color--default-selected");
     currentButton.classList.add("button--color--default");
   });
@@ -42,7 +48,7 @@ buttonSelectEMP.addEventListener("click", () => {
 
 buttonSelectPAUL.addEventListener("click", () => {
   console.log("paul");
-  allButtons.forEach((currentButton) => {
+  allMenuButtons.forEach((currentButton) => {
     currentButton.classList.remove("button--color--default-selected");
     currentButton.classList.add("button--color--default");
   });

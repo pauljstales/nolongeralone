@@ -7,5 +7,8 @@
 
 var buttonStartNewGame = document.getElementById("button-start-new-game");
 buttonStartNewGame.addEventListener("click", () => {
-  document.location.href = "/screens/intro/intro.html";
+  SCREEN_CONTAINER_CREDITS.classList.remove("screen-container--display--block");
+  SCREEN_CONTAINER_CREDITS.classList.add("screen-container--display--none");
+  SCREEN_CONTAINER_INTRO.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_INTRO.classList.remove("screen-container--display--none");
 });

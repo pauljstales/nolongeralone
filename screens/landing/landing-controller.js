@@ -7,10 +7,16 @@
 
 var buttonStartGame = document.getElementById("button-start-game");
 buttonStartGame.addEventListener("click", () => {
-  document.location.href = "/screens/intro/intro.html";
+  SCREEN_CONTAINER_LANDING.classList.remove("screen-container--display--block");
+  SCREEN_CONTAINER_LANDING.classList.add("screen-container--display--none");
+  SCREEN_CONTAINER_MENU.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--none");
 });
 
 var buttonShowCredits = document.getElementById("button-show-credits");
 buttonShowCredits.addEventListener("click", () => {
-  document.location.href = "/screens/credits/credits.html";
+  SCREEN_CONTAINER_LANDING.classList.remove("screen-container--display--block");
+  SCREEN_CONTAINER_LANDING.classList.add("screen-container--display--none");
+  SCREEN_CONTAINER_CREDITS.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_CREDITS.classList.remove("screen-container--display--none");
 });

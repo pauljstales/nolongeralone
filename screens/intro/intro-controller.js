@@ -7,12 +7,18 @@
 
 var buttonSkipIntro = document.getElementById("button-skip-intro");
 buttonSkipIntro.addEventListener("click", () => {
-  document.location.href = "/screens/menu/menu.html";
+  SCREEN_CONTAINER_INTRO.classList.remove("screen-container--display--block");
+  SCREEN_CONTAINER_INTRO.classList.add("screen-container--display--none");
+  SCREEN_CONTAINER_MENU.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--none");
 });
 
 var buttonPrepareForBattle = document.getElementById(
   "button-prepare-for-battle"
 );
 buttonPrepareForBattle.addEventListener("click", () => {
-  document.location.href = "/screens/menu/menu.html";
+  SCREEN_CONTAINER_INTRO.classList.remove("screen-container--display--block");
+  SCREEN_CONTAINER_INTRO.classList.add("screen-container--display--none");
+  SCREEN_CONTAINER_MENU.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--none");
 });

@@ -11,7 +11,7 @@ var buttonHowToLose = document.getElementById("button-how-to-lose");
 var buttonSpecialWeapons = document.getElementById("button-special-weapons");
 var buttonOther = document.getElementById("button-other");
 var buttonReturnToMenu = document.getElementById("button-return-to-menu");
-var allButtons = [
+var allTutorialButtons = [
   buttonHowToPlay,
   buttonHowToWin,
   buttonHowToLose,
@@ -22,7 +22,7 @@ var allButtons = [
 
 buttonHowToPlay.addEventListener("click", () => {
   console.log("play");
-  allButtons.forEach((currentButton) => {
+  allTutorialButtons.forEach((currentButton) => {
     currentButton.classList.remove("button--color--default-selected");
     currentButton.classList.add("button--color--default");
   });
@@ -32,7 +32,7 @@ buttonHowToPlay.addEventListener("click", () => {
 
 buttonHowToWin.addEventListener("click", () => {
   console.log("win");
-  allButtons.forEach((currentButton) => {
+  allTutorialButtons.forEach((currentButton) => {
     currentButton.classList.remove("button--color--default-selected");
     currentButton.classList.add("button--color--default");
   });
@@ -42,7 +42,7 @@ buttonHowToWin.addEventListener("click", () => {
 
 buttonHowToLose.addEventListener("click", () => {
   console.log("lose");
-  allButtons.forEach((currentButton) => {
+  allTutorialButtons.forEach((currentButton) => {
     currentButton.classList.remove("button--color--default-selected");
     currentButton.classList.add("button--color--default");
   });
@@ -52,7 +52,7 @@ buttonHowToLose.addEventListener("click", () => {
 
 buttonSpecialWeapons.addEventListener("click", () => {
   console.log("special weapons");
-  allButtons.forEach((currentButton) => {
+  allTutorialButtons.forEach((currentButton) => {
     currentButton.classList.remove("button--color--default-selected");
     currentButton.classList.add("button--color--default");
   });
@@ -62,7 +62,7 @@ buttonSpecialWeapons.addEventListener("click", () => {
 
 buttonOther.addEventListener("click", () => {
   console.log("other");
-  allButtons.forEach((currentButton) => {
+  allTutorialButtons.forEach((currentButton) => {
     currentButton.classList.remove("button--color--default-selected");
     currentButton.classList.add("button--color--default");
   });
@@ -71,5 +71,10 @@ buttonOther.addEventListener("click", () => {
 });
 
 buttonReturnToMenu.addEventListener("click", () => {
-  document.location.href = "/screens/menu/menu.html";
+  SCREEN_CONTAINER_TUTORIAL.classList.remove(
+    "screen-container--display--block"
+  );
+  SCREEN_CONTAINER_TUTORIAL.classList.add("screen-container--display--none");
+  SCREEN_CONTAINER_MENU.classList.add("screen-container--display--block");
+  SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--none");
 });

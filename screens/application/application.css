@@ -9,6 +9,18 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
 
+/* *************************** */
+/* Screen Container Visibility */
+/* *************************** */
+
+.screen-container--display--block {
+  display: block;
+}
+
+.screen-container--display--none {
+  display: none;
+}
+
 /* ******************************** */
 /* Preferred Box Model as Default   */
 /* ******************************** */

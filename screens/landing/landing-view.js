@@ -8,10 +8,10 @@
 /**
  * This function expression is immediately invoked (IIFE!) to load the progress bar and give some resources time to pre-load.
  */
-(function () {
-  const SCREEN_LANDING_1 = document.getElementById("screen-landing-1");
-  const PROGRESS_BAR = document.getElementById("screen__progress-bar");
-  const SCREEN_LANDING_2 = document.getElementById("screen-landing-2");
+function showLandingText() {
+  const SCREEN_LANDING_1 = document.getElementById("SCREEN_LANDING_1");
+  const PROGRESS_BAR = document.getElementById("SCREEN_PROGRESS_BAR");
+  const SCREEN_LANDING_2 = document.getElementById("SCREEN_LANDING_2");
 
   const TIME_PER_INTERVAL = 5; // testing 1-5, production 20-25
   let processBarPercentage = 0;
@@ -26,4 +26,6 @@
       clearInterval(processBarPercentageInterval);
     }
   }, TIME_PER_INTERVAL);
-})();
+}
+
+showLandingText();

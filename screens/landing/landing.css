@@ -17,22 +17,6 @@
   color: var(--color-green);
 }
 
-.screen__progress-bar::-webkit-screen__progress-bar-value {
-  background-color: black;
-}
-
-.screen__progress-bar::-moz-screen__progress-bar {
-  background-color: black;
-}
-
-.screen__progress-bar::-webkit-screen__progress-bar-value {
-  background-color: black;
-}
-
-.screen__progress-bar::-webkit-screen__progress-bar {
-  background-color: black;
-}
-
 /* ************************ */
 /* Bottom Div               */
 /* ************************ */

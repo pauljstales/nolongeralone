@@ -47,7 +47,7 @@ You should have received a copy of the GNU General Public License along with thi
     <meta name="author" content="Paul J Stales, pauljstales at gmail.com" />
     <meta name="copyright" content="Paul J Stales, R.J. Vince" />
     <!-- ~~~~~~~~~~~~~~~~~~~~ CSS Links ~~~~~~~~~~~~~~~~~~~~ -->
-    <link rel="stylesheet" href="/screens/application/application.css" />
+    <link rel="stylesheet" href="/game/game.css" />
     <link rel="stylesheet" href="/screens/landing/landing.css" />
     <link rel="stylesheet" href="/screens/intro/intro.css" />
     <link rel="stylesheet" href="/screens/menu/menu.css" />
@@ -65,43 +65,47 @@ You should have received a copy of the GNU General Public License along with thi
     <title>No Longer Alone</title>
   </head>
   <body>
-    <!-- *************** SCREEN-CONTAINER-LANDING *************** -->
-    <div id="SCREEN-CONTAINER-LANDING" class="screen-container--display--block">
-      <div id="screen-landing-1" class="screen screen--display--flexCol">
-        <label for="screen__progress-bar" class="screen__text">
+    <!-- *************** SCREEN_CONTAINER_LANDING *************** -->
+    <div id="SCREEN_CONTAINER_LANDING" class="screen-container--display--block">
+      <div id="SCREEN_LANDING_1" class="screen screen--display--flexCol">
+        <label
+          id="LABEL_PROGRESS_BAR"
+          for="SCREEN_PROGRESS_BAR"
+          class="screen__text"
+        >
           GAME LOADING:
         </label>
         <br />
         <progress
-          id="screen__progress-bar"
+          id="SCREEN_PROGRESS_BAR"
           class="screen__progress-bar"
           max="100"
         ></progress>
       </div>
-      <div id="screen-landing-2" class="screen screen--display--none">
+      <div id="SCREEN_LANDING_2" class="screen screen--display--none">
         <img
           class="screen__image-pewpew"
           src="../../resources/images/pewpew-clear-green.png"
           alt=""
         />
         <button
-          id="button-start-game"
+          id="BUTTON_START_GAME"
           class="button button--color--default button__text button__text--size--large button--width--72"
         >
           START GAME
         </button>
         <br /><br />
         <button
-          id="button-show-credits"
+          id="BUTTON_SHOW_CREDITS"
           class="button button--color--default button__text button__text--size--large button--width--72"
         >
           CREDITS
         </button>
         <br /><br />
         <select
-          id="language"
+          id="SELECT_LANGUAGE"
           class="button button--color--default button__text button__text--size--large button--width--72"
-          name="language"
+          name="SELECT_LANGUAGE"
         >
           <option value="english">ENGLISH</option>
           <option value="chinese">中国人</option>
@@ -118,56 +122,56 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN-CONTAINER-INTRO *************** -->
-    <div id="SCREEN-CONTAINER-INTRO" class="screen-container--display--none">
-      <div id="screen-intro-1" class="screen screen--display--flexCol">
+    <!-- *************** SCREEN_CONTAINER_INTRO *************** -->
+    <div id="SCREEN_CONTAINER_INTRO" class="screen-container--display--none">
+      <div id="SCREEN_INTRO_1" class="screen screen--display--flexCol">
         <p
-          id="intro-text-1"
+          id="INTRO_TEXT_1"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
         >
           The year is 2084
         </p>
         <p
-          id="intro-text-2"
+          id="INTRO_TEXT_2"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
         >
           SETI detected signals close to Earth
         </p>
         <p
-          id="intro-text-3"
+          id="INTRO_TEXT_3"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
         >
           The UN launched spacecraft to investigate
         </p>
         <p
-          id="intro-text-4"
+          id="INTRO_TEXT_4"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
         >
           Shortly after launch, the UN spacecraft were destroyed
         </p>
         <p
-          id="intro-text-5"
+          id="INTRO_TEXT_5"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
         >
           We are
         </p>
         <button
-          id="button-skip-intro"
+          id="BUTTON_SKIP_INTRO"
           class="button button--color--default button--color--blackgreen button__text--size--small button--width--36"
         >
           SKIP INTRO
         </button>
         <div class="screen-intro__bottom"></div>
       </div>
-      <div id="screen-intro-2" class="screen screen--display--flexCol">
+      <div id="SCREEN_INTRO_2" class="screen screen--display--flexCol">
         <p
-          id="intro-text-6"
+          id="INTRO_TEXT_6"
           class="screen__text screen__text--opacity--none screen__text--size--extra-large screen__text--marginbottom-medium"
         >
           no longer alone
         </p>
         <button
-          id="button-prepare-for-battle"
+          id="BUTTON_PREPAREFORBATTLE"
           class="button button--color--default button__text button--color--blackgreen button__text--size--extra-large button--width--72 button--opacity--none"
         >
           PREPARE FOR BATTLE
@@ -176,8 +180,8 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN-CONTAINER-MENU *************** -->
-    <div id="SCREEN-CONTAINER-MENU" class="screen-container--display--none">
+    <!-- *************** SCREEN_CONTAINER_MENU *************** -->
+    <div id="SCREEN_CONTAINER_MENU" class="screen-container--display--none">
       <div class="screen screen--display--grid screen-menu">
         <div
           class="screen-menu--grid--window screen-menu__subscreen--border--gray screen-menu__subscreen-window screen-menu__subscreen--size--full screen--display--flexRow"
@@ -203,6 +207,7 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-menu--grid--subtitles screen-menu__subscreen--border--gray screen-menu__subscreen-subtitles screen-menu__subscreen--size--half"
         >
           <p
+            id="MENU_TEXT_SUBTITLES"
             class="screen__text screen__text--size--small screen__text--font--monospace"
           >
             ADM BOBERTS: We have limited time and energy. Earth's defense
@@ -215,6 +220,7 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-menu--grid--mission screen-menu__subscreen--border--gray screen-menu__subscreen-mission screen-menu__subscreen--size--half"
         >
           <p
+            id="MENU_TEXT_MISSION"
             class="screen__text screen__text--size--small screen__text--font--monospace"
           >
             MISSION INFO:
@@ -228,19 +234,19 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-menu--grid--weapons screen-menu__subscreen--border--gray screen-menu__subscreen-weapons screen-menu__subscreen--size--half screen--display--flexCol"
         >
           <button
-            id="select-special-weapon-radar"
+            id="BUTTON_SELECT_RADAR"
             class="button button--color--default button__text--size--small button--width--72 button--margin-5"
           >
             RADAR
           </button>
           <button
-            id="select-special-weapon-emp"
+            id="BUTTON_SELECT_EMP"
             class="button button--color--default button__text--size--small button--margin-5 button--width--72"
           >
             EMP BOMB
           </button>
           <button
-            id="select-special-weapon-paul"
+            id="BUTTON_SELECT_PAUL"
             class="button button--color--default button__text--size--small button--margin-5 button--width--72"
           >
             P.A.U.L.
@@ -251,7 +257,7 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-menu--grid--tutorial screen-menu__subscreen--border--gray screen-menu__subscreen-tutorial screen-menu__subscreen--size--half screen--display--flexRow"
         >
           <button
-            id="button-start-tutorial"
+            id="BUTTON_START_TUTORIAL"
             class="button button--color--default button__text--size--medium button--width--84"
           >
             TUTORIAL
@@ -262,7 +268,7 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-menu--grid--battle screen-menu__subscreen--border--gray screen-menu__subscreen-battle screen-menu__subscreen--size--half screen--display--flexRow"
         >
           <button
-            id="button-start-battle"
+            id="BUTTON_START_BATTLE"
             class="button button--color--red button__text--size--medium button--width--84"
             href="\screens\battle\battle.html"
           >
@@ -278,14 +284,14 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN-CONTAINER-TUTORIAL *************** -->
-    <div id="SCREEN-CONTAINER-TUTORIAL" class="screen-container--display--none">
+    <!-- *************** SCREEN_CONTAINER_TUTORIAL *************** -->
+    <div id="SCREEN_CONTAINER_TUTORIAL" class="screen-container--display--none">
       <div class="screen screen-tutorial screen--display--grid">
         <div
           class="screen-tutorial--grid--play screen-tutorial__subscreen-play screen--display--flexRow"
         >
           <button
-            id="button-how-to-play"
+            id="BUTTON_HOW_TO_PLAY"
             class="button button--color--default button__text--size--small button--width--84"
           >
             HOW TO PLAY
@@ -295,7 +301,7 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-tutorial--grid--win screen-tutorial__subscreen-win screen--display--flexRow"
         >
           <button
-            id="button-how-to-win"
+            id="BUTTON_HOW_TO_WIN"
             class="button button--color--default button__text--size--small button--width--84"
           >
             HOW TO WIN
@@ -305,7 +311,7 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen--gridname--lose screen-tutorial__subscreen-lose screen--display--flexRow"
         >
           <button
-            id="button-how-to-lose"
+            id="BUTTON_HOW_TO_LOSE"
             class="button button--color--default button__text--size--small button--width--84"
           >
             HOW TO LOSE
@@ -315,7 +321,7 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-tutorial--grid--weapons screen-tutorial__subscreen-weapons screen--display--flexRow"
         >
           <button
-            id="button-special-weapons"
+            id="BUTTON_SPECIAL_WEAPONS"
             class="button button--color--default button__text--size--small button--width--84"
           >
             WEAPONS
@@ -325,7 +331,7 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-tutorial--grid--other screen-tutorial__subscreen-other screen--display--flexRow"
         >
           <button
-            id="button-other"
+            id="BUTTON_OTHER"
             class="button button--color--default button__text--size--small button--width--84"
           >
             OTHER
@@ -335,16 +341,17 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-tutorial--grid--menu screen-tutorial__subscreen-menu screen--display--flexRow"
         >
           <button
-            id="button-return-to-menu"
+            id="BUTTON_RETURN_TO_MENU"
             class="button button--color--lightgrayblack button__text--size--small button--width--84"
             href="\screens\menu\menu.html"
           >
             MENU
           </button>
         </div>
+        <!-- Tutorial Text: How to Play -->
         <div
-          id="tutorial-text"
-          class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text"
+          id="TUTORIAL_TEXT_HOWTOPLAY"
+          class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
         >
           <p class="screen__text screen__text--size--medium">
             * Click a square on the battlefield grid to fire your energy weapon.
@@ -363,6 +370,97 @@ You should have received a copy of the GNU General Public License along with thi
             * Alien ships can MOVE!
           </p>
         </div>
+        <!-- Tutorial Text: Default -->
+        <div
+          id="TUTORIAL_TEXT_DEFAULT"
+          class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--show"
+        >
+          <p class="screen__text screen__text--size--medium">
+            * Click a button above to learn more.
+          </p>
+        </div>
+        <!-- Tutorial Text: How to Win -->
+        <div
+          id="TUTORIAL_TEXT_HOWTOWIN"
+          class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
+        >
+          <p class="screen__text screen__text--size--medium">
+            * There are two possible combinations of alien ships.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * Hswoh squadron has 3 ships, of sizes 4, 3, and 2.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * Vtlnh squadron has 3 ships, all of size 3.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * To win, destroy all 3 ships before you run out of time or energy.
+          </p>
+        </div>
+        <!-- Tutorial Text: How to Lose -->
+        <div
+          id="TUTORIAL_TEXT_HOWTOLOSE"
+          class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
+        >
+          <p class="screen__text screen__text--size--medium">
+            * The aliens ships are charging some sort of energy bomb, which they
+            will fire very soon.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * If you run out of energy/ammo, we cannot stop them from attacking,
+            and we will lose.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * If you attack too slowly, they will fire their weapon, and we will
+            lose.
+          </p>
+        </div>
+        <!-- Tutorial Text: Special Weapons -->
+        <div
+          id="TUTORIAL_TEXT_WEAPONS"
+          class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
+        >
+          <p class="screen__text screen__text--size--medium">
+            * There is only enough time to outfit your ship with one special
+            weapon.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * Each special weapon does something different and costs different
+            energy, but can only be fired once.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * RADAR: Uses 0 energy and will remove the alien ship cloaking for a
+            short time.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * EMP Bomb: Uses 1 energy and will stop the aliens from moving for a
+            short time.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * PAUL: Uses 2 energy and will destroy any ship it hits.
+          </p>
+        </div>
+        <!-- Tutorial Text: Other Questions -->
+        <div
+          id="TUTORIAL_TEXT_OTHER"
+          class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
+        >
+          <p class="screen__text screen__text--size--medium">
+            * Can I Pause? NO. The aliens are coming to kill us all. Do you
+            understand the severity of the situation?.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * Will there be adjustable difficultly? NO. The aliens are coming to
+            kill us all, and will not go easy on us.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * Will there be high scores? No plans at this time.
+          </p>
+          <p class="screen__text screen__text--size--medium">
+            * NO. Whatever it is, no. Unless you want to send me money. Then
+            yes. Coffee and burgers are also accepted.
+          </p>
+        </div>
         <div
           class="screen-tutorial--grid--bottom screen-tutorial__subscreen-bottom"
         >
@@ -371,103 +469,131 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN-CONTAINER-BATTLE *************** -->
-    <div id="SCREEN-CONTAINER-BATTLE" class="screen-container--display--none">
+    <!-- *************** SCREEN_CONTAINER_BATTLE *************** -->
+    <div id="SCREEN_CONTAINER_BATTLE" class="screen-container--display--none">
       <div class="screen screen--display--grid screen-battle">
         <div
           class="screen-battle__subscreen screen-battle--grid--battlefield screen-battle__battlefield screen--display--flexRow"
         >
-          <table class="battlefield">
+          <table id="TABLE_BATTLEFIELD" class="battlefield">
             <tr>
-              <td id="r1c1" class="screen-battle__cell">r1, c1</td>
-              <td id="r1c2" class="screen-battle__cell">r1, c2</td>
-              <td id="r1c3" class="screen-battle__cell">r1, c3</td>
-              <td id="r1c4" class="screen-battle__cell">r1, c4</td>
-              <td id="r1c5" class="screen-battle__cell">r1, c5</td>
-              <td id="r1c6" class="screen-battle__cell">r1, c6</td>
-              <td id="r1c7" class="screen-battle__cell">r1, c7</td>
+              <td id="R0_C0" class="screen-battle__cell">R0_, C0</td>
+              <td id="R0_C1" class="screen-battle__cell">R0_, C1</td>
+              <td id="R0_C2" class="screen-battle__cell">R0_, C2</td>
+              <td id="R0_C3" class="screen-battle__cell">R0_, C3</td>
+              <td id="R0_C4" class="screen-battle__cell">R0_, C4</td>
+              <td id="R0_C5" class="screen-battle__cell">R0_, C5</td>
+              <td id="R0_C6" class="screen-battle__cell">R0_, C6</td>
             </tr>
             <tr>
-              <td id="r2c1" class="screen-battle__cell">r2, c1</td>
-              <td id="r2c2" class="screen-battle__cell">r2, c2</td>
-              <td id="r2c3" class="screen-battle__cell">r2, c3</td>
-              <td id="r2c4" class="screen-battle__cell">r2, c4</td>
-              <td id="r2c5" class="screen-battle__cell">r2, c5</td>
-              <td id="r2c6" class="screen-battle__cell">r2, c6</td>
-              <td id="r2c7" class="screen-battle__cell">r2, c7</td>
+              <td id="R1_C1" class="screen-battle__cell">R1_, C1</td>
+              <td id="R1_C2" class="screen-battle__cell">R1_, C2</td>
+              <td id="R1_C3" class="screen-battle__cell">R1_, C3</td>
+              <td id="R1_C4" class="screen-battle__cell">R1_, C4</td>
+              <td id="R1_C5" class="screen-battle__cell">R1_, C5</td>
+              <td id="R1_C6" class="screen-battle__cell">R1_, C6</td>
+              <td id="R1_C0" class="screen-battle__cell">R1_, C0</td>
             </tr>
             <tr>
-              <td id="r3c1" class="screen-battle__cell">r3, c1</td>
-              <td id="r3c2" class="screen-battle__cell">r3, c2</td>
-              <td id="r3c3" class="screen-battle__cell">r3, c3</td>
-              <td id="r3c4" class="screen-battle__cell">r3, c4</td>
-              <td id="r3c5" class="screen-battle__cell">r3, c5</td>
-              <td id="r3c6" class="screen-battle__cell">r3, c6</td>
-              <td id="r3c7" class="screen-battle__cell">r3, c7</td>
+              <td id="R2_C1" class="screen-battle__cell">R2_, C1</td>
+              <td id="R2_C2" class="screen-battle__cell">R2_, C2</td>
+              <td id="R2_C3" class="screen-battle__cell">R2_, C3</td>
+              <td id="R2_C4" class="screen-battle__cell">R2_, C4</td>
+              <td id="R2_C5" class="screen-battle__cell">R2_, C5</td>
+              <td id="R2_C6" class="screen-battle__cell">R2_, C6</td>
+              <td id="R2_C0" class="screen-battle__cell">R2_, C0</td>
             </tr>
             <tr>
-              <td id="r4c1" class="screen-battle__cell">r4, c1</td>
-              <td id="r4c2" class="screen-battle__cell">r4, c2</td>
-              <td id="r4c3" class="screen-battle__cell">r4, c3</td>
-              <td id="r4c4" class="screen-battle__cell">r4, c4</td>
-              <td id="r4c5" class="screen-battle__cell">r4, c5</td>
-              <td id="r4c6" class="screen-battle__cell">r4, c6</td>
-              <td id="r4c7" class="screen-battle__cell">r4, c7</td>
+              <td id="R3_C1" class="screen-battle__cell">R3_, C1</td>
+              <td id="R3_C2" class="screen-battle__cell">R3_, C2</td>
+              <td id="R3_C3" class="screen-battle__cell">R3_, C3</td>
+              <td id="R3_C4" class="screen-battle__cell">R3_, C4</td>
+              <td id="R3_C5" class="screen-battle__cell">R3_, C5</td>
+              <td id="R3_C6" class="screen-battle__cell">R3_, C6</td>
+              <td id="R3_C0" class="screen-battle__cell">R3_, C0</td>
             </tr>
             <tr>
-              <td id="r5c1" class="screen-battle__cell">r5, c1</td>
-              <td id="r5c2" class="screen-battle__cell">r5, c2</td>
-              <td id="r5c3" class="screen-battle__cell">r5, c3</td>
-              <td id="r5c4" class="screen-battle__cell">r5, c4</td>
-              <td id="r5c5" class="screen-battle__cell">r5, c5</td>
-              <td id="r5c6" class="screen-battle__cell">r5, c6</td>
-              <td id="r5c7" class="screen-battle__cell">r5, c7</td>
+              <td id="R4_C1" class="screen-battle__cell">R4_, C1</td>
+              <td id="R4_C2" class="screen-battle__cell">R4_, C2</td>
+              <td id="R4_C3" class="screen-battle__cell">R4_, C3</td>
+              <td id="R4_C4" class="screen-battle__cell">R4_, C4</td>
+              <td id="R4_C5" class="screen-battle__cell">R4_, C5</td>
+              <td id="R4_C6" class="screen-battle__cell">R4_, C6</td>
+              <td id="R4_C0" class="screen-battle__cell">R4_, C0</td>
             </tr>
             <tr>
-              <td id="r6c1" class="screen-battle__cell">r6, c1</td>
-              <td id="r6c2" class="screen-battle__cell">r6, c2</td>
-              <td id="r6c3" class="screen-battle__cell">r6, c3</td>
-              <td id="r6c4" class="screen-battle__cell">r6, c4</td>
-              <td id="r6c5" class="screen-battle__cell">r6, c5</td>
-              <td id="r6c6" class="screen-battle__cell">r6, c6</td>
-              <td id="r6c7" class="screen-battle__cell">r6, c7</td>
+              <td id="R5_C1" class="screen-battle__cell">R5_, C1</td>
+              <td id="R5_C2" class="screen-battle__cell">R5_, C2</td>
+              <td id="R5_C3" class="screen-battle__cell">R5_, C3</td>
+              <td id="R5_C4" class="screen-battle__cell">R5_, C4</td>
+              <td id="R5_C5" class="screen-battle__cell">R5_, C5</td>
+              <td id="R5_C6" class="screen-battle__cell">R5_, C6</td>
+              <td id="R5_C0" class="screen-battle__cell">R5_, C0</td>
             </tr>
             <tr>
-              <td id="r7c1" class="screen-battle__cell">r7, c1</td>
-              <td id="r7c2" class="screen-battle__cell">r7, c2</td>
-              <td id="r7c3" class="screen-battle__cell">r7, c3</td>
-              <td id="r7c4" class="screen-battle__cell">r7, c4</td>
-              <td id="r7c5" class="screen-battle__cell">r7, c5</td>
-              <td id="r7c6" class="screen-battle__cell">r7, c6</td>
-              <td id="r7c7" class="screen-battle__cell">r7, c7</td>
+              <td id="R6_C1" class="screen-battle__cell">R6_, C1</td>
+              <td id="R6_C2" class="screen-battle__cell">R6_, C2</td>
+              <td id="R6_C3" class="screen-battle__cell">R6_, C3</td>
+              <td id="R6_C4" class="screen-battle__cell">R6_, C4</td>
+              <td id="R6_C5" class="screen-battle__cell">R6_, C5</td>
+              <td id="R6_C6" class="screen-battle__cell">R6_, C6</td>
+              <td id="R6_C0" class="screen-battle__cell">R6_, C0</td>
             </tr>
           </table>
         </div>
         <div
           class="screen-battle__subscreen screen-battle--grid--shot-status screen-battle__shot-status screen--display--flexCol"
         >
-          <p class="screen__text screen__text--size--small">SHOT STATUS</p>
-          <p class="screen__text screen__text--size--small">
+          <p
+            id="BATTLE_TEXT_SHOT_STATUS_TITLE"
+            class="screen__text screen__text--size--small"
+          >
+            SHOT STATUS
+          </p>
+          <p
+            id="BATTLE_TEXT_SHOT_STATUS_TEXT"
+            class="screen__text screen__text--size--small"
+          >
             A -result- at -coordinate-, ship seems to be -status-!
           </p>
         </div>
         <div
           class="screen-battle__subscreen screen-battle--grid--timer screen-battle__timer screen--display--flexCol"
         >
-          <p class="screen__text screen__text--size--small">TIMER</p>
-          <p class="screen__text screen__text--size--small">1:59</p>
+          <p
+            id="BATTLE_TEXT_TIMER_TITLE"
+            class="screen__text screen__text--size--small"
+          >
+            TIMER
+          </p>
+          <p
+            id="BATTLE_TEXT_TIMER_TEXT"
+            class="screen__text screen__text--size--small"
+          >
+            1:59
+          </p>
         </div>
         <div
           class="screen-battle__subscreen screen-battle--grid--energy screen-battle__energy screen--display--flexCol"
         >
-          <p class="screen__text screen__text--size--small">ENERGY</p>
-          <p class="screen__text screen__text--size--small">24</p>
+          <p
+            id="BATTLE_TEXT_ENERGY_TITLE"
+            class="screen__text screen__text--size--small"
+          >
+            ENERGY
+          </p>
+          <p
+            id="BATTLE_TEXT_ENERGY_TEXT"
+            class="screen__text screen__text--size--small"
+          >
+            24
+          </p>
         </div>
         <div
           class="screen-battle__subscreen screen-battle--grid--weapon screen-battle__weapon screen--display--flexCol"
         >
           <button
-            id="button-fire-special-weapon"
+            id="BUTTON_SPECIAL_WEAPON"
             class="button button--color--default button__text--size--small button--margin-5 button--width--84"
           >
             SPECIAL WEAPON
@@ -481,8 +607,8 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN-CONTAINER-CREDITS *************** -->
-    <div id="SCREEN-CONTAINER-CREDITS" class="screen-container--display--none">
+    <!-- *************** SCREEN_CONTAINER_CREDITS *************** -->
+    <div id="SCREEN_CONTAINER_CREDITS" class="screen-container--display--none">
       <div class="screen screen--display--flexCol screen-credits">
         <div class="screen-credits__image">
           <img
@@ -493,6 +619,7 @@ You should have received a copy of the GNU General Public License along with thi
         </div>
         <div class="screen-credits__pmgr">
           <p
+            id="CREDITS_TEXT_PROGRAMMING"
             class="screen__text screen__text--size--medium screen__text--decoration--underline screen__text--weight--bold"
           >
             Concept/Programming
@@ -519,6 +646,7 @@ You should have received a copy of the GNU General Public License along with thi
         </div>
         <div class="screen-credits__art">
           <p
+            id="CREDITS_TEXT_ART"
             class="screen__text screen__text--size--medium screen__text--decoration--underline screen__text--weight--bold"
           >
             Artwork/Sound
@@ -544,13 +672,16 @@ You should have received a copy of the GNU General Public License along with thi
           </a>
         </div>
         <div class="screen-credits__other">
-          <p class="screen__text screen__text--size--small">
+          <p
+            id="CREDITS_TEXT_OTHERS"
+            class="screen__text screen__text--size--small"
+          >
             Other Contributors: See readme.md
           </p>
         </div>
         <div class="screen-credits__newgame">
           <button
-            id="button-start-new-game"
+            id="BUTTON_START_NEW_GAME"
             class="button button--color--default button__text--size--medium button--width--96"
             href="\screens\intro\intro.html"
           >
@@ -562,7 +693,7 @@ You should have received a copy of the GNU General Public License along with thi
     </div>
 
     <div id="scripts">
-      <script src="/screens/application/application.js"></script>
+      <script src="/game/game.js"></script>
       <script src="/screens/landing/landing-model.js"></script>
       <script src="/screens/landing/landing-view.js"></script>
       <script src="/screens/landing/landing-controller.js"></script>

@@ -74,8 +74,20 @@ body {
   display: grid;
 }
 
+.screen--display--block {
+  display: block;
+}
+
 .screen--display--none {
   display: none;
+}
+
+.screen--opacity--hide {
+  opacity: 0;
+}
+
+.screen--opacity--show {
+  opacity: 1;
 }
 
 /* ******************************** */

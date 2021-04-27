@@ -36,18 +36,18 @@ function loadIntroScrollingText() {
     for (let i = 1; i <= 5; i++) {
       setTimeout(() => {
         document
-          .getElementById(`intro-text-${i}`)
+          .getElementById(`INTRO_TEXT_${i}`)
           .classList.remove("screen__text--opacity--none");
         document
-          .getElementById(`intro-text-${i}`)
+          .getElementById(`INTRO_TEXT_${i}`)
           .classList.add("screen__text--opacity--show");
       }, i * TIME_PER_INTRO_TEXT);
     }
   }
 
   function hideIntroText() {
-    const SCREEN_INTRO_1 = document.getElementById("screen-intro-1");
-    const SCREEN_INTRO_2 = document.getElementById("screen-intro-2");
+    const SCREEN_INTRO_1 = document.getElementById("SCREEN_INTRO_1");
+    const SCREEN_INTRO_2 = document.getElementById("SCREEN_INTRO_2");
 
     setTimeout(() => {
       SCREEN_INTRO_1.classList.add("screen--display--none");
@@ -61,10 +61,10 @@ function loadIntroScrollingText() {
   function showTitleText() {
     setTimeout(() => {
       document
-        .getElementById("intro-text-6")
+        .getElementById("INTRO_TEXT_6")
         .classList.remove("screen__text--opacity--none");
       document
-        .getElementById("intro-text-6")
+        .getElementById("INTRO_TEXT_6")
         .classList.add("screen__text--opacity--show");
     }, TIME_UNTIL_TITLE_TEXT);
   }
@@ -72,10 +72,10 @@ function loadIntroScrollingText() {
   function showPrepareBattlelinkAsButton() {
     setTimeout(() => {
       document
-        .getElementById("button-prepare-for-battle")
+        .getElementById("BUTTON_PREPAREFORBATTLE")
         .classList.remove("button--opacity--none");
       document
-        .getElementById("button-prepare-for-battle")
+        .getElementById("BUTTON_PREPAREFORBATTLE")
         .classList.add("button--opacity--show");
     }, TIME_UNTIL_TITLE_LINK_AS_BUTTON);
   }

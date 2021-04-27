@@ -5,7 +5,7 @@
  * Copyright (c) 2021
  */
 
-var buttonStartTutorial = document.getElementById("button-start-tutorial");
+var buttonStartTutorial = document.getElementById("BUTTON_START_TUTORIAL");
 buttonStartTutorial.addEventListener("click", () => {
   SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--block");
   SCREEN_CONTAINER_MENU.classList.add("screen-container--display--none");
@@ -14,9 +14,15 @@ buttonStartTutorial.addEventListener("click", () => {
   SOUNDTRACK_MENU.pause();
   SOUNDTRACK_MENU.currentTime = 0;
   // need tutorial music
+  SFX_RADAR.pause();
+  SFX_EMP.pause();
+  SFX_PLASMA.pause();
+  SFX_RADAR.currentTime = 0;
+  SFX_EMP.currentTime = 0;
+  SFX_PLASMA.currentTime = 0;
 });
 
-var buttonStartBattle = document.getElementById("button-start-battle");
+var buttonStartBattle = document.getElementById("BUTTON_START_BATTLE");
 buttonStartBattle.addEventListener("click", () => {
   SCREEN_CONTAINER_MENU.classList.remove("screen-container--display--block");
   SCREEN_CONTAINER_MENU.classList.add("screen-container--display--none");
@@ -33,9 +39,9 @@ buttonStartBattle.addEventListener("click", () => {
   SFX_PLASMA.currentTime = 0;
 });
 
-var buttonSelectRadar = document.getElementById("select-special-weapon-radar");
-var buttonSelectEMP = document.getElementById("select-special-weapon-emp");
-var buttonSelectPAUL = document.getElementById("select-special-weapon-paul");
+var buttonSelectRadar = document.getElementById("BUTTON_SELECT_RADAR");
+var buttonSelectEMP = document.getElementById("BUTTON_SELECT_EMP");
+var buttonSelectPAUL = document.getElementById("BUTTON_SELECT_PAUL");
 var allMenuButtons = [buttonSelectRadar, buttonSelectEMP, buttonSelectPAUL];
 
 buttonSelectRadar.addEventListener("click", () => {

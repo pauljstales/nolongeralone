@@ -5,12 +5,10 @@
  * Copyright (c) 2021
  */
 
-var buttonSkipIntro = document.getElementById("button-skip-intro");
+var buttonSkipIntro = document.getElementById("BUTTON_SKIP_INTRO");
 buttonSkipIntro.addEventListener("click", openMenu);
 
-var buttonPrepareForBattle = document.getElementById(
-  "button-prepare-for-battle"
-);
+var buttonPrepareForBattle = document.getElementById("BUTTON_PREPAREFORBATTLE");
 buttonPrepareForBattle.addEventListener("click", openMenu);
 
 function openMenu() {

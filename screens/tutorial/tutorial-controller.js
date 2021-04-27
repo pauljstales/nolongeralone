@@ -5,12 +5,12 @@
  * Copyright (c) 2021
  */
 
-var buttonHowToPlay = document.getElementById("button-how-to-play");
-var buttonHowToWin = document.getElementById("button-how-to-win");
-var buttonHowToLose = document.getElementById("button-how-to-lose");
-var buttonSpecialWeapons = document.getElementById("button-special-weapons");
-var buttonOther = document.getElementById("button-other");
-var buttonReturnToMenu = document.getElementById("button-return-to-menu");
+var buttonHowToPlay = document.getElementById("BUTTON_HOW_TO_PLAY");
+var buttonHowToWin = document.getElementById("BUTTON_HOW_TO_WIN");
+var buttonHowToLose = document.getElementById("BUTTON_HOW_TO_LOSE");
+var buttonSpecialWeapons = document.getElementById("BUTTON_SPECIAL_WEAPONS");
+var buttonOther = document.getElementById("BUTTON_OTHER");
+var buttonReturnToMenu = document.getElementById("BUTTON_RETURN_TO_MENU");
 var allTutorialButtons = [
   buttonHowToPlay,
   buttonHowToWin,

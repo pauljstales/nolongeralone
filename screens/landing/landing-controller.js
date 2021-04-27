@@ -5,7 +5,7 @@
  * Copyright (c) 2021
  */
 
-var buttonStartGame = document.getElementById("button-start-game");
+var buttonStartGame = document.getElementById("BUTTON_START_GAME");
 buttonStartGame.addEventListener("click", () => {
   SCREEN_CONTAINER_LANDING.classList.remove("screen-container--display--block");
   SCREEN_CONTAINER_LANDING.classList.add("screen-container--display--none");
@@ -14,7 +14,7 @@ buttonStartGame.addEventListener("click", () => {
   SOUNDTRACK_INTRO.play();
 });
 
-var buttonShowCredits = document.getElementById("button-show-credits");
+var buttonShowCredits = document.getElementById("BUTTON_SHOW_CREDITS");
 buttonShowCredits.addEventListener("click", () => {
   SCREEN_CONTAINER_LANDING.classList.remove("screen-container--display--block");
   SCREEN_CONTAINER_LANDING.classList.add("screen-container--display--none");

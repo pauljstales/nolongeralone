@@ -5,9 +5,7 @@
  * Copyright (c) 2021
  */
 
-var buttonFireSpecialWeapon = document.getElementById(
-  "button-fire-special-weapon"
-);
+var buttonFireSpecialWeapon = document.getElementById("BUTTON_SPECIAL_WEAPON");
 buttonFireSpecialWeapon.addEventListener("click", () => {
   console.log("special weapon fire");
   buttonFireSpecialWeapon.classList.remove("button--color--default");

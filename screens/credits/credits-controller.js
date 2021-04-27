@@ -5,7 +5,7 @@
  * Copyright (c) 2021
  */
 
-var buttonStartNewGame = document.getElementById("button-start-new-game");
+var buttonStartNewGame = document.getElementById("BUTTON_START_NEW_GAME");
 buttonStartNewGame.addEventListener("click", () => {
   SCREEN_CONTAINER_CREDITS.classList.remove("screen-container--display--block");
   SCREEN_CONTAINER_CREDITS.classList.add("screen-container--display--none");

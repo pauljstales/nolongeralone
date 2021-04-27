@@ -4,7 +4,7 @@
 
 .screen-credits--display--justifySpaceAround {
   justify-content: space-around;
-  width: 100%;
+  width: 320px;
 }
 
 .screen-credits__image-gameover {

@@ -44,16 +44,19 @@ You should have received a copy of the GNU General Public License along with thi
     />
     <meta name="subject" content="video game, technical demo" />
     <meta name="robots" content="index,follow" />
-    <meta name="author" content="Paul J Stales, pauljstales at gmail.com" />
+    <meta
+      name="author"
+      content="Paul J Stales, https://twitter.com/pauljstales"
+    />
     <meta name="copyright" content="Paul J Stales, R.J. Vince" />
     <!-- ~~~~~~~~~~~~~~~~~~~~ CSS Links ~~~~~~~~~~~~~~~~~~~~ -->
-    <link rel="stylesheet" href="/game/game.css" />
-    <link rel="stylesheet" href="/screens/landing/landing.css" />
-    <link rel="stylesheet" href="/screens/intro/intro.css" />
-    <link rel="stylesheet" href="/screens/menu/menu.css" />
-    <link rel="stylesheet" href="/screens/tutorial/tutorial.css" />
-    <link rel="stylesheet" href="/screens/battle/battle.css" />
-    <link rel="stylesheet" href="/screens/credits/credits.css" />
+    <link rel="stylesheet" href="stylesheets/game.css" />
+    <link rel="stylesheet" href="stylesheets/landing.css" />
+    <link rel="stylesheet" href="stylesheets/intro.css" />
+    <link rel="stylesheet" href="stylesheets/menu.css" />
+    <link rel="stylesheet" href="stylesheets/tutorial.css" />
+    <link rel="stylesheet" href="stylesheets/battle.css" />
+    <link rel="stylesheet" href="stylesheets/credits.css" />
     <!-- ~~~~~~~~~~~~~~~~~~~~ Font Awesome ~~~~~~~~~~~~~~~~~~~~ -->
     <link
       rel="stylesheet"
@@ -65,9 +68,9 @@ You should have received a copy of the GNU General Public License along with thi
     <title>No Longer Alone</title>
   </head>
   <body>
-    <!-- *************** SCREEN_CONTAINER_LANDING *************** -->
-    <div id="SCREEN_CONTAINER_LANDING" class="screen-container--display--block">
-      <div id="SCREEN_LANDING_1" class="screen screen--display--flexCol">
+    <!-- *************** SCREEN_LANDING *************** -->
+    <div id="SCREEN_LANDING" class="screen--display--block">
+      <div id="SCREEN_LANDING_PART_1" class="screen screen--display--flexCol">
         <label
           id="LABEL_PROGRESS_BAR"
           for="SCREEN_PROGRESS_BAR"
@@ -82,10 +85,10 @@ You should have received a copy of the GNU General Public License along with thi
           max="100"
         ></progress>
       </div>
-      <div id="SCREEN_LANDING_2" class="screen screen--display--none">
+      <div id="SCREEN_LANDING_PART_2" class="screen screen--display--none">
         <img
           class="screen__image-pewpew"
-          src="../../resources/images/pewpew-clear-green.png"
+          src="images/pewpew-clear-green.png"
           alt=""
         />
         <button
@@ -122,9 +125,9 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN_CONTAINER_INTRO *************** -->
-    <div id="SCREEN_CONTAINER_INTRO" class="screen-container--display--none">
-      <div id="SCREEN_INTRO_1" class="screen screen--display--flexCol">
+    <!-- *************** SCREEN_INTRO *************** -->
+    <div id="SCREEN_INTRO" class="screen--display--none">
+      <div id="SCREEN_INTRO_PART_1" class="screen screen--display--flexCol">
         <p
           id="INTRO_TEXT_1"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
@@ -157,13 +160,13 @@ You should have received a copy of the GNU General Public License along with thi
         </p>
         <button
           id="BUTTON_SKIP_INTRO"
-          class="button button--color--default button--color--blackgreen button__text--size--small button--width--36"
+          class="button button--color--default button--color--blackgreen button__text--size--extra-small button--width--24"
         >
           SKIP INTRO
         </button>
         <div class="screen-intro__bottom"></div>
       </div>
-      <div id="SCREEN_INTRO_2" class="screen screen--display--flexCol">
+      <div id="SCREEN_INTRO_PART_2" class="screen screen--display--flexCol">
         <p
           id="INTRO_TEXT_6"
           class="screen__text screen__text--opacity--none screen__text--size--extra-large screen__text--marginbottom-medium"
@@ -180,15 +183,15 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN_CONTAINER_MENU *************** -->
-    <div id="SCREEN_CONTAINER_MENU" class="screen-container--display--none">
+    <!-- *************** SCREEN_MENU *************** -->
+    <div id="SCREEN_MENU" class="screen--display--none">
       <div class="screen screen--display--grid screen-menu">
         <div
           class="screen-menu--grid--window screen-menu__subscreen--border--gray screen-menu__subscreen-window screen-menu__subscreen--size--full screen--display--flexRow"
         >
           <img
             class="screen__image-deepspace"
-            src="../../resources/images/window-deep-space.png"
+            src="images/window-deep-space.png"
             alt=""
           />
         </div>
@@ -198,7 +201,7 @@ You should have received a copy of the GNU General Public License along with thi
         >
           <img
             class="screen__image-admiral"
-            src="../../resources/images/comm-admiral.png"
+            src="images/comm-admiral.png"
             alt=""
           />
         </div>
@@ -235,7 +238,7 @@ You should have received a copy of the GNU General Public License along with thi
         >
           <button
             id="BUTTON_SELECT_RADAR"
-            class="button button--color--default button__text--size--small button--width--72 button--margin-5"
+            class="button button--color--default-selected button__text--size--small button--width--72 button--margin-5"
           >
             RADAR
           </button>
@@ -284,8 +287,8 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN_CONTAINER_TUTORIAL *************** -->
-    <div id="SCREEN_CONTAINER_TUTORIAL" class="screen-container--display--none">
+    <!-- *************** SCREEN_TUTORIAL *************** -->
+    <div id="SCREEN_TUTORIAL" class="screen--display--none">
       <div class="screen screen-tutorial screen--display--grid">
         <div
           class="screen-tutorial--grid--play screen-tutorial__subscreen-play screen--display--flexRow"
@@ -469,8 +472,8 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN_CONTAINER_BATTLE *************** -->
-    <div id="SCREEN_CONTAINER_BATTLE" class="screen-container--display--none">
+    <!-- *************** SCREEN_BATTLE *************** -->
+    <div id="SCREEN_BATTLE" class="screen--display--none">
       <div class="screen screen--display--grid screen-battle">
         <div
           class="screen-battle__subscreen screen-battle--grid--battlefield screen-battle__battlefield screen--display--flexRow"
@@ -607,13 +610,13 @@ You should have received a copy of the GNU General Public License along with thi
       </div>
     </div>
 
-    <!-- *************** SCREEN_CONTAINER_CREDITS *************** -->
-    <div id="SCREEN_CONTAINER_CREDITS" class="screen-container--display--none">
+    <!-- *************** SCREEN_CREDITS *************** -->
+    <div id="SCREEN_CREDITS" class="screen--display--none">
       <div class="screen screen--display--flexCol screen-credits">
         <div class="screen-credits__image">
           <img
             class="screen-credits__image-gameover"
-            src="../../resources/images/game-over-alt-clear.png"
+            src="images/game-over-alt-clear.png"
             alt=""
           />
         </div>
@@ -693,25 +696,38 @@ You should have received a copy of the GNU General Public License along with thi
     </div>
 
     <div id="scripts">
-      <script src="/game/game.js"></script>
-      <script src="/screens/landing/landing-model.js"></script>
-      <script src="/screens/landing/landing-view.js"></script>
-      <script src="/screens/landing/landing-controller.js"></script>
-      <script src="/screens/intro/intro-model.js"></script>
-      <script src="/screens/intro/intro-view.js"></script>
-      <script src="/screens/intro/intro-controller.js"></script>
-      <script src="/screens/menu/menu-model.js"></script>
-      <script src="/screens/menu/menu-view.js"></script>
-      <script src="/screens/menu/menu-controller.js"></script>
-      <script src="/screens/tutorial/tutorial-model.js"></script>
-      <script src="/screens/tutorial/tutorial-view.js"></script>
-      <script src="/screens/tutorial/tutorial-controller.js"></script>
-      <script src="/screens/battle/battle-model.js"></script>
-      <script src="/screens/battle/battle-view.js"></script>
-      <script src="/screens/battle/battle-controller.js"></script>
-      <script src="/screens/credits/credits-model.js"></script>
-      <script src="/screens/credits/credits-view.js"></script>
-      <script src="/screens/credits/credits-controller.js"></script>
+      <script type="module" src="modules/game.js"></script>
+      <!--
+      <script type="module" src="modules/landing/landing-model.js"></script>
+      <script type="module" src="modules/landing/landing-view.js"></script>
+      <script
+        type="module"
+        src="modules/landing/landing-controller.js"
+      ></script>
+      <script type="module" src="modules/intro/intro-model.js"></script>
+      <script type="module" src="modules/intro/intro-view.js"></script>
+      <script type="module" src="modules/intro/intro-controller.js"></script>
+
+      <script type="module" src="modules/menu/menu-model.js"></script>
+      <script type="module" src="modules/menu/menu-view.js"></script>
+      <script type="module" src="modules/menu/menu-controller.js"></script>
+
+      <script type="module" src="modules/tutorial/tutorial-model.js"></script>
+      <script type="module" src="modules/tutorial/tutorial-view.js"></script>
+      <script
+        type="module"
+        src="modules/tutorial/tutorial-controller.js"
+      ></script>
+      <script type="module" src="modules/battle/battle-model.js"></script>
+      <script type="module" src="modules/battle/battle-view.js"></script>
+      <script type="module" src="modules/battle/battle-controller.js"></script>
+      <script type="module" src="modules/credits/credits-model.js"></script>
+      <script type="module" src="modules/credits/credits-view.js"></script>
+      <script
+        type="module"
+        src="modules/credits/credits-controller.js"
+      ></script>
+      -->
     </div>
   </body>
 </html>

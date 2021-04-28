@@ -1,0 +1,150 @@
+/* ************************ */
+/* Font Import              */
+/* ************************ */
+
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+
+.screen__text--font--monospace {
+  font-family: "Courier Prime", monospace;
+}
+
+/* ************************ */
+/* Grid Setup               */
+/* ************************ */
+
+.screen-menu {
+  grid-template-areas:
+    "win win"
+    "adm mss"
+    "sbt wep"
+    "tut bat"
+    "btm btm";
+}
+
+.screen-menu--grid--window {
+  grid-area: win; /* row 1 */
+}
+
+.screen-menu--grid--admiral {
+  grid-area: adm; /* row 2, col 1 */
+}
+
+.screen-menu--grid--mission {
+  grid-area: mss; /* row 2, col 2 */
+}
+
+.screen-menu--grid--subtitles {
+  grid-area: sbt; /* row 3, col 1 */
+}
+
+.screen-menu--grid--weapons {
+  grid-area: wep; /* row 3, col 2 */
+}
+
+.screen-menu--grid--tutorial {
+  grid-area: tut; /* row 4, col 1 */
+}
+
+.screen-menu--grid--battle {
+  grid-area: bat; /* row 4, col 2 */
+}
+
+.screen-menu--grid--bottom {
+  grid-area: btm; /* row 5 */
+}
+
+/* ****************************** */
+/* Screen Subscreen               */
+/* ****************************** */
+
+.screen-menu__subscreen--border--gray {
+  box-sizing: border-box;
+  border: 1px solid var(--color-gray-light);
+}
+
+.screen-menu__subscreen-window {
+  height: 25vh;
+  width: 100vw;
+}
+
+.screen-menu__subscreen-admiral {
+  height: 25vh;
+  width: 50vw;
+}
+
+.screen-menu__subscreen-mission {
+  height: 25vh;
+  width: 50vw;
+  padding: 1%;
+}
+
+.screen-menu__subscreen-subtitles {
+  height: 25vh;
+  width: 50vw;
+  padding: 1%;
+}
+
+.screen-menu__subscreen-weapons {
+  height: 25vh;
+  width: 50vw;
+}
+
+.screen-menu__subscreen-tutorial {
+  height: 10vh;
+  width: 50vw;
+}
+
+.screen-menu__subscreen-battle {
+  height: 10vh;
+  width: 50vw;
+}
+
+.screen-menu__subscreen-bottom {
+  background-color: blue;
+  height: 15vh;
+  width: 100vw;
+}
+
+/* ****************************** */
+/* Media Queries for Max Width    */
+/* ****************************** */
+
+@media screen and (min-width: 400px) {
+  .screen-menu__subscreen--size--half {
+    max-width: 285px; /* Tablet, screen is max 570px */
+  }
+  .screen-menu__subscreen--size--full {
+    max-width: 570px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .screen-menu__subscreen--size--half {
+    max-width: 384px; /* Laptop and Desktop, screen is max 768px */
+  }
+  .screen-menu__subscreen--size--full {
+    max-width: 768px;
+  }
+}
+
+/* ************************ */
+/* Images                   */
+/* ************************ */
+
+.screen__image-deepspace {
+  height: 100%;
+  width: 100%;
+}
+
+.screen__image-admiral {
+  height: 100%;
+  width: 100%;
+}
+
+/* ************************************** */
+/* Button CSS                             */
+/* ************************************** */
+
+.button--margin-5 {
+  margin: 5%;
+}

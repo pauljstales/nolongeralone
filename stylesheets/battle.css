@@ -1,0 +1,136 @@
+/* ************************ */
+/* Grid Setup               */
+/* ************************ */
+
+.screen-battle {
+  grid-template-areas:
+    "btl btl btl"
+    "stt stt stt"
+    "tmr nrg wep"
+    "btm btm btm";
+}
+
+.screen-battle--grid--battlefield {
+  grid-area: btl; /* row 1 */
+}
+
+.screen-battle--grid--shot-status {
+  grid-area: stt; /* row 2 */
+}
+
+.screen-battle--grid--timer {
+  grid-area: tmr; /* row 3, col 1 */
+}
+
+.screen-battle--grid--energy {
+  grid-area: nrg; /* row 3, col 2 */
+}
+
+.screen-battle--grid--weapon {
+  grid-area: wep; /* row 3, col 3 */
+}
+
+.screen-battle--grid--bottom {
+  grid-area: btm; /* row 4 */
+}
+
+/* ****************************** */
+/* Screen Subscreen               */
+/* ****************************** */
+
+.screen-battle__subscreen {
+  box-sizing: border-box;
+  border: 2px solid var(--color-gray-light);
+}
+
+/* ****************************** */
+/* Battlefield and Cells          */
+/* ****************************** */
+
+.screen-battle__battlefield {
+  height: 100%;
+  width: 100%;
+}
+
+.battlefield {
+  border-collapse: collapse; /* table */
+  max-height: calc(7 * 45px);
+  max-width: calc(7 * 45px);
+}
+
+.screen-battle__cell {
+  border: 1px solid var(--color-green); /* td */
+  height: 45px;
+  width: 45px;
+}
+
+/* *************************************** */
+/* Media Queries                           */
+/* Cells are either 45, 60, 80, or 100 px  */
+/* *************************************** */
+
+@media screen and (min-width: 400px) {
+  .battlefield {
+    max-height: calc(7 * 60px);
+    max-width: calc(7 * 60px);
+  }
+  .screen-battle__cell {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .battlefield {
+    max-height: calc(7 * 80px);
+    max-width: calc(7 * 80px);
+  }
+  .screen-battle__cell {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .battlefield {
+    max-height: calc(7 * 100px);
+    max-width: calc(7 * 100px);
+  }
+  .screen-battle__cell {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+/* ****************************** */
+/* User Controls                  */
+/* ****************************** */
+
+.screen-battle__shot-status {
+  height: 100%;
+  width: 100%;
+}
+
+.screen-battle__timer {
+  height: 100%;
+  width: 100%;
+}
+
+.screen-battle__energy {
+  height: 100%;
+  width: 100%;
+}
+
+.screen-battle__weapon {
+  height: 100%;
+  width: 100%;
+}
+
+/* ****************************** */
+/* Bottom Div                     */
+/* ****************************** */
+
+.screen-battle__bottom {
+  height: 100%;
+  width: 100%;
+}

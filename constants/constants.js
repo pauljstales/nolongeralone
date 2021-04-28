@@ -5,78 +5,150 @@
  * Copyright (c) 2021
  */
 
-var constants = {
-  html: {
-    SCREEN_CONTAINER_LANDING: document.getElementById(
-      "SCREEN_CONTAINER_LANDING"
-    ),
-    SCREEN_LANDING_1: document.getElementById("SCREEN_LANDING_1"),
-    LABEL_PROGRESS_BAR: document.getElementById("LABEL_PROGRESS_BAR"),
-    SCREEN_PROGRESS_BAR: document.getElementById("SCREEN_PROGRESS_BAR"),
-    SCREEN_LANDING_2: document.getElementById("SCREEN_LANDING_2"),
-    BUTTON_START_GAME: document.getElementById("BUTTON_START_GAME"),
-    BUTTON_SHOW_CREDITS: document.getElementById("BUTTON_SHOW_CREDITS"),
-    SELECT_LANGUAGE: document.getElementById("SELECT_LANGUAGE"),
-    SCREEN_CONTAINER_INTRO: document.getElementById("SCREEN_CONTAINER_INTRO"),
-    SCREEN_INTRO_1: document.getElementById("SCREEN_INTRO_1"),
-    INTRO_TEXT_1: document.getElementById("INTRO_TEXT_1"),
-    INTRO_TEXT_2: document.getElementById("INTRO_TEXT_2"),
-    INTRO_TEXT_3: document.getElementById("INTRO_TEXT_3"),
-    INTRO_TEXT_4: document.getElementById("INTRO_TEXT_4"),
-    INTRO_TEXT_5: document.getElementById("INTRO_TEXT_5"),
-    BUTTON_SKIP_INTRO: document.getElementById("BUTTON_SKIP_INTRO"),
-    SCREEN_INTRO_2: document.getElementById("SCREEN_INTRO_2"),
-    INTRO_TEXT_6: document.getElementById("INTRO_TEXT_6"),
-    BUTTON_PREPAREFORBATTLE: document.getElementById("BUTTON_PREPAREFORBATTLE"),
-    SCREEN_CONTAINER_MENU: document.getElementById("SCREEN_CONTAINER_MENU"),
-    MENU_TEXT_SUBTITLES: document.getElementById("MENU_TEXT_SUBTITLES"),
-    MENU_TEXT_MISSION: document.getElementById("MENU_TEXT_MISSION"),
-    BUTTON_SELECT_RADAR: document.getElementById("BUTTON_SELECT_RADAR"),
-    BUTTON_SELECT_EMP: document.getElementById("BUTTON_SELECT_EMP"),
-    BUTTON_SELECT_PAUL: document.getElementById("BUTTON_SELECT_PAUL"),
-    BUTTON_START_TUTORIAL: document.getElementById("BUTTON_START_TUTORIAL"),
-    SCREEN_CONTAINER_TUTORIAL: document.getElementById(
-      "SCREEN_CONTAINER_TUTORIAL"
-    ),
-    BUTTON_HOW_TO_PLAY: document.getElementById("BUTTON_HOW_TO_PLAY"),
-    BUTTON_HOW_TO_WIN: document.getElementById("BUTTON_HOW_TO_WIN"),
-    BUTTON_HOW_TO_LOSE: document.getElementById("BUTTON_HOW_TO_LOSE"),
-    BUTTON_SPECIAL_WEAPONS: document.getElementById("BUTTON_SPECIAL_WEAPONS"),
-    BUTTON_OTHER: document.getElementById("BUTTON_OTHER"),
-    BUTTON_RETURN_TO_MENU: document.getElementById("BUTTON_RETURN_TO_MENU"),
-    TUTORIAL_TEXT_DEFAULT: document.getElementById("TUTORIAL_TEXT_DEFAULT"),
-    TUTORIAL_TEXT_HOWTOPLAY: document.getElementById("TUTORIAL_TEXT_HOWTOPLAY"),
-    TUTORIAL_TEXT_HOWTOWIN: document.getElementById("TUTORIAL_TEXT_HOWTOWIN"),
-    TUTORIAL_TEXT_HOWTOLOSE: document.getElementById("TUTORIAL_TEXT_HOWTOLOSE"),
-    TUTORIAL_TEXT_WEAPONS: document.getElementById("TUTORIAL_TEXT_WEAPONS"),
-    TUTORIAL_TEXT_OTHER: document.getElementById("TUTORIAL_TEXT_OTHER"),
-    SCREEN_CONTAINER_BATTLE: document.getElementById("SCREEN_CONTAINER_BATTLE"),
-    BATTLE_TEXT_SHOT_STATUS_TITLE: document.getElementById(
-      "BATTLE_TEXT_SHOT_STATUS_TITLE"
-    ),
-    BATTLE_TEXT_SHOT_STATUS_TEXT: document.getElementById(
-      "BATTLE_TEXT_SHOT_STATUS_TEXT"
-    ),
-    BATTLE_TEXT_TIMER_TITLE: document.getElementById("BATTLE_TEXT_TIMER_TITLE"),
-    BATTLE_TEXT_TIMER_TEXT: document.getElementById("BATTLE_TEXT_TIMER_TEXT"),
-    BATTLE_TEXT_ENERGY_TITLE: document.getElementById(
-      "BATTLE_TEXT_ENERGY_TITLE"
-    ),
-    BATTLE_TEXT_ENERGY_TEXT: document.getElementById("BATTLE_TEXT_ENERGY_TEXT"),
-    BUTTON_SPECIAL_WEAPON: document.getElementById("BUTTON_SPECIAL_WEAPON"),
-    SCREEN_CONTAINER_CREDITS: document.getElementById(
-      "SCREEN_CONTAINER_CREDITS"
-    ),
-    CREDITS_TEXT_PROGRAMMING: document.getElementById(
-      "CREDITS_TEXT_PROGRAMMING"
-    ),
-    CREDITS_TEXT_ART: document.getElementById("CREDITS_TEXT_ART"),
-    CREDITS_TEXT_OTHERS: document.getElementById("CREDITS_TEXT_OTHERS"),
-    BUTTON_START_NEW_GAME: document.getElementById("BUTTON_START_NEW_GAME"),
+/**
+ * This constants object will be used throughout the game to allow JavaScript code to refer to HTML, CSS, and the Battlefield from one central object, rather than hard-coded strings.
+ */
+const CONSTANTS = {
+  HTML: {
+    LANDING: {
+      SCREEN_LANDING: document.getElementById("SCREEN_LANDING"),
+      SCREEN_LANDING_PART_1: document.getElementById("SCREEN_LANDING_PART_1"),
+      LABEL_PROGRESS_BAR: document.getElementById("LABEL_PROGRESS_BAR"),
+      SCREEN_PROGRESS_BAR: document.getElementById("SCREEN_PROGRESS_BAR"),
+      SCREEN_LANDING_PART_2: document.getElementById("SCREEN_LANDING_PART_2"),
+      BUTTON_START_GAME: document.getElementById("BUTTON_START_GAME"),
+      BUTTON_SHOW_CREDITS: document.getElementById("BUTTON_SHOW_CREDITS"),
+      SELECT_LANGUAGE: document.getElementById("SELECT_LANGUAGE"),
+    },
+    INTRO: {
+      SCREEN_INTRO: document.getElementById("SCREEN_INTRO"),
+      SCREEN_INTRO_PART_1: document.getElementById("SCREEN_INTRO_PART_1"),
+      INTRO_TEXT_1: document.getElementById("INTRO_TEXT_1"),
+      INTRO_TEXT_2: document.getElementById("INTRO_TEXT_2"),
+      INTRO_TEXT_3: document.getElementById("INTRO_TEXT_3"),
+      INTRO_TEXT_4: document.getElementById("INTRO_TEXT_4"),
+      INTRO_TEXT_5: document.getElementById("INTRO_TEXT_5"),
+      BUTTON_SKIP_INTRO: document.getElementById("BUTTON_SKIP_INTRO"),
+      SCREEN_INTRO_PART_2: document.getElementById("SCREEN_INTRO_PART_2"),
+      INTRO_TEXT_6: document.getElementById("INTRO_TEXT_6"),
+      BUTTON_PREPAREFORBATTLE: document.getElementById(
+        "BUTTON_PREPAREFORBATTLE"
+      ),
+    },
+    MENU: {
+      SCREEN_MENU: document.getElementById("SCREEN_MENU"),
+      MENU_TEXT_SUBTITLES: document.getElementById("MENU_TEXT_SUBTITLES"),
+      MENU_TEXT_MISSION: document.getElementById("MENU_TEXT_MISSION"),
+      BUTTON_SELECT_RADAR: document.getElementById("BUTTON_SELECT_RADAR"),
+      BUTTON_SELECT_EMP: document.getElementById("BUTTON_SELECT_EMP"),
+      BUTTON_SELECT_PAUL: document.getElementById("BUTTON_SELECT_PAUL"),
+      BUTTON_START_TUTORIAL: document.getElementById("BUTTON_START_TUTORIAL"),
+      BUTTON_START_BATTLE: document.getElementById("BUTTON_START_BATTLE"),
+    },
+    TUTORIAL: {
+      SCREEN_TUTORIAL: document.getElementById("SCREEN_TUTORIAL"),
+      BUTTON_HOW_TO_PLAY: document.getElementById("BUTTON_HOW_TO_PLAY"),
+      BUTTON_HOW_TO_WIN: document.getElementById("BUTTON_HOW_TO_WIN"),
+      BUTTON_HOW_TO_LOSE: document.getElementById("BUTTON_HOW_TO_LOSE"),
+      BUTTON_SPECIAL_WEAPONS: document.getElementById("BUTTON_SPECIAL_WEAPONS"),
+      BUTTON_OTHER: document.getElementById("BUTTON_OTHER"),
+      BUTTON_RETURN_TO_MENU: document.getElementById("BUTTON_RETURN_TO_MENU"),
+      TUTORIAL_TEXT_DEFAULT: document.getElementById("TUTORIAL_TEXT_DEFAULT"),
+      TUTORIAL_TEXT_HOWTOPLAY: document.getElementById(
+        "TUTORIAL_TEXT_HOWTOPLAY"
+      ),
+      TUTORIAL_TEXT_HOWTOWIN: document.getElementById("TUTORIAL_TEXT_HOWTOWIN"),
+      TUTORIAL_TEXT_HOWTOLOSE: document.getElementById(
+        "TUTORIAL_TEXT_HOWTOLOSE"
+      ),
+      TUTORIAL_TEXT_WEAPONS: document.getElementById("TUTORIAL_TEXT_WEAPONS"),
+      TUTORIAL_TEXT_OTHER: document.getElementById("TUTORIAL_TEXT_OTHER"),
+    },
+    BATTLE: {
+      SCREEN_BATTLE: document.getElementById("SCREEN_BATTLE"),
+      BATTLEFIELD_GRID: {
+        TABLE_BATTLEFIELD: document.getElementById("TABLE_BATTLEFIELD"),
+        R0_C0: document.getElementById("R0_C0"),
+        R0_C1: document.getElementById("R0_C1"),
+        R0_C2: document.getElementById("R0_C2"),
+        R0_C3: document.getElementById("R0_C3"),
+        R0_C4: document.getElementById("R0_C4"),
+        R0_C5: document.getElementById("R0_C5"),
+        R0_C6: document.getElementById("R0_C6"),
+        R1_C0: document.getElementById("R1_C0"),
+        R1_C1: document.getElementById("R1_C1"),
+        R1_C2: document.getElementById("R1_C2"),
+        R1_C3: document.getElementById("R1_C3"),
+        R1_C4: document.getElementById("R1_C4"),
+        R1_C5: document.getElementById("R1_C5"),
+        R1_C6: document.getElementById("R1_C6"),
+        R2_C0: document.getElementById("R2_C0"),
+        R2_C1: document.getElementById("R2_C1"),
+        R2_C2: document.getElementById("R2_C2"),
+        R2_C3: document.getElementById("R2_C3"),
+        R2_C4: document.getElementById("R2_C4"),
+        R2_C5: document.getElementById("R2_C5"),
+        R2_C6: document.getElementById("R2_C6"),
+        R3_C0: document.getElementById("R3_C0"),
+        R3_C1: document.getElementById("R3_C1"),
+        R3_C2: document.getElementById("R3_C2"),
+        R3_C3: document.getElementById("R3_C3"),
+        R3_C4: document.getElementById("R3_C4"),
+        R3_C5: document.getElementById("R3_C5"),
+        R3_C6: document.getElementById("R3_C6"),
+        R4_C0: document.getElementById("R4_C0"),
+        R4_C1: document.getElementById("R4_C1"),
+        R4_C2: document.getElementById("R4_C2"),
+        R4_C3: document.getElementById("R4_C3"),
+        R4_C4: document.getElementById("R4_C4"),
+        R4_C5: document.getElementById("R4_C5"),
+        R4_C6: document.getElementById("R4_C6"),
+        R5_C0: document.getElementById("R5_C0"),
+        R5_C1: document.getElementById("R5_C1"),
+        R5_C2: document.getElementById("R5_C2"),
+        R5_C3: document.getElementById("R5_C3"),
+        R5_C4: document.getElementById("R5_C4"),
+        R5_C5: document.getElementById("R5_C5"),
+        R5_C6: document.getElementById("R5_C6"),
+        R6_C0: document.getElementById("R6_C0"),
+        R6_C1: document.getElementById("R6_C1"),
+        R6_C2: document.getElementById("R6_C2"),
+        R6_C3: document.getElementById("R6_C3"),
+        R6_C4: document.getElementById("R6_C4"),
+        R6_C5: document.getElementById("R6_C5"),
+        R6_C6: document.getElementById("R6_C6"),
+      },
+      BATTLE_TEXT_SHOT_STATUS_TITLE: document.getElementById(
+        "BATTLE_TEXT_SHOT_STATUS_TITLE"
+      ),
+      BATTLE_TEXT_SHOT_STATUS_TEXT: document.getElementById(
+        "BATTLE_TEXT_SHOT_STATUS_TEXT"
+      ),
+      BATTLE_TEXT_TIMER_TITLE: document.getElementById(
+        "BATTLE_TEXT_TIMER_TITLE"
+      ),
+      BATTLE_TEXT_TIMER_TEXT: document.getElementById("BATTLE_TEXT_TIMER_TEXT"),
+      BATTLE_TEXT_ENERGY_TITLE: document.getElementById(
+        "BATTLE_TEXT_ENERGY_TITLE"
+      ),
+      BATTLE_TEXT_ENERGY_TEXT: document.getElementById(
+        "BATTLE_TEXT_ENERGY_TEXT"
+      ),
+      BUTTON_SPECIAL_WEAPON: document.getElementById("BUTTON_SPECIAL_WEAPON"),
+    },
+    CREDITS: {
+      SCREEN_CREDITS: document.getElementById("SCREEN_CREDITS"),
+      CREDITS_TEXT_PROGRAMMING: document.getElementById(
+        "CREDITS_TEXT_PROGRAMMING"
+      ),
+      CREDITS_TEXT_ART: document.getElementById("CREDITS_TEXT_ART"),
+      CREDITS_TEXT_OTHERS: document.getElementById("CREDITS_TEXT_OTHERS"),
+      BUTTON_START_NEW_GAME: document.getElementById("BUTTON_START_NEW_GAME"),
+    },
   },
-  css: {
-    SCREEN_CONTAINER_DISPLAY_BLOCK: "screen-container--display--block",
-    SCREEN_CONTAINER_DISPLAY_NONE: "screen-container--display--none",
+  CSS: {
+    SCREEN_DISPLAY_BLOCK: "screen--display--block",
+    SCREEN_DISPLAY_NONE: "screen--display--none",
     SCREEN: "screen",
     SCREEN_DISPLAY_FLEXROW: "screen--display--flexRow",
     SCREEN_DISPLAY_FLEXCOL: "screen--display--flexCol",
@@ -188,56 +260,6 @@ var constants = {
     SOCIAL_MEDIA_LINK: "social-media-link",
     SCREEN_CREDITS_IMAGE_GAMEOVER: "screen-credits__image-gameover",
   },
-  battlefield: {
-    TABLE_BATTLEFIELD: document.getElementById("TABLE_BATTLEFIELD"),
-    R0_C0: document.getElementById("R0_C0"),
-    R0_C1: document.getElementById("R0_C1"),
-    R0_C2: document.getElementById("R0_C2"),
-    R0_C3: document.getElementById("R0_C3"),
-    R0_C4: document.getElementById("R0_C4"),
-    R0_C5: document.getElementById("R0_C5"),
-    R0_C6: document.getElementById("R0_C6"),
-    R1_C0: document.getElementById("R1_C0"),
-    R1_C1: document.getElementById("R1_C1"),
-    R1_C2: document.getElementById("R1_C2"),
-    R1_C3: document.getElementById("R1_C3"),
-    R1_C4: document.getElementById("R1_C4"),
-    R1_C5: document.getElementById("R1_C5"),
-    R1_C6: document.getElementById("R1_C6"),
-    R2_C0: document.getElementById("R2_C0"),
-    R2_C1: document.getElementById("R2_C1"),
-    R2_C2: document.getElementById("R2_C2"),
-    R2_C3: document.getElementById("R2_C3"),
-    R2_C4: document.getElementById("R2_C4"),
-    R2_C5: document.getElementById("R2_C5"),
-    R2_C6: document.getElementById("R2_C6"),
-    R3_C0: document.getElementById("R3_C0"),
-    R3_C1: document.getElementById("R3_C1"),
-    R3_C2: document.getElementById("R3_C2"),
-    R3_C3: document.getElementById("R3_C3"),
-    R3_C4: document.getElementById("R3_C4"),
-    R3_C5: document.getElementById("R3_C5"),
-    R3_C6: document.getElementById("R3_C6"),
-    R4_C0: document.getElementById("R4_C0"),
-    R4_C1: document.getElementById("R4_C1"),
-    R4_C2: document.getElementById("R4_C2"),
-    R4_C3: document.getElementById("R4_C3"),
-    R4_C4: document.getElementById("R4_C4"),
-    R4_C5: document.getElementById("R4_C5"),
-    R4_C6: document.getElementById("R4_C6"),
-    R5_C0: document.getElementById("R5_C0"),
-    R5_C1: document.getElementById("R5_C1"),
-    R5_C2: document.getElementById("R5_C2"),
-    R5_C3: document.getElementById("R5_C3"),
-    R5_C4: document.getElementById("R5_C4"),
-    R5_C5: document.getElementById("R5_C5"),
-    R5_C6: document.getElementById("R5_C6"),
-    R6_C0: document.getElementById("R6_C0"),
-    R6_C1: document.getElementById("R6_C1"),
-    R6_C2: document.getElementById("R6_C2"),
-    R6_C3: document.getElementById("R6_C3"),
-    R6_C4: document.getElementById("R6_C4"),
-    R6_C5: document.getElementById("R6_C5"),
-    R6_C6: document.getElementById("R6_C6"),
-  },
 };
+
+export { CONSTANTS };

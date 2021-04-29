@@ -20,7 +20,7 @@
 
   --color-green: #53ff53;
   --color-black: #000000;
-  --color-gray-dark: #383535;
+  --color-gray-dark: #222121;
   --color-gray: #788585;
   --color-gray-light: #9caea9;
   --color-red-dark: #770000;
@@ -171,12 +171,6 @@ body {
   background-color: var(--color-red-dark);
   color: var(--color-red-light);
   border: 2px var(--color-red-light) solid;
-}
-
-.button--color--red-inverse {
-  background-color: var(--color-red-light);
-  color: var(--color-red-dark);
-  border: 2px var(--color-red-dark) solid;
 }
 
 /* ********** Button Text Size ********** */

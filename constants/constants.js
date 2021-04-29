@@ -40,6 +40,7 @@ const CONSTANTS = {
       SCREEN_MENU: document.getElementById("SCREEN_MENU"),
       MENU_TEXT_SUBTITLES: document.getElementById("MENU_TEXT_SUBTITLES"),
       MENU_TEXT_MISSION: document.getElementById("MENU_TEXT_MISSION"),
+      CHOOSE_SPECIAL_WEAPON: document.getElementById("CHOOSE_SPECIAL_WEAPON"),
       BUTTON_SELECT_RADAR: document.getElementById("BUTTON_SELECT_RADAR"),
       BUTTON_SELECT_EMP: document.getElementById("BUTTON_SELECT_EMP"),
       BUTTON_SELECT_PAUL: document.getElementById("BUTTON_SELECT_PAUL"),

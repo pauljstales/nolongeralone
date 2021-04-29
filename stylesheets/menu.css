@@ -154,3 +154,24 @@
 .button--margin-5 {
   margin: 5%;
 }
+
+@keyframes flashEnterBattleButton {
+  from {
+    background-color: var(--color-red-dark);
+    color: var(--color-red-light);
+    border: 2px var(--color-red-light) solid;
+  }
+  to {
+    background-color: #9e1111;
+    color: #ff6b6b;
+    border: 2px #ff6b6b solid;
+  }
+}
+
+#BUTTON_START_BATTLE {
+  background-color: transparent;
+  animation-duration: 1s;
+  animation-name: flashEnterBattleButton;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

@@ -10,6 +10,7 @@ import { SOUND } from "../../sound/sound-manager.js";
 import { CREDITS_MODEL } from "/modules/credits/credits-model.js";
 import { CREDITS_VIEW } from "/modules/credits/credits-view.js";
 import { INTRO_VIEW } from "/modules/intro/intro-view.js";
+import { STARFIELD } from "../starfield.js";
 
 const CREDITS_CONTROLLER = {
   registerEventListeners: registerEventListeners,
@@ -25,6 +26,7 @@ function registerButtonStartNewGameEventListener() {
     SOUND.stopAudio(SOUND.MUSIC.CREDITS);
     SOUND.playAudio(SOUND.MUSIC.INTRO);
     INTRO_VIEW.loadIntroScrollingText();
+    STARFIELD.activate();
   });
 }
 

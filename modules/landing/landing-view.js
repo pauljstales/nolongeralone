@@ -8,6 +8,7 @@
 import { CONSTANTS } from "../../constants/constants.js";
 import { LANDING_MODEL } from "/modules/landing/landing-model.js";
 import { LANDING_CONTROLLER } from "/modules/landing/landing-controller.js";
+import { STARFIELD } from "../starfield.js";
 
 /**
  * Shows the progress bar load, controlled by variable "TIME_PER_INTERVAL".
@@ -23,6 +24,7 @@ function loadProgressBar() {
     if (processBarPercentage >= 101) {
       hideLandingScreenPart1();
       showLandingScreenPart2();
+      STARFIELD.activate();
       clearInterval(processBarPercentageInterval);
     }
   }, TIME_PER_INTERVAL);

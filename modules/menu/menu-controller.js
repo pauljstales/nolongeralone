@@ -9,6 +9,7 @@ import { CONSTANTS } from "../../constants/constants.js";
 import { SOUND } from "../../sound/sound-manager.js";
 import { MENU_MODEL } from "/modules/menu/menu-model.js";
 import { MENU_VIEW } from "/modules/menu/menu-view.js";
+import { STARFIELD } from "../starfield.js";
 
 /**
  * Exportable controller for the menu screen
@@ -35,6 +36,7 @@ function registerButtonStartTutorialEventListener() {
     SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
+    STARFIELD.activate();
   });
 }
 
@@ -47,6 +49,7 @@ function registerButtonStartBattleEventListener() {
     SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
+    STARFIELD.activate();
   });
 }
 

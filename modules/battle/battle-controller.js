@@ -9,6 +9,7 @@ import { CONSTANTS } from "../../constants/constants.js";
 import { SOUND } from "../../sound/sound-manager.js";
 import { BATTLE_MODEL } from "/modules/battle/battle-model.js";
 import { BATTLE_VIEW } from "/modules/battle/battle-view.js";
+import { STARFIELD } from "../starfield.js";
 
 const BATTLE_CONTROLLER = {
   registerEventListeners: registerEventListeners,

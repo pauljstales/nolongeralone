@@ -10,6 +10,7 @@
  */
 const CONSTANTS = {
   HTML: {
+    STARFIELD: document.getElementById("STARFIELD"),
     LANDING: {
       SCREEN_LANDING: document.getElementById("SCREEN_LANDING"),
       SCREEN_LANDING_PART_1: document.getElementById("SCREEN_LANDING_PART_1"),

@@ -9,6 +9,7 @@ import { CONSTANTS } from "../../constants/constants.js";
 import { SOUND } from "../../sound/sound-manager.js";
 import { TUTORIAL_MODEL } from "/modules/tutorial/tutorial-model.js";
 import { TUTORIAL_VIEW } from "/modules/tutorial/tutorial-view.js";
+import { STARFIELD } from "../starfield.js";
 
 const TUTORIAL_CONTROLLER = {
   registerEventListeners: registerEventListeners,
@@ -75,6 +76,7 @@ function addButtonReturnToMenuEventListener() {
       TUTORIAL_VIEW.returnToMenu();
       //SOUND.stopAudio(SOUND.MUSIC.TUTORIAL); //not implemented yet
       SOUND.playAudio(SOUND.MUSIC.MENU);
+      STARFIELD.activate();
     }
   );
 }

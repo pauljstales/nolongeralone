@@ -51,6 +51,7 @@ You should have received a copy of the GNU General Public License along with thi
     <meta name="copyright" content="Paul J Stales, R.J. Vince" />
     <!-- ~~~~~~~~~~~~~~~~~~~~ CSS Links ~~~~~~~~~~~~~~~~~~~~ -->
     <link rel="stylesheet" href="stylesheets/game.css" />
+    <link rel="stylesheet" href="stylesheets/starfield.css" />
     <link rel="stylesheet" href="stylesheets/landing.css" />
     <link rel="stylesheet" href="stylesheets/intro.css" />
     <link rel="stylesheet" href="stylesheets/menu.css" />
@@ -68,6 +69,14 @@ You should have received a copy of the GNU General Public License along with thi
     <title>No Longer Alone</title>
   </head>
   <body>
+    <!-- 
+      If you are asking "why is everything in one index.html?" 
+      The answers are
+      1 This is a no-framework project
+      2 iOS won't play music unless the user interacted with the current page, and this was the best no-framework solution
+    -->
+    <!-- *************** SCREEN_LANDING *************** -->
+    <div id="STARFIELD" class="starfield"></div>
     <!-- *************** SCREEN_LANDING *************** -->
     <div id="SCREEN_LANDING" class="screen--display--block">
       <div id="SCREEN_LANDING_PART_1" class="screen screen--display--flexCol">
@@ -166,7 +175,7 @@ You should have received a copy of the GNU General Public License along with thi
         </button>
         <div class="screen-intro__bottom"></div>
       </div>
-      <div id="SCREEN_INTRO_PART_2" class="screen screen--display--flexCol">
+      <div id="SCREEN_INTRO_PART_2" class="screen screen--display--none">
         <p
           id="INTRO_TEXT_6"
           class="screen__text screen__text--opacity--none screen__text--size--extra-large screen__text--marginbottom-medium"
@@ -281,9 +290,7 @@ You should have received a copy of the GNU General Public License along with thi
 
         <div
           class="screen-menu--grid--bottom screen-menu__subscreen--border--gray screen-menu__subscreen-bottom screen-menu__subscreen--size--full screen--display--flexRow"
-        >
-          <p>btm</p>
-        </div>
+        ></div>
       </div>
     </div>
 
@@ -466,9 +473,7 @@ You should have received a copy of the GNU General Public License along with thi
         </div>
         <div
           class="screen-tutorial--grid--bottom screen-tutorial__subscreen-bottom"
-        >
-          bottom space
-        </div>
+        ></div>
       </div>
     </div>
 
@@ -604,9 +609,7 @@ You should have received a copy of the GNU General Public License along with thi
         </div>
         <div
           class="screen-battle__subscreen screen-battle--grid--bottom screen-battle__bottom"
-        >
-          bottom
-        </div>
+        ></div>
       </div>
     </div>
 
@@ -691,43 +694,12 @@ You should have received a copy of the GNU General Public License along with thi
             START NEW GAME
           </button>
         </div>
-        <div class="screen-credits__btm">btm</div>
+        <div class="screen-credits__btm"></div>
       </div>
     </div>
 
     <div id="scripts">
       <script type="module" src="modules/game.js"></script>
-      <!--
-      <script type="module" src="modules/landing/landing-model.js"></script>
-      <script type="module" src="modules/landing/landing-view.js"></script>
-      <script
-        type="module"
-        src="modules/landing/landing-controller.js"
-      ></script>
-      <script type="module" src="modules/intro/intro-model.js"></script>
-      <script type="module" src="modules/intro/intro-view.js"></script>
-      <script type="module" src="modules/intro/intro-controller.js"></script>
-
-      <script type="module" src="modules/menu/menu-model.js"></script>
-      <script type="module" src="modules/menu/menu-view.js"></script>
-      <script type="module" src="modules/menu/menu-controller.js"></script>
-
-      <script type="module" src="modules/tutorial/tutorial-model.js"></script>
-      <script type="module" src="modules/tutorial/tutorial-view.js"></script>
-      <script
-        type="module"
-        src="modules/tutorial/tutorial-controller.js"
-      ></script>
-      <script type="module" src="modules/battle/battle-model.js"></script>
-      <script type="module" src="modules/battle/battle-view.js"></script>
-      <script type="module" src="modules/battle/battle-controller.js"></script>
-      <script type="module" src="modules/credits/credits-model.js"></script>
-      <script type="module" src="modules/credits/credits-view.js"></script>
-      <script
-        type="module"
-        src="modules/credits/credits-controller.js"
-      ></script>
-      -->
     </div>
   </body>
 </html>

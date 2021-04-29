@@ -1,0 +1,35 @@
+/* ************************ */
+/* Starfield                */
+/* ************************ */
+
+.starfield {
+  background-color: transparent;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  border-radius: 25%;
+}
+
+/* ******************************** */
+/* Screen Media Queries             */
+/* Limit screen to 570px and 768px  */
+/* ******************************** */
+
+/* Tablet, screen is 570px max */
+@media screen and (min-width: 400px) {
+  .starfield {
+    max-width: 570px;
+  }
+}
+
+/* Laptop and Desktop, screen is 768px max */
+@media screen and (min-width: 768px) {
+  .starfield {
+    max-width: 768px;
+  }
+}

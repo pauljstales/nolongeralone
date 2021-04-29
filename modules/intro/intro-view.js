@@ -53,7 +53,7 @@ function showMenu() {
  * -- Prepare-for-Battle button is shown at 21s
  */
 function loadIntroScrollingText() {
-  const TIME_PER_INTRO_TEXT = 500; // production 3000
+  const TIME_PER_INTRO_TEXT = 1000; // production 3000
   const TIME_UNTIL_TITLE_TEXT = TIME_PER_INTRO_TEXT * 5;
   const TIME_UNTIL_TITLE_LINK_AS_BUTTON = TIME_PER_INTRO_TEXT * 6;
 

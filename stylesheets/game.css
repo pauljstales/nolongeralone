@@ -28,7 +28,7 @@
 }
 
 body {
-  background-color: gray; /* temporary, for testing */
+  background-color: black;
 }
 
 /* ************************ */
@@ -36,7 +36,7 @@ body {
 /* ************************ */
 
 .screen {
-  background-color: darkred; /* temporary, for testing */
+  background-color: transparent;
   color: var(--color-green);
   margin: auto;
   height: 100vh;

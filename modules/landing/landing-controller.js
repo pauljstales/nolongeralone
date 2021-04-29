@@ -10,6 +10,7 @@ import { SOUND } from "../../sound/sound-manager.js";
 import { LANDING_MODEL } from "/modules/landing/landing-model.js";
 import { LANDING_VIEW } from "/modules/landing/landing-view.js";
 import { INTRO_VIEW } from "/modules/intro/intro-view.js";
+import { STARFIELD } from "../starfield.js";
 
 function registerEventListeners() {
   registerButtonStartGameEventListener();
@@ -22,6 +23,7 @@ function registerButtonStartGameEventListener() {
     LANDING_VIEW.showIntroScreen();
     INTRO_VIEW.loadIntroScrollingText();
     SOUND.playAudio(SOUND.MUSIC.INTRO);
+    STARFIELD.activate();
   });
 }
 
@@ -30,6 +32,7 @@ function registerButtonShowCreditsEventListener() {
     LANDING_VIEW.hideLandingScreen();
     LANDING_VIEW.showCreditsScreen();
     SOUND.playAudio(SOUND.MUSIC.CREDITS);
+    STARFIELD.activate();
   });
 }
 

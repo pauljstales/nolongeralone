@@ -14,7 +14,7 @@ const MENU_VIEW = {
   hideMenu: hideMenu,
   showTutorial: showTutorial,
   showBattle: showBattle,
-  weaponButtonSelectedHighlight: weaponButtonSelectedHighlight,
+  highlightWeaponSelectedButton: highlightWeaponSelectedButton,
 };
 
 function hideMenu() {
@@ -44,7 +44,7 @@ function showBattle() {
   );
 }
 
-function weaponButtonSelectedHighlight(selectedWeapon) {
+function highlightWeaponSelectedButton(selectedWeapon) {
   const ALL_WEAPON_BUTTONS = [
     CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR,
     CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP,

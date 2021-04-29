@@ -28,24 +28,33 @@ export { TUTORIAL_CONTROLLER };
 
 function addButtonHowToPlayEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_PLAY.addEventListener("click", () => {
-    TUTORIAL_VIEW.tutorialButtonSelectedHighlight(
+    TUTORIAL_VIEW.highlightTutorialButton(
       CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_PLAY
+    );
+    TUTORIAL_VIEW.showTutorialText(
+      CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_HOWTOPLAY
     );
   });
 }
 
 function addButtonHowToWinEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_WIN.addEventListener("click", () => {
-    TUTORIAL_VIEW.tutorialButtonSelectedHighlight(
+    TUTORIAL_VIEW.highlightTutorialButton(
       CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_WIN
+    );
+    TUTORIAL_VIEW.showTutorialText(
+      CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_HOWTOWIN
     );
   });
 }
 
 function addButtonHowToLoseEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_LOSE.addEventListener("click", () => {
-    TUTORIAL_VIEW.tutorialButtonSelectedHighlight(
+    TUTORIAL_VIEW.highlightTutorialButton(
       CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_LOSE
+    );
+    TUTORIAL_VIEW.showTutorialText(
+      CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_HOWTOLOSE
     );
   });
 }
@@ -54,8 +63,11 @@ function addButtonSpecialWeaponsEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_SPECIAL_WEAPONS.addEventListener(
     "click",
     () => {
-      TUTORIAL_VIEW.tutorialButtonSelectedHighlight(
+      TUTORIAL_VIEW.highlightTutorialButton(
         CONSTANTS.HTML.TUTORIAL.BUTTON_SPECIAL_WEAPONS
+      );
+      TUTORIAL_VIEW.showTutorialText(
+        CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_WEAPONS
       );
     }
   );
@@ -63,9 +75,8 @@ function addButtonSpecialWeaponsEventListener() {
 
 function addButtonOtherEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_OTHER.addEventListener("click", () => {
-    TUTORIAL_VIEW.tutorialButtonSelectedHighlight(
-      CONSTANTS.HTML.TUTORIAL.BUTTON_OTHER
-    );
+    TUTORIAL_VIEW.highlightTutorialButton(CONSTANTS.HTML.TUTORIAL.BUTTON_OTHER);
+    TUTORIAL_VIEW.showTutorialText(CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_OTHER);
   });
 }
 

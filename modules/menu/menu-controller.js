@@ -55,7 +55,7 @@ function registerButtonStartBattleEventListener() {
 
 function registerButtonSelectRadarEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR.addEventListener("click", () => {
-    MENU_VIEW.weaponButtonSelectedHighlight(
+    MENU_VIEW.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR
     );
     SOUND.playAudio(SOUND.SFX.BATTLE_RADAR_FIRE); // might change to "arming" sfx
@@ -66,7 +66,7 @@ function registerButtonSelectRadarEventListener() {
 
 function registerButtonSelectEMPEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP.addEventListener("click", () => {
-    MENU_VIEW.weaponButtonSelectedHighlight(
+    MENU_VIEW.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP
     );
     SOUND.playAudio(SOUND.SFX.BATTLE_EMP_FIRE); // might change to "arming" sfx
@@ -77,7 +77,7 @@ function registerButtonSelectEMPEventListener() {
 
 function registerButtonSelectPaulEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL.addEventListener("click", () => {
-    MENU_VIEW.weaponButtonSelectedHighlight(
+    MENU_VIEW.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL
     );
     SOUND.playAudio(SOUND.SFX.BATTLE_PAUL_FIRE); // might change to "arming" sfx

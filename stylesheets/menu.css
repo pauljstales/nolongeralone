@@ -175,3 +175,11 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+#BUTTON_START_BATTLE:hover {
+  animation-duration: 0.2s;
+}
+
+#BUTTON_START_BATTLE:active {
+  transform: scale(0.9);
+}

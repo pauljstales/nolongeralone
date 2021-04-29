@@ -143,6 +143,14 @@ body {
   outline: none;
 }
 
+.button:hover {
+  border: 2px white groove;
+}
+
+.button:active {
+  transform: scale(0.9);
+}
+
 .button--color--default {
   background-color: var(--color-gray-dark);
   color: var(--color-green);

@@ -85,7 +85,6 @@ You should have received a copy of the GNU General Public License along with thi
           for="SCREEN_PROGRESS_BAR"
           class="screen__text"
         >
-          GAME LOADING:
         </label>
         <br />
         <progress
@@ -103,22 +102,21 @@ You should have received a copy of the GNU General Public License along with thi
         <button
           id="BUTTON_START_GAME"
           class="button button--color--default button__text button__text--size--large button--width--72"
-        >
-          START GAME
-        </button>
+        ></button>
         <br /><br />
         <button
           id="BUTTON_SHOW_CREDITS"
           class="button button--color--default button__text button__text--size--large button--width--72"
-        >
-          CREDITS
-        </button>
+        ></button>
         <br /><br />
         <select
           id="SELECT_LANGUAGE"
           class="button button--color--default button__text button__text--size--large button--width--72"
           name="SELECT_LANGUAGE"
         >
+          <option id="OPTION_SELECT_LANGUAGE" value="default">
+            SELECT LANGUAGE
+          </option>
           <option value="english">ENGLISH</option>
           <option value="chinese">中国人</option>
           <option value="hindi">हिंदी</option>
@@ -131,6 +129,9 @@ You should have received a copy of the GNU General Public License along with thi
           <option value="german">DEUTSCHE</option>
         </select>
         <div class="screen-landing__bottom"></div>
+        <p id="VERSION" class="screen__text--size--small">
+          Version: Alpha 0.2.0
+        </p>
       </div>
     </div>
 
@@ -140,54 +141,38 @@ You should have received a copy of the GNU General Public License along with thi
         <p
           id="INTRO_TEXT_1"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
-        >
-          The year is 2084
-        </p>
+        ></p>
         <p
           id="INTRO_TEXT_2"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
-        >
-          SETI detected signals close to Earth
-        </p>
+        ></p>
         <p
           id="INTRO_TEXT_3"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
-        >
-          The UN launched spacecraft to investigate
-        </p>
+        ></p>
         <p
           id="INTRO_TEXT_4"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
-        >
-          Shortly after launch, the UN spacecraft were destroyed
-        </p>
+        ></p>
         <p
           id="INTRO_TEXT_5"
           class="screen__text screen__text--opacity--none screen__text--marginbottom-medium"
-        >
-          We are
-        </p>
+        ></p>
         <button
           id="BUTTON_SKIP_INTRO"
           class="button button--color--default button--color--blackgreen button__text--size--extra-small button--width--24"
-        >
-          SKIP INTRO
-        </button>
+        ></button>
         <div class="screen-intro__bottom"></div>
       </div>
       <div id="SCREEN_INTRO_PART_2" class="screen screen--display--none">
         <p
           id="INTRO_TEXT_6"
           class="screen__text screen__text--opacity--none screen__text--size--extra-large screen__text--marginbottom-medium"
-        >
-          no longer alone
-        </p>
+        ></p>
         <button
           id="BUTTON_PREPAREFORBATTLE"
           class="button button--color--default button__text button--color--blackgreen button__text--size--extra-large button--width--72 button--opacity--none"
-        >
-          PREPARE FOR BATTLE
-        </button>
+        ></button>
         <div class="screen-intro__bottom"></div>
       </div>
     </div>
@@ -218,14 +203,11 @@ You should have received a copy of the GNU General Public License along with thi
         <div
           class="screen-menu--grid--subtitles screen-menu__subscreen--border--gray screen-menu__subscreen-subtitles screen-menu__subscreen--size--half"
         >
+          <p>ADM BOBERTS:</p>
           <p
             id="MENU_TEXT_SUBTITLES"
             class="screen__text screen__text--size--small screen__text--font--monospace"
-          >
-            ADM BOBERTS: We have limited time and energy. Earth's defense
-            depends on your ability to click a grid quickly and accurately. Good
-            luck.
-          </p>
+          ></p>
         </div>
 
         <div
@@ -234,12 +216,7 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             id="MENU_TEXT_MISSION"
             class="screen__text screen__text--size--small screen__text--font--monospace"
-          >
-            MISSION INFO:
-            <br />
-            The alien ships are cloaked, but, any damaged parts become visible.
-            Ships can also move at random.
-          </p>
+          ></p>
         </div>
 
         <div
@@ -248,21 +225,15 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             id="CHOOSE_SPECIAL_WEAPON"
             class="screen__text screen__text--size--small screen__text--font--monospace"
-          >
-            Choose 1 Special Weapon
-          </p>
+          ></p>
           <button
             id="BUTTON_SELECT_RADAR"
             class="button button--color--default-selected button__text--size--small button--width--72 button--margin-5"
-          >
-            RADAR
-          </button>
+          ></button>
           <button
             id="BUTTON_SELECT_EMP"
             class="button button--color--default button__text--size--small button--margin-5 button--width--72"
-          >
-            EMP BOMB
-          </button>
+          ></button>
           <button
             id="BUTTON_SELECT_PAUL"
             class="button button--color--default button__text--size--small button--margin-5 button--width--72"
@@ -277,9 +248,7 @@ You should have received a copy of the GNU General Public License along with thi
           <button
             id="BUTTON_START_TUTORIAL"
             class="button button--color--default button__text--size--medium button--width--84"
-          >
-            TUTORIAL
-          </button>
+          ></button>
         </div>
 
         <div
@@ -288,9 +257,7 @@ You should have received a copy of the GNU General Public License along with thi
           <button
             id="BUTTON_START_BATTLE"
             class="button button__text--size--medium button--width--84"
-          >
-            ENTER BATTLE
-          </button>
+          ></button>
         </div>
 
         <div
@@ -308,9 +275,7 @@ You should have received a copy of the GNU General Public License along with thi
           <button
             id="BUTTON_HOW_TO_PLAY"
             class="button button--color--default button__text--size--small button--width--84"
-          >
-            HOW TO PLAY
-          </button>
+          ></button>
         </div>
         <div
           class="screen-tutorial--grid--win screen-tutorial__subscreen-win screen--display--flexRow"
@@ -318,9 +283,7 @@ You should have received a copy of the GNU General Public License along with thi
           <button
             id="BUTTON_HOW_TO_WIN"
             class="button button--color--default button__text--size--small button--width--84"
-          >
-            HOW TO WIN
-          </button>
+          ></button>
         </div>
         <div
           class="screen--gridname--lose screen-tutorial__subscreen-lose screen--display--flexRow"
@@ -328,9 +291,7 @@ You should have received a copy of the GNU General Public License along with thi
           <button
             id="BUTTON_HOW_TO_LOSE"
             class="button button--color--default button__text--size--small button--width--84"
-          >
-            HOW TO LOSE
-          </button>
+          ></button>
         </div>
         <div
           class="screen-tutorial--grid--weapons screen-tutorial__subscreen-weapons screen--display--flexRow"
@@ -338,9 +299,7 @@ You should have received a copy of the GNU General Public License along with thi
           <button
             id="BUTTON_SPECIAL_WEAPONS"
             class="button button--color--default button__text--size--small button--width--84"
-          >
-            WEAPONS
-          </button>
+          ></button>
         </div>
         <div
           class="screen-tutorial--grid--other screen-tutorial__subscreen-other screen--display--flexRow"
@@ -348,9 +307,7 @@ You should have received a copy of the GNU General Public License along with thi
           <button
             id="BUTTON_OTHER"
             class="button button--color--default button__text--size--small button--width--84"
-          >
-            OTHER
-          </button>
+          ></button>
         </div>
         <div
           class="screen-tutorial--grid--menu screen-tutorial__subscreen-menu screen--display--flexRow"
@@ -359,40 +316,40 @@ You should have received a copy of the GNU General Public License along with thi
             id="BUTTON_RETURN_TO_MENU"
             class="button button--color--lightgrayblack button__text--size--small button--width--84"
             href="\screens\menu\menu.html"
-          >
-            MENU
-          </button>
+          ></button>
         </div>
         <!-- Tutorial Text: Default -->
         <div
           id="TUTORIAL_TEXT_DEFAULT"
           class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--show"
         >
-          <p class="screen__text screen__text--size--medium">
-            * Click a button above to learn more.
-          </p>
+          <p class="screen__text screen__text--size--medium"></p>
         </div>
         <!-- Tutorial Text: How to Play -->
         <div
           id="TUTORIAL_TEXT_HOWTOPLAY"
           class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
         >
-          <p class="screen__text screen__text--size--medium">
-            * Click a square on the battlefield grid to fire your energy weapon.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * You have limited energy, and each shot takes 1 energy!
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * Click "weapons" to learn about the special weapons.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * The grid appears empty because the aliens are cloaked... hitting
-            their ship will permanently reveal that part of the ship.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * Alien ships can MOVE!
-          </p>
+          <p
+            id="TUT_TEXT_HTP1"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTP2"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTP3"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTP4"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTP5"
+            class="screen__text screen__text--size--medium"
+          ></p>
         </div>
 
         <!-- Tutorial Text: How to Win -->
@@ -400,82 +357,88 @@ You should have received a copy of the GNU General Public License along with thi
           id="TUTORIAL_TEXT_HOWTOWIN"
           class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
         >
-          <p class="screen__text screen__text--size--medium">
-            * There are two possible combinations of alien ships.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * Hswoh squadron has 3 ships, of sizes 4, 3, and 2.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * Vtlnh squadron has 3 ships, all of size 3.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * To win, destroy all 3 ships before you run out of time or energy.
-          </p>
+          <p
+            id="TUT_TEXT_HTW1"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTW2"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTW3"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTW4"
+            class="screen__text screen__text--size--medium"
+          ></p>
         </div>
         <!-- Tutorial Text: How to Lose -->
         <div
           id="TUTORIAL_TEXT_HOWTOLOSE"
           class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
         >
-          <p class="screen__text screen__text--size--medium">
-            * The aliens ships are charging some sort of energy bomb, which they
-            will fire very soon.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * If you run out of energy/ammo, we cannot stop them from attacking,
-            and we will lose.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * If you attack too slowly, they will fire their weapon, and we will
-            lose.
-          </p>
+          <p
+            id="TUT_TEXT_HTL1"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTL2"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_HTL3"
+            class="screen__text screen__text--size--medium"
+          ></p>
         </div>
         <!-- Tutorial Text: Special Weapons -->
         <div
           id="TUTORIAL_TEXT_WEAPONS"
           class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
         >
-          <p class="screen__text screen__text--size--medium">
-            * There is only enough time to outfit your ship with one special
-            weapon.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * Each special weapon does something different and costs different
-            energy, but can only be fired once.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * RADAR: Uses 0 energy and will remove the alien ship cloaking for a
-            short time.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * EMP Bomb: Uses 1 energy and will stop the aliens from moving for a
-            short time.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * PAUL: Uses 2 energy and will destroy any ship it hits.
-          </p>
+          <p
+            id="TUT_TEXT_WEP1"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_WEP2"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_WEP3"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_WEP4"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_WEP5"
+            class="screen__text screen__text--size--medium"
+          ></p>
         </div>
         <!-- Tutorial Text: Other Questions -->
         <div
           id="TUTORIAL_TEXT_OTHER"
           class="screen-tutorial--grid--text screen-tutorial__subscreen-tutorial-text screen-tutorial__subscreen-text screen--opacity--hide"
         >
-          <p class="screen__text screen__text--size--medium">
-            * Can I Pause? NO. The aliens are coming to kill us all. Do you
-            understand the severity of the situation?.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * Will there be adjustable difficultly? NO. The aliens are coming to
-            kill us all, and will not go easy on us.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * Will there be high scores? No plans at this time.
-          </p>
-          <p class="screen__text screen__text--size--medium">
-            * NO. Whatever it is, no. Unless you want to send me money. Then
-            yes. Coffee and burgers are also accepted.
-          </p>
+          <p
+            id="TUT_TEXT_OTH1"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_OTH2"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_OTH3"
+            class="screen__text screen__text--size--medium"
+          ></p>
+          <p
+            id="TUT_TEXT_OTH4"
+            class="screen__text screen__text--size--medium"
+          ></p>
         </div>
         <div
           class="screen-tutorial--grid--bottom screen-tutorial__subscreen-bottom"
@@ -561,14 +524,21 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             id="BATTLE_TEXT_SHOT_STATUS_TITLE"
             class="screen__text screen__text--size--small"
-          >
-            SHOT STATUS
-          </p>
+          ></p>
           <p
             id="BATTLE_TEXT_SHOT_STATUS_TEXT"
             class="screen__text screen__text--size--small"
           >
-            A -result- at -coordinate-, ship seems to be -status-!
+            <span id="BTSST_HIT"></span>
+            <span id="BTSST_MISS"></span>
+            <span id="BTSST_AT"></span>
+            <span id="BTSST_COORDINATES"></span>
+            <span id="BTSST_THE"></span>
+            <span id="BTSST_SHIP"></span>
+            <span id="BTSST_DAMAGED"></span>
+            <span id="BTSST_DESTROYED"></span>
+            <span id="BTSST_SPECIAL_WEAPON_SELECTED"></span>
+            <span id="BTSST_SPECIAL_WEAPON_FIRED"></span>
           </p>
         </div>
         <div
@@ -577,9 +547,7 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             id="BATTLE_TEXT_TIMER_TITLE"
             class="screen__text screen__text--size--small"
-          >
-            TIMER
-          </p>
+          ></p>
           <p
             id="BATTLE_TEXT_TIMER_TEXT"
             class="screen__text screen__text--size--small"
@@ -593,9 +561,7 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             id="BATTLE_TEXT_ENERGY_TITLE"
             class="screen__text screen__text--size--small"
-          >
-            ENERGY
-          </p>
+          ></p>
           <p
             id="BATTLE_TEXT_ENERGY_TEXT"
             class="screen__text screen__text--size--small"
@@ -607,11 +573,9 @@ You should have received a copy of the GNU General Public License along with thi
           class="screen-battle__subscreen screen-battle--grid--weapon screen-battle__weapon screen--display--flexCol"
         >
           <button
-            id="BUTTON_SPECIAL_WEAPON"
+            id="BUTTON_FIRE_SPECIAL_WEAPON"
             class="button button--color--red button__text--size--small button--margin-5 button--width--84"
-          >
-            FIRE SPECIAL WEAPON
-          </button>
+          ></button>
         </div>
         <div
           class="screen-battle__subscreen screen-battle--grid--bottom screen-battle__bottom"
@@ -633,9 +597,7 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             id="CREDITS_TEXT_PROGRAMMING"
             class="screen__text screen__text--size--medium screen__text--decoration--underline screen__text--weight--bold"
-          >
-            Concept/Programming
-          </p>
+          ></p>
         </div>
         <div class="screen-credits__pjs">
           <p class="screen__text screen__text--size--medium">Paul J Stales</p>
@@ -660,9 +622,7 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             id="CREDITS_TEXT_ART"
             class="screen__text screen__text--size--medium screen__text--decoration--underline screen__text--weight--bold"
-          >
-            Artwork/Sound
-          </p>
+          ></p>
         </div>
         <div class="screen-credits__rjv">
           <p class="screen__text screen__text--size--medium">R.J. Vince</p>
@@ -687,18 +647,14 @@ You should have received a copy of the GNU General Public License along with thi
           <p
             id="CREDITS_TEXT_OTHERS"
             class="screen__text screen__text--size--small"
-          >
-            Other Contributors: See readme.md
-          </p>
+          ></p>
         </div>
         <div class="screen-credits__newgame">
           <button
             id="BUTTON_START_NEW_GAME"
             class="button button--color--default button__text--size--medium button--width--96"
             href="\screens\intro\intro.html"
-          >
-            START NEW GAME
-          </button>
+          ></button>
         </div>
         <div class="screen-credits__btm"></div>
       </div>

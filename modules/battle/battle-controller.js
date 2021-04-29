@@ -20,10 +20,13 @@ function registerEventListeners() {
 }
 
 function registerSpecialWeaponFireEventListener() {
-  CONSTANTS.HTML.BATTLE.BUTTON_SPECIAL_WEAPON.addEventListener("click", () => {
-    BATTLE_VIEW.specialWeaponFire();
-    //SOUND.playAudio() // this needs to play the selected weapon
-  });
+  CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.addEventListener(
+    "click",
+    () => {
+      BATTLE_VIEW.specialWeaponFire();
+      //SOUND.playAudio() // this needs to play the selected weapon
+    }
+  );
 }
 
 export { BATTLE_CONTROLLER };

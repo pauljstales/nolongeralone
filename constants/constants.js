@@ -20,6 +20,7 @@ const CONSTANTS = {
       BUTTON_START_GAME: document.getElementById("BUTTON_START_GAME"),
       BUTTON_SHOW_CREDITS: document.getElementById("BUTTON_SHOW_CREDITS"),
       SELECT_LANGUAGE: document.getElementById("SELECT_LANGUAGE"),
+      OPTION_SELECT_LANGUAGE: document.getElementById("OPTION_SELECT_LANGUAGE"),
     },
     INTRO: {
       SCREEN_INTRO: document.getElementById("SCREEN_INTRO"),
@@ -59,12 +60,33 @@ const CONSTANTS = {
       TUTORIAL_TEXT_HOWTOPLAY: document.getElementById(
         "TUTORIAL_TEXT_HOWTOPLAY"
       ),
+      TUT_TEXT_HTP1: document.getElementById("TUT_TEXT_HTP1"),
+      TUT_TEXT_HTP2: document.getElementById("TUT_TEXT_HTP2"),
+      TUT_TEXT_HTP3: document.getElementById("TUT_TEXT_HTP3"),
+      TUT_TEXT_HTP4: document.getElementById("TUT_TEXT_HTP4"),
+      TUT_TEXT_HTP5: document.getElementById("TUT_TEXT_HTP5"),
       TUTORIAL_TEXT_HOWTOWIN: document.getElementById("TUTORIAL_TEXT_HOWTOWIN"),
+      TUT_TEXT_HTW1: document.getElementById("TUT_TEXT_HTW1"),
+      TUT_TEXT_HTW2: document.getElementById("TUT_TEXT_HTW2"),
+      TUT_TEXT_HTW3: document.getElementById("TUT_TEXT_HTW3"),
+      TUT_TEXT_HTW4: document.getElementById("TUT_TEXT_HTW4"),
       TUTORIAL_TEXT_HOWTOLOSE: document.getElementById(
         "TUTORIAL_TEXT_HOWTOLOSE"
       ),
+      TUT_TEXT_HTL1: document.getElementById("TUT_TEXT_HTL1"),
+      TUT_TEXT_HTL2: document.getElementById("TUT_TEXT_HTL2"),
+      TUT_TEXT_HTL3: document.getElementById("TUT_TEXT_HTL3"),
       TUTORIAL_TEXT_WEAPONS: document.getElementById("TUTORIAL_TEXT_WEAPONS"),
+      TUT_TEXT_WEP1: document.getElementById("TUT_TEXT_WEP1"),
+      TUT_TEXT_WEP2: document.getElementById("TUT_TEXT_WEP2"),
+      TUT_TEXT_WEP3: document.getElementById("TUT_TEXT_WEP3"),
+      TUT_TEXT_WEP4: document.getElementById("TUT_TEXT_WEP4"),
+      TUT_TEXT_WEP5: document.getElementById("TUT_TEXT_WEP5"),
       TUTORIAL_TEXT_OTHER: document.getElementById("TUTORIAL_TEXT_OTHER"),
+      TUT_TEXT_OTH1: document.getElementById("TUT_TEXT_OTH1"),
+      TUT_TEXT_OTH2: document.getElementById("TUT_TEXT_OTH2"),
+      TUT_TEXT_OTH3: document.getElementById("TUT_TEXT_OTH3"),
+      TUT_TEXT_OTH4: document.getElementById("TUT_TEXT_OTH4"),
     },
     BATTLE: {
       SCREEN_BATTLE: document.getElementById("SCREEN_BATTLE"),
@@ -120,6 +142,23 @@ const CONSTANTS = {
         R6_C5: document.getElementById("R6_C5"),
         R6_C6: document.getElementById("R6_C6"),
       },
+      BTSST_HIT: document.getElementById("BTSST_HIT"),
+      BTSST_MISS: document.getElementById("BTSST_MISS"),
+      BTSST_AT: document.getElementById("BTSST_AT"),
+      BTSST_COORDINATES: document.getElementById("BTSST_COORDINATES"),
+      BTSST_THE: document.getElementById("BTSST_THE"),
+      BTSST_SHIP: document.getElementById("BTSST_SHIP"),
+      BTSST_ALIEN_SHIP_STATUS: document.getElementById(
+        "BTSST_ALIEN_SHIP_STATUS"
+      ),
+      BTSST_DAMAGED: document.getElementById("BTSST_DAMAGED"),
+      BTSST_DESTROYED: document.getElementById("BTSST_DESTROYED"),
+      BTSST_SPECIAL_WEAPON_SELECTED: document.getElementById(
+        "BTSST_SPECIAL_WEAPON_SELECTED"
+      ),
+      BTSST_SPECIAL_WEAPON_FIRED: document.getElementById(
+        "BTSST_SPECIAL_WEAPON_FIRED"
+      ),
       BATTLE_TEXT_SHOT_STATUS_TITLE: document.getElementById(
         "BATTLE_TEXT_SHOT_STATUS_TITLE"
       ),
@@ -136,7 +175,9 @@ const CONSTANTS = {
       BATTLE_TEXT_ENERGY_TEXT: document.getElementById(
         "BATTLE_TEXT_ENERGY_TEXT"
       ),
-      BUTTON_SPECIAL_WEAPON: document.getElementById("BUTTON_SPECIAL_WEAPON"),
+      BUTTON_FIRE_SPECIAL_WEAPON: document.getElementById(
+        "BUTTON_FIRE_SPECIAL_WEAPON"
+      ),
     },
     CREDITS: {
       SCREEN_CREDITS: document.getElementById("SCREEN_CREDITS"),

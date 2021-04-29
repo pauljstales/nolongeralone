@@ -238,3 +238,14 @@ body {
 .button--width--36 {
   width: 36%;
 }
+
+/* ************************** */
+/* Version                    */
+/* ************************** */
+
+#version {
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

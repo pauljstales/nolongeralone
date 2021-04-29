@@ -11,10 +11,12 @@ import { LANDING_MODEL } from "/modules/landing/landing-model.js";
 import { LANDING_VIEW } from "/modules/landing/landing-view.js";
 import { INTRO_VIEW } from "/modules/intro/intro-view.js";
 import { STARFIELD } from "../starfield.js";
+import { translateIntoLanguage } from "../../languages/translator.js";
 
 function registerEventListeners() {
   registerButtonStartGameEventListener();
   registerButtonShowCreditsEventListener();
+  registerSelectLanguageEventListener();
 }
 
 function registerButtonStartGameEventListener() {
@@ -34,6 +36,16 @@ function registerButtonShowCreditsEventListener() {
     SOUND.playAudio(SOUND.MUSIC.CREDITS);
     STARFIELD.activate();
   });
+}
+
+function registerSelectLanguageEventListener() {
+  CONSTANTS.HTML.LANDING.SELECT_LANGUAGE.addEventListener(
+    "change",
+    function (e) {
+      translateIntoLanguage(e.target.value);
+    }
+  );
+  translateIntoLanguage("english");
 }
 
 /** Exported controller object for the landing screen */

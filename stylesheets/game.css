@@ -31,6 +31,10 @@ body {
   background-color: black;
 }
 
+body.noScroll {
+  overflow: hidden;
+}
+
 /* ************************ */
 /* Screen CSS               */
 /* ************************ */

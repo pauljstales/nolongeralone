@@ -11,7 +11,7 @@ import { CONSTANTS } from "../constants/constants.js";
  * Constant values and variable values
  */
 const NUM_STARS = calculateStarToPixelDensity();
-const AVERAGE_STAR_LIFE = 60;
+const AVERAGE_STAR_LIFE = 75;
 
 /**
  * Exportable starfield object

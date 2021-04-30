@@ -94,20 +94,20 @@
 }
 
 .screen-menu__subscreen-tutorial {
-  height: 10vh;
+  height: 5vh;
   width: 50vw;
   background-color: var(--color-gray);
 }
 
 .screen-menu__subscreen-battle {
-  height: 10vh;
+  height: 5vh;
   width: 50vw;
   background-color: var(--color-gray);
 }
 
 .screen-menu__subscreen-bottom {
   background-color: var(--color-gray-dark);
-  height: 15vh;
+  height: 20vh;
   width: 100vw;
 }
 

@@ -77,7 +77,7 @@
 }
 
 .screen-tutorial__subscreen-tutorial-text {
-  height: 65vh;
+  height: 60vh;
   width: 100%;
   padding: 5%;
 }
@@ -87,7 +87,6 @@
 /* ************************ */
 
 .screen-tutorial__subscreen-bottom {
-  background-color: var(--color-gray-dark);
-  height: 15vh;
+  height: 20vh;
   width: 100%;
 }

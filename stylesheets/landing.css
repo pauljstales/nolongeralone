@@ -3,8 +3,24 @@
 /* ************************ */
 
 .screen__image-pewpew {
-  height: 50%;
-  width: 75%;
+  height: 350px;
+  width: 350px;
+}
+
+/* Tablet, screen is 570px max */
+@media screen and (min-width: 400px) {
+  .screen__image-pewpew {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+/* Laptop and Desktop, screen is 768px max */
+@media screen and (min-width: 768px) {
+  .screen__image-pewpew {
+    height: 500px;
+    width: 500px;
+  }
 }
 
 /* ************************ */

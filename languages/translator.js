@@ -10,23 +10,19 @@
 
 import { CONSTANTS } from "../constants/constants.js";
 import { ENGLISH } from "./english.js";
-/*
-import { CHINESE }  from "./chinese.js";
-import { HINDI }  from "./hindi.js";
-import { SPANISH }  from "./spanish.js";
-import { FRENCH }  from "./french.js";
-import { ARABIC }  from "./arabic.js";
-import { RUSSIAN }  from "./russian.js";
-import { PORTUGUESE }  from "./portuguese.js";
-import { JAPANESE }  from "./japanese.js";
-import { GERMAN }  from "./german.js";
-*/
+import { CHINESE } from "./chinese.js";
+import { HINDI } from "./hindi.js";
+import { SPANISH } from "./spanish.js";
+import { FRENCH } from "./french.js";
+import { ARABIC } from "./arabic.js";
+import { RUSSIAN } from "./russian.js";
+import { PORTUGUESE } from "./portuguese.js";
+import { JAPANESE } from "./japanese.js";
+import { GERMAN } from "./german.js";
 
 export function translateIntoLanguage(language) {
+  /* Get the chosen module, or use English as the default */
   let CHOSEN_LANGUAGE_MODULE = null;
-
-  console.log("wtf is language: " + language);
-
   if (language == "english") {
     CHOSEN_LANGUAGE_MODULE = ENGLISH;
   } else if (language == "chinese") {
@@ -61,7 +57,7 @@ export function translateIntoLanguage(language) {
   CONSTANTS.HTML.LANDING.OPTION_SELECT_LANGUAGE.innerText =
     CHOSEN_LANGUAGE_MODULE.OPTION_SELECT_LANGUAGE;
 
-  /* intro */
+  /* Intro */
   CONSTANTS.HTML.INTRO.INTRO_TEXT_1.innerText =
     CHOSEN_LANGUAGE_MODULE.YEAR_2084;
   CONSTANTS.HTML.INTRO.INTRO_TEXT_2.innerText =
@@ -78,8 +74,7 @@ export function translateIntoLanguage(language) {
   CONSTANTS.HTML.INTRO.BUTTON_PREPAREFORBATTLE.innerText =
     CHOSEN_LANGUAGE_MODULE.PREPARE_FOR_BATTLE;
 
-  /* menu */
-
+  /* Menu */
   CONSTANTS.HTML.MENU.MENU_TEXT_SUBTITLES.innerText =
     CHOSEN_LANGUAGE_MODULE.LIMITED_TIME_ENERGY;
   CONSTANTS.HTML.MENU.MENU_TEXT_MISSION.innerText =
@@ -95,8 +90,7 @@ export function translateIntoLanguage(language) {
   CONSTANTS.HTML.MENU.BUTTON_START_BATTLE.innerText =
     CHOSEN_LANGUAGE_MODULE.ENTER_BATTLE;
 
-  /* tutorial */
-
+  /* Tutorial */
   CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_PLAY.innerText =
     CHOSEN_LANGUAGE_MODULE.HOW_TO_PLAY;
   CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_WIN.innerText =
@@ -153,8 +147,7 @@ export function translateIntoLanguage(language) {
   CONSTANTS.HTML.TUTORIAL.TUT_TEXT_OTH4.innerText =
     CHOSEN_LANGUAGE_MODULE.SEND_ME_MONEY;
 
-  /* battle */
-
+  /* Battle */
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_SHOT_STATUS_TITLE.innerText =
     CHOSEN_LANGUAGE_MODULE.SHOT_STATUS;
   CONSTANTS.HTML.BATTLE.BTSST_HIT.innerText = CHOSEN_LANGUAGE_MODULE.HIT;
@@ -180,7 +173,7 @@ export function translateIntoLanguage(language) {
   CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.innerText =
     CHOSEN_LANGUAGE_MODULE.FIRE_SW;
 
-  /* credits */
+  /* Credits */
   CONSTANTS.HTML.CREDITS.CREDITS_TEXT_PROGRAMMING.innerText =
     CHOSEN_LANGUAGE_MODULE.PROGRAMMING;
   CONSTANTS.HTML.CREDITS.CREDITS_TEXT_ART.innerText =

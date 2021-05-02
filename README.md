@@ -26,8 +26,9 @@ https://nolongeralone.netlify.app
 
 ## Contributing
 
-Because this is a personal tech demo, contributions are not open.  
-If this game becomes unexpectedly popular, this may change.
+Improvements to the non-English languages are welcome and open!  
+Because this is a _personal_ tech demo, tech contributions are not open right now.  
+If this game becomes unexpectedly popular, tech contributions may open.
 
 ## Contributors
 
@@ -36,11 +37,11 @@ If this game becomes unexpectedly popular, this may change.
 **Graphic Design**: R.J. Vince  
 **Sound**: R.J. Vince  
 **Localization**: Possibly Spanish, Arabic, Russian, Hindi - tbd  
-**Testing**: Samuel Soto  
+**Testing**: Samuel Soto
 
 Paul J Stales Twitter: https://twitter.com/pauljstales  
 R.J. Vince Instagram: ~  
-R.J. Vince Soundcloud: ~  
+R.J. Vince Soundcloud: ~
 
 ## FAQ (Frequently Asked Questions)
 

@@ -70,7 +70,7 @@ const PORTUGUESE = {
     "* Haverá dificuldade ajustável? NÃO. Os alienígenas estão vindo para matar todos nós e não serão fáceis para nós.",
   HIGH_SCORE: "* Haverá pontuações altas? Não há planos no momento.",
   SEND_ME_MONEY:
-    "* NÃO. Seja o que for, não. A menos que você queira me enviar dinheiro. Então, sim. Café e hambúrgueres também são aceitos.",
+    "* NÃO FAÇA. Seja o que for, não. A menos que você queira me enviar dinheiro. Então sim. Café e frango piri-piri também são aceitos.",
   SHOT_STATUS: "STATUS DE TIRO",
   HIT: "Acertar",
   MISS: "Senhorita",

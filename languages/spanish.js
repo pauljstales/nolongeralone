@@ -70,7 +70,7 @@ const SPANISH = {
     "* ¿Habrá ajustes difíciles? NO. Los extraterrestres vienen a matarnos a todos, y no se nos irá bien.",
   HIGH_SCORE: "* ¿Habrá puntuaciones altas? No hay planes en este momento.",
   SEND_ME_MONEY:
-    "* NO. Sea lo que sea, no. A menos que quieras enviarme dinero. Entonces sí. También se aceptan café y hamburguesas.",
+    "* NO. Sea lo que sea, no. A menos que quieras enviarme dinero. Entonces sí. También puedes comprarme café o churros de chocolate.",
   SHOT_STATUS: "ESTADO DE DISPARO",
   HIT: "Pegar",
   MISS: "Perder",

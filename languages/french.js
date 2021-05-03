@@ -72,7 +72,7 @@ const FRENCH = {
     "* Y aura-t-il des ajustements difficiles? NON. Les extraterrestres viennent nous tuer tous, et ne seront pas faciles avec nous.",
   HIGH_SCORE: "* Y aura-t-il des scores élevés? Aucun plan pour le moment.",
   SEND_ME_MONEY:
-    "* NON. Quoi qu'il en soit, non. A moins que vous ne vouliez m'envoyer de l'argent. Alors oui. Le café et les hamburgers sont également acceptés.",
+    "* NON. La réponse à toutes les questions est NON. A moins que vous ne vouliez m'envoyer de l'argent. Alors oui! Le café et la mousse au chocolat sont également acceptés.",
   SHOT_STATUS: "ÉTAT DU TIR",
   HIT: "Frappé",
   MISS: "Manquer",

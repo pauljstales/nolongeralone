@@ -5,7 +5,7 @@
  * Copyright (c) 2021
  */
 
-import { CONSTANTS } from "../constants/constants.js";
+import { CONSTANTS } from "../../../constants/constants.js";
 
 /**
  * Constant values and variable values

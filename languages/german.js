@@ -74,7 +74,7 @@ const GERMAN = {
     "* Wird es schwierig einstellbar sein? NEIN. Die Außerirdischen kommen, um uns alle zu töten, und werden uns nicht leicht machen.",
   HIGH_SCORE: "* Wird es Highscores geben? Derzeit keine Pläne.",
   SEND_ME_MONEY:
-    "* NEIN. Was auch immer es ist, nein. Es sei denn, Sie möchten mir Geld schicken. Dann ja. Kaffee und Burger werden ebenfalls akzeptiert.",
+    "* NEIN. Was auch immer es ist, nein. Es sei denn, Sie möchten mir Geld schicken. Dann ja. Kaffee und Kartoffelpuffer werden ebenfalls akzeptiert.",
   SHOT_STATUS: "SCHUSSSTATUS",
   HIT: "Schlagen",
   MISS: "Fräulein",

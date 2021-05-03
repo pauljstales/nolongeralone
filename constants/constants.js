@@ -6,7 +6,9 @@
  */
 
 /**
- * This constants object will be used throughout the game to allow JavaScript code to refer to HTML, CSS, and the Battlefield from one central object, rather than hard-coded strings.
+ * This constants object will be used throughout the game to allow JavaScript
+ * code to refer to HTML, CSS, Battlefield, or game itself from one central
+ * object, rather than hard-coded strings.
  */
 const CONSTANTS = {
   HTML: {

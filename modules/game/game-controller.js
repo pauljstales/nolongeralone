@@ -1,14 +1,17 @@
 /**
- * @fileoverview This file is for application-wide JavaScript.
+ * @fileoverview Game controller is the "front controller" of this entire application, interacting with the individual screen controllers. For multiple-screen actions such as "moving from landing to intro", game-controller handles this.
  * @summary application-wide JavaScript
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
  */
 
+/**
+ * Imports
+ */
 import { CONSTANTS } from "../../constants/constants.js";
 import { TRANSLATE_INTO_LANGUAGE } from "../../languages/translator.js";
-import { STARFIELD } from "../modules/starfield.js";
-import { SOUND } from "../sound/sound-manager.js";
+import { STARFIELD } from "./starfield.js";
+import { SOUND } from "../../../sound/sound-manager.js";
 import { LANDING_CONTROLLER } from "/modules/landing/landing-controller.js";
 import { INTRO_CONTROLLER } from "/modules/intro/intro-controller.js";
 import { MENU_CONTROLLER } from "/modules/menu/menu-controller.js";
@@ -16,8 +19,15 @@ import { TUTORIAL_CONTROLLER } from "/modules/tutorial/tutorial-controller.js";
 import { BATTLE_CONTROLLER } from "/modules/battle/battle-controller.js";
 import { CREDITS_CONTROLLER } from "/modules/credits/credits-controller.js";
 
+/**
+ * The game startup loads the progress bar and registers all event listeners.
+ * After that, the game is event-driven by user actions.
+ */
 window.onload = gameStartup;
 
+/**
+ * Loads the progress bar and registers all event listeners.
+ */
 function gameStartup() {
   registerAllEventListeners();
   LANDING_CONTROLLER.showLandingScreen();
@@ -25,6 +35,9 @@ function gameStartup() {
   STARFIELD.activate();
 }
 
+/**
+ * Central function to keep track of all event listeners.
+ */
 function registerAllEventListeners() {
   registerButtonStartGameEventListener();
   registerButtonShowCreditsEventListener();
@@ -40,8 +53,13 @@ function registerAllEventListeners() {
   registerButtonStartNewGameEventListener();
   registerSpecialWeaponFireEventListener();
   TUTORIAL_CONTROLLER.registerTutorialButtonEventHandlers();
+  BATTLE_CONTROLLER.registerAllBattleEvents();
 }
 
+/**
+ * Event listener for the "start game" button.
+ * This goes from the landing screen to the intro screen.
+ */
 function registerButtonStartGameEventListener() {
   CONSTANTS.HTML.LANDING.BUTTON_START_GAME.addEventListener("click", () => {
     STARFIELD.activate();
@@ -51,6 +69,11 @@ function registerButtonStartGameEventListener() {
   });
 }
 
+/**
+ * Event listener for the "show credits" button.
+ * This goes from the landing screen to the credits screen.
+ * It will play either the victory or loss music at random.
+ */
 function registerButtonShowCreditsEventListener() {
   CONSTANTS.HTML.LANDING.BUTTON_SHOW_CREDITS.addEventListener("click", () => {
     STARFIELD.activate();
@@ -62,6 +85,12 @@ function registerButtonShowCreditsEventListener() {
   });
 }
 
+/**
+ * Event listener for the "select language" dropdown.
+ * This calls the translator's "translate into language" function, updating
+ * all of the game's text into the chosen language.
+ * By default, the game is in English.
+ */
 function registerSelectLanguageEventListener() {
   CONSTANTS.HTML.LANDING.SELECT_LANGUAGE.addEventListener(
     "change",
@@ -72,6 +101,10 @@ function registerSelectLanguageEventListener() {
   TRANSLATE_INTO_LANGUAGE("english");
 }
 
+/**
+ * Event listener for the "skip intro" button.
+ * Skips the introduction screen and goes right to the menu screen.
+ */
 function registerButtonSkipIntroEventListener() {
   CONSTANTS.HTML.INTRO.BUTTON_SKIP_INTRO.addEventListener("click", () => {
     STARFIELD.activate();
@@ -82,6 +115,10 @@ function registerButtonSkipIntroEventListener() {
   });
 }
 
+/**
+ * Event listener for the "prepare for battle" button.
+ * Goes from the intro screen to the menu screen.
+ */
 function registerButtonPrepareForBattleEventListener() {
   CONSTANTS.HTML.INTRO.BUTTON_PREPAREFORBATTLE.addEventListener("click", () => {
     STARFIELD.activate();
@@ -92,6 +129,11 @@ function registerButtonPrepareForBattleEventListener() {
   });
 }
 
+/**
+ * Event listener for the "start tutorial" button.
+ * Goes from the menu screen to the tutorial screen, but does NOT stop the
+ * menu music - it plays through on both the menu and tutorial screens.
+ */
 function registerButtonStartTutorialEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_START_TUTORIAL.addEventListener("click", () => {
     STARFIELD.activate();
@@ -103,6 +145,10 @@ function registerButtonStartTutorialEventListener() {
   });
 }
 
+/**
+ * Event listener for the "start battle" button.
+ * Goes from the menu screen to the battle screen.
+ */
 function registerButtonStartBattleEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_START_BATTLE.addEventListener("click", () => {
     STARFIELD.activate();
@@ -116,6 +162,10 @@ function registerButtonStartBattleEventListener() {
   });
 }
 
+/**
+ * Event listener for the "radar" button.
+ * This selects radar as the special weapon for the battle.
+ */
 function registerButtonSelectRadarEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR.addEventListener("click", () => {
     stopAllBattleWeaponSelectionSounds();
@@ -127,6 +177,10 @@ function registerButtonSelectRadarEventListener() {
   });
 }
 
+/**
+ * Event listener for the "EMP Bomb" button.
+ * This selects the EMP Bomb as the special weapon for the battle.
+ */
 function registerButtonSelectEMPEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP.addEventListener("click", () => {
     stopAllBattleWeaponSelectionSounds();
@@ -138,6 +192,10 @@ function registerButtonSelectEMPEventListener() {
   });
 }
 
+/**
+ * Event listener for the "PAUL" button.
+ * This selects the PAUL as the special weapon for the battle.
+ */
 function registerButtonSelectPaulEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL.addEventListener("click", () => {
     stopAllBattleWeaponSelectionSounds();
@@ -149,12 +207,20 @@ function registerButtonSelectPaulEventListener() {
   });
 }
 
+/**
+ * This stops all weapon sounds on the menu, either because a new weapon was
+ * selected, or because the menu screen is being exited.
+ */
 function stopAllBattleWeaponSelectionSounds() {
   SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
   SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
   SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
 }
 
+/**
+ * Event listener for the tutorial's "menu" button.
+ * Goes from the tutorial screen back to the menu screen.
+ */
 function addButtonReturnToMenuEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_RETURN_TO_MENU.addEventListener(
     "click",
@@ -166,6 +232,10 @@ function addButtonReturnToMenuEventListener() {
   );
 }
 
+/**
+ * Event listener for the "start new game" button.
+ * Goes from the credits screen to the intro screen.
+ */
 function registerButtonStartNewGameEventListener() {
   CONSTANTS.HTML.CREDITS.BUTTON_START_NEW_GAME.addEventListener("click", () => {
     STARFIELD.activate();
@@ -175,14 +245,4 @@ function registerButtonStartNewGameEventListener() {
     CREDITS_CONTROLLER.hideCreditsScreen();
     INTRO_CONTROLLER.showIntro();
   });
-}
-
-function registerSpecialWeaponFireEventListener() {
-  CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.addEventListener(
-    "click",
-    () => {
-      BATTLE_CONTROLLER.specialWeaponFire();
-      //SOUND.playAudio() // this needs to play the selected weapon
-    }
-  );
 }

@@ -5,28 +5,36 @@
  * Copyright (c) 2021
  */
 
-import { CONSTANTS } from "../../constants/constants.js";
-import { SOUND } from "../../sound/sound-manager.js";
 import { BATTLE_MODEL } from "/modules/battle/battle-model.js";
 import { BATTLE_VIEW } from "/modules/battle/battle-view.js";
-import { STARFIELD } from "../starfield.js";
 
+/**
+ * Shows the battle screen
+ */
+function showBattleScreen() {
+  BATTLE_VIEW.showBattleScreen();
+}
+
+/**
+ * Hides the battle screen
+ */
+function hideBattleScreen() {
+  BATTLE_VIEW.hideBattleScreen();
+}
+
+/**
+ * Fires the special weapon
+ */
+function specialWeaponFire() {
+  BATTLE_VIEW.specialWeaponFire();
+}
+
+/**
+ * Exported Controller for Battle
+ */
 const BATTLE_CONTROLLER = {
-  registerEventListeners: registerEventListeners,
+  showBattleScreen: showBattleScreen,
+  hideBattleScreen: hideBattleScreen,
+  specialWeaponFire: specialWeaponFire,
 };
-
-function registerEventListeners() {
-  registerSpecialWeaponFireEventListener();
-}
-
-function registerSpecialWeaponFireEventListener() {
-  CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.addEventListener(
-    "click",
-    () => {
-      BATTLE_VIEW.specialWeaponFire();
-      //SOUND.playAudio() // this needs to play the selected weapon
-    }
-  );
-}
-
 export { BATTLE_CONTROLLER };

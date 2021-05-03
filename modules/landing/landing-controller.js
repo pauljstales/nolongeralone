@@ -5,51 +5,36 @@
  * Copyright (c) 2021
  */
 
-import { CONSTANTS } from "../../constants/constants.js";
-import { SOUND } from "../../sound/sound-manager.js";
-import { LANDING_MODEL } from "/modules/landing/landing-model.js";
 import { LANDING_VIEW } from "/modules/landing/landing-view.js";
-import { INTRO_VIEW } from "/modules/intro/intro-view.js";
-import { STARFIELD } from "../starfield.js";
-import { translateIntoLanguage } from "../../languages/translator.js";
 
-function registerEventListeners() {
-  registerButtonStartGameEventListener();
-  registerButtonShowCreditsEventListener();
-  registerSelectLanguageEventListener();
+/**
+ * On page startup the landing view shows a progress bar.
+ * At the completion of the progress bar the landing page is shown.
+ */
+function loadProgressBar() {
+  LANDING_VIEW.loadProgressBar();
 }
 
-function registerButtonStartGameEventListener() {
-  CONSTANTS.HTML.LANDING.BUTTON_START_GAME.addEventListener("click", () => {
-    LANDING_VIEW.hideLandingScreen();
-    LANDING_VIEW.showIntroScreen();
-    INTRO_VIEW.loadIntroScrollingText();
-    SOUND.playAudio(SOUND.MUSIC.INTRO);
-    STARFIELD.activate();
-  });
+/**
+ * Shows the landing screen
+ */
+function showLandingScreen() {
+  LANDING_VIEW.showLandingScreen();
 }
 
-function registerButtonShowCreditsEventListener() {
-  CONSTANTS.HTML.LANDING.BUTTON_SHOW_CREDITS.addEventListener("click", () => {
-    LANDING_VIEW.hideLandingScreen();
-    LANDING_VIEW.showCreditsScreen();
-    SOUND.playAudio(SOUND.MUSIC.CREDITS);
-    STARFIELD.activate();
-  });
+/**
+ * Hides the landing screen
+ */
+function hideLandingScreen() {
+  LANDING_VIEW.hideLandingScreen();
 }
 
-function registerSelectLanguageEventListener() {
-  CONSTANTS.HTML.LANDING.SELECT_LANGUAGE.addEventListener(
-    "change",
-    function (e) {
-      translateIntoLanguage(e.target.value);
-    }
-  );
-  translateIntoLanguage("english");
-}
-
-/** Exported controller object for the landing screen */
+/**
+ * The exported controller object for landing
+ */
 const LANDING_CONTROLLER = {
-  registerEventListeners: registerEventListeners,
+  loadProgressBar: loadProgressBar,
+  showLandingScreen: showLandingScreen,
+  hideLandingScreen: hideLandingScreen,
 };
 export { LANDING_CONTROLLER };

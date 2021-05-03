@@ -6,32 +6,33 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
-import { TUTORIAL_MODEL } from "/modules/tutorial/tutorial-model.js";
-import { TUTORIAL_CONTROLLER } from "/modules/tutorial/tutorial-controller.js";
 
 const TUTORIAL_VIEW = {
   highlightTutorialButton: highlightTutorialButton,
+  showTutorial: showTutorial,
+  hideTutorial: hideTutorial,
   showTutorialText: showTutorialText,
-  returnToMenu: returnToMenu,
 };
 
-export { TUTORIAL_VIEW };
-
-function returnToMenu() {
-  CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.remove(
+function showTutorial() {
+  CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.add(
     CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
   );
+  CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+}
+
+function hideTutorial() {
   CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.add(
     CONSTANTS.CSS.SCREEN_DISPLAY_NONE
   );
-
-  CONSTANTS.HTML.MENU.SCREEN_MENU.classList.remove(
-    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
-  );
-  CONSTANTS.HTML.MENU.SCREEN_MENU.classList.add(
+  CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.remove(
     CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
   );
 }
+
+export { TUTORIAL_VIEW };
 
 function highlightTutorialButton(selectedTutorial) {
   const ALL_TUTORIAL_BUTTONS = [
@@ -55,7 +56,6 @@ function highlightTutorialButton(selectedTutorial) {
 }
 
 function showTutorialText(selectedTutorial) {
-  console.log("what");
   const ALL_TUTORIAL_TEXT = [
     CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_DEFAULT,
     CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_HOWTOPLAY,
@@ -65,12 +65,8 @@ function showTutorialText(selectedTutorial) {
     CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_OTHER,
   ];
 
-  console.log("selectedTutorial:");
-  console.log(selectedTutorial);
   ALL_TUTORIAL_TEXT.forEach((currentTutorialText) => {
     if (currentTutorialText != selectedTutorial) {
-      console.log("currentTutorialText: ");
-      console.log(currentTutorialText);
       currentTutorialText.classList.remove(CONSTANTS.CSS.SCREEN_OPACITY_SHOW);
       currentTutorialText.classList.add(CONSTANTS.CSS.SCREEN_OPACITY_HIDE);
     }

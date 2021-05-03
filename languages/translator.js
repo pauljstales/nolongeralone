@@ -20,7 +20,7 @@ import { PORTUGUESE } from "./portuguese.js";
 import { JAPANESE } from "./japanese.js";
 import { GERMAN } from "./german.js";
 
-export function translateIntoLanguage(language) {
+export const TRANSLATE_INTO_LANGUAGE = function translate(language) {
   /* Get the chosen module, or use English as the default */
   let CHOSEN_LANGUAGE_MODULE = null;
   if (language == "english") {
@@ -182,4 +182,4 @@ export function translateIntoLanguage(language) {
     CHOSEN_LANGUAGE_MODULE.OTHER_CREDITS;
   CONSTANTS.HTML.CREDITS.BUTTON_START_NEW_GAME.innerText =
     CHOSEN_LANGUAGE_MODULE.START_NEW_GAME;
-}
+};

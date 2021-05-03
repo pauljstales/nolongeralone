@@ -6,11 +6,22 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
-import { MENU_VIEW } from "/modules/menu/menu-view.js";
-import { MENU_CONTROLLER } from "/modules/menu/menu-controller.js";
 
 const MENU_MODEL = {
-  test: "test",
+  getSelectedWeapon: getSelectedWeapon,
+  setSelectedWeapon: setSelectedWeapon,
 };
+
+var menuModelData = {
+  selectedWeapon: CONSTANTS.GAME.RADAR, // default
+};
+
+function getSelectedWeapon() {
+  return menuModelData.selectedWeapon;
+}
+
+function setSelectedWeapon(selectedWeapon) {
+  menuModelData.selectedWeapon = selectedWeapon;
+}
 
 export { MENU_MODEL };

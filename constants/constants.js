@@ -303,6 +303,11 @@ const CONSTANTS = {
     SOCIAL_MEDIA_LINK: "social-media-link",
     SCREEN_CREDITS_IMAGE_GAMEOVER: "screen-credits__image-gameover",
   },
+  GAME: {
+    RADAR: "RADAR",
+    EMP: "EMP",
+    PAUL: "PAUL",
+  },
 };
 
 export { CONSTANTS };

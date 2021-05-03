@@ -6,39 +6,29 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
-import { INTRO_MODEL } from "/modules/intro/intro-model.js";
-import { INTRO_CONTROLLER } from "/modules/intro/intro-controller.js";
 
 /**
- * Exported view object for the intro screen
+ * Shows the intro screen (with the scrolling introduction text)
  */
-const INTRO_VIEW = {
-  loadIntroScrollingText: loadIntroScrollingText,
-  hideIntro: hideIntro,
-  showMenu: showMenu,
-};
+function showIntroScreen() {
+  CONSTANTS.HTML.INTRO.SCREEN_INTRO.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+  );
+  CONSTANTS.HTML.INTRO.SCREEN_INTRO.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+  loadIntroScrollingText();
+}
 
 /**
  * Hide the intro screen
  */
-function hideIntro() {
+function hideIntroScreen() {
   CONSTANTS.HTML.INTRO.SCREEN_INTRO.classList.remove(
     CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
   );
   CONSTANTS.HTML.INTRO.SCREEN_INTRO.classList.add(
     CONSTANTS.CSS.SCREEN_DISPLAY_NONE
-  );
-}
-
-/**
- * Show the menu screen
- */
-function showMenu() {
-  CONSTANTS.HTML.MENU.SCREEN_MENU.classList.remove(
-    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
-  );
-  CONSTANTS.HTML.MENU.SCREEN_MENU.classList.add(
-    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
   );
 }
 
@@ -53,7 +43,7 @@ function showMenu() {
  * -- Prepare-for-Battle button is shown at 21s
  */
 function loadIntroScrollingText() {
-  const TIME_PER_INTRO_TEXT = 1000; // production 3000
+  const TIME_PER_INTRO_TEXT = 3000; // development 1000, production 3000
   const TIME_UNTIL_TITLE_TEXT = TIME_PER_INTRO_TEXT * 5;
   const TIME_UNTIL_TITLE_LINK_AS_BUTTON = TIME_PER_INTRO_TEXT * 6;
 
@@ -123,4 +113,12 @@ function loadIntroScrollingText() {
   }
 }
 
+/**
+ * Exported view object for the intro screen
+ */
+const INTRO_VIEW = {
+  loadIntroScrollingText: loadIntroScrollingText,
+  showIntroScreen: showIntroScreen,
+  hideIntroScreen: hideIntroScreen,
+};
 export { INTRO_VIEW };

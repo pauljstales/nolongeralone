@@ -6,13 +6,34 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
-import { BATTLE_MODEL } from "/modules/battle/battle-model.js";
-import { BATTLE_CONTROLLER } from "/modules/battle/battle-controller.js";
 
-const BATTLE_VIEW = {
-  specialWeaponFire: specialWeaponFire,
-};
+/**
+ * Shows the battle screen
+ */
+function showBattleScreen() {
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+  );
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+}
 
+/**
+ * Hides the battle screen
+ */
+function hideBattleScreen() {
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+  );
+}
+
+/**
+ * Changes the special weapon button from red to gray, and disables it
+ */
 function specialWeaponFire() {
   CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.classList.add(
     CONSTANTS.CSS.BUTTON_COLOR_DISABLED
@@ -26,4 +47,12 @@ function specialWeaponFire() {
   );
 }
 
+/**
+ * Exported View for Battle
+ */
+const BATTLE_VIEW = {
+  showBattleScreen: showBattleScreen,
+  hideBattleScreen: hideBattleScreen,
+  specialWeaponFire: specialWeaponFire,
+};
 export { BATTLE_VIEW };

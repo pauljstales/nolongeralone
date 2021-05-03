@@ -6,18 +6,23 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
-import { MENU_MODEL } from "/modules/menu/menu-model.js";
-import { MENU_CONTROLLER } from "/modules/menu/menu-controller.js";
 
-/** Exportable view object for the menu screen */
-const MENU_VIEW = {
-  hideMenu: hideMenu,
-  showTutorial: showTutorial,
-  showBattle: showBattle,
-  highlightWeaponSelectedButton: highlightWeaponSelectedButton,
-};
+/**
+ * Show the menu screen
+ */
+function showMenuScreen() {
+  CONSTANTS.HTML.MENU.SCREEN_MENU.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+  CONSTANTS.HTML.MENU.SCREEN_MENU.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+  );
+}
 
-function hideMenu() {
+/**
+ * Hide the menu screen
+ */
+function hideMenuScreen() {
   CONSTANTS.HTML.MENU.SCREEN_MENU.classList.add(
     CONSTANTS.CSS.SCREEN_DISPLAY_NONE
   );
@@ -26,24 +31,10 @@ function hideMenu() {
   );
 }
 
-function showTutorial() {
-  CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.add(
-    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
-  );
-  CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.remove(
-    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
-  );
-}
-
-function showBattle() {
-  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE.classList.add(
-    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
-  );
-  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE.classList.remove(
-    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
-  );
-}
-
+/**
+ * Highlights the weapon button pressed by the user.
+ * De-highlights the other weapon buttons.
+ */
 function highlightWeaponSelectedButton(selectedWeapon) {
   const ALL_WEAPON_BUTTONS = [
     CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR,
@@ -63,4 +54,12 @@ function highlightWeaponSelectedButton(selectedWeapon) {
   });
 }
 
+/**
+ * Exportable view object for the menu
+ */
+const MENU_VIEW = {
+  showMenuScreen: showMenuScreen,
+  hideMenuScreen: hideMenuScreen,
+  highlightWeaponSelectedButton: highlightWeaponSelectedButton,
+};
 export { MENU_VIEW };

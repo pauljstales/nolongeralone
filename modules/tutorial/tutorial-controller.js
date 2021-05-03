@@ -6,22 +6,28 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
-import { SOUND } from "../../sound/sound-manager.js";
-import { TUTORIAL_MODEL } from "/modules/tutorial/tutorial-model.js";
 import { TUTORIAL_VIEW } from "/modules/tutorial/tutorial-view.js";
-import { STARFIELD } from "../starfield.js";
 
 const TUTORIAL_CONTROLLER = {
-  registerEventListeners: registerEventListeners,
+  showTutorial: showTutorial,
+  hideTutorial: hideTutorial,
+  registerTutorialButtonEventHandlers: registerTutorialButtonEventHandlers,
 };
 
-function registerEventListeners() {
+function showTutorial() {
+  TUTORIAL_VIEW.showTutorial();
+}
+
+function hideTutorial() {
+  TUTORIAL_VIEW.hideTutorial();
+}
+
+function registerTutorialButtonEventHandlers() {
   addButtonHowToPlayEventListener();
   addButtonHowToWinEventListener();
   addButtonHowToLoseEventListener();
   addButtonSpecialWeaponsEventListener();
   addButtonOtherEventListener();
-  addButtonReturnToMenuEventListener();
 }
 
 export { TUTORIAL_CONTROLLER };
@@ -78,16 +84,4 @@ function addButtonOtherEventListener() {
     TUTORIAL_VIEW.highlightTutorialButton(CONSTANTS.HTML.TUTORIAL.BUTTON_OTHER);
     TUTORIAL_VIEW.showTutorialText(CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_OTHER);
   });
-}
-
-function addButtonReturnToMenuEventListener() {
-  CONSTANTS.HTML.TUTORIAL.BUTTON_RETURN_TO_MENU.addEventListener(
-    "click",
-    () => {
-      TUTORIAL_VIEW.returnToMenu();
-      //SOUND.stopAudio(SOUND.MUSIC.TUTORIAL); //not implemented yet
-      // SOUND.playAudio(SOUND.MUSIC.MENU); // rob suggests just using menu music, so we will never stop playing it - let us see how it feels
-      STARFIELD.activate();
-    }
-  );
 }

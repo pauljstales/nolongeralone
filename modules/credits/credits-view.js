@@ -6,25 +6,33 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
-import { CREDITS_MODEL } from "/modules/credits/credits-model.js";
-import { CREDITS_CONTROLLER } from "/modules/credits/credits-controller.js";
 
 const CREDITS_VIEW = {
-  startNewGame: startNewGame,
+  showCreditsScreen: showCreditsScreen,
+  hideCreditsScreen: hideCreditsScreen,
 };
 
-function startNewGame() {
+/**
+ * Shows the credits screen
+ */
+function showCreditsScreen() {
+  CONSTANTS.HTML.CREDITS.SCREEN_CREDITS.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_FLEXCOL
+  );
+  CONSTANTS.HTML.CREDITS.SCREEN_CREDITS.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+}
+
+/**
+ * Hides the credits screen
+ */
+function hideCreditsScreen() {
   CONSTANTS.HTML.CREDITS.SCREEN_CREDITS.classList.add(
     CONSTANTS.CSS.SCREEN_DISPLAY_NONE
   );
   CONSTANTS.HTML.CREDITS.SCREEN_CREDITS.classList.remove(
-    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
-  );
-  CONSTANTS.HTML.INTRO.SCREEN_INTRO.classList.add(
-    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
-  );
-  CONSTANTS.HTML.INTRO.SCREEN_INTRO.classList.remove(
-    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+    CONSTANTS.CSS.SCREEN_DISPLAY_FLEXCOL
   );
 }
 

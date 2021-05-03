@@ -8,10 +8,10 @@ The player has limited time and energy/shots to defeat the enemy.
 
 ## Purpose
 
-The purpose of this game is to demonstrate core competencies with plain HTML5, CSS3, and JavaScript/ES6.
-It was a deliberate choice to avoid frameworks, libraries, and most tools.  
-This allowed me to show DOM manipulation and other things that React handles for you.
-Even web components were avoided, even though they are valid as core JS (because I would have used React or Angular!)
+- The purpose of this game is to demonstrate core competencies with plain HTML5, CSS3, and JavaScript/ES6.
+- It was a deliberate choice to avoid frameworks, libraries, and most tools.
+- This allowed me to show DOM manipulation and other things that React handles for you.
+- Even web components were avoided, even though they are valid as core JS (because I would have used React or Angular!)
 
 ## Installation
 
@@ -26,9 +26,9 @@ https://nolongeralone.netlify.app
 
 ## Contributing
 
-Improvements to the non-English languages are welcome and open!  
-Because this is a _personal_ tech demo, tech contributions are not open right now.  
-If this game becomes unexpectedly popular, tech contributions may open.
+- Improvements to the non-English languages are welcome and open!
+- Because this is a _personal_ tech demo, tech contributions are not open right now.
+- If this game becomes unexpectedly popular, tech contributions may open.
 
 ## Contributors
 
@@ -36,7 +36,7 @@ If this game becomes unexpectedly popular, tech contributions may open.
 **Programmer**: Paul J Stales  
 **Graphic Design**: R.J. Vince  
 **Sound**: R.J. Vince  
-**Localization**: Possibly Spanish, Arabic, Russian, Hindi - tbd  
+**Localization**: tbd  
 **Testing**: Samuel Soto
 
 Paul J Stales Twitter: https://twitter.com/pauljstales  

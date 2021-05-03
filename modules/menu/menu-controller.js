@@ -31,8 +31,7 @@ function registerButtonStartTutorialEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_START_TUTORIAL.addEventListener("click", () => {
     MENU_VIEW.hideMenu();
     MENU_VIEW.showTutorial();
-    //SOUND.playAudio(SOUND.MUSIC.TUTORIAL); // not implemented yet
-    SOUND.stopAudio(SOUND.MUSIC.MENU);
+    //SOUND.stopAudio(SOUND.MUSIC.MENU); // rob suggests tutorial uses menu music, so will let it play to see how it sounds and feels
     SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);

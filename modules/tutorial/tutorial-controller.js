@@ -86,7 +86,7 @@ function addButtonReturnToMenuEventListener() {
     () => {
       TUTORIAL_VIEW.returnToMenu();
       //SOUND.stopAudio(SOUND.MUSIC.TUTORIAL); //not implemented yet
-      SOUND.playAudio(SOUND.MUSIC.MENU);
+      // SOUND.playAudio(SOUND.MUSIC.MENU); // rob suggests just using menu music, so we will never stop playing it - let us see how it feels
       STARFIELD.activate();
     }
   );

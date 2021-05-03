@@ -5,7 +5,6 @@
  * Copyright (c) 2021
  */
 
-import { CONSTANTS } from "../../constants/constants.js";
 import { MENU_MODEL } from "/modules/menu/menu-model.js";
 import { MENU_VIEW } from "/modules/menu/menu-view.js";
 

@@ -51,7 +51,6 @@ function registerAllEventListeners() {
   registerButtonSelectPaulEventListener();
   addButtonReturnToMenuEventListener();
   registerButtonStartNewGameEventListener();
-  registerSpecialWeaponFireEventListener();
   TUTORIAL_CONTROLLER.registerTutorialButtonEventHandlers();
   BATTLE_CONTROLLER.registerAllBattleEvents();
 }

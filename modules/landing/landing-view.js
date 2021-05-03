@@ -12,7 +12,7 @@ import { CONSTANTS } from "../../constants/constants.js";
  * Once the progress bar is loaded, show the landing screen with options to load the game, see the credits, or select a language.
  */
 function loadProgressBar() {
-  const TIME_PER_INTERVAL = 5; // development 5, production 20
+  const TIME_PER_INTERVAL = 2; // development 2-5, production 20
   let processBarPercentage = 0;
 
   let processBarPercentageInterval = setInterval(() => {

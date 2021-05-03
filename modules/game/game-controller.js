@@ -30,8 +30,11 @@ window.onload = gameStartup;
  */
 function gameStartup() {
   registerAllEventListeners();
-  LANDING_CONTROLLER.showLandingScreen();
-  LANDING_CONTROLLER.loadProgressBar();
+  //LANDING_CONTROLLER.showLandingScreen();
+  //LANDING_CONTROLLER.loadProgressBar();
+  LANDING_CONTROLLER.hideLandingScreen();
+  BATTLE_CONTROLLER.showBattleScreen();
+
   STARFIELD.activate();
 }
 

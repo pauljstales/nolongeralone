@@ -37,8 +37,29 @@ function registerSpecialWeaponFireEventListener() {
   );
 }
 
+function registerBattleCellsViaEventDelegation() {
+  CONSTANTS.HTML.BATTLE.BATTLEFIELD_GRID.TABLE_BATTLEFIELD.addEventListener(
+    "click",
+    (e) => {
+      console.log("Who was clicked? ");
+      console.log(e.target + ", " + e.target.id);
+      fireStandardLaser(e.target.id);
+    }
+  );
+}
+
+function fireStandardLaser(cellID) {
+  const standardLaserFire = document.createElement("div");
+  standardLaserFire.classList.add("standard-laser");
+  document.getElementById(cellID).appendChild(standardLaserFire);
+  setTimeout(() => {
+    document.getElementById(cellID).removeChild(standardLaserFire);
+  }, 500);
+}
+
 function registerAllBattleEvents() {
   registerSpecialWeaponFireEventListener();
+  registerBattleCellsViaEventDelegation();
 }
 
 /**

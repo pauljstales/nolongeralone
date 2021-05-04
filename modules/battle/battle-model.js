@@ -12,10 +12,14 @@ import { BATTLE_CONTROLLER } from "/modules/battle/battle-controller.js";
 const BATTLE_MODEL = {
   getSpecialWeapon: getSpecialWeapon,
   setSpecialWeapon: setSpecialWeapon,
+  isSpecialWeaponArmed: isSpecialWeaponArmed,
+  setSpecialWeaponArmedToTrue: setSpecialWeaponArmedToTrue,
+  setSpecialWeaponArmedToFalse: setSpecialWeaponArmedToFalse,
 };
 
 var battleData = {
   specialWeapon: null,
+  specialWeaponArmed: null,
 };
 
 function getSpecialWeapon() {
@@ -24,6 +28,18 @@ function getSpecialWeapon() {
 
 function setSpecialWeapon(specialWeapon) {
   battleData.specialWeapon = specialWeapon;
+}
+
+function isSpecialWeaponArmed() {
+  return battleData.specialWeaponArmed;
+}
+
+function setSpecialWeaponArmedToFalse() {
+  battleData.specialWeaponArmed = false;
+}
+
+function setSpecialWeaponArmedToTrue() {
+  battleData.specialWeaponArmed = true;
 }
 
 export { BATTLE_MODEL };

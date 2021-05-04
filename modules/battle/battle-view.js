@@ -34,7 +34,7 @@ function hideBattleScreen() {
 /**
  * Changes the special weapon button from red to gray, and disables it
  */
-function specialWeaponFire() {
+function specialWeaponArmed() {
   CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.classList.add(
     CONSTANTS.CSS.BUTTON_COLOR_DISABLED
   );
@@ -53,6 +53,6 @@ function specialWeaponFire() {
 const BATTLE_VIEW = {
   showBattleScreen: showBattleScreen,
   hideBattleScreen: hideBattleScreen,
-  specialWeaponFire: specialWeaponFire,
+  specialWeaponArmed: specialWeaponArmed,
 };
 export { BATTLE_VIEW };

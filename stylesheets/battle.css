@@ -158,7 +158,6 @@
   margin: auto;
   animation-duration: 1s;
   animation-name: fireStandardLaser;
-  animation-iteration-count: 1;
 }
 
 @keyframes fireStandardLaser {
@@ -181,15 +180,65 @@
 .radar {
   height: 50px;
   width: 50px;
+  background-color: transparent;
+  border-color: greenyellow;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  margin: auto;
+  animation-duration: 1s;
+  animation-name: fireRadar;
+}
+
+@keyframes fireRadar {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(200);
+  }
+  100% {
+    transform: scale(201);
+  }
+}
+
+/* *************** EMP *************** */
+
+.emp {
+  height: 50px;
+  width: 50px;
   background-color: green;
   border-color: greenyellow;
   border-style: solid;
   border-width: 2px;
   border-radius: 50%;
   margin: auto;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-name: fireRadar;
-  animation-iteration-count: 3;
+}
+
+@keyframes fireRadar {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(10);
+  }
+}
+
+/* *************** PAUL NUKE *************** */
+
+.paul {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  border-color: greenyellow;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  margin: auto;
+  animation-duration: 1s;
+  animation-name: fireRadar;
 }
 
 @keyframes fireRadar {

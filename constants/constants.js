@@ -306,9 +306,9 @@ const CONSTANTS = {
     SCREEN_CREDITS_IMAGE_GAMEOVER: "screen-credits__image-gameover",
   },
   GAME: {
-    RADAR: "RADAR",
-    EMP: "EMP",
-    PAUL: "PAUL",
+    RADAR: "radar",
+    EMP: "emp",
+    PAUL: "paul",
   },
   SCREEN_SIZE_PIXELS: {
     IPHONE_6_250K: 250000, // iPhone 6 is 375*667~250k

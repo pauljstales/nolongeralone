@@ -18,7 +18,7 @@ const CONFIGURATION = {
   TIME_UNTIL_TITLE_TEXT: baseTime * 5,
   TIME_UNTIL_TITLE_LINK_AS_BUTTON: baseTime * 6,
   TIME_PER_PROGRESS_BAR_INTERVAL: 1, // dev 2, prod 20
-  BATTLE_FIRE_WEAPON_TIME: 1000, // see battle.css .standard-laser time
+  BATTLE_FIRE_WEAPON_TIME: 1000, // 1 second
 };
 
 export { CONFIGURATION };

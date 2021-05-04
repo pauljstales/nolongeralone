@@ -44,7 +44,8 @@ function registerSpecialWeaponButtonEventListener() {
   CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.addEventListener(
     "click",
     () => {
-      BATTLE_VIEW.specialWeaponFire();
+      BATTLE_VIEW.specialWeaponArmed();
+      BATTLE_MODEL.setSpecialWeaponArmedToTrue();
     }
   );
 }
@@ -62,18 +63,19 @@ function fireWeapon(cellID) {
   stopWeaponSounds();
   let weaponType = "standard-laser";
   let weaponSound = SOUND.SFX.BATTLE_BASIC_LASER_FIRE;
-  if (BATTLE_MODEL.specialWeaponArmed) {
+  if (BATTLE_MODEL.isSpecialWeaponArmed()) {
     weaponType = BATTLE_MODEL.getSpecialWeapon();
-    if (weaponType == "RADAR") {
+    if (weaponType == CONSTANTS.GAME.RADAR) {
       weaponSound = SOUND.SFX.BATTLE_RADAR_FIRE;
-    } else if (weaponType == "EMP") {
+    } else if (weaponType == CONSTANTS.GAME.EMP) {
       weaponSound = SOUND.SFX.BATTLE_EMP_FIRE;
-    } else if (weaponType == "PAUL") {
+    } else if (weaponType == CONSTANTS.GAME.PAUL) {
       weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
     }
+    console.log("Weapon type: " + weaponType);
+    console.log("Weapon sound: " + weaponSound);
+    BATTLE_MODEL.setSpecialWeaponArmedToFalse();
   }
-  //console.log("Weapon type: " + weaponType);
-  //console.log("Weapon sound: " + weaponSound);
 
   SOUND.playAudio(weaponSound);
   const weaponProjectile = document.createElement("div");

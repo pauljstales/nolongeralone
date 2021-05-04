@@ -30,8 +30,10 @@ window.onload = gameStartup;
  */
 function gameStartup() {
   registerAllEventListeners();
-  LANDING_CONTROLLER.showLandingScreen();
-  LANDING_CONTROLLER.loadProgressBar();
+  //LANDING_CONTROLLER.showLandingScreen();
+  //LANDING_CONTROLLER.loadProgressBar();
+  LANDING_CONTROLLER.hideLandingScreen();
+  MENU_CONTROLLER.showMenuScreen(); // paul test battle
   STARFIELD.activate();
 }
 

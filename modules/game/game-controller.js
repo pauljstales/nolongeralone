@@ -49,13 +49,10 @@ function registerAllEventListeners() {
   registerButtonPrepareForBattleEventListener();
   registerButtonStartTutorialEventListener();
   registerButtonStartBattleEventListener();
-  registerButtonSelectRadarEventListener();
-  registerButtonSelectEMPEventListener();
-  registerButtonSelectPaulEventListener();
   addButtonReturnToMenuEventListener();
   registerButtonStartNewGameEventListener();
-  TUTORIAL_CONTROLLER.registerTutorialButtonEventHandlers();
-  BATTLE_CONTROLLER.registerAllBattleEvents();
+  TUTORIAL_CONTROLLER.registerInternalTutorialEvents();
+  BATTLE_CONTROLLER.registerInternalBattleEvents();
 }
 
 /**
@@ -160,63 +157,9 @@ function registerButtonStartBattleEventListener() {
     SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
     MENU_CONTROLLER.hideMenuScreen();
+    BATTLE_CONTROLLER.setSpecialWeapon(MENU_CONTROLLER.getSelectedWeapon());
     BATTLE_CONTROLLER.showBattleScreen();
   });
-}
-
-/**
- * Event listener for the "radar" button.
- * This selects radar as the special weapon for the battle.
- */
-function registerButtonSelectRadarEventListener() {
-  CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR.addEventListener("click", () => {
-    stopAllBattleWeaponSelectionSounds();
-    MENU_CONTROLLER.highlightWeaponSelectedButton(
-      CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR
-    );
-    MENU_CONTROLLER.setSelectedWeapon(CONSTANTS.GAME.RADAR);
-    SOUND.playAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
-  });
-}
-
-/**
- * Event listener for the "EMP Bomb" button.
- * This selects the EMP Bomb as the special weapon for the battle.
- */
-function registerButtonSelectEMPEventListener() {
-  CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP.addEventListener("click", () => {
-    stopAllBattleWeaponSelectionSounds();
-    MENU_CONTROLLER.highlightWeaponSelectedButton(
-      CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP
-    );
-    MENU_CONTROLLER.setSelectedWeapon(CONSTANTS.GAME.EMP);
-    SOUND.playAudio(SOUND.SFX.BATTLE_EMP_FIRE);
-  });
-}
-
-/**
- * Event listener for the "PAUL" button.
- * This selects the PAUL as the special weapon for the battle.
- */
-function registerButtonSelectPaulEventListener() {
-  CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL.addEventListener("click", () => {
-    stopAllBattleWeaponSelectionSounds();
-    MENU_CONTROLLER.highlightWeaponSelectedButton(
-      CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL
-    );
-    MENU_CONTROLLER.setSelectedWeapon(CONSTANTS.GAME.PAUL);
-    SOUND.playAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
-  });
-}
-
-/**
- * This stops all weapon sounds on the menu, either because a new weapon was
- * selected, or because the menu screen is being exited.
- */
-function stopAllBattleWeaponSelectionSounds() {
-  SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
-  SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
-  SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
 }
 
 /**

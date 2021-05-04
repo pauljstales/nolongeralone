@@ -19,7 +19,7 @@ const SOUND = {
     //BUTTON_HOVER: new Audio("./sfx/NLA-01-Title.mp3"),
     //BUTTON_PRESS: new Audio("./sfx/NLA-01-Title.mp3"),
     //WEAPON_SELECTED: new Audio("./sfx/NLA-01-Title.mp3"),
-    //BATTLE_BASIC_FIRE: new Audio("./sfx/NLA-01-Title.mp3"),
+    BATTLE_BASIC_LASER_FIRE: new Audio("sound/sfx/fire.mp3"),
     BATTLE_RADAR_FIRE: new Audio("sound/sfx/radar.mp3"),
     BATTLE_EMP_FIRE: new Audio("sound/sfx/emp.mp3"),
     BATTLE_PAUL_FIRE: new Audio("sound/sfx/plasma.mp3"),

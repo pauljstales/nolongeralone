@@ -6,12 +6,12 @@
  */
 
 import { CONSTANTS } from "../../../constants/constants.js";
+import { CONFIGURATION } from "../../configuration/configuration.js";
 
 /**
  * Constant values and variable values
  */
 const NUM_STARS = calculateStarToPixelDensity();
-const AVERAGE_STAR_LIFE = 75;
 
 /**
  * Exportable starfield object
@@ -92,7 +92,7 @@ function createStar() {
 function moveStar(star) {
   CONSTANTS.HTML.STARFIELD.appendChild(star);
 
-  let t = AVERAGE_STAR_LIFE + Math.random() * 10;
+  let t = Math.random() * 30000 + CONFIGURATION.AVERAGE_STAR_LIFETIME;
 
   setTimeout(() => {
     let d = Math.random() * 60;
@@ -101,7 +101,7 @@ function moveStar(star) {
     let y =
       Math.random() * (window.innerHeight / 4) * (Math.random() > 0.5 ? 1 : -1);
 
-    star.style.transition = `all ${t}s`;
+    star.style.transition = `all ${t / 1000}s`;
     star.style.transform = `rotate(${d}deg) translateX(${x}px) translateY(${y}px) scale(0.1)`;
   }, 1);
 
@@ -111,7 +111,7 @@ function moveStar(star) {
     } catch (e) {
       // Attempted to remove a star was already cleared from starfield via hitting the next screen's button. Suppressing this "error".
     }
-  }, t * 1000);
+  }, t);
 }
 
 export { STARFIELD };

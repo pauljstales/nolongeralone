@@ -11,7 +11,7 @@ import { TUTORIAL_VIEW } from "/modules/tutorial/tutorial-view.js";
 const TUTORIAL_CONTROLLER = {
   showTutorial: showTutorial,
   hideTutorial: hideTutorial,
-  registerTutorialButtonEventHandlers: registerTutorialButtonEventHandlers,
+  registerInternalTutorialEvents: registerInternalTutorialEvents,
 };
 
 function showTutorial() {
@@ -22,7 +22,7 @@ function hideTutorial() {
   TUTORIAL_VIEW.hideTutorial();
 }
 
-function registerTutorialButtonEventHandlers() {
+function registerInternalTutorialEvents() {
   addButtonHowToPlayEventListener();
   addButtonHowToWinEventListener();
   addButtonHowToLoseEventListener();

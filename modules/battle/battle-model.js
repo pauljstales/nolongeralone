@@ -10,7 +10,20 @@ import { BATTLE_VIEW } from "/modules/battle/battle-view.js";
 import { BATTLE_CONTROLLER } from "/modules/battle/battle-controller.js";
 
 const BATTLE_MODEL = {
-  test: "test",
+  getSpecialWeapon: getSpecialWeapon,
+  setSpecialWeapon: setSpecialWeapon,
 };
+
+var battleData = {
+  specialWeapon: null,
+};
+
+function getSpecialWeapon() {
+  return battleData.specialWeapon;
+}
+
+function setSpecialWeapon(specialWeapon) {
+  battleData.specialWeapon = specialWeapon;
+}
 
 export { BATTLE_MODEL };

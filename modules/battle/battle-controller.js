@@ -8,6 +8,7 @@
 import { CONSTANTS } from "../../constants/constants.js";
 import { BATTLE_MODEL } from "/modules/battle/battle-model.js";
 import { BATTLE_VIEW } from "/modules/battle/battle-view.js";
+import { SOUND } from "../../sound/sound-manager.js";
 
 /**
  * Shows the battle screen
@@ -24,11 +25,18 @@ function hideBattleScreen() {
 }
 
 /**
+ * Sets the special weapon
+ */
+function setSpecialWeapon(specialWeapon) {
+  BATTLE_MODEL.setSpecialWeapon();
+}
+
+/**
  * Registers the special weapon button.
  * Fires the weapon, changes the button color, and disables the button.
  * Also changes the model's data.
  */
-function registerSpecialWeaponFireEventListener() {
+function registerSpecialWeaponButtonEventListener() {
   CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.addEventListener(
     "click",
     () => {
@@ -41,24 +49,55 @@ function registerBattleCellsViaEventDelegation() {
   CONSTANTS.HTML.BATTLE.BATTLEFIELD_GRID.TABLE_BATTLEFIELD.addEventListener(
     "click",
     (e) => {
-      console.log("Who was clicked? ");
-      console.log(e.target + ", " + e.target.id);
-      fireStandardLaser(e.target.id);
+      fireWeapon(e.target.id);
     }
   );
 }
 
-function fireStandardLaser(cellID) {
-  const standardLaserFire = document.createElement("div");
-  standardLaserFire.classList.add("standard-laser");
-  document.getElementById(cellID).appendChild(standardLaserFire);
+function fireWeapon(cellID) {
+  stopWeaponSounds();
+  let weaponType = "standard-laser";
+  let weaponSound = SOUND.SFX.BATTLE_BASIC_LASER_FIRE;
+  if (BATTLE_MODEL.specialWeaponArmed) {
+    weaponType = BATTLE_MODEL.getSpecialWeapon();
+    if (weaponType == "RADAR") {
+      weaponSound = SOUND.SFX.BATTLE_RADAR_FIRE;
+    } else if (weaponType == "EMP") {
+      weaponSound = SOUND.SFX.BATTLE_EMP_FIRE;
+    } else if (weaponType == "PAUL") {
+      weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
+    }
+  }
+  console.log("Weapon type: " + weaponType);
+  console.log("Weapon sound: " + weaponSound);
+
+  SOUND.playAudio(weaponSound);
+  const weaponProjectile = document.createElement("div");
+  weaponProjectile.classList.add(weaponType);
+  document.getElementById(cellID).appendChild(weaponProjectile);
   setTimeout(() => {
-    document.getElementById(cellID).removeChild(standardLaserFire);
-  }, 500);
+    document.getElementById(cellID).removeChild(weaponProjectile);
+  }, 1000);
 }
 
-function registerAllBattleEvents() {
-  registerSpecialWeaponFireEventListener();
+function stopWeaponSounds() {
+  SOUND.stopAudio(SOUND.SFX.BATTLE_BASIC_LASER_FIRE);
+  SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
+  SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
+  SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
+}
+
+function fireRadar(cellID) {
+  const radarFire = document.createElement("div");
+  radarFire.classList.add("radar");
+  document.getElementById(cellID).appendChild(radar);
+  setTimeout(() => {
+    document.getElementById(cellID).removeChild(radar);
+  }, 1000);
+}
+
+function registerInternalBattleEvents() {
+  registerSpecialWeaponButtonEventListener();
   registerBattleCellsViaEventDelegation();
 }
 
@@ -68,6 +107,7 @@ function registerAllBattleEvents() {
 const BATTLE_CONTROLLER = {
   showBattleScreen: showBattleScreen,
   hideBattleScreen: hideBattleScreen,
-  registerAllBattleEvents: registerAllBattleEvents,
+  registerInternalBattleEvents: registerInternalBattleEvents,
+  setSpecialWeapon: setSpecialWeapon,
 };
 export { BATTLE_CONTROLLER };

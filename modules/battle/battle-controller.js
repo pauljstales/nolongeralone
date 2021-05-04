@@ -30,7 +30,6 @@ function hideBattleScreen() {
  */
 function setSpecialWeapon(specialWeapon) {
   BATTLE_MODEL.setSpecialWeapon(specialWeapon);
-  );
 }
 
 /**

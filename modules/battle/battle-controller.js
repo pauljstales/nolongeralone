@@ -30,8 +30,6 @@ function hideBattleScreen() {
  */
 function setSpecialWeapon(specialWeapon) {
   BATTLE_MODEL.setSpecialWeapon(specialWeapon);
-  console.log(
-    "Did we get a special weapon? " + BATTLE_MODEL.getSpecialWeapon()
   );
 }
 
@@ -72,8 +70,6 @@ function fireWeapon(cellID) {
     } else if (weaponType == CONSTANTS.GAME.PAUL) {
       weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
     }
-    console.log("Weapon type: " + weaponType);
-    console.log("Weapon sound: " + weaponSound);
     BATTLE_MODEL.setSpecialWeaponArmedToFalse();
   }
 
@@ -91,15 +87,6 @@ function stopWeaponSounds() {
   SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
   SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
   SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
-}
-
-function fireRadar(cellID) {
-  const radarFire = document.createElement("div");
-  radarFire.classList.add("radar");
-  document.getElementById(cellID).appendChild(radar);
-  setTimeout(() => {
-    document.getElementById(cellID).removeChild(radar);
-  }, 1000);
 }
 
 function registerInternalBattleEvents() {

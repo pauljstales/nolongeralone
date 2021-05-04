@@ -168,85 +168,91 @@
     transform: scale(3) rotate(900deg);
   }
   20% {
-    transform: scale(0.01) rotate(1800deg);
+    transform: scale(0.01) rotate(3600deg);
   }
   100% {
-    transform: scale(0) rotate(3600deg);
+    transform: scale(0) rotate(0);
   }
 }
 
 /* *************** RADAR *************** */
 
 .radar {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   background-color: transparent;
   border-color: greenyellow;
   border-style: solid;
-  border-width: 2px;
+  border-width: 0.01px;
   border-radius: 50%;
   margin: auto;
-  animation-duration: 1s;
+  animation-duration: 0.34s;
   animation-name: fireRadar;
+  animation-iteration-count: 3;
+  opacity: 0.4;
 }
 
 @keyframes fireRadar {
   0% {
     transform: scale(1);
   }
-  50% {
-    transform: scale(200);
-  }
   100% {
-    transform: scale(201);
+    transform: scale(50);
   }
 }
 
 /* *************** EMP *************** */
 
 .emp {
-  height: 50px;
-  width: 50px;
-  background-color: green;
-  border-color: greenyellow;
+  height: 40px;
+  width: 40px;
+  background-color: lightblue;
+  border-color: white;
   border-style: solid;
   border-width: 2px;
-  border-radius: 50%;
   margin: auto;
-  animation-duration: 1s;
-  animation-name: fireRadar;
+  animation-duration: 0.1s;
+  animation-iteration-count: 10;
+  animation-name: fireEMP;
+  opacity: 0.1;
 }
 
-@keyframes fireRadar {
+@keyframes fireEMP {
   0% {
-    transform: scale(1);
+    transform: scale(1) rotate3d(1, 1, 1, 0deg);
   }
   100% {
-    transform: scale(10);
+    transform: scale(33) rotate3d(1, 1, 1, 720deg);
   }
 }
 
 /* *************** PAUL NUKE *************** */
 
 .paul {
-  height: 50px;
-  width: 50px;
-  background-color: green;
-  border-color: greenyellow;
-  border-style: solid;
-  border-width: 2px;
+  height: 40px;
+  width: 40px;
+  background-color: darkred;
+  border-color: red;
+  border-style: dashed;
+  border-width: 3px;
   border-radius: 50%;
   margin: auto;
   animation-duration: 1s;
-  animation-name: fireRadar;
+  animation-name: firePAUL;
 }
 
-@keyframes fireRadar {
+@keyframes firePAUL {
   0% {
-    transform: scale(1);
+    transform: scale(1) rotate(360deg) rotate3d(1, 1, 1, 0deg);
+  }
+  20% {
+    transform: scale(1.2) rotate(720deg) rotate3d(1, 1, 1, 360deg);
+  }
+  99% {
+    transform: scale(0.2) rotate(1440deg) rotate3d(1, 1, 1, 720deg);
   }
   100% {
-    transform: scale(10);
+    transform: scale(2) rotate(1440deg);
   }
 }
 

@@ -5,6 +5,7 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../../configuration/configuration.js";
 import { CONSTANTS } from "../../constants/constants.js";
 
 /**
@@ -32,6 +33,23 @@ function hideBattleScreen() {
 }
 
 /**
+ * asd
+ */
+function restartGame() {
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_ENERGY_TEXT.innerText =
+    CONFIGURATION.ENERGY_INITIAL;
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_TIMER_TEXT.innerText =
+    CONFIGURATION.BATTLE_TIME_INITIAL / 1000;
+  CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.classList.remove(
+    CONSTANTS.CSS.BUTTON_COLOR_DISABLED
+  );
+  CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.classList.add(
+    CONSTANTS.CSS.BUTTON_COLOR_RED
+  );
+  CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.removeAttribute("disabled");
+}
+
+/**
  * Changes the special weapon button from red to gray, and disables it
  */
 function specialWeaponArmed() {
@@ -47,6 +65,14 @@ function specialWeaponArmed() {
   );
 }
 
+function setEnergy(currentEnergy) {
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_ENERGY_TEXT.innerText = currentEnergy;
+}
+
+function setTime(currentTime) {
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_TIMER_TEXT.innerText = currentTime;
+}
+
 /**
  * Exported View for Battle
  */
@@ -54,5 +80,8 @@ const BATTLE_VIEW = {
   showBattleScreen: showBattleScreen,
   hideBattleScreen: hideBattleScreen,
   specialWeaponArmed: specialWeaponArmed,
+  setEnergy: setEnergy,
+  setTime: setTime,
+  restartGame: restartGame,
 };
 export { BATTLE_VIEW };

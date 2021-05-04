@@ -92,8 +92,44 @@ const CONSTANTS = {
     },
     BATTLE: {
       SCREEN_BATTLE: document.getElementById("SCREEN_BATTLE"),
-      BATTLEFIELD_GRID: {
-        TABLE_BATTLEFIELD: document.getElementById("TABLE_BATTLEFIELD"),
+      BATTLEFIELD_TABLE: document.getElementById("BATTLEFIELD_TABLE"),
+      BTSST_HIT: document.getElementById("BTSST_HIT"),
+      BTSST_MISS: document.getElementById("BTSST_MISS"),
+      BTSST_AT: document.getElementById("BTSST_AT"),
+      BTSST_COORDINATES: document.getElementById("BTSST_COORDINATES"),
+      BTSST_THE: document.getElementById("BTSST_THE"),
+      BTSST_SHIP: document.getElementById("BTSST_SHIP"),
+      BTSST_ALIEN_SHIP_STATUS: document.getElementById(
+        "BTSST_ALIEN_SHIP_STATUS"
+      ),
+      BTSST_DAMAGED: document.getElementById("BTSST_DAMAGED"),
+      BTSST_DESTROYED: document.getElementById("BTSST_DESTROYED"),
+      BTSST_SPECIAL_WEAPON_SELECTED: document.getElementById(
+        "BTSST_SPECIAL_WEAPON_SELECTED"
+      ),
+      BTSST_SPECIAL_WEAPON_FIRED: document.getElementById(
+        "BTSST_SPECIAL_WEAPON_FIRED"
+      ),
+      BATTLE_TEXT_SHOT_STATUS_TITLE: document.getElementById(
+        "BATTLE_TEXT_SHOT_STATUS_TITLE"
+      ),
+      BATTLE_TEXT_SHOT_STATUS_TEXT: document.getElementById(
+        "BATTLE_TEXT_SHOT_STATUS_TEXT"
+      ),
+      BATTLE_TEXT_TIMER_TITLE: document.getElementById(
+        "BATTLE_TEXT_TIMER_TITLE"
+      ),
+      BATTLE_TEXT_TIMER_TEXT: document.getElementById("BATTLE_TEXT_TIMER_TEXT"),
+      BATTLE_TEXT_ENERGY_TITLE: document.getElementById(
+        "BATTLE_TEXT_ENERGY_TITLE"
+      ),
+      BATTLE_TEXT_ENERGY_TEXT: document.getElementById(
+        "BATTLE_TEXT_ENERGY_TEXT"
+      ),
+      BUTTON_FIRE_SPECIAL_WEAPON: document.getElementById(
+        "BUTTON_FIRE_SPECIAL_WEAPON"
+      ),
+      BATTLEFIELD_CELL_IDS: {
         R0_C0: document.getElementById("R0_C0"),
         R0_C1: document.getElementById("R0_C1"),
         R0_C2: document.getElementById("R0_C2"),
@@ -144,42 +180,6 @@ const CONSTANTS = {
         R6_C5: document.getElementById("R6_C5"),
         R6_C6: document.getElementById("R6_C6"),
       },
-      BTSST_HIT: document.getElementById("BTSST_HIT"),
-      BTSST_MISS: document.getElementById("BTSST_MISS"),
-      BTSST_AT: document.getElementById("BTSST_AT"),
-      BTSST_COORDINATES: document.getElementById("BTSST_COORDINATES"),
-      BTSST_THE: document.getElementById("BTSST_THE"),
-      BTSST_SHIP: document.getElementById("BTSST_SHIP"),
-      BTSST_ALIEN_SHIP_STATUS: document.getElementById(
-        "BTSST_ALIEN_SHIP_STATUS"
-      ),
-      BTSST_DAMAGED: document.getElementById("BTSST_DAMAGED"),
-      BTSST_DESTROYED: document.getElementById("BTSST_DESTROYED"),
-      BTSST_SPECIAL_WEAPON_SELECTED: document.getElementById(
-        "BTSST_SPECIAL_WEAPON_SELECTED"
-      ),
-      BTSST_SPECIAL_WEAPON_FIRED: document.getElementById(
-        "BTSST_SPECIAL_WEAPON_FIRED"
-      ),
-      BATTLE_TEXT_SHOT_STATUS_TITLE: document.getElementById(
-        "BATTLE_TEXT_SHOT_STATUS_TITLE"
-      ),
-      BATTLE_TEXT_SHOT_STATUS_TEXT: document.getElementById(
-        "BATTLE_TEXT_SHOT_STATUS_TEXT"
-      ),
-      BATTLE_TEXT_TIMER_TITLE: document.getElementById(
-        "BATTLE_TEXT_TIMER_TITLE"
-      ),
-      BATTLE_TEXT_TIMER_TEXT: document.getElementById("BATTLE_TEXT_TIMER_TEXT"),
-      BATTLE_TEXT_ENERGY_TITLE: document.getElementById(
-        "BATTLE_TEXT_ENERGY_TITLE"
-      ),
-      BATTLE_TEXT_ENERGY_TEXT: document.getElementById(
-        "BATTLE_TEXT_ENERGY_TEXT"
-      ),
-      BUTTON_FIRE_SPECIAL_WEAPON: document.getElementById(
-        "BUTTON_FIRE_SPECIAL_WEAPON"
-      ),
     },
     CREDITS: {
       SCREEN_CREDITS: document.getElementById("SCREEN_CREDITS"),
@@ -309,6 +309,9 @@ const CONSTANTS = {
     RADAR: "radar",
     EMP: "emp",
     PAUL: "paul",
+    LASER: "laser",
+    WIN: "win",
+    LOSE: "lose",
   },
   SCREEN_SIZE_PIXELS: {
     IPHONE_6_250K: 250000, // iPhone 6 is 375*667~250k

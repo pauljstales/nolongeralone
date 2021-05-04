@@ -12,8 +12,8 @@ const SOUND = {
     INTRO: new Audio("sound/music/NLA-01-Title.mp3"),
     MENU: new Audio("sound/music/NLA-02-Briefing.mp3"),
     BATTLE: new Audio("sound/music/NLA-03-Battle.mp3"),
-    CREDITS_WIN: new Audio("sound/music/NLA-04-Game_Over.mp3"),
-    CREDITS_LOSE: new Audio("sound/music/NLA-05-Victory-March.mp3"),
+    CREDITS_LOSE: new Audio("sound/music/NLA-04-Game_Over.mp3"),
+    CREDITS_WIN: new Audio("sound/music/NLA-05-Victory-March.mp3"),
   },
   SFX: {
     //BUTTON_HOVER: new Audio("./sfx/NLA-01-Title.mp3"),

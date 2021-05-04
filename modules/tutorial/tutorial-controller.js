@@ -10,7 +10,7 @@ import { TUTORIAL_VIEW } from "/modules/tutorial/tutorial-view.js";
 
 const TUTORIAL_CONTROLLER = {
   showTutorial: showTutorial,
-  hideTutorial: hideTutorial,
+  hideTutorialScreen: hideTutorialScreen,
   registerInternalTutorialEvents: registerInternalTutorialEvents,
 };
 
@@ -18,8 +18,8 @@ function showTutorial() {
   TUTORIAL_VIEW.showTutorial();
 }
 
-function hideTutorial() {
-  TUTORIAL_VIEW.hideTutorial();
+function hideTutorialScreen() {
+  TUTORIAL_VIEW.hideTutorialScreen();
 }
 
 function registerInternalTutorialEvents() {

@@ -10,7 +10,7 @@ import { CONSTANTS } from "../../constants/constants.js";
 const TUTORIAL_VIEW = {
   highlightTutorialButton: highlightTutorialButton,
   showTutorial: showTutorial,
-  hideTutorial: hideTutorial,
+  hideTutorialScreen: hideTutorialScreen,
   showTutorialText: showTutorialText,
 };
 
@@ -23,7 +23,7 @@ function showTutorial() {
   );
 }
 
-function hideTutorial() {
+function hideTutorialScreen() {
   CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.add(
     CONSTANTS.CSS.SCREEN_DISPLAY_NONE
   );

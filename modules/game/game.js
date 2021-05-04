@@ -1,5 +1,5 @@
 /**
- * @fileoverview Game controller is the "front controller" of this entire application, interacting with the individual screen controllers. For multiple-screen actions such as "moving from landing to intro", game-controller handles this.
+ * @fileoverview Game controller is the "front controller" of this entire application, interacting with the individual screen controllers. For multiple-screen actions such as "moving from landing to intro", game handles this.
  * @summary application-wide JavaScript
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
@@ -145,6 +145,21 @@ function registerButtonStartTutorialEventListener() {
 }
 
 /**
+ * Event listener for the tutorial's "menu" button.
+ * Goes from the tutorial screen back to the menu screen.
+ */
+function addButtonReturnToMenuEventListener() {
+  CONSTANTS.HTML.TUTORIAL.BUTTON_RETURN_TO_MENU.addEventListener(
+    "click",
+    () => {
+      STARFIELD.activate();
+      MENU_CONTROLLER.showMenuScreen();
+      TUTORIAL_CONTROLLER.hideTutorialScreen();
+    }
+  );
+}
+
+/**
  * Event listener for the "start battle" button.
  * Goes from the menu screen to the battle screen.
  */
@@ -159,22 +174,8 @@ function registerButtonStartBattleEventListener() {
     MENU_CONTROLLER.hideMenuScreen();
     BATTLE_CONTROLLER.setSpecialWeapon(MENU_CONTROLLER.getSelectedWeapon());
     BATTLE_CONTROLLER.showBattleScreen();
+    BATTLE_CONTROLLER.startBattleLoop();
   });
-}
-
-/**
- * Event listener for the tutorial's "menu" button.
- * Goes from the tutorial screen back to the menu screen.
- */
-function addButtonReturnToMenuEventListener() {
-  CONSTANTS.HTML.TUTORIAL.BUTTON_RETURN_TO_MENU.addEventListener(
-    "click",
-    () => {
-      STARFIELD.activate();
-      MENU_CONTROLLER.showMenuScreen();
-      TUTORIAL_CONTROLLER.hideTutorial();
-    }
-  );
 }
 
 /**
@@ -187,7 +188,25 @@ function registerButtonStartNewGameEventListener() {
     SOUND.stopAudio(SOUND.MUSIC.CREDITS_WIN);
     SOUND.stopAudio(SOUND.MUSIC.CREDITS_LOSE);
     SOUND.playAudio(SOUND.MUSIC.INTRO);
+    BATTLE_CONTROLLER.restartGame();
     CREDITS_CONTROLLER.hideCreditsScreen();
-    INTRO_CONTROLLER.showIntro();
+    INTRO_CONTROLLER.showIntroScreen();
   });
+}
+
+/**
+ * Exported function so battle can inform game that the battle/game is over
+ */
+export function endGame(gameResult) {
+  STARFIELD.activate();
+  SOUND.stopAudio(SOUND.MUSIC.BATTLE);
+  if (gameResult == CONSTANTS.GAME.WIN) {
+    console.log("win");
+    SOUND.playAudio(SOUND.MUSIC.CREDITS_WIN);
+  } else if (gameResult == CONSTANTS.GAME.LOSE) {
+    console.log("lose");
+    SOUND.playAudio(SOUND.MUSIC.CREDITS_LOSE);
+  }
+  BATTLE_CONTROLLER.hideBattleScreen();
+  CREDITS_CONTROLLER.showCreditsScreen();
 }

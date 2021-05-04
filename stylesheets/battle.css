@@ -62,6 +62,7 @@
   border: 1px solid var(--color-green); /* td */
   height: 45px;
   width: 45px;
+  cursor: crosshair;
 }
 
 .screen-battle__cell:hover {
@@ -248,11 +249,11 @@
   20% {
     transform: scale(1.2) rotate(720deg) rotate3d(1, 1, 1, 360deg);
   }
-  99% {
+  95% {
     transform: scale(0.2) rotate(1440deg) rotate3d(1, 1, 1, 720deg);
   }
   100% {
-    transform: scale(2) rotate(1440deg);
+    transform: scale(5) rotate(1440deg);
   }
 }
 

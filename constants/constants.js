@@ -310,6 +310,13 @@ const CONSTANTS = {
     EMP: "EMP",
     PAUL: "PAUL",
   },
+  SCREEN_SIZE_PIXELS: {
+    IPHONE_6_250K: 250000, // iPhone 6 is 375*667~250k
+    IPHONE_6PLUS_300K: 300000, // iPhone 6 plus is 414*746~300k
+    IPAD_775K: 775000, // iPad is 768*1024~785k
+    LAPTOP_1200K: 1200000, // laptop is 1024*1366~1400K
+    DESKTOP_1800K: 1800000, // desktop is 1920*1080~2050K
+  },
 };
 
 export { CONSTANTS };

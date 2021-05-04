@@ -9,6 +9,7 @@ import { CONSTANTS } from "../../constants/constants.js";
 import { BATTLE_MODEL } from "/modules/battle/battle-model.js";
 import { BATTLE_VIEW } from "/modules/battle/battle-view.js";
 import { SOUND } from "../../sound/sound-manager.js";
+import { CONFIGURATION } from "../../configuration/configuration.js";
 
 /**
  * Shows the battle screen
@@ -28,7 +29,10 @@ function hideBattleScreen() {
  * Sets the special weapon
  */
 function setSpecialWeapon(specialWeapon) {
-  BATTLE_MODEL.setSpecialWeapon();
+  BATTLE_MODEL.setSpecialWeapon(specialWeapon);
+  console.log(
+    "Did we get a special weapon? " + BATTLE_MODEL.getSpecialWeapon()
+  );
 }
 
 /**
@@ -68,8 +72,8 @@ function fireWeapon(cellID) {
       weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
     }
   }
-  console.log("Weapon type: " + weaponType);
-  console.log("Weapon sound: " + weaponSound);
+  //console.log("Weapon type: " + weaponType);
+  //console.log("Weapon sound: " + weaponSound);
 
   SOUND.playAudio(weaponSound);
   const weaponProjectile = document.createElement("div");
@@ -77,7 +81,7 @@ function fireWeapon(cellID) {
   document.getElementById(cellID).appendChild(weaponProjectile);
   setTimeout(() => {
     document.getElementById(cellID).removeChild(weaponProjectile);
-  }, 1000);
+  }, CONFIGURATION.BATTLE_FIRE_WEAPON_TIME);
 }
 
 function stopWeaponSounds() {

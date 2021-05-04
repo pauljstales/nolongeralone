@@ -6,6 +6,7 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
+import { CONFIGURATION } from "../../configuration/configuration.js";
 
 /**
  * Shows the intro screen (with the scrolling introduction text)
@@ -38,15 +39,11 @@ function hideIntroScreen() {
  * There are 4 inner, private helper functions for each part of the introduction.
  * Time breakdown as below:
  * -- Introduction text is shown at 0s, 3s, 6s, 9s, and 12s
- * -- Introduction text is hidden at 18s
- * -- Title text is shown at 18s
- * -- Prepare-for-Battle button is shown at 21s
+ * -- Introduction text is hidden at 15s
+ * -- Title text is shown at 15s
+ * -- Prepare-for-Battle button is shown at 18s
  */
 function loadIntroScrollingText() {
-  const TIME_PER_INTRO_TEXT = 3000; // development 1000, production 3000
-  const TIME_UNTIL_TITLE_TEXT = TIME_PER_INTRO_TEXT * 5;
-  const TIME_UNTIL_TITLE_LINK_AS_BUTTON = TIME_PER_INTRO_TEXT * 6;
-
   showIntroText();
   hideIntroText();
   showTitleText();
@@ -68,7 +65,7 @@ function loadIntroScrollingText() {
         INTRO_TEXT_ELEMENTS[i].classList.add(
           CONSTANTS.CSS.SCREEN_TEXT_OPACITY_SHOW
         );
-      }, i * TIME_PER_INTRO_TEXT);
+      }, i * CONFIGURATION.TIME_PER_INTRO_TEXT);
     }
   }
 
@@ -87,7 +84,7 @@ function loadIntroScrollingText() {
       CONSTANTS.HTML.INTRO.SCREEN_INTRO_PART_2.classList.remove(
         CONSTANTS.CSS.SCREEN_DISPLAY_NONE
       );
-    }, TIME_UNTIL_TITLE_TEXT);
+    }, CONFIGURATION.TIME_UNTIL_TITLE_TEXT);
   }
 
   function showTitleText() {
@@ -98,7 +95,7 @@ function loadIntroScrollingText() {
       CONSTANTS.HTML.INTRO.INTRO_TEXT_6.classList.add(
         CONSTANTS.CSS.SCREEN_TEXT_OPACITY_SHOW
       );
-    }, TIME_UNTIL_TITLE_TEXT);
+    }, CONFIGURATION.TIME_UNTIL_TITLE_TEXT);
   }
 
   function showPrepareForBattleButton() {
@@ -109,7 +106,7 @@ function loadIntroScrollingText() {
       CONSTANTS.HTML.INTRO.BUTTON_PREPAREFORBATTLE.classList.add(
         CONSTANTS.CSS.BUTTON_OPACITY_SHOW
       );
-    }, TIME_UNTIL_TITLE_LINK_AS_BUTTON);
+    }, CONFIGURATION.TIME_UNTIL_TITLE_LINK_AS_BUTTON);
   }
 }
 

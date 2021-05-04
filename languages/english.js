@@ -60,7 +60,8 @@ const ENGLISH = {
     "* RADAR: Uses 0 energy and will remove the alien ship cloaking for a short time.",
   EMP_USES:
     "* EMP Bomb: Uses 1 energy and will stop the aliens from moving for a short time.",
-  PAUL_USES: "* PAUL: Uses 2 energy and will destroy any ship it hits.",
+  PAUL_USES:
+    "* PAUL: The 'Plasma Arc Ultra Laser' uses 2 energy and will destroy any ship it hits.",
   CAN_PAUSE:
     "* Can I Pause? NO. The aliens are coming to kill us all. Do you understand the severity of the situation?.",
   ADJUSTABLE_DIFF:

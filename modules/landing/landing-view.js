@@ -5,14 +5,14 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../../configuration/configuration.js";
 import { CONSTANTS } from "../../constants/constants.js";
 
 /**
- * Shows the progress bar load, controlled by variable "TIME_PER_INTERVAL".
+ * Shows the progress bar load, controlled by variable "TIME_PER_PROGRESS_BAR_INTERVAL".
  * Once the progress bar is loaded, show the landing screen with options to load the game, see the credits, or select a language.
  */
 function loadProgressBar() {
-  const TIME_PER_INTERVAL = 2; // development 2-5, production 20
   let processBarPercentage = 0;
 
   let processBarPercentageInterval = setInterval(() => {
@@ -23,7 +23,7 @@ function loadProgressBar() {
       showLandingScreenPart2();
       clearInterval(processBarPercentageInterval);
     }
-  }, TIME_PER_INTERVAL);
+  }, CONFIGURATION.TIME_PER_PROGRESS_BAR_INTERVAL);
 }
 
 /**

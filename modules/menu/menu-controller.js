@@ -8,17 +8,7 @@
 import { SOUND } from "../../sound/sound-manager.js";
 import { MENU_MODEL } from "/modules/menu/menu-model.js";
 import { MENU_VIEW } from "/modules/menu/menu-view.js";
-
-/**
- * Exportable controller for the menu screen
- */
-const MENU_CONTROLLER = {
-  showMenuScreen: showMenuScreen,
-  hideMenuScreen: hideMenuScreen,
-  highlightWeaponSelectedButton: highlightWeaponSelectedButton,
-  getSelectedWeapon: getSelectedWeapon,
-  setSelectedWeapon: setSelectedWeapon,
-};
+import { CONSTANTS } from "../../constants/constants.js";
 
 function showMenuScreen() {
   MENU_VIEW.showMenuScreen();
@@ -73,6 +63,12 @@ function registerButtonSelectPaulEventListener() {
   });
 }
 
+function registerInternalMenuEvents() {
+  registerButtonSelectRadarEventListener();
+  registerButtonSelectEMPEventListener();
+  registerButtonSelectPaulEventListener();
+}
+
 /**
  * This stops all weapon sounds on the menu, either because a new weapon was
  * selected, or because the menu screen is being exited.
@@ -95,4 +91,15 @@ function getSelectedWeapon() {
   return MENU_MODEL.getSelectedWeapon();
 }
 
+/**
+ * Exportable controller for the menu screen
+ */
+const MENU_CONTROLLER = {
+  showMenuScreen: showMenuScreen,
+  hideMenuScreen: hideMenuScreen,
+  highlightWeaponSelectedButton: highlightWeaponSelectedButton,
+  getSelectedWeapon: getSelectedWeapon,
+  setSelectedWeapon: setSelectedWeapon,
+  registerInternalMenuEvents: registerInternalMenuEvents,
+};
 export { MENU_CONTROLLER };

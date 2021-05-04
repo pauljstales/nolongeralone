@@ -30,11 +30,8 @@ window.onload = gameStartup;
  */
 function gameStartup() {
   registerAllEventListeners();
-  //LANDING_CONTROLLER.showLandingScreen();
-  //LANDING_CONTROLLER.loadProgressBar();
-  LANDING_CONTROLLER.hideLandingScreen();
-  BATTLE_CONTROLLER.showBattleScreen();
-
+  LANDING_CONTROLLER.showLandingScreen();
+  LANDING_CONTROLLER.loadProgressBar();
   STARFIELD.activate();
 }
 
@@ -51,6 +48,7 @@ function registerAllEventListeners() {
   registerButtonStartBattleEventListener();
   addButtonReturnToMenuEventListener();
   registerButtonStartNewGameEventListener();
+  MENU_CONTROLLER.registerInternalMenuEvents();
   TUTORIAL_CONTROLLER.registerInternalTutorialEvents();
   BATTLE_CONTROLLER.registerInternalBattleEvents();
 }

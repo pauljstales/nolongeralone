@@ -5,6 +5,8 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../configuration/configuration.js";
+
 const JAPANESE = {
   GAME_LOADING: "ゲームローディング",
   START_GAME: "ゲームをスタート",
@@ -35,10 +37,11 @@ const JAPANESE = {
   MENU: "メニュー",
   CLICK_BUTTON: "*詳細については、上のボタンをクリックしてください。",
   CLICK_SQUARE:
-    "*戦場グリッドの四角をクリックして、エネルギー兵器を発射します。",
+    "* 戦場グリッドの四角をクリックして、レーザー兵器を発射します。",
   LIMITED_ENERGY:
-    "*エネルギーが限られており、各ショットに1つのエネルギーが必要です！",
-  CLICK_WEAPONS: "*武器」をクリックして、特別な武器について学びます。",
+    "* エネルギーが限られており、各レーザーショットには1つのエネルギーが必要です。",
+  USING_SPECIAL_WEAPON:
+    "* 特別な武器を発射するには、最初に[特別な武器を使用する]ボタンをクリックしてから、グリッドをクリックします。 詳細については、「武器」をクリックしてください。",
   GRID_APPEARS:
     "*エイリアンがクロークされているため、グリッドは空に見えます...彼らの船にぶつかると、船のその部分が永久に明らかになります。",
   ALIENS_MOVE:
@@ -58,10 +61,17 @@ const JAPANESE = {
   EACH_SPECIAL_WEAPON:
     "*それぞれの特別な武器は異なることをし、異なるエネルギーを消費しますが、一度しか発射できません。",
   RADAR_USES:
-    "*レーダー：0エネルギーを使用し、エイリアンの船のクローキングを短時間除去します。",
+    "*レーダー：" +
+    CONFIGURATION.ENERGY_COST_RADAR +
+    "エネルギーを使用し、エイリアンの船のクローキングを短時間除去します。",
   EMP_USES:
-    "* EMP爆弾：1つのエネルギーを使用し、エイリアンの移動を短時間停止します。",
-  PAUL_USES: "*ポール：2つのエネルギーを使用し、命中した船を破壊します。",
+    "* EMP爆弾：" +
+    CONFIGURATION.ENERGY_COST_EMP +
+    "つのエネルギーを使用し、エイリアンの移動を短時間停止します。",
+  PAUL_USES:
+    "*ポール：" +
+    CONFIGURATION.ENERGY_COST_PAUL +
+    "つのエネルギーを使用し、命中した船を破壊します。",
   CAN_PAUSE:
     "*一時停止できますか？いいえ。エイリアンが私たち全員を殺すために来ています。状況の深刻さを理解していますか？",
   ADJUSTABLE_DIFF:
@@ -82,7 +92,8 @@ const JAPANESE = {
   SW_FIRED: "特殊兵器が発射されました。再度発射することはできません。",
   TIMER: "タイマー",
   ENERGY: "エネルギー",
-  FIRE_SW: "ファイアスペシャルウェポン",
+  WEAPON_READY: "武器の準備ができました",
+  USE_SPECIAL_WEAPON: "特別な武器を使用する",
   PROGRAMMING: "コンセプト/プログラミング",
   ART: "アートワーク/サウンド",
   OTHER_CREDITS: "その他の寄稿者：readme.mdを参照",

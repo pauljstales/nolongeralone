@@ -126,8 +126,14 @@ const CONSTANTS = {
       BATTLE_TEXT_ENERGY_TEXT: document.getElementById(
         "BATTLE_TEXT_ENERGY_TEXT"
       ),
-      BUTTON_FIRE_SPECIAL_WEAPON: document.getElementById(
-        "BUTTON_FIRE_SPECIAL_WEAPON"
+      BATTLE_TEXT_IS_WEAPON_READY: document.getElementById(
+        "BATTLE_TEXT_IS_WEAPON_READY"
+      ),
+      BATTLE_TEXT_LASER_READY_INDICATOR: document.getElementById(
+        "BATTLE_TEXT_LASER_READY_INDICATOR"
+      ),
+      BUTTON_ARM_SPECIAL_WEAPON: document.getElementById(
+        "BUTTON_ARM_SPECIAL_WEAPON"
       ),
       BATTLEFIELD_CELL_IDS: {
         R0_C0: document.getElementById("R0_C0"),

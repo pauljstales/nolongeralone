@@ -5,6 +5,8 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../configuration/configuration.js";
+
 const FRENCH = {
   GAME_LOADING: "JEU EN COURS DE CHARGEMENT",
   START_GAME: "DÉMARRER JEU",
@@ -36,11 +38,11 @@ const FRENCH = {
   MENU: "MENU",
   CLICK_BUTTON: "* Cliquez sur un bouton ci-dessus pour en savoir plus.",
   CLICK_SQUARE:
-    "* Cliquez sur une case de la grille du champ de bataille pour tirer votre arme à énergie.",
+    "* Cliquez sur une case de la grille du champ de bataille pour tirer votre arme laser.",
   LIMITED_ENERGY:
-    "* Vous avez une énergie limitée, et chaque coup prend 1 énergie!",
-  CLICK_WEAPONS:
-    "* Cliquez sur 'armes' pour en savoir plus sur les armes spéciales.",
+    "* Vous avez une énergie limitée et chaque tir laser prend 1 énergie!",
+  USING_SPECIAL_WEAPON:
+    "* Pour tirer avec votre arme spéciale, cliquez d'abord sur le bouton «utiliser une arme spéciale», puis cliquez sur la grille. Cliquez sur «armes» pour en savoir plus.",
   GRID_APPEARS:
     "* La grille semble vide car les extraterrestres sont masqués ... frapper leur vaisseau révélera définitivement cette partie du vaisseau.",
   ALIENS_MOVE:
@@ -62,10 +64,17 @@ const FRENCH = {
   EACH_SPECIAL_WEAPON:
     "* Chaque arme spéciale fait quelque chose de différent et coûte une énergie différente, mais ne peut être tirée qu'une seule fois.",
   RADAR_USES:
-    "* RADAR: utilise 0 énergie et supprimera le camouflage du vaisseau extraterrestre pendant une courte période.",
+    "* RADAR: utilise " +
+    CONFIGURATION.ENERGY_COST_RADAR +
+    " énergie et supprimera le camouflage du vaisseau extraterrestre pendant une courte période.",
   EMP_USES:
-    "* Bombe EMP: utilise 1 énergie et empêchera les extraterrestres de bouger pendant une courte période.",
-  PAUL_USES: "* PAUL: Utilise 2 énergies et détruira tout vaisseau touché.",
+    "* Bombe EMP: utilise " +
+    CONFIGURATION.ENERGY_COST_EMP +
+    " énergie et empêchera les extraterrestres de bouger pendant une courte période.",
+  PAUL_USES:
+    "* PAUL: Utilise " +
+    CONFIGURATION.ENERGY_COST_PAUL +
+    " énergies et détruira tout vaisseau touché.",
   CAN_PAUSE:
     "* Puis-je faire une pause? NON. Les extraterrestres viennent nous tuer tous. Comprenez-vous la gravité de la situation?",
   ADJUSTABLE_DIFF:
@@ -86,7 +95,8 @@ const FRENCH = {
   SW_FIRED: "Une arme spéciale a été tirée, elle ne peut plus être tirée.",
   TIMER: "MINUTEUR",
   ENERGY: "ÉNERGIE",
-  FIRE_SW: "FEU ARME SPÉCIALE",
+  WEAPON_READY: "ARME PRÊT",
+  USE_SPECIAL_WEAPON: "UTILISER UNE ARME SPÉCIALE ",
   PROGRAMMING: "Concept / Programmation",
   ART: "Illustration / Son",
   OTHER_CREDITS: "Autres contributeurs: voir readme.md",

@@ -5,6 +5,8 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../configuration/configuration.js";
+
 const SPANISH = {
   GAME_LOADING: "JUEGO CARGÁNDOSE",
   START_GAME: "EMPEZAR JUEGO",
@@ -35,12 +37,13 @@ const SPANISH = {
   OTHER: "OTRO",
   MENU: "MENÚ",
   CLICK_BUTTON:
-    "* Haga clic en un botón de arriba para obtener más información.",
+    "* Haz clic en un cuadrado de la cuadrícula del campo de batalla para disparar tu arma láser.",
   CLICK_SQUARE:
     "* Haz clic en un cuadrado de la cuadrícula del campo de batalla para disparar tu arma de energía.",
   LIMITED_ENERGY:
-    "* ¡Tienes energía limitada y cada disparo requiere 1 energía!",
-  CLICK_WEAPONS: "* Haga clic en 'armas' para conocer las armas especiales.",
+    "* ¡Tienes energía limitada y cada disparo de láser requiere 1 energía!",
+  USING_SPECIAL_WEAPON:
+    "* Para disparar tu arma especial, primero haz clic en el botón 'usar arma especial' y luego haz clic en la cuadrícula. Haga clic en 'armas' para obtener más información.",
   GRID_APPEARS:
     "* La cuadrícula parece vacía porque los alienígenas están camuflados ... golpear su nave revelará permanentemente esa parte de la nave.",
   ALIENS_MOVE:
@@ -60,10 +63,17 @@ const SPANISH = {
   EACH_SPECIAL_WEAPON:
     "* Cada arma especial hace algo diferente y cuesta diferente energía, pero solo se puede disparar una vez.",
   RADAR_USES:
-    "* RADAR: Utiliza 0 energía y eliminará el camuflaje de la nave alienígena por un corto tiempo.",
+    "* RADAR: Utiliza " +
+    CONFIGURATION.ENERGY_COST_RADAR +
+    " energía y eliminará el camuflaje de la nave alienígena por un corto tiempo.",
   EMP_USES:
-    "* EMP Bomb: Utiliza 1 energía y evitará que los alienígenas se muevan por un corto tiempo.",
-  PAUL_USES: "* PAUL: Usa 2 energías y destruirá cualquier barco que golpee.",
+    "* EMP Bomb: Utiliza " +
+    CONFIGURATION.ENERGY_COST_EMP +
+    " energía y evitará que los alienígenas se muevan por un corto tiempo.",
+  PAUL_USES:
+    "* PAUL: Usa " +
+    CONFIGURATION.ENERGY_COST_PAUL +
+    " energías y destruirá cualquier barco que golpee.",
   CAN_PAUSE:
     "* ¿Puedo hacer una pausa? NO. Los extraterrestres vienen a matarnos a todos. ¿Entiendes la gravedad de la situación?",
   ADJUSTABLE_DIFF:
@@ -84,7 +94,8 @@ const SPANISH = {
   SW_FIRED: "Se ha disparado un arma especial, no se puede volver a disparar",
   TIMER: "TEMPORIZADOR",
   ENERGY: "ENERGÍA",
-  FIRE_SW: "ARMA ESPECIAL DE FUEGO",
+  WEAPON_READY: "ARMA LISTO",
+  USE_SPECIAL_WEAPON: "USAR ARMA ESPECIAL",
   PROGRAMMING: "Concepto / Programación",
   ART: "Arte / Sonido",
   OTHER_CREDITS: "Otros colaboradores: consulte readme.md",

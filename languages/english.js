@@ -5,6 +5,8 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../configuration/configuration.js";
+
 const ENGLISH = {
   GAME_LOADING: "GAME LOADING",
   START_GAME: "START GAME",
@@ -35,9 +37,11 @@ const ENGLISH = {
   MENU: "MENU",
   CLICK_BUTTON: "* Click a button above to learn more.",
   CLICK_SQUARE:
-    "* Click a square on the battlefield grid to fire your energy weapon.",
-  LIMITED_ENERGY: "* You have limited energy, and each shot takes 1 energy!",
-  CLICK_WEAPONS: "* Click 'weapons' to learn about the special weapons.",
+    "* Click a square on the battlefield grid to fire your laser weapon.",
+  LIMITED_ENERGY:
+    "* You have limited energy, and each laser shot takes 1 energy!",
+  USING_SPECIAL_WEAPON:
+    "* To fire your special weapon, first click the 'arm special weapon' button, then click the grid. Click 'weapons' to learn more.",
   GRID_APPEARS:
     "* The grid appears empty because the aliens are cloaked... hitting their ship will permanently reveal that part of the ship.",
   ALIENS_MOVE:
@@ -57,11 +61,17 @@ const ENGLISH = {
   EACH_SPECIAL_WEAPON:
     "* Each special weapon does something different and costs different energy, but can only be fired once.",
   RADAR_USES:
-    "* RADAR: Uses 0 energy and will remove the alien ship cloaking for a short time.",
+    "* RADAR: Uses " +
+    CONFIGURATION.ENERGY_COST_RADAR +
+    " energy and will remove the alien ship cloaking for a short time.",
   EMP_USES:
-    "* EMP Bomb: Uses 1 energy and will stop the aliens from moving for a short time.",
+    "* EMP Bomb: Uses " +
+    CONFIGURATION.ENERGY_COST_EMP +
+    " energy and will stop the aliens from moving for a short time.",
   PAUL_USES:
-    "* PAUL: The 'Plasma Arc Ultra Laser' uses 2 energy and will destroy any ship it hits.",
+    "* PAUL: The 'Plasma Arc Ultra Laser' uses " +
+    CONFIGURATION.ENERGY_COST_PAUL +
+    " energy and will destroy any ship it hits.",
   CAN_PAUSE:
     "* Can I Pause? NO. The aliens are coming to kill us all. Do you understand the severity of the situation?.",
   ADJUSTABLE_DIFF:
@@ -82,7 +92,8 @@ const ENGLISH = {
   SW_FIRED: "Special weapon has been fired, it cannot be fired again.",
   TIMER: "TIMER",
   ENERGY: "ENERGY",
-  FIRE_SW: "FIRE SPECIAL WEAPON",
+  WEAPON_READY: "WEAPON READY",
+  USE_SPECIAL_WEAPON: "USE SPECIAL WEAPON",
   PROGRAMMING: "Concept/Programming",
   ART: "Artwork/Sound",
   OTHER_CREDITS: "Other Contributors: See readme.md",

@@ -24,6 +24,12 @@ https://nolongeralone.netlify.app
 2. Save the earth by clicking a grid quickly and accurately
 3. Lament that you failed to save the Earth
 
+## Differences in Desktop and Mobile
+
+- Many of the nicer graphical effects are simplified or non-existent on mobile.
+- Sometimes sounds are delayed on mobile because of inability to preload or buffer.
+- In brief, while mobile is okay... desktop is a very nice experience.
+
 ## Contributing
 
 - Improvements to the non-English languages are welcome and open!

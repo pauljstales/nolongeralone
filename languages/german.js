@@ -5,6 +5,8 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../configuration/configuration.js";
+
 const GERMAN = {
   GAME_LOADING: "SPIEL LÄD",
   START_GAME: "SPIEL STARTEN",
@@ -37,11 +39,11 @@ const GERMAN = {
   CLICK_BUTTON:
     "* Klicken Sie oben auf eine Schaltfläche, um mehr zu erfahren.",
   CLICK_SQUARE:
-    "* Klicke auf ein Feld im Schlachtfeldgitter, um deine Energiewaffe abzufeuern.",
+    "* Klicke auf ein Feld im Schlachtfeldgitter, um deine Laserwaffe abzufeuern.",
   LIMITED_ENERGY:
-    "* Du hast nur begrenzte Energie und jeder Schuss benötigt 1 Energie!",
-  CLICK_WEAPONS:
-    "* Klicken Sie auf 'Waffen', um mehr über die Spezialwaffen zu erfahren.",
+    "* Sie haben nur begrenzte Energie und jeder Laserschuss benötigt 1 Energie!",
+  USING_SPECIAL_WEAPON:
+    "* Um Ihre Spezialwaffe abzufeuern, klicken Sie zuerst auf die Schaltfläche 'Spezialwaffe verwenden' und dann auf das Raster. Klicken Sie auf 'Waffen', um mehr zu erfahren.",
   GRID_APPEARS:
     "* Das Gitter erscheint leer, weil die Außerirdischen getarnt sind. Wenn sie auf ihr Schiff treffen, wird dieser Teil des Schiffes dauerhaft sichtbar.",
   ALIENS_MOVE:
@@ -63,11 +65,17 @@ const GERMAN = {
   EACH_SPECIAL_WEAPON:
     "* Jede Spezialwaffe macht etwas anderes und kostet andere Energie, kann aber nur einmal abgefeuert werden.",
   RADAR_USES:
-    "* RADAR: Verbraucht 0 Energie und entfernt für kurze Zeit die Tarnung des außerirdischen Schiffes.",
+    "* RADAR: Verbraucht " +
+    CONFIGURATION.ENERGY_COST_RADAR +
+    " Energie und entfernt für kurze Zeit die Tarnung des außerirdischen Schiffes.",
   EMP_USES:
-    "* EMP-Bombe: Verbraucht 1 Energie und verhindert, dass sich die Außerirdischen für kurze Zeit bewegen.",
+    "* EMP-Bombe: Verbraucht " +
+    CONFIGURATION.ENERGY_COST_EMP +
+    " Energie und verhindert, dass sich die Außerirdischen für kurze Zeit bewegen.",
   PAUL_USES:
-    "* PAUL: Verbraucht 2 Energie und zerstört jedes Schiff, das es trifft.",
+    "* PAUL: Verbraucht " +
+    CONFIGURATION.ENERGY_COST_PAUL +
+    " Energie und zerstört jedes Schiff, das es trifft.",
   CAN_PAUSE:
     "* Kann ich pausieren? NEIN. Die Außerirdischen kommen, um uns alle zu töten. Verstehst du die Schwere der Situation?",
   ADJUSTABLE_DIFF:
@@ -89,7 +97,8 @@ const GERMAN = {
     "Spezialwaffe wurde abgefeuert, sie kann nicht mehr abgefeuert werden.",
   TIMER: "TIMER",
   ENERGY: "ENERGIE",
-  FIRE_SW: "FEUERSPEZIELLE WAFFE",
+  WEAPON_READY: "WAFFE BEREIT",
+  USE_SPECIAL_WEAPON: "BENUTZEN SIE SPEZIELLE WAFFE",
   PROGRAMMING: "Konzept / Programmierung",
   ART: "Grafik / Ton",
   OTHER_CREDITS: "Andere Mitwirkende: Siehe readme.md",

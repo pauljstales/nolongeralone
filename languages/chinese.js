@@ -5,6 +5,8 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../configuration/configuration.js";
+
 const CHINESE = {
   GAME_LOADING: "游戏加载",
   START_GAME: "开始游戏",
@@ -24,7 +26,7 @@ const CHINESE = {
     "任务信息：外星人的船被掩盖了，但是，任何损坏的零件都变得可见。船也可以随意移动。",
   SELECT_SPECIAL_WEAPON: "选择特殊武器",
   RADAR: "雷达",
-  EMP_BOMB: "EMP炸弹",
+  EMP_BOMB: "电磁脉冲炸弹",
   TUTORIAL: "教程",
   ENTER_BATTLE: "进入战斗",
   HOW_TO_PLAY: "怎么玩",
@@ -33,10 +35,11 @@ const CHINESE = {
   WEAPONS: "武器",
   OTHER: "其他",
   MENU: "菜单",
-  CLICK_BUTTON: "*单击上方的按钮以了解更多信息。",
-  CLICK_SQUARE: "*在战场网格上单击一个正方形以发射您的能量武器。",
-  LIMITED_ENERGY: "*您的能量有限，每发射击需要1能量！",
-  CLICK_WEAPONS: "*单击“武器”以了解特殊武器。",
+  CLICK_BUTTON: "* 单击上方的按钮以了解更多信息。",
+  CLICK_SQUARE: "* 单击战场网格上的一个正方形以发射激光武器。",
+  LIMITED_ENERGY: "* 您的能量有限，每个激光发射需要1能量！",
+  USING_SPECIAL_WEAPON:
+    "* 要发射特殊武器，请先单击“使用特殊武器”按钮，然后单击网格。 点击“武器”以了解更多信息。",
   GRID_APPEARS:
     "*网格看起来是空的，因为外星人被掩盖了……撞上他们的船将永久露出船的那部分。",
   ALIENS_MOVE: "*外星飞船可以移动！它们可能会移入您之前向其发射的牢房！",
@@ -51,9 +54,18 @@ const CHINESE = {
   ONLY_ENOUGH: "*只有足够的时间为您的飞船配备一种特殊武器。",
   EACH_SPECIAL_WEAPON:
     "*每种特殊武器的作用不同，消耗的能量也不同，但只能发射一次。",
-  RADAR_USES: "*雷达：使用0能量，将在短时间内消除外星飞船的隐身之处。",
-  EMP_USES: "* EMP炸弹：消耗1能量，将在短时间内阻止外星人移动。",
-  PAUL_USES: "* PAUL：使用2能量，将摧毁其命中的任何船只。",
+  RADAR_USES:
+    "*雷达：使用" +
+    CONFIGURATION.ENERGY_COST_RADAR +
+    "能量，将在短时间内消除外星飞船的隐身之处。",
+  EMP_USES:
+    "* 电磁脉冲 炸弹：消耗" +
+    CONFIGURATION.ENERGY_COST_EMP +
+    "能量，将在短时间内阻止外星人移动。",
+  PAUL_USES:
+    "* PAUL：使用" +
+    CONFIGURATION.ENERGY_COST_PAUL +
+    "能量，将摧毁其命中的任何船只。",
   CAN_PAUSE:
     "*我可以暂停吗？不。外国人将要杀死我们所有人。您了解这种情况的严重性吗？",
   ADJUSTABLE_DIFF:
@@ -74,7 +86,8 @@ const CHINESE = {
   SW_FIRED: "特殊武器已被发射，不能再次发射。",
   TIMER: "计时器",
   ENERGY: "活力",
-  FIRE_SW: "消防专用武器",
+  WEAPON_READY: "准备好武器",
+  USE_SPECIAL_WEAPON: "使用特殊武器",
   PROGRAMMING: "概念/编程",
   ART: "艺术品/声音",
   OTHER_CREDITS: "其他贡献者：请参阅readme.md",

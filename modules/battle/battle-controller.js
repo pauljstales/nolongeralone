@@ -156,7 +156,7 @@ function stopWeaponSounds() {
  * Also changes the model's data.
  */
 function registerSpecialWeaponButtonEventListener() {
-  CONSTANTS.HTML.BATTLE.BUTTON_FIRE_SPECIAL_WEAPON.addEventListener(
+  CONSTANTS.HTML.BATTLE.BUTTON_ARM_SPECIAL_WEAPON.addEventListener(
     "click",
     () => {
       console.log("clicked the special weapon button");

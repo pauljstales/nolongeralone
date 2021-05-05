@@ -4,10 +4,10 @@
 
 .screen-battle {
   grid-template-areas:
-    "btl btl btl"
-    "stt stt stt"
-    "tmr nrg wep"
-    "btm btm btm";
+    "btl btl btl btl"
+    "stt stt stt stt"
+    "tmr nrg las wep"
+    "btm btm btm btm";
 }
 
 .screen-battle--grid--battlefield {
@@ -26,8 +26,12 @@
   grid-area: nrg; /* row 3, col 2 */
 }
 
+.screen-battle--grid--las {
+  grid-area: las; /* row 3, col 3 */
+}
+
 .screen-battle--grid--weapon {
-  grid-area: wep; /* row 3, col 3 */
+  grid-area: wep; /* row 3, col 4 */
 }
 
 .screen-battle--grid--bottom {
@@ -133,6 +137,19 @@
   width: 100%;
   max-height: 10vh;
   background-color: black;
+}
+
+.screen-battle__laser {
+  height: 100%;
+  width: 100%;
+  max-height: 10vh;
+  background-color: black;
+}
+
+.screen-battle__laser-ready-indicator {
+  height: 50%;
+  width: 50%;
+  background-color: var(--color-green);
 }
 
 .screen-battle__weapon {

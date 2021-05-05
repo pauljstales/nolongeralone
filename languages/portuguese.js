@@ -5,6 +5,8 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../configuration/configuration.js";
+
 const PORTUGUESE = {
   GAME_LOADING: "CARREGANDO O JOGO",
   START_GAME: "COMEÇAR O JOGO",
@@ -36,10 +38,11 @@ const PORTUGUESE = {
   MENU: "CARDÁPIO",
   CLICK_BUTTON: "* Clique em um botão acima para saber mais.",
   CLICK_SQUARE:
-    "* Clique em um quadrado na grade do campo de batalha para disparar sua arma de energia.",
-  LIMITED_ENERGY: "* Você tem energia limitada e cada tiro consome 1 energia!",
-  CLICK_WEAPONS:
-    "* Clique em 'armas' para saber mais sobre as armas especiais.",
+    "* Clique em um quadrado na grade do campo de batalha para disparar sua arma a laser.",
+  LIMITED_ENERGY:
+    "* Você tem energia limitada e cada disparo de laser consome 1 energia!",
+  USING_SPECIAL_WEAPON:
+    "* Para disparar sua arma especial, primeiro clique no botão 'usar arma especial' e, em seguida, clique na grade. Clique em 'armas' para saber mais.",
   GRID_APPEARS:
     "* A grade parece vazia porque os alienígenas estão camuflados ... bater em sua nave revelará permanentemente aquela parte da nave.",
   ALIENS_MOVE:
@@ -60,10 +63,17 @@ const PORTUGUESE = {
   EACH_SPECIAL_WEAPON:
     "* Cada arma especial faz algo diferente e custa energia diferente, mas só pode ser disparada uma vez.",
   RADAR_USES:
-    "* RADAR: Usa energia 0 e removerá a camuflagem da nave alienígena por um curto período de tempo.",
+    "* RADAR: Usa energia " +
+    CONFIGURATION.ENERGY_COST_RADAR +
+    " e removerá a camuflagem da nave alienígena por um curto período de tempo.",
   EMP_USES:
-    "* Bomba EMP: usa 1 energia e impede os alienígenas de se moverem por um curto período de tempo.",
-  PAUL_USES: "* PAUL: Usa 2 energias e destruirá qualquer nave que atingir.",
+    "* Bomba EMP: usa " +
+    CONFIGURATION.ENERGY_COST_EMP +
+    " energia e impede os alienígenas de se moverem por um curto período de tempo.",
+  PAUL_USES:
+    "* PAUL: Usa " +
+    CONFIGURATION.ENERGY_COST_PAUL +
+    " energias e destruirá qualquer nave que atingir.",
   CAN_PAUSE:
     "* Posso fazer uma pausa? NÃO. Os alienígenas estão vindo para matar todos nós. Você entende a gravidade da situação ?",
   ADJUSTABLE_DIFF:
@@ -84,7 +94,8 @@ const PORTUGUESE = {
   SW_FIRED: "Arma especial foi disparada, não pode ser disparada novamente.",
   TIMER: "CRONÔMETRO",
   ENERGY: "ENERGIA",
-  FIRE_SW: "ARMA ESPECIAL DE INCÊNDIO",
+  WEAPON_READY: "ARMA PRONTA",
+  USE_SPECIAL_WEAPON: "USAR ARMA ESPECIAL",
   PROGRAMMING: "Conceito / Programação",
   ART: "Arte / Som",
   OTHER_CREDITS: "Outros contribuidores: Veja readme.md",

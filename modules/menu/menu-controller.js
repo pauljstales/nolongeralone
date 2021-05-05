@@ -1,5 +1,7 @@
 /**
- * @fileoverview Controller of the MVC pattern, responsible for dealing with user interactions, and coordinating updates with the model and view.
+ * @fileoverview Menu's controller (MVC pattern), responsible for coordinating "user actions, model data, and view ui".
+ * Controller acts as the only communication to and from the menu code.
+ * The front/main controller "game" coordinates all controllers.
  * @summary controller object for menu screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
@@ -10,10 +12,16 @@ import { MENU_MODEL } from "/modules/menu/menu-model.js";
 import { MENU_VIEW } from "/modules/menu/menu-view.js";
 import { CONSTANTS } from "../../constants/constants.js";
 
+/**
+ * Shows the menu screen
+ */
 function showMenuScreen() {
   MENU_VIEW.showMenuScreen();
 }
 
+/**
+ * Hides the menu screen
+ */
 function hideMenuScreen() {
   MENU_VIEW.hideMenuScreen();
 }
@@ -63,6 +71,9 @@ function registerButtonSelectPaulEventListener() {
   });
 }
 
+/**
+ * Registers the menu's internal events on game startup
+ */
 function registerInternalMenuEvents() {
   registerButtonSelectRadarEventListener();
   registerButtonSelectEMPEventListener();
@@ -79,14 +90,27 @@ function stopAllBattleWeaponSelectionSounds() {
   SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
 }
 
+/**
+ * Whenever an HTML Button representing a special weapon is clicked, this function highlights that button (and de-highlights the others)
+ * @param {HTML_Element} selectedWeaponButton
+ */
 function highlightWeaponSelectedButton(selectedWeaponButton) {
   MENU_VIEW.highlightWeaponSelectedButton(selectedWeaponButton);
 }
 
+/**
+ * When a special weapon HTML button is selected, a string is passed to the model data of menu representing which weapon was selected.
+ * GAME (the main controller) gets this data and passes it to battle.
+ * @param {string} selectedWeapon
+ */
 function setSelectedWeapon(selectedWeapon) {
   MENU_MODEL.setSelectedWeapon(selectedWeapon);
 }
 
+/**
+ * Getter used by GAME to get the name of the selected weapon
+ * @returns string of the name of the selected weapon
+ */
 function getSelectedWeapon() {
   return MENU_MODEL.getSelectedWeapon();
 }

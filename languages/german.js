@@ -66,15 +66,15 @@ const GERMAN = {
     "* Jede Spezialwaffe macht etwas anderes und kostet andere Energie, kann aber nur einmal abgefeuert werden.",
   RADAR_USES:
     "* RADAR: Verbraucht " +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     " Energie und entfernt für kurze Zeit die Tarnung des außerirdischen Schiffes.",
   EMP_USES:
     "* EMP-Bombe: Verbraucht " +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     " Energie und verhindert, dass sich die Außerirdischen für kurze Zeit bewegen.",
   PAUL_USES:
     "* PAUL: Verbraucht " +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     " Energie und zerstört jedes Schiff, das es trifft.",
   CAN_PAUSE:
     "* Kann ich pausieren? NEIN. Die Außerirdischen kommen, um uns alle zu töten. Verstehst du die Schwere der Situation?",
@@ -99,8 +99,8 @@ const GERMAN = {
   ENERGY: "ENERGIE",
   WEAPON_READY: "WAFFE BEREIT",
   USE_SPECIAL_WEAPON: "BENUTZEN SIE SPEZIELLE WAFFE",
-  PROGRAMMING: "Konzept / Programmierung",
-  ART: "Grafik / Ton",
+  PROGRAMMING: "Konzept / Programmierung / CSS-Animation",
+  ART: "Grafik / Musik / Ton",
   OTHER_CREDITS: "Andere Mitwirkende: Siehe readme.md",
   START_NEW_GAME: "NEUES SPIEL STARTEN",
 };

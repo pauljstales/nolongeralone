@@ -56,15 +56,15 @@ const CHINESE = {
     "*每种特殊武器的作用不同，消耗的能量也不同，但只能发射一次。",
   RADAR_USES:
     "*雷达：使用" +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     "能量，将在短时间内消除外星飞船的隐身之处。",
   EMP_USES:
     "* 电磁脉冲 炸弹：消耗" +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     "能量，将在短时间内阻止外星人移动。",
   PAUL_USES:
     "* PAUL：使用" +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     "能量，将摧毁其命中的任何船只。",
   CAN_PAUSE:
     "*我可以暂停吗？不。外国人将要杀死我们所有人。您了解这种情况的严重性吗？",
@@ -88,8 +88,8 @@ const CHINESE = {
   ENERGY: "活力",
   WEAPON_READY: "准备好武器",
   USE_SPECIAL_WEAPON: "使用特殊武器",
-  PROGRAMMING: "概念/编程",
-  ART: "艺术品/声音",
+  PROGRAMMING: "概念 / 编程 / CSS动画",
+  ART: "艺术品 / 音乐 / 声音",
   OTHER_CREDITS: "其他贡献者：请参阅readme.md",
   START_NEW_GAME: "开始新游戏",
 };

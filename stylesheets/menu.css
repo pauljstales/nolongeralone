@@ -170,7 +170,7 @@
 
 #BUTTON_START_BATTLE {
   background-color: transparent;
-  animation-duration: 1s;
+  animation-duration: 0.75s;
   animation-name: flashEnterBattleButton;
   animation-iteration-count: infinite;
   animation-direction: alternate;

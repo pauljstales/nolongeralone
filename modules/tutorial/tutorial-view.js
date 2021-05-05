@@ -1,5 +1,6 @@
 /**
- * @fileoverview View of the MVC pattern, responsible for dealing with the UI. This particular controller is responsible for the tutorial screen's UI.
+ * @fileoverview Tutorial's view (MVC pattern), responsible for the view/ui.
+ * Tutorial's controller is the only access into the view.
  * @summary view object for tutorial screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
@@ -7,13 +8,9 @@
 
 import { CONSTANTS } from "../../constants/constants.js";
 
-const TUTORIAL_VIEW = {
-  highlightTutorialButton: highlightTutorialButton,
-  showTutorial: showTutorial,
-  hideTutorialScreen: hideTutorialScreen,
-  showTutorialText: showTutorialText,
-};
-
+/**
+ * Shows the tutorial screen
+ */
 function showTutorial() {
   CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.add(
     CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
@@ -23,6 +20,9 @@ function showTutorial() {
   );
 }
 
+/**
+ * Hides the tutorial screen
+ */
 function hideTutorialScreen() {
   CONSTANTS.HTML.TUTORIAL.SCREEN_TUTORIAL.classList.add(
     CONSTANTS.CSS.SCREEN_DISPLAY_NONE
@@ -32,8 +32,10 @@ function hideTutorialScreen() {
   );
 }
 
-export { TUTORIAL_VIEW };
-
+/**
+ * Highlights the selected tutorial HTML button, and de-highlights the others.
+ * @param {string} selectedTutorial
+ */
 function highlightTutorialButton(selectedTutorial) {
   const ALL_TUTORIAL_BUTTONS = [
     CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_PLAY,
@@ -55,6 +57,10 @@ function highlightTutorialButton(selectedTutorial) {
   });
 }
 
+/**
+ * Shows the HTML Button's related tutorial text, and hides the others.
+ * @param {string} selectedTutorial
+ */
 function showTutorialText(selectedTutorial) {
   const ALL_TUTORIAL_TEXT = [
     CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_DEFAULT,
@@ -74,3 +80,14 @@ function showTutorialText(selectedTutorial) {
     selectedTutorial.classList.remove(CONSTANTS.CSS.SCREEN_OPACITY_HIDE);
   });
 }
+
+/**
+ * Exported object for tutorial view
+ */
+const TUTORIAL_VIEW = {
+  highlightTutorialButton: highlightTutorialButton,
+  showTutorial: showTutorial,
+  hideTutorialScreen: hideTutorialScreen,
+  showTutorialText: showTutorialText,
+};
+export { TUTORIAL_VIEW };

@@ -1,5 +1,6 @@
 /**
- * @fileoverview View of the MVC pattern, responsible for dealing with the UI. This particular controller is responsible for the menu screen's UI.
+ * @fileoverview Menu's view (MVC pattern), responsible for the view/ui.
+ * Menu's controller is the only access into the view.
  * @summary view object for menu screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021

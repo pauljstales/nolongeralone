@@ -64,15 +64,15 @@ const PORTUGUESE = {
     "* Cada arma especial faz algo diferente e custa energia diferente, mas só pode ser disparada uma vez.",
   RADAR_USES:
     "* RADAR: Usa energia " +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     " e removerá a camuflagem da nave alienígena por um curto período de tempo.",
   EMP_USES:
     "* Bomba EMP: usa " +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     " energia e impede os alienígenas de se moverem por um curto período de tempo.",
   PAUL_USES:
     "* PAUL: Usa " +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     " energias e destruirá qualquer nave que atingir.",
   CAN_PAUSE:
     "* Posso fazer uma pausa? NÃO. Os alienígenas estão vindo para matar todos nós. Você entende a gravidade da situação ?",
@@ -96,8 +96,8 @@ const PORTUGUESE = {
   ENERGY: "ENERGIA",
   WEAPON_READY: "ARMA PRONTA",
   USE_SPECIAL_WEAPON: "USAR ARMA ESPECIAL",
-  PROGRAMMING: "Conceito / Programação",
-  ART: "Arte / Som",
+  PROGRAMMING: "Conceito / Programação / CSS-Animação",
+  ART: "Arte / Música / Som",
   OTHER_CREDITS: "Outros contribuidores: Veja readme.md",
   START_NEW_GAME: "COMEÇAR NOVO JOGO",
 };

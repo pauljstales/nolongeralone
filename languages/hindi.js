@@ -64,15 +64,15 @@ const HINDI = {
     "* प्रत्येक विशेष हथियार कुछ अलग करता है और विभिन्न ऊर्जा खर्च करता है लेकिन केवल एक बार निकाल दिया जा सकता है।",
   RADAR_USES:
     "* राडार: " +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     " ऊर्जा का उपयोग करता है और थोड़े समय के लिए विदेशी जहाज को हटा देगा।",
   EMP_USES:
     "* ईएमपी बम: " +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     " ऊर्जा का उपयोग करता है और कुछ समय के लिए एलियंस को आगे बढ़ने से रोक देगा।",
   PAUL_USES:
     "* पॉल: " +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     " ऊर्जा का उपयोग करता है और इसे हिट करने वाले किसी भी जहाज को नष्ट कर देगा।",
   CAN_PAUSE:
     "* क्या मैं खेल रोक सकता हूँ? नहीं। एलियंस हम सभी को मारने के लिए आ रहे हैं। क्या आप स्थिति की गंभीरता को समझते हैं?",
@@ -97,8 +97,8 @@ const HINDI = {
   ENERGY: "ऊर्जा",
   WEAPON_READY: "हथियार तैयार",
   USE_SPECIAL_WEAPON: "विशेष हथियार का उपयोग करें",
-  PROGRAMMING: "संकल्पना / प्रोग्रामिंग",
-  ART: "कलाकृति / ध्वनि",
+  PROGRAMMING: "अवधारणा / प्रोग्रामिंग / सीएसएस-एनीमेशन",
+  ART: "कलाकृति / संगीत / ध्वनि",
   OTHER_CREDITS: "अन्य योगदानकर्ता: readme.md देखें",
   START_NEW_GAME: "नया खेल शुरू करें",
 };

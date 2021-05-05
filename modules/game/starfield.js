@@ -1,5 +1,6 @@
 /**
- * @fileoverview This file is for controlling the "starfield" effect. The starfield is seen on every screen - the stars in the background are NOT from an animated image, but rather dynamically generated DIVs.
+ * @fileoverview This file is for controlling the "starfield" effect. The starfield is seen on every screen - the stars in the background are NOT from an animated image, but rather dynamically generated DIVs and CSS.
+ * I (PJS) spent a lot of time on this - I hope you love it as much as I do!
  * @summary starfield file
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
@@ -12,13 +13,6 @@ import { CONFIGURATION } from "../../configuration/configuration.js";
  * Constant values and variable values
  */
 const NUM_STARS = calculateStarToPixelDensity();
-
-/**
- * Exportable starfield object
- */
-const STARFIELD = {
-  activate: activate,
-};
 
 /**
  * Determines number of stars based on height*width pixels, to keep all screens looking similar (rather than one size too dense or too sparse).
@@ -98,9 +92,9 @@ function createStar() {
   star.classList.add("star");
   star.style.backgroundColor = Math.random() > 0.5 ? "white" : "yellow";
   star.style.height =
-    Math.ceil(Math.random() * CONFIGURATION.STAR_MAX_HEIGHT) + "px";
+    Math.ceil(Math.random() * CONFIGURATION.STAR.STAR_MAX_HEIGHT) + "px";
   star.style.width =
-    Math.ceil(Math.random() * CONFIGURATION.STAR_MAX_WIDTH) + "px";
+    Math.ceil(Math.random() * CONFIGURATION.STAR.STAR_MAX_WIDTH) + "px";
   star.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
   star.style.top = Math.floor(Math.random() * window.innerHeight) + "px";
   return star;
@@ -116,12 +110,12 @@ function moveStar(star) {
   CONSTANTS.HTML.STARFIELD.appendChild(star);
 
   let t = Math.floor(
-    Math.random() * CONFIGURATION.VARIABLE_ADDITIONAL_STAR_LIFETIME +
-      CONFIGURATION.AVERAGE_STAR_LIFETIME
+    Math.random() * CONFIGURATION.STAR.VARIABLE_ADDITIONAL_STAR_LIFETIME +
+      CONFIGURATION.STAR.AVERAGE_STAR_LIFETIME
   );
 
   setTimeout(() => {
-    let d = Math.random() * CONFIGURATION.STAR_ROTATE_DEGREES;
+    let d = Math.random() * CONFIGURATION.STAR.STAR_ROTATE_DEGREES;
     let x =
       Math.random() * (window.innerWidth / 4) * (Math.random() > 0.5 ? 1 : -1);
     let y =
@@ -140,4 +134,10 @@ function moveStar(star) {
   }, t);
 }
 
+/**
+ * Exportable starfield object
+ */
+const STARFIELD = {
+  activate: activate,
+};
 export { STARFIELD };

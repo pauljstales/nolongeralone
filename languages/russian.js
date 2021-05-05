@@ -63,15 +63,15 @@ const RUSSIAN = {
     "* Каждое специальное оружие делает что-то свое и требует разной энергии, но может быть выпущено только один раз.",
   RADAR_USES:
     "* РАДАР: расходует " +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     " энергии и на короткое время снимает маскировку корабля пришельцев.",
   EMP_USES:
     "* ЭМИ-бомба: использует " +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     " энергию и на короткое время останавливает движение пришельцев.",
   PAUL_USES:
     "* PAUL: Использует " +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     " энергии и уничтожит любой корабль, в который попадет.",
   CAN_PAUSE:
     "* Могу я сделать паузу? НЕТ. Пришельцы идут убить нас всех. Вы понимаете серьезность ситуации?",
@@ -96,8 +96,8 @@ const RUSSIAN = {
   ENERGY: "ЭНЕРГИЯ",
   WEAPON_READY: "Оружие готово",
   USE_SPECIAL_WEAPON: "ИСПОЛЬЗУЙТЕ СПЕЦИАЛЬНОЕ ОРУЖИЕ",
-  PROGRAMMING: "Концепция / Программирование",
-  ART: "Художественное произведение / Звук",
+  PROGRAMMING: "Концепция / Программирование / CSS-Анимация",
+  ART: "Иллюстрации / Музыка / Звук",
   OTHER_CREDITS: "Другие участники: см. Readme.md",
   START_NEW_GAME: "НАЧАТЬ НОВУЮ ИГРУ",
 };

@@ -5,28 +5,63 @@
  * Copyright (c) 2021
  */
 
-let baseTime = 1; // dev 1000, prod 3000
-//let baseTime = 3000; // dev 1000, prod 3000
+/**
+ * Imports
+ * */
+import { CONSTANTS } from "../constants/constants.js";
+
+/**
+ * This "introTextBaseTime" variable determines the speed that the intro text comes on the introduction screen. All text is derived from this time.
+ */
+let introTextBaseTime = 1; // dev 1000, prod 3000
 
 const CONFIGURATION = {
-  AVERAGE_STAR_LIFETIME: 60000, // prod 60000
-  VARIABLE_ADDITIONAL_STAR_LIFETIME: 30000, // prod 30000
-  STAR_MAX_HEIGHT: 3, // prod 3
-  STAR_MAX_WIDTH: 3, // prod 3
-  STAR_ROTATE_DEGREES: 60, // prod 60
-  TIME_PER_INTRO_TEXT: baseTime,
-  TIME_UNTIL_TITLE_TEXT: baseTime * 5, // prod *5
-  TIME_UNTIL_TITLE_LINK_AS_BUTTON: baseTime * 6, // prod *6
-  TIME_PER_PROGRESS_BAR_INTERVAL: 1, // dev 2, prod 20
-  BATTLE_FIRE_WEAPON_TIME: 1000, // 1 second
-  BATTLE_TIME_INITIAL: 115000, // in ms
-  TIME_PER_WARP: Math.ceil(2 + Math.random() * 3), // in ms, prod 2000-4000
-  TIME_PER_GAMELOOP: 500, // in ms, prod 250, must equal 1000 at some point
-  ENERGY_COST_LASER: 1, // prod 1
-  ENERGY_COST_RADAR: 0, // prod 0
-  ENERGY_COST_EMP: 1, // prod 1
-  ENERGY_COST_PAUL: 2, // prod 2
-  ENERGY_INITIAL: 1000, // prod 24
+  STAR: {
+    AVERAGE_STAR_LIFETIME: 60000, // prod 60000
+    VARIABLE_ADDITIONAL_STAR_LIFETIME: 30000, // prod 30000
+    STAR_MAX_HEIGHT: 3, // prod 3
+    STAR_MAX_WIDTH: 3, // prod 3
+    STAR_ROTATE_DEGREES: 60, // prod 60
+  },
+  INTRO_TIMING: {
+    TIME_PER_INTRO_TEXT: introTextBaseTime,
+    TIME_UNTIL_TITLE_TEXT: introTextBaseTime * 5, // prod *5
+    TIME_UNTIL_TITLE_LINK_AS_BUTTON: introTextBaseTime * 6, // prod *6
+  },
+  LANDING: {
+    TIME_PER_PROGRESS_BAR_INTERVAL: 1, // dev 2, prod 20
+  },
+  BATTLE_TIMING: {
+    BATTLE_TIME_INITIAL: 115000, // in ms, prod 115000
+    BATTLE_FIRE_WEAPON_TIME: 1000, // 1s, must match battle.css firing animations
+    TIME_PER_WARP: Math.ceil(2 + Math.random() * 3), // in ms, prod 3000-5000
+    TIME_PER_GAMELOOP: 500, // in ms, prod 250, must equal 1000 at some point
+  },
+  BATTLE_ENERGY: {
+    ENERGY_INITIAL: 24, // prod 24 - subject to change for game balance
+    ENERGY_COST_LASER: 1, // prod 1 - subject to change for game balance
+    ENERGY_COST_RADAR: 0, // prod 0 - subject to change for game balance
+    ENERGY_COST_EMP: 1, // prod 1 - subject to change for game balance
+    ENERGY_COST_PAUL: 2, // prod 2 - subject to change for game balance
+    GET_SPECIAL_WEAPON_ENERGY_COST: getSpecialWeaponEnergyCost,
+  },
 };
+
+/**
+ * Menu allows for the choosing of a special weapon.
+ * The name of that special weapon is passed to battle, but battle does not know the cost, only the name.
+ * This allows battle to get the cost of a weapon, without having to pass that information around in other places.
+ */
+function getSpecialWeaponEnergyCost(specialWeapon) {
+  let energyCostOfSpecialWeapon = -1;
+  if (specialWeapon == CONSTANTS.GAME.RADAR) {
+    energyCostOfSpecialWeapon = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR;
+  } else if (specialWeapon == CONSTANTS.GAME.EMP) {
+    energyCostOfSpecialWeapon = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP;
+  } else if (specialWeapon == CONSTANTS.GAME.PAUL) {
+    energyCostOfSpecialWeapon = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL;
+  }
+  return energyCostOfSpecialWeapon;
+}
 
 export { CONFIGURATION };

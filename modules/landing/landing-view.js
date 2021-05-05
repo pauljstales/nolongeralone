@@ -1,5 +1,6 @@
 /**
- * @fileoverview View of the MVC pattern, responsible for dealing with the UI. This particular controller is responsible for the landing screen's UI.
+ * @fileoverview Landing's view (MVC pattern), responsible for the view/ui.
+ * Landing's controller is the only access into the view.
  * @summary view object for landing screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
@@ -9,7 +10,7 @@ import { CONFIGURATION } from "../../configuration/configuration.js";
 import { CONSTANTS } from "../../constants/constants.js";
 
 /**
- * Shows the progress bar load, controlled by variable "TIME_PER_PROGRESS_BAR_INTERVAL".
+ * Shows the progress bar load, controlled by variable "LANDING.TIME_PER_PROGRESS_BAR_INTERVAL".
  * Once the progress bar is loaded, show the landing screen with options to load the game, see the credits, or select a language.
  */
 function loadProgressBar() {
@@ -23,7 +24,7 @@ function loadProgressBar() {
       showLandingScreenPart2();
       clearInterval(processBarPercentageInterval);
     }
-  }, CONFIGURATION.TIME_PER_PROGRESS_BAR_INTERVAL);
+  }, CONFIGURATION.LANDING.TIME_PER_PROGRESS_BAR_INTERVAL);
 }
 
 /**

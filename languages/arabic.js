@@ -60,15 +60,15 @@ const ARABIC = {
     "* كل سلاح خاص يفعل شيئًا مختلفًا ويكلف طاقة مختلفة ، ولكن لا يمكن إطلاقه إلا مرة واحدة.",
   RADAR_USES:
     "* RADAR: يستخدم" +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     " طاقة وسيزيل إخفاء هوية السفينة الغريبة لفترة قصيرة.",
   EMP_USES:
     "* القنبلة النبضية الكهرومغناطيسية: تستهلك " +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     " طاقة وتمنع الفضائيين من الحركة لوقت قصير.",
   PAUL_USES:
     "* بول: يستهلك طاقة مقدارها " +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     " وسيدمر أي سفينة تصطدم بها.",
   CAN_PAUSE:
     "* هل يمكنني التوقف؟ لا. الفضائيون قادمون لقتلنا جميعًا. هل تفهم خطورة الموقف ؟.",
@@ -92,8 +92,8 @@ const ARABIC = {
   ENERGY: "طاقة",
   WEAPON_READY: "سلاح جاهز",
   USE_SPECIAL_WEAPON: "استخدم سلاح خاص",
-  PROGRAMMING: "المفهوم / البرمجة",
-  ART: "العمل الفني / الصوت",
+  PROGRAMMING: "المفهوم / البرمجة / الرسوم المتحركة css",
+  ART: "عمل فني / موسيقى / صوت",
   OTHER_CREDITS: "المساهمون الآخرون: انظر readme.md",
   START_NEW_GAME: "بدء لعبة جديدة",
 };

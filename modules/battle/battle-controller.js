@@ -1,5 +1,7 @@
 /**
- * @fileoverview Controller of the MVC pattern, responsible for dealing with user interactions, and coordinating updates with the model and view.
+ * @fileoverview Battle's controller (MVC pattern), responsible for coordinating "user actions, model data, and view ui".
+ * Controller acts as the only communication to and from the battle code.
+ * The front/main controller "game" coordinates all controllers.
  * @summary controller object for battle screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
@@ -27,128 +29,230 @@ function hideBattleScreen() {
 }
 
 /**
- * Sets the special weapon
+ * Sets the special weapon (this is chosen on the menu screen)
+ * The GAME coordinates the passing of data from menu to battle
  */
 function setSpecialWeapon(specialWeapon) {
   BATTLE_MODEL.setSpecialWeapon(specialWeapon);
 }
 
 /**
- * Restart the game (from the credits screen) by resetting the view and model
- */
-function restartGame() {
-  BATTLE_VIEW.restartGame();
-  BATTLE_MODEL.restartGame();
-}
-
-/**
  * Battle Loop
+ * This is the heart of the "game", the actual battle.
+ * Before the loop begins, game values are initialized.
+ * The loop runs on a set interval that "ticks" according to the configuration's "time per gameloop".
+ * Every gameloop updates the time/energy and checks for game over conditions.
+ * Any game over condition ends this set interval.
  */
 function startBattleLoop() {
-  initializeGameValues();
-
+  BATTLE_VIEW.initializeGameValues();
+  BATTLE_MODEL.initializeGameValues();
   let intervalID = setInterval(() => {
     //BATTLE_MODEL.DEV_printBattleData();
+    gameLoopUpdateTime();
+    gameLoopAlienShipsAttemptToMove();
+    gameLoopCheckIfGameOverFromTime(intervalID);
+    gameLoopCheckIfGameOverFromEnergy(intervalID);
+    gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID);
 
-    updateTime();
-    alienShipsAttemptToMove();
+    // ---------------------------------------------------
+    // ---------- Battle Loop Nested Functions -----------
+    // ---------------------------------------------------
 
-    checkIfGameOverFromTime(intervalID);
-    checkIfGameOverFromEnergy(intervalID);
-  }, CONFIGURATION.TIME_PER_GAMELOOP);
-}
+    /**
+     * Decreases the game time in milliseconds by the time-per-gameloop.
+     * If the game time is divisible by 1000, update the view.
+     */
+    function gameLoopUpdateTime() {
+      BATTLE_MODEL.decreaseTime(CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);
+      if (BATTLE_MODEL.getTime() % 1000 == 0) {
+        BATTLE_VIEW.setTime(BATTLE_MODEL.getTime() / 1000);
+      }
+    }
 
-function checkIfGameOverFromEnergy(intervalID) {
-  if (BATTLE_MODEL.getEnergy() == 0) {
-    console.log("energy is exhausted, end the game on a loss");
-    clearInterval(intervalID);
-    endGame(CONSTANTS.GAME.LOSE);
-  }
-}
+    /**
+     * If "time-per-warp" time has passed, the aliens attempt to move.
+     * If an EMP bomb has gone off, or another condition, they will not be able to move on this attempt.
+     */
+    function gameLoopAlienShipsAttemptToMove() {
+      //console.log("time per warp: " + CONFIGURATION.BATTLE_TIMING.TIME_PER_WARP);
+      //console.log("battle time: " + BATTLE_MODEL.getTime() / 1000);
+      if (
+        (BATTLE_MODEL.getTime() / 1000) %
+          CONFIGURATION.BATTLE_TIMING.TIME_PER_WARP ==
+        0
+      ) {
+        console.log("ships should warp now");
+      }
+    }
 
-function checkIfGameOverFromTime(intervalID) {
-  if (BATTLE_MODEL.getTime() == 0) {
-    console.log("time is up, end the game on a loss");
-    clearInterval(intervalID);
-    endGame(CONSTANTS.GAME.LOSE);
-  }
-}
+    /**
+     * Checks for the LOSS condition "is there time left?"
+     * If not, stop the game loop and begin the end game sequence.
+     * @param {intervalID} intervalID
+     */
+    function gameLoopCheckIfGameOverFromTime(intervalID) {
+      if (BATTLE_MODEL.getTime() == 0) {
+        console.log("time is up, end the game on a loss");
+        BATTLE_MODEL.setWeaponFireable(false);
+        clearInterval(intervalID);
+        //endGame(CONSTANTS.GAME.LOSE);
+      }
+    }
 
-function alienShipsAttemptToMove() {
-  //console.log("time per warp: " + CONFIGURATION.TIME_PER_WARP);
-  //console.log("battle time: " + BATTLE_MODEL.getTime() / 1000);
-  if ((BATTLE_MODEL.getTime() / 1000) % CONFIGURATION.TIME_PER_WARP == 0) {
-    console.log("ships should warp now");
-  }
-}
+    /**
+     * Checks for the LOSS condition "is there energy left?"
+     * If not, stop the game loop and begin the end game sequence.
+     * @param {intervalID} intervalID
+     */
+    function gameLoopCheckIfGameOverFromEnergy(intervalID) {
+      if (BATTLE_MODEL.getEnergy() == 0) {
+        console.log("energy is exhausted, end the game on a loss");
+        clearInterval(intervalID);
+        //endGame(CONSTANTS.GAME.LOSE);
+      }
+    }
 
-function updateTime() {
-  BATTLE_MODEL.decreaseTime(CONFIGURATION.TIME_PER_GAMELOOP);
-  if (BATTLE_MODEL.getTime() % 1000 == 0) {
-    BATTLE_VIEW.setTime(BATTLE_MODEL.getTime() / 1000);
-  }
-}
-
-function initializeGameValues() {
-  BATTLE_VIEW.setTime(CONFIGURATION.BATTLE_TIME_INITIAL / 1000);
-  BATTLE_VIEW.setEnergy(CONFIGURATION.ENERGY_INITIAL);
-  BATTLE_MODEL.setTime(CONFIGURATION.BATTLE_TIME_INITIAL);
-  BATTLE_MODEL.setEnergy(CONFIGURATION.ENERGY_INITIAL);
-  BATTLE_MODEL.setWeaponFireable(true);
+    /**
+     * Checks for the WIN condition "are all alien ships destroyed?"
+     * If yes, stop the game loop and begin the end game sequence.
+     * @param {intervalID} intervalID
+     */
+    function gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID) {
+      // somebody should implement this.
+      // it's probably me. (it is)
+      // ah, well...
+    }
+  }, CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);
 }
 
 /**
- * Fires a shot, either from the standard laser or one of the special weapons
+ * Check if the weapon is fireable (weapons can only be fired every so often, controlled by BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME), and if not, play an error sound.
+ * If the weapon CAN be fired, set it to not fireable (it will become fireable again after function fireWeapon's setTimeout sets it back to fireable).
+ * Stop all other weapon sounds, determine which weapon to fire (in case a special weapon was armed), and fire that weapon.
+ * Afterwards update the energy and perform different checks on the energy - if we are out of energy disable firing until the game loop registers game over.
  * @param {string} cellID
  */
-function fireWeapon(cellID) {
-  stopWeaponSounds();
+function prepareToFireWeapon(cellID) {
+  if (BATTLE_MODEL.getEnergy() > 0 && BATTLE_MODEL.isWeaponFireable()) {
+    BATTLE_MODEL.setWeaponFireable(false);
+    stopWeaponSounds();
 
-  if (BATTLE_MODEL.getEnergy() == 0) {
-    console.log("energy is exhausted, disable table, game loop will end it");
-    CONSTANTS.HTML.BATTLE.BATTLEFIELD_TABLE.setAttribute("disabled", true);
-    return;
+    let weapon = determineWeaponToBeFired();
+    fireWeapon(weapon.weaponSound, weapon.weaponType, cellID);
+    updateEnergy(weapon.weaponEnergyCost);
+
+    determineIfEnoughEnergyForSpecialWeapon();
+    checkRemainingEnergyForGameOverCondition();
+  } else {
+    console.log(
+      "Trying to fire and cannot: \nEither out of energy\nOr firing too soon\nOr time is up"
+    );
+    // play error sound
   }
 
-  let weaponType = CONSTANTS.GAME.LASER;
-  let weaponSound = SOUND.SFX.BATTLE_BASIC_LASER_FIRE;
-  let weaponEnergyCost = CONFIGURATION.ENERGY_COST_LASER;
-  if (BATTLE_MODEL.isSpecialWeaponArmed()) {
-    weaponType = BATTLE_MODEL.getSpecialWeapon();
-    if (weaponType == CONSTANTS.GAME.RADAR) {
-      weaponSound = SOUND.SFX.BATTLE_RADAR_FIRE;
-      weaponEnergyCost = CONFIGURATION.ENERGY_COST_RADAR;
-    } else if (weaponType == CONSTANTS.GAME.EMP) {
-      weaponSound = SOUND.SFX.BATTLE_EMP_FIRE;
-      weaponEnergyCost = CONFIGURATION.ENERGY_COST_EMP;
-    } else if (weaponType == CONSTANTS.GAME.PAUL) {
-      weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
-      weaponEnergyCost = CONFIGURATION.ENERGY_COST_PAUL;
+  // ---------------------------------------------------
+  // ----- Prepare to Fire Weapon Nested Functions -----
+  // ---------------------------------------------------
+
+  /**
+   * Stop all weapon sounds when firing a weapon, as some weapon sounds are longer than others and may cause conflicts (especially on mobile).
+   */
+  function stopWeaponSounds() {
+    SOUND.stopAudio(SOUND.SFX.BATTLE_BASIC_LASER_FIRE);
+    SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
+    SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
+    SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
+  }
+
+  /**
+   * Checks if the special weapon was selected and is "ready for fire".
+   * If YES, then determine which special weapon and adjust the values.
+   * Since the special weapon is about to be fired, set its "ready for fire" to be false so it is not fired again for this game.
+   * Else NO, the default laser weapon is the weapon to be fired.
+   * @returns weapon object consisting of the weapon's type, sound, and cost
+   */
+  function determineWeaponToBeFired() {
+    let weapon = {
+      weaponType: null,
+      weaponSound: null,
+      weaponEnergyCost: null,
+    };
+
+    weapon.weaponType = CONSTANTS.GAME.LASER;
+    weapon.weaponSound = SOUND.SFX.BATTLE_BASIC_LASER_FIRE;
+    weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_LASER;
+
+    if (BATTLE_MODEL.isSpecialWeaponReadyForFire()) {
+      weapon.weaponType = BATTLE_MODEL.getSpecialWeapon();
+      if (weapon.weaponType == CONSTANTS.GAME.RADAR) {
+        weapon.weaponSound = SOUND.SFX.BATTLE_RADAR_FIRE;
+        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR;
+      } else if (weapon.weaponType == CONSTANTS.GAME.EMP) {
+        weapon.weaponSound = SOUND.SFX.BATTLE_EMP_FIRE;
+        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP;
+      } else if (weapon.weaponType == CONSTANTS.GAME.PAUL) {
+        weapon.weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
+        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL;
+      }
+      BATTLE_MODEL.setSpecialWeaponReadyForFireToFalse();
     }
-    BATTLE_MODEL.setSpecialWeaponArmedToFalse();
+    return weapon;
   }
 
-  BATTLE_MODEL.decreaseEnergy(weaponEnergyCost);
-  BATTLE_VIEW.setEnergy(BATTLE_MODEL.getEnergy());
+  /**
+   * Fire weapon actually fires the selected weapon.
+   * The sound of the weapon is played, a DIV is created and given a class to represent the weapon, after BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME seconds the DIV is removed.
+   * @param {audioFire} weaponSound
+   * @param {string} weaponType
+   * @param {string} cellID
+   */
+  function fireWeapon(weaponSound, weaponType, cellID) {
+    SOUND.playAudio(weaponSound);
+    const weaponProjectile = document.createElement("div");
+    weaponProjectile.classList.add(weaponType);
+    document.getElementById(cellID).appendChild(weaponProjectile);
 
-  SOUND.playAudio(weaponSound);
-  const weaponProjectile = document.createElement("div");
-  weaponProjectile.classList.add(weaponType);
-  document.getElementById(cellID).appendChild(weaponProjectile);
-  setTimeout(() => {
-    document.getElementById(cellID).removeChild(weaponProjectile);
-    BATTLE_MODEL.setWeaponFireable(true);
-  }, CONFIGURATION.BATTLE_FIRE_WEAPON_TIME);
+    setTimeout(() => {
+      document.getElementById(cellID).removeChild(weaponProjectile);
+      BATTLE_MODEL.setWeaponFireable(true);
+    }, CONFIGURATION.BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME);
+  }
+
+  /**
+   * If the energy level reaches 0 (or below in case of a bug), the game ends.
+   */
+  function checkRemainingEnergyForGameOverCondition() {
+    if (BATTLE_MODEL.getEnergy() <= 0) {
+      console.log("energy is exhausted, disable table, game loop will end it");
+    }
+  }
+
+  /**
+   * If the special weapon costs more energy than remaining energy, disable the special weapon for the remainder of the battle.
+   */
+  function determineIfEnoughEnergyForSpecialWeapon() {
+    let costOfSpecialWeapon = CONFIGURATION.BATTLE_ENERGY.GET_SPECIAL_WEAPON_ENERGY_COST(
+      BATTLE_MODEL.getSpecialWeapon()
+    );
+    console.log("cost of special weapon? " + costOfSpecialWeapon);
+    console.log("remaining energy? " + BATTLE_MODEL.getEnergy());
+    if (BATTLE_MODEL.getEnergy() < costOfSpecialWeapon) {
+      console.log("energy is too low to use special weapon, disable it");
+      BATTLE_MODEL.setSpecialWeaponReadyForFireToFalse();
+      BATTLE_VIEW.disableSpecialWeapon();
+    }
+  }
+
+  /**
+   * Update the model and view with the new energy amount after firing the weapon.
+   * @param {number} weaponEnergyCost
+   */
+  function updateEnergy(weaponEnergyCost) {
+    BATTLE_MODEL.decreaseEnergy(weaponEnergyCost);
+    BATTLE_VIEW.setEnergy(BATTLE_MODEL.getEnergy());
+  }
 }
-
-function stopWeaponSounds() {
-  SOUND.stopAudio(SOUND.SFX.BATTLE_BASIC_LASER_FIRE);
-  SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
-  SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
-  SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
-}
-
-// -------------------------------------------------------------
 
 /**
  * Registers the special weapon button.
@@ -160,22 +264,25 @@ function registerSpecialWeaponButtonEventListener() {
     "click",
     () => {
       console.log("clicked the special weapon button");
-      BATTLE_VIEW.specialWeaponArmed();
-      BATTLE_MODEL.setSpecialWeaponArmedToTrue();
+      BATTLE_VIEW.disableSpecialWeapon();
+      BATTLE_MODEL.setSpecialWeaponReadyForFireToTrue();
     }
   );
 }
 
+/**
+ * Registers all the battlefield's individual grid cells via event delegation.
+ * The battlefield itself listens for click events, and determines which cell was clicked by checking the ID of the target (clicked element).
+ */
 function registerBattleCellsViaEventDelegation() {
   CONSTANTS.HTML.BATTLE.BATTLEFIELD_TABLE.addEventListener("click", (e) => {
-    if (BATTLE_MODEL.isWeaponFireable()) {
-      fireWeapon(e.target.id);
-      BATTLE_MODEL.setWeaponFireable(false);
-    }
-    setTimeout(() => {}, 1000);
+    prepareToFireWeapon(e.target.id);
   });
 }
 
+/**
+ * Register the internal battle events on game startup
+ */
 function registerInternalBattleEvents() {
   registerSpecialWeaponButtonEventListener();
   registerBattleCellsViaEventDelegation();
@@ -190,6 +297,5 @@ const BATTLE_CONTROLLER = {
   registerInternalBattleEvents: registerInternalBattleEvents,
   setSpecialWeapon: setSpecialWeapon,
   startBattleLoop: startBattleLoop,
-  restartGame: restartGame,
 };
 export { BATTLE_CONTROLLER };

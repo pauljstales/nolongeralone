@@ -1,5 +1,6 @@
 /**
- * @fileoverview View of the MVC pattern, responsible for dealing with the UI. This particular controller is responsible for the intro screen's UI.
+ * @fileoverview Intro's view (MVC pattern), responsible for the view/ui.
+ * Intros's controller is the only access into the view.
  * @summary view object for intro screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
@@ -65,7 +66,7 @@ function loadIntroScrollingText() {
         INTRO_TEXT_ELEMENTS[i].classList.add(
           CONSTANTS.CSS.SCREEN_TEXT_OPACITY_SHOW
         );
-      }, i * CONFIGURATION.TIME_PER_INTRO_TEXT);
+      }, i * CONFIGURATION.INTRO_TIMING.TIME_PER_INTRO_TEXT);
     }
   }
 
@@ -84,7 +85,7 @@ function loadIntroScrollingText() {
       CONSTANTS.HTML.INTRO.SCREEN_INTRO_PART_2.classList.remove(
         CONSTANTS.CSS.SCREEN_DISPLAY_NONE
       );
-    }, CONFIGURATION.TIME_UNTIL_TITLE_TEXT);
+    }, CONFIGURATION.INTRO_TIMING.TIME_UNTIL_TITLE_TEXT);
   }
 
   function showTitleText() {
@@ -95,7 +96,7 @@ function loadIntroScrollingText() {
       CONSTANTS.HTML.INTRO.INTRO_TEXT_6.classList.add(
         CONSTANTS.CSS.SCREEN_TEXT_OPACITY_SHOW
       );
-    }, CONFIGURATION.TIME_UNTIL_TITLE_TEXT);
+    }, CONFIGURATION.INTRO_TIMING.TIME_UNTIL_TITLE_TEXT);
   }
 
   function showPrepareForBattleButton() {
@@ -106,7 +107,7 @@ function loadIntroScrollingText() {
       CONSTANTS.HTML.INTRO.BUTTON_PREPAREFORBATTLE.classList.add(
         CONSTANTS.CSS.BUTTON_OPACITY_SHOW
       );
-    }, CONFIGURATION.TIME_UNTIL_TITLE_LINK_AS_BUTTON);
+    }, CONFIGURATION.INTRO_TIMING.TIME_UNTIL_TITLE_LINK_AS_BUTTON);
   }
 }
 

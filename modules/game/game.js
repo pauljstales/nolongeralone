@@ -1,5 +1,9 @@
 /**
- * @fileoverview Game controller is the "front controller" of this entire application, interacting with the individual screen controllers. For multiple-screen actions such as "moving from landing to intro", game handles this.
+ * @fileoverview Game is the "front controller" of this entire application.
+ * It interacts with the individual screen controllers, allowing for screen transitions, passing of data, etc., as the individual controllers do not coordinate among themselves - they go through game.
+ * For the entire game, this is the key logic.
+ * For the battle portion of the game, see the battle controller.
+ * The only portion of game accessible to a controller is the game over function available to battle.
  * @summary application-wide JavaScript
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
@@ -188,14 +192,13 @@ function registerButtonStartNewGameEventListener() {
     SOUND.stopAudio(SOUND.MUSIC.CREDITS_WIN);
     SOUND.stopAudio(SOUND.MUSIC.CREDITS_LOSE);
     SOUND.playAudio(SOUND.MUSIC.INTRO);
-    BATTLE_CONTROLLER.restartGame();
     CREDITS_CONTROLLER.hideCreditsScreen();
     INTRO_CONTROLLER.showIntroScreen();
   });
 }
 
 /**
- * Exported function so battle can inform game that the battle/game is over
+ * Exported function so battle can inform game that the battle is over
  */
 export function endGame(gameResult) {
   STARFIELD.activate();

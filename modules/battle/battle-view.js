@@ -1,6 +1,7 @@
 /**
- * @fileoverview View of the MVC pattern, responsible for dealing with the UI. This particular controller is responsible for the landing screen's UI.
- * @summary view object for landing screen
+ * @fileoverview Battle's view (MVC pattern), responsible for the view/ui.
+ * Battle's controller is the only access into the view.
+ * @summary view object for battle screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
  */
@@ -33,13 +34,13 @@ function hideBattleScreen() {
 }
 
 /**
- * asd
+ * Initialize the game values for the view; setting the time and energy, and making the special weapon button available
  */
-function restartGame() {
+function initializeGameValues() {
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_ENERGY_TEXT.innerText =
-    CONFIGURATION.ENERGY_INITIAL;
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_INITIAL;
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_TIMER_TEXT.innerText =
-    CONFIGURATION.BATTLE_TIME_INITIAL / 1000;
+    CONFIGURATION.BATTLE_TIMING.BATTLE_TIME_INITIAL / 1000;
   CONSTANTS.HTML.BATTLE.BUTTON_ARM_SPECIAL_WEAPON.classList.remove(
     CONSTANTS.CSS.BUTTON_COLOR_DISABLED
   );
@@ -52,7 +53,7 @@ function restartGame() {
 /**
  * Changes the special weapon button from red to gray, and disables it
  */
-function specialWeaponArmed() {
+function disableSpecialWeapon() {
   CONSTANTS.HTML.BATTLE.BUTTON_ARM_SPECIAL_WEAPON.classList.add(
     CONSTANTS.CSS.BUTTON_COLOR_DISABLED
   );
@@ -65,10 +66,16 @@ function specialWeaponArmed() {
   );
 }
 
+/**
+ * Setter for energy in the view
+ */
 function setEnergy(currentEnergy) {
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_ENERGY_TEXT.innerText = currentEnergy;
 }
 
+/**
+ * Setter for time in the view
+ */
 function setTime(currentTime) {
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_TIMER_TEXT.innerText = currentTime;
 }
@@ -79,9 +86,9 @@ function setTime(currentTime) {
 const BATTLE_VIEW = {
   showBattleScreen: showBattleScreen,
   hideBattleScreen: hideBattleScreen,
-  specialWeaponArmed: specialWeaponArmed,
+  disableSpecialWeapon: disableSpecialWeapon,
   setEnergy: setEnergy,
   setTime: setTime,
-  restartGame: restartGame,
+  initializeGameValues: initializeGameValues,
 };
 export { BATTLE_VIEW };

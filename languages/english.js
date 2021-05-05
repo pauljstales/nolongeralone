@@ -62,15 +62,15 @@ const ENGLISH = {
     "* Each special weapon does something different and costs different energy, but can only be fired once.",
   RADAR_USES:
     "* RADAR: Uses " +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     " energy and will remove the alien ship cloaking for a short time.",
   EMP_USES:
     "* EMP Bomb: Uses " +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     " energy and will stop the aliens from moving for a short time.",
   PAUL_USES:
     "* PAUL: The 'Plasma Arc Ultra Laser' uses " +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     " energy and will destroy any ship it hits.",
   CAN_PAUSE:
     "* Can I Pause? NO. The aliens are coming to kill us all. Do you understand the severity of the situation?.",
@@ -94,8 +94,8 @@ const ENGLISH = {
   ENERGY: "ENERGY",
   WEAPON_READY: "WEAPON READY",
   USE_SPECIAL_WEAPON: "USE SPECIAL WEAPON",
-  PROGRAMMING: "Concept/Programming",
-  ART: "Artwork/Sound",
+  PROGRAMMING: "Concept/Programming/CSS-Animation",
+  ART: "Artwork/Music/Sound",
   OTHER_CREDITS: "Other Contributors: See readme.md",
   START_NEW_GAME: "START NEW GAME",
 };

@@ -65,15 +65,15 @@ const FRENCH = {
     "* Chaque arme spéciale fait quelque chose de différent et coûte une énergie différente, mais ne peut être tirée qu'une seule fois.",
   RADAR_USES:
     "* RADAR: utilise " +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     " énergie et supprimera le camouflage du vaisseau extraterrestre pendant une courte période.",
   EMP_USES:
     "* Bombe EMP: utilise " +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     " énergie et empêchera les extraterrestres de bouger pendant une courte période.",
   PAUL_USES:
     "* PAUL: Utilise " +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     " énergies et détruira tout vaisseau touché.",
   CAN_PAUSE:
     "* Puis-je faire une pause? NON. Les extraterrestres viennent nous tuer tous. Comprenez-vous la gravité de la situation?",
@@ -97,8 +97,8 @@ const FRENCH = {
   ENERGY: "ÉNERGIE",
   WEAPON_READY: "ARME PRÊT",
   USE_SPECIAL_WEAPON: "UTILISER UNE ARME SPÉCIALE ",
-  PROGRAMMING: "Concept / Programmation",
-  ART: "Illustration / Son",
+  PROGRAMMING: "Concept / programmation / animation css",
+  ART: "Ouvrages d'art / Musique / Son",
   OTHER_CREDITS: "Autres contributeurs: voir readme.md",
   START_NEW_GAME: "COMMENCER UNE NOUVELLE PARTIE",
 };

@@ -62,15 +62,15 @@ const JAPANESE = {
     "*それぞれの特別な武器は異なることをし、異なるエネルギーを消費しますが、一度しか発射できません。",
   RADAR_USES:
     "*レーダー：" +
-    CONFIGURATION.ENERGY_COST_RADAR +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
     "エネルギーを使用し、エイリアンの船のクローキングを短時間除去します。",
   EMP_USES:
     "* EMP爆弾：" +
-    CONFIGURATION.ENERGY_COST_EMP +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP +
     "つのエネルギーを使用し、エイリアンの移動を短時間停止します。",
   PAUL_USES:
     "*ポール：" +
-    CONFIGURATION.ENERGY_COST_PAUL +
+    CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     "つのエネルギーを使用し、命中した船を破壊します。",
   CAN_PAUSE:
     "*一時停止できますか？いいえ。エイリアンが私たち全員を殺すために来ています。状況の深刻さを理解していますか？",
@@ -94,8 +94,8 @@ const JAPANESE = {
   ENERGY: "エネルギー",
   WEAPON_READY: "武器の準備ができました",
   USE_SPECIAL_WEAPON: "特別な武器を使用する",
-  PROGRAMMING: "コンセプト/プログラミング",
-  ART: "アートワーク/サウンド",
+  PROGRAMMING: "コンセプト / プログラミング / CSS-アニメーション",
+  ART: "アートワーク / 音楽 / サウンド",
   OTHER_CREDITS: "その他の寄稿者：readme.mdを参照",
   START_NEW_GAME: "新しいゲームを開始する",
 };

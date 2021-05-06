@@ -34,6 +34,20 @@ function hideBattleScreen() {
 }
 
 /**
+ * Setter for energy in the view
+ */
+ function setEnergy(currentEnergy) {
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_ENERGY_TEXT.innerText = currentEnergy;
+}
+
+/**
+ * Setter for time in the view
+ */
+function setTime(currentTime) {
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_TIMER_TEXT.innerText = currentTime;
+}
+
+/**
  * Initialize the game values for the view; setting the time and energy, and making the special weapon button available
  */
 function initializeGameValues() {
@@ -66,19 +80,22 @@ function disableSpecialWeapon() {
   );
 }
 
-/**
- * Setter for energy in the view
- */
-function setEnergy(currentEnergy) {
-  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_ENERGY_TEXT.innerText = currentEnergy;
-}
+ /**
+   * Fire weapon actually fires the selected weapon.
+   * The sound of the weapon is played, a DIV is created and given a class to represent the weapon, after BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME seconds the DIV is removed.
+   * @param {audioFire} weaponSound
+   * @param {string} weaponType
+   * @param {string} cellID
+   */
+  function fireWeapon(weaponType, cellID) {
+    const weaponProjectile = document.createElement("div");
+    weaponProjectile.classList.add(weaponType);
+    document.getElementById(cellID).appendChild(weaponProjectile);
 
-/**
- * Setter for time in the view
- */
-function setTime(currentTime) {
-  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_TIMER_TEXT.innerText = currentTime;
-}
+    setTimeout(() => {
+      document.getElementById(cellID).removeChild(weaponProjectile);
+    }, CONFIGURATION.BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME);
+  }
 
 /**
  * Exported View for Battle
@@ -90,5 +107,6 @@ const BATTLE_VIEW = {
   setEnergy: setEnergy,
   setTime: setTime,
   initializeGameValues: initializeGameValues,
+  fireWeapon: fireWeapon,
 };
 export { BATTLE_VIEW };

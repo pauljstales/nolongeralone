@@ -48,7 +48,7 @@ function startBattleLoop() {
   BATTLE_VIEW.initializeGameValues();
   BATTLE_MODEL.initializeGameValues();
   let intervalID = setInterval(() => {
-    //BATTLE_MODEL.DEV_printBattleData();
+    BATTLE_MODEL.DEV_printBattleData();
     gameLoopUpdateTime();
     gameLoopAlienShipsAttemptToMove();
     gameLoopCheckIfGameOverFromTime(intervalID);
@@ -64,7 +64,7 @@ function startBattleLoop() {
      * If the game time is divisible by 1000, update the view.
      */
     function gameLoopUpdateTime() {
-      BATTLE_MODEL.decreaseTime(CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);
+      BATTLE_MODEL.decreaseTime();
       if (BATTLE_MODEL.getTime() % 1000 == 0) {
         BATTLE_VIEW.setTime(BATTLE_MODEL.getTime() / 1000);
       }
@@ -75,8 +75,6 @@ function startBattleLoop() {
      * If an EMP bomb has gone off, or another condition, they will not be able to move on this attempt.
      */
     function gameLoopAlienShipsAttemptToMove() {
-      //console.log("time per warp: " + CONFIGURATION.BATTLE_TIMING.TIME_PER_WARP);
-      //console.log("battle time: " + BATTLE_MODEL.getTime() / 1000);
       if (
         (BATTLE_MODEL.getTime() / 1000) %
           CONFIGURATION.BATTLE_TIMING.TIME_PER_WARP ==
@@ -106,7 +104,7 @@ function startBattleLoop() {
      * @param {intervalID} intervalID
      */
     function gameLoopCheckIfGameOverFromEnergy(intervalID) {
-      if (BATTLE_MODEL.getEnergy() == 0) {
+      if (BATTLE_MODEL.getEnergy() <= 0) {
         console.log("energy is exhausted, end the game on a loss");
         clearInterval(intervalID);
         //endGame(CONSTANTS.GAME.LOSE);
@@ -135,10 +133,11 @@ function startBattleLoop() {
  */
 function prepareToFireWeapon(cellID) {
   if (BATTLE_MODEL.getEnergy() > 0 && BATTLE_MODEL.isWeaponFireable()) {
-    BATTLE_MODEL.setWeaponFireable(false);
     stopWeaponSounds();
+    BATTLE_MODEL.setWeaponFireable(false);
+    
 
-    let weapon = determineWeaponToBeFired();
+    let weapon = BATTLE_MODEL.determineWeaponToBeFired();
     fireWeapon(weapon.weaponSound, weapon.weaponType, cellID);
     updateEnergy(weapon.weaponEnergyCost);
 
@@ -165,40 +164,7 @@ function prepareToFireWeapon(cellID) {
     SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
   }
 
-  /**
-   * Checks if the special weapon was selected and is "ready for fire".
-   * If YES, then determine which special weapon and adjust the values.
-   * Since the special weapon is about to be fired, set its "ready for fire" to be false so it is not fired again for this game.
-   * Else NO, the default laser weapon is the weapon to be fired.
-   * @returns weapon object consisting of the weapon's type, sound, and cost
-   */
-  function determineWeaponToBeFired() {
-    let weapon = {
-      weaponType: null,
-      weaponSound: null,
-      weaponEnergyCost: null,
-    };
 
-    weapon.weaponType = CONSTANTS.GAME.LASER;
-    weapon.weaponSound = SOUND.SFX.BATTLE_BASIC_LASER_FIRE;
-    weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_LASER;
-
-    if (BATTLE_MODEL.isSpecialWeaponReadyForFire()) {
-      weapon.weaponType = BATTLE_MODEL.getSpecialWeapon();
-      if (weapon.weaponType == CONSTANTS.GAME.RADAR) {
-        weapon.weaponSound = SOUND.SFX.BATTLE_RADAR_FIRE;
-        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR;
-      } else if (weapon.weaponType == CONSTANTS.GAME.EMP) {
-        weapon.weaponSound = SOUND.SFX.BATTLE_EMP_FIRE;
-        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP;
-      } else if (weapon.weaponType == CONSTANTS.GAME.PAUL) {
-        weapon.weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
-        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL;
-      }
-      BATTLE_MODEL.setSpecialWeaponReadyForFireToFalse();
-    }
-    return weapon;
-  }
 
   /**
    * Fire weapon actually fires the selected weapon.
@@ -209,12 +175,8 @@ function prepareToFireWeapon(cellID) {
    */
   function fireWeapon(weaponSound, weaponType, cellID) {
     SOUND.playAudio(weaponSound);
-    const weaponProjectile = document.createElement("div");
-    weaponProjectile.classList.add(weaponType);
-    document.getElementById(cellID).appendChild(weaponProjectile);
-
+    BATTLE_VIEW.fireWeapon(weaponType, cellID);
     setTimeout(() => {
-      document.getElementById(cellID).removeChild(weaponProjectile);
       BATTLE_MODEL.setWeaponFireable(true);
     }, CONFIGURATION.BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME);
   }

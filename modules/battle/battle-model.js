@@ -8,6 +8,8 @@
  */
 
 import { CONFIGURATION } from "../../configuration/configuration.js";
+import { SOUND } from "../../sound/sound-manager.js";
+import { CONSTANTS } from "../../constants/constants.js";
 
 /**
  * Encapsulated data for the battle
@@ -117,9 +119,44 @@ function getTime() {
  * As the game loop ticks by configuration's BATTLE_TIMING.TIME_PER_GAMELOOP, each loop decreases the time by that amount.
  * @param {number} timePassed
  */
-function decreaseTime(timePassed) {
-  battleData.time = battleData.time - timePassed;
+function decreaseTime() {
+  battleData.time = battleData.time - CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP;
 }
+
+  /**
+   * Checks if the special weapon was selected and is "ready for fire".
+   * If YES, then determine which special weapon and adjust the values.
+   * Since the special weapon is about to be fired, set its "ready for fire" to be false so it is not fired again for this game.
+   * Else NO, the default laser weapon is the weapon to be fired.
+   * @returns weapon object consisting of the weapon's type, sound, and cost
+   */
+   function determineWeaponToBeFired() {
+    let weapon = {
+      weaponType: null,
+      weaponSound: null,
+      weaponEnergyCost: null,
+    };
+
+    weapon.weaponType = CONSTANTS.GAME.LASER;
+    weapon.weaponSound = SOUND.SFX.BATTLE_BASIC_LASER_FIRE;
+    weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_LASER;
+
+    if (BATTLE_MODEL.isSpecialWeaponReadyForFire()) {
+      weapon.weaponType = BATTLE_MODEL.getSpecialWeapon();
+      if (weapon.weaponType == CONSTANTS.GAME.RADAR) {
+        weapon.weaponSound = SOUND.SFX.BATTLE_RADAR_FIRE;
+        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR;
+      } else if (weapon.weaponType == CONSTANTS.GAME.EMP) {
+        weapon.weaponSound = SOUND.SFX.BATTLE_EMP_FIRE;
+        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_EMP;
+      } else if (weapon.weaponType == CONSTANTS.GAME.PAUL) {
+        weapon.weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
+        weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL;
+      }
+      BATTLE_MODEL.setSpecialWeaponReadyForFireToFalse();
+    }
+    return weapon;
+  }
 
 function DEV_printBattleData() {
   console.log("specialWeapon: " + battleData.specialWeapon);
@@ -148,5 +185,6 @@ const BATTLE_MODEL = {
   decreaseTime: decreaseTime,
   initializeGameValues: initializeGameValues,
   DEV_printBattleData: DEV_printBattleData,
+  determineWeaponToBeFired: determineWeaponToBeFired,
 };
 export { BATTLE_MODEL };

@@ -146,10 +146,18 @@
   background-color: black;
 }
 
-.screen-battle__laser-ready-indicator {
+.screen-battle__weapon-ready-indicator {
   height: 50%;
-  width: 50%;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.screen-battle__weapon-ready-indicator--color-green {
   background-color: var(--color-green);
+}
+
+.screen-battle__weapon-ready-indicator--color-red {
+  background-color: var(--color-red-dark);
 }
 
 .screen-battle__weapon {

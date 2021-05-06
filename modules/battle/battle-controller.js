@@ -131,12 +131,12 @@ function startBattleLoop() {
  * Afterwards update the energy and perform different checks on the energy - if we are out of energy disable firing until the game loop registers game over.
  * @param {string} cellID
  */
-function prepareToFireWeapon(cellID) {
+function fireWeaponSequence(cellID) {
   if (BATTLE_MODEL.getEnergy() > 0 && BATTLE_MODEL.isWeaponFireable()) {
     stopWeaponSounds();
     BATTLE_MODEL.setWeaponFireable(false);
+    BATTLE_VIEW.setWeaponFireable(false);
     
-
     let weapon = BATTLE_MODEL.determineWeaponToBeFired();
     fireWeapon(weapon.weaponSound, weapon.weaponType, cellID);
     updateEnergy(weapon.weaponEnergyCost);
@@ -178,6 +178,7 @@ function prepareToFireWeapon(cellID) {
     BATTLE_VIEW.fireWeapon(weaponType, cellID);
     setTimeout(() => {
       BATTLE_MODEL.setWeaponFireable(true);
+      BATTLE_VIEW.setWeaponFireable(true);
     }, CONFIGURATION.BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME);
   }
 
@@ -238,7 +239,7 @@ function registerSpecialWeaponButtonEventListener() {
  */
 function registerBattleCellsViaEventDelegation() {
   CONSTANTS.HTML.BATTLE.BATTLEFIELD_TABLE.addEventListener("click", (e) => {
-    prepareToFireWeapon(e.target.id);
+    fireWeaponSequence(e.target.id);
   });
 }
 

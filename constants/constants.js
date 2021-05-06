@@ -129,8 +129,8 @@ const CONSTANTS = {
       BATTLE_TEXT_IS_WEAPON_READY: document.getElementById(
         "BATTLE_TEXT_IS_WEAPON_READY"
       ),
-      BATTLE_TEXT_LASER_READY_INDICATOR: document.getElementById(
-        "BATTLE_TEXT_LASER_READY_INDICATOR"
+      BATTLE_TEXT_WEAPON_READY_INDICATOR: document.getElementById(
+        "BATTLE_TEXT_WEAPON_READY_INDICATOR"
       ),
       BUTTON_ARM_SPECIAL_WEAPON: document.getElementById(
         "BUTTON_ARM_SPECIAL_WEAPON"
@@ -294,6 +294,8 @@ const CONSTANTS = {
     SCREEN_BATTLE_SHOT_STATUS: "screen-battle__shot-status",
     SCREEN_BATTLE_TIMER: "screen-battle__timer",
     SCREEN_BATTLE_ENERGY: "screen-battle__energy",
+    SCREEN_BATTLE_WEAPON_READY_GREEN: "screen-battle__weapon-ready-indicator--color-green",
+    SCREEN_BATTLE_WEAPON_READY_RED: "screen-battle__weapon-ready-indicator--color-red",
     SCREEN_BATTLE_WEAPON: "screen-battle__weapon",
     SCREEN_BATTLE_BOTTOM: "screen-battle__bottom",
     SCREEN_CREDITS_IMAGE: "screen-credits__image",

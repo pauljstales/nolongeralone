@@ -62,6 +62,7 @@ function initializeGameValues() {
     CONSTANTS.CSS.BUTTON_COLOR_RED
   );
   CONSTANTS.HTML.BATTLE.BUTTON_ARM_SPECIAL_WEAPON.removeAttribute("disabled");
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN);
 }
 
 /**
@@ -78,6 +79,19 @@ function disableSpecialWeapon() {
     "disabled",
     true
   );
+}
+
+/**
+ * When a user fires a weapon, there is a cooldown before the user can fire again. This sets the WEAPON READY indicator to red, a visual cue the weapon cannot be fired again.
+ */
+ function setWeaponFireable(weaponFireableStatus) {
+  if (weaponFireableStatus) {
+    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN);
+    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.remove(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_RED);
+  } else {
+    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_RED);
+    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.remove(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN);
+  }
 }
 
  /**
@@ -108,5 +122,6 @@ const BATTLE_VIEW = {
   setTime: setTime,
   initializeGameValues: initializeGameValues,
   fireWeapon: fireWeapon,
+  setWeaponFireable: setWeaponFireable,
 };
 export { BATTLE_VIEW };

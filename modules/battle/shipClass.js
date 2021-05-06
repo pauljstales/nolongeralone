@@ -6,7 +6,7 @@ class Ship {
      * @param {number} ID the unique ID of this ship
      * @param {number} length the length of this ship
      */
-    constructor(height, width) {
+    constructor(ID, width) {
       this.height = height;
       this.width = width;
     }

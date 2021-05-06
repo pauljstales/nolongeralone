@@ -15,6 +15,7 @@ import { CONSTANTS } from "../../constants/constants.js";
  * Encapsulated data for the battle
  */
 var battleData = {
+  
   specialWeapon: null,
   specialWeaponReadyForFire: null,
   isWeaponFireable: null,
@@ -26,11 +27,12 @@ var battleData = {
  * Initializes the game values for a new game, setting energy and time to the configured values and allowing the user to fire the weapons.
  */
 function initializeGameValues() {
-  // special weapon set by another function
+  // battleData.specialWeapon set by another function
   battleData.specialWeaponReadyForFire = null;
   battleData.isWeaponFireable = true;
   battleData.energy = CONFIGURATION.BATTLE_ENERGY.ENERGY_INITIAL;
   battleData.time = CONFIGURATION.BATTLE_TIMING.BATTLE_TIME_INITIAL;
+
 }
 
 /**

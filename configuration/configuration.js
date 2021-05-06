@@ -43,7 +43,7 @@ const CONFIGURATION = {
     ENERGY_COST_RADAR: 0, // prod 0 - subject to change for game balance
     ENERGY_COST_EMP: 1, // prod 1 - subject to change for game balance
     ENERGY_COST_PAUL: 2, // prod 2 - subject to change for game balance
-    GET_SPECIAL_WEAPON_ENERGY_COST: getSpecialWeaponEnergyCost,
+    GET_SPECIAL_WEAPON_ENERGY_COST: getSpecialWeaponNameEnergyCost,
   },
 };
 
@@ -52,7 +52,7 @@ const CONFIGURATION = {
  * The name of that special weapon is passed to battle, but battle does not know the cost, only the name.
  * This allows battle to get the cost of a weapon, without having to pass that information around in other places.
  */
-function getSpecialWeaponEnergyCost(specialWeapon) {
+function getSpecialWeaponNameEnergyCost(specialWeapon) {
   let energyCostOfSpecialWeapon = -1;
   if (specialWeapon == CONSTANTS.GAME.RADAR) {
     energyCostOfSpecialWeapon = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR;

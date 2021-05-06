@@ -176,7 +176,7 @@ function registerButtonStartBattleEventListener() {
     SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
     MENU_CONTROLLER.hideMenuScreen();
-    BATTLE_CONTROLLER.setSpecialWeapon(MENU_CONTROLLER.getSelectedWeapon());
+    BATTLE_CONTROLLER.setSpecialWeaponName(MENU_CONTROLLER.getSelectedWeapon());
     BATTLE_CONTROLLER.showBattleScreen();
     BATTLE_CONTROLLER.startBattleLoop();
   });

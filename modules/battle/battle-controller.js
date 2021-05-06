@@ -32,8 +32,8 @@ function hideBattleScreen() {
  * Sets the special weapon (this is chosen on the menu screen)
  * The GAME coordinates the passing of data from menu to battle
  */
-function setSpecialWeapon(specialWeapon) {
-  BATTLE_MODEL.setSpecialWeapon(specialWeapon);
+function setSpecialWeaponName(specialWeapon) {
+  BATTLE_MODEL.setSpecialWeaponName(specialWeapon);
 }
 
 /**
@@ -196,13 +196,13 @@ function fireWeaponSequence(cellID) {
    */
   function determineIfEnoughEnergyForSpecialWeapon() {
     let costOfSpecialWeapon = CONFIGURATION.BATTLE_ENERGY.GET_SPECIAL_WEAPON_ENERGY_COST(
-      BATTLE_MODEL.getSpecialWeapon()
+      BATTLE_MODEL.getSpecialWeaponName()
     );
     console.log("cost of special weapon? " + costOfSpecialWeapon);
     console.log("remaining energy? " + BATTLE_MODEL.getEnergy());
     if (BATTLE_MODEL.getEnergy() < costOfSpecialWeapon) {
       console.log("energy is too low to use special weapon, disable it");
-      BATTLE_MODEL.setSpecialWeaponReadyForFireToFalse();
+      BATTLE_MODEL.setSpecialWeaponNameReadyForFireToFalse();
       BATTLE_VIEW.disableSpecialWeapon();
     }
   }
@@ -228,7 +228,7 @@ function registerSpecialWeaponButtonEventListener() {
     () => {
       console.log("clicked the special weapon button");
       BATTLE_VIEW.disableSpecialWeapon();
-      BATTLE_MODEL.setSpecialWeaponReadyForFireToTrue();
+      BATTLE_MODEL.setSpecialWeaponNameReadyForFireToTrue();
     }
   );
 }
@@ -258,7 +258,7 @@ const BATTLE_CONTROLLER = {
   showBattleScreen: showBattleScreen,
   hideBattleScreen: hideBattleScreen,
   registerInternalBattleEvents: registerInternalBattleEvents,
-  setSpecialWeapon: setSpecialWeapon,
+  setSpecialWeaponName: setSpecialWeaponName,
   startBattleLoop: startBattleLoop,
 };
 export { BATTLE_CONTROLLER };

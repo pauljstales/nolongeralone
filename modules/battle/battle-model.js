@@ -15,23 +15,51 @@ import { CONSTANTS } from "../../constants/constants.js";
  * Encapsulated data for the battle
  */
 var battleData = {
-  
-  specialWeapon: null,
-  specialWeaponReadyForFire: null,
-  isWeaponFireable: null,
-  energy: null,
-  time: null,
+  specialWeapon: {
+    name: null,
+    isReadyToFire: null
+  },
+  shipMovement: {
+    shipPlacement: shipPlacement,
+    shipHit: shipHit,
+    shipImageOrientation: shipImageOrientation,
+  },
+  weapon: {
+    isReadyToFire: null,
+  },
+  gameOverConditions: {
+    energy: null,
+    time: null,
+    shipsRemaining: null
+  },
+  ships: {
+    ship1: useConstructorForShip,
+    ship2: useConstructorForShip,
+    ship3: useConstructorForShip
+  }
 };
+
+function shipPlacement() {
+  /* places a ship */
+}
+
+function shipHit() {
+  /* hits a ship */
+}
+
+function shipImageOrientation() {
+  /* deals with ship images */
+}
 
 /**
  * Initializes the game values for a new game, setting energy and time to the configured values and allowing the user to fire the weapons.
  */
 function initializeGameValues() {
-  // battleData.specialWeapon set by another function
-  battleData.specialWeaponReadyForFire = null;
-  battleData.isWeaponFireable = true;
-  battleData.energy = CONFIGURATION.BATTLE_ENERGY.ENERGY_INITIAL;
-  battleData.time = CONFIGURATION.BATTLE_TIMING.BATTLE_TIME_INITIAL;
+  // battleData.specialWeapon.name set by another function
+  battleData.specialWeapon.isReadyToFire = null;
+  battleData.weapon.isReadyToFire = true;
+  battleData.gameOverConditions.energy = CONFIGURATION.BATTLE_ENERGY.ENERGY_INITIAL;
+  battleData.gameOverConditions.gameOverConditions.time = CONFIGURATION.BATTLE_TIMING.BATTLE_TIME_INITIAL;
 
 }
 
@@ -39,16 +67,16 @@ function initializeGameValues() {
  * Getter for the name of the special weapon
  * @returns the name of the special weapon
  */
-function getSpecialWeapon() {
-  return battleData.specialWeapon;
+function getSpecialWeaponName() {
+  return battleData.specialWeapon.name;
 }
 
 /**
  * Setter for the name of the special weapon
- * @param {string} specialWeapon
+ * @param {string} specialWeaponName
  */
-function setSpecialWeapon(specialWeapon) {
-  battleData.specialWeapon = specialWeapon;
+function setSpecialWeaponName(specialWeaponName) {
+  battleData.specialWeapon.name = specialWeapon.name;
 }
 
 /**
@@ -56,21 +84,21 @@ function setSpecialWeapon(specialWeapon) {
  * @returns boolean concerning special weapon's fireable status
  */
 function isSpecialWeaponReadyForFire() {
-  return battleData.specialWeaponReadyForFire;
+  return battleData.specialWeapon.isReadyToFire;
 }
 
 /**
  * The special weapon can no longer be fired because there is not enough energy, or it was already fired
  */
-function setSpecialWeaponReadyForFireToFalse() {
-  battleData.specialWeaponReadyForFire = false;
+function setSpecialWeaponNameReadyForFireToFalse() {
+  battleData.specialWeapon.isReadyToFire = false;
 }
 
 /**
  * Arms the special weapon for firing, and the next click will fire the special weapon (then the special weapon ready-to-fire will be false)
  */
-function setSpecialWeaponReadyForFireToTrue() {
-  battleData.specialWeaponReadyForFire = true;
+function setSpecialWeaponNameReadyForFireToTrue() {
+  battleData.specialWeapon.isReadyToFire = true;
 }
 
 /**
@@ -79,8 +107,8 @@ function setSpecialWeaponReadyForFireToTrue() {
  * @returns boolean concerning if any weapon can be fired
  */
 function isWeaponFireable() {
-  //console.log("battleData.isWeaponFireable: " + battleData.isWeaponFireable);
-  return battleData.isWeaponFireable;
+  //console.log("battleData.isWeaponFireable: " + battleData.weapon.isReadyToFire);
+  return battleData.weapon.isReadyToFire;
 }
 
 /**
@@ -90,7 +118,7 @@ function isWeaponFireable() {
  */
 function setWeaponFireable(weaponFireableStatus) {
   //console.log("Setting weaponFireableStatus: " + weaponFireableStatus);
-  battleData.isWeaponFireable = weaponFireableStatus;
+  battleData.weapon.isReadyToFire = weaponFireableStatus;
 }
 
 /**
@@ -98,7 +126,7 @@ function setWeaponFireable(weaponFireableStatus) {
  * @returns number representing the energy remaining
  */
 function getEnergy() {
-  return battleData.energy;
+  return battleData.gameOverConditions.energy;
 }
 
 /**
@@ -106,7 +134,7 @@ function getEnergy() {
  * @param {number} energyUsed
  */
 function decreaseEnergy(energyUsed) {
-  battleData.energy = battleData.energy - energyUsed;
+  battleData.gameOverConditions.energy -= energyUsed;
 }
 
 /**
@@ -114,7 +142,7 @@ function decreaseEnergy(energyUsed) {
  * @returns number representing the time remaining
  */
 function getTime() {
-  return battleData.time;
+  return battleData.gameOverConditions.time;
 }
 
 /**
@@ -122,7 +150,7 @@ function getTime() {
  * @param {number} timePassed
  */
 function decreaseTime() {
-  battleData.time = battleData.time - CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP;
+  battleData.gameOverConditions.time -= CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP;
 }
 
   /**
@@ -144,7 +172,7 @@ function decreaseTime() {
     weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_LASER;
 
     if (BATTLE_MODEL.isSpecialWeaponReadyForFire()) {
-      weapon.weaponType = BATTLE_MODEL.getSpecialWeapon();
+      weapon.weaponType = BATTLE_MODEL.getSpecialWeaponName();
       if (weapon.weaponType == CONSTANTS.GAME.RADAR) {
         weapon.weaponSound = SOUND.SFX.BATTLE_RADAR_FIRE;
         weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR;
@@ -155,18 +183,18 @@ function decreaseTime() {
         weapon.weaponSound = SOUND.SFX.BATTLE_PAUL_FIRE;
         weapon.weaponEnergyCost = CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL;
       }
-      BATTLE_MODEL.setSpecialWeaponReadyForFireToFalse();
+      BATTLE_MODEL.setSpecialWeaponNameReadyForFireToFalse();
     }
     return weapon;
   }
 
 function DEV_printBattleData() {
-  console.log("specialWeapon: " + battleData.specialWeapon);
+  console.log("specialWeapon.name: " + battleData.specialWeapon.name);
   console.log(
-    "specialWeaponReadyForFire: " + battleData.specialWeaponReadyForFire
+    "specialWeapon.isReadyToFire: " + battleData.specialWeapon.isReadyToFire
   );
-  console.log("energy: " + battleData.energy);
-  console.log("time: " + battleData.time);
+  console.log("energy: " + battleData.gameOverConditions.energy);
+  console.log("time: " + battleData.gameOverConditions.time);
   console.log("----------------------------------------");
 }
 
@@ -174,11 +202,11 @@ function DEV_printBattleData() {
  * Exportable model for battle
  */
 const BATTLE_MODEL = {
-  getSpecialWeapon: getSpecialWeapon,
-  setSpecialWeapon: setSpecialWeapon,
+  getSpecialWeaponName: getSpecialWeaponName,
+  setSpecialWeaponName: setSpecialWeaponName,
   isSpecialWeaponReadyForFire: isSpecialWeaponReadyForFire,
-  setSpecialWeaponReadyForFireToTrue: setSpecialWeaponReadyForFireToTrue,
-  setSpecialWeaponReadyForFireToFalse: setSpecialWeaponReadyForFireToFalse,
+  setSpecialWeaponNameReadyForFireToTrue: setSpecialWeaponNameReadyForFireToTrue,
+  setSpecialWeaponNameReadyForFireToFalse: setSpecialWeaponNameReadyForFireToFalse,
   isWeaponFireable: isWeaponFireable,
   setWeaponFireable: setWeaponFireable,
   getEnergy: getEnergy,

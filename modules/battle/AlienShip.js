@@ -3,23 +3,17 @@
  */
 class AlienShip {
   /**
-   * Private field cells; length is the number of cells
-   */
-  _cells = [];
-  _health = null;
-  /**
    * Constructor for the alien ship.
    * @param {number} ID unique ID of this alien ship
-   * @param {boolean} isMovable whether or not this ship can move
-   * @param {string} orientation returns either horizontal or vertical
-   * @param {number} health the health of the ship (undamaged cells)
-   * @param {array} cells the "cell" of the ship is one part of the battlefield
+   * @param {number} length number of grid cells this ship takes up
    */
-  constructor(ID, isMovable, length) {
-    this.ID = ID;
-    this.isMovable = isMovable;
+  constructor(shipID, length) {
+    this.shipID = shipID;
     this.length = length;
-    this.generateCells(length);
+    this.orientation = null;
+    this.isMovable = true;
+    this.cells = [];
+    this.generateCells(this.length);
   }
 
   /**
@@ -27,14 +21,14 @@ class AlienShip {
    * @returns number ID of the ship
    */
   getShipID() {
-    return this.ID;
+    return this.shipID;
   }
 
   /**
    * @param {number} id
    */
   setShipID(id) {
-    this.ID = id;
+    this.shipID = id;
   }
 
   /**
@@ -71,31 +65,101 @@ class AlienShip {
   }
 
   /**
+   * Getter for cells
+   * @returns array
+   */
+  getCells() {
+    return this.cells;
+  }
+
+  /**
+   * Setter for cells
+   * @param {number} length is the number of cells of the ship
+   */
+  setCells(cells) {
+    this.cells = cells;
+  }
+
+  /**
    * A "cell" is part of the ship, one battlefield grid box is one cell.
    * @param {number} length number of cells to create
    */
   generateCells(length) {
     for (let i = 0; i < length; i++) {
       const cell = {
-        cellID: this.ID + "-" + i,
-        gridLocationID: null,
+        cellID: this.shipID + "-" + i,
+        location: null,
         isVisible: false,
         isDamaged: false,
+        temporaryText: this.cellID,
+        image: null,
       };
-      this._cells.push(cell);
+      this.cells.push(cell);
     }
     //console.log("Let us see those cells!");
-    //console.log(this._cells);
+    //console.log(this.cells);
   }
 
-  // todooooooooooo
-  shipPlacement() {
-    /* placing a ship means finding a spot
-    that doesnt go off screen
-    and does hit another ship
-    and then updates the cell's grid locations
-    this affects orientation, also
-    */
+  /**
+   * Ships cannot extend past the grid border, or collide with other ships.
+   * The start of the ship must be within "6-length" to stay in borders.
+   * The ship cannot exist in any cell where there is already a ship cell.
+   * @param {*} occupiedCells array of all cells where other ships exist
+   * @returns
+   */
+  placeShip(occupiedCells) {
+    let failedToPlaceShip = true;
+    while (failedToPlaceShip) {
+      // 1 get ship orientation
+      let orientation = Math.random() > 0.5 ? "horizontal" : "vertical";
+      console.log("ship orientation: " + orientation);
+
+      // 2 ensuring we remain in borders
+      let tempCells = [];
+      let row = Math.ceil(Math.random() * (7 - this.length));
+      let col = Math.ceil(Math.random() * (7 - this.length));
+
+      // 3 get cells
+      for (let i = 0; i < this.length; i++) {
+        if (orientation == "horizontal") {
+          tempCells.push("R" + parseInt(row + i) + "_C" + col);
+        } else {
+          tempCells.push("R" + row + "_C" + parseInt(col + i));
+        }
+        console.log(
+          "Ship " +
+            this.shipID +
+            ", cell" +
+            i +
+            " is located at: " +
+            tempCells[i]
+        );
+      }
+      //console.log("ships total cells");
+      //console.log(tempCells);
+
+      // 3 make sure we do not collide with other ships
+      tempCells.forEach((tempCell) => {
+        if (occupiedCells.includes(tempCell)) {
+          console.log("collision at: " + tempCell);
+          console.log("try again");
+        } else {
+          failedToPlaceShip = false;
+        }
+      });
+
+      // 4 if we found no collisions, then add the locations
+      if (!failedToPlaceShip) {
+        console.log("if you see this, the ship placed successfully");
+        for (let i = 0; i < this.cells.length; i++) {
+          this.cells[i].location = tempCells[i];
+        }
+        console.log("tempCells:");
+        console.log(tempCells);
+        console.log("ship cells:");
+        console.log(this.getCells());
+      }
+    }
   }
 
   didShotHit(battlefieldGridLocationID, typeOfProjectile) {
@@ -103,8 +167,8 @@ class AlienShip {
     console.log("user fired a " + typeOfProjectile);
     console.log("user shot at " + battlefieldGridLocationID);
     _cells.forEach((currentCell) => {
-      console.log("current cell " + gridLocationID);
-      if (battlefieldGridLocationID == gridLocationID) {
+      console.log("current cell " + currentCell);
+      if (battlefieldGridLocationID == currentCell.location) {
         console.log("looks like a hit");
         console.log("by a " + typeOfProjectile);
       } else {
@@ -113,7 +177,7 @@ class AlienShip {
     });
   }
 
-  shipHit(battlefieldGridLocationID, typeOfProjectile) {
+  hitShip(battlefieldGridLocationID, typeOfProjectile) {
     /* what was it hit by */
     /*
     radar means all cells are visible

@@ -13,7 +13,7 @@ import { CONSTANTS } from "../constants/constants.js";
 /**
  * This "introTextBaseTime" variable determines the speed that the intro text comes on the introduction screen. All text is derived from this time.
  */
-let introTextBaseTime = 1; // dev 1000, prod 3000
+let introTextBaseTime = 3000; // dev 1000, prod 3000
 
 const CONFIGURATION = {
   STAR: {
@@ -40,9 +40,9 @@ const CONFIGURATION = {
   BATTLE_ENERGY: {
     ENERGY_INITIAL: 24, // prod 24 - subject to change for game balance
     ENERGY_COST_LASER: 1, // prod 1 - subject to change for game balance
-    ENERGY_COST_RADAR: 0, // prod 0 - subject to change for game balance
-    ENERGY_COST_EMP: 1, // prod 1 - subject to change for game balance
-    ENERGY_COST_PAUL: 2, // prod 2 - subject to change for game balance
+    ENERGY_COST_RADAR: 1, // prod 1 - subject to change for game balance
+    ENERGY_COST_EMP: 2, // prod 2 - subject to change for game balance
+    ENERGY_COST_PAUL: 4, // prod 4 - subject to change for game balance
     GET_SPECIAL_WEAPON_ENERGY_COST: getSpecialWeaponNameEnergyCost,
   },
 };

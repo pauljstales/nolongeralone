@@ -37,13 +37,13 @@ function gameStartup() {
   // --------------------------
   // whole game
   // --------------------------
-  LANDING_CONTROLLER.showLandingScreen();
-  LANDING_CONTROLLER.loadProgressBar();
+  //LANDING_CONTROLLER.showLandingScreen();
+  //LANDING_CONTROLLER.loadProgressBar();
   // --------------------------
   // get to battlefield quickly by starting at menu
   // --------------------------
-  //LANDING_CONTROLLER.hideLandingScreen();
-  //MENU_CONTROLLER.showMenuScreen();
+  LANDING_CONTROLLER.hideLandingScreen();
+  MENU_CONTROLLER.showMenuScreen();
   STARFIELD.activate();
 }
 

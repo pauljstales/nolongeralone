@@ -15,8 +15,8 @@
   }
 }
 
-/* Laptop and Desktop, screen is 768px max */
-@media screen and (min-width: 768px) {
+/* Laptop and Desktop, screen is 668px max */
+@media screen and (min-width: 668px) {
   .screen__image-pewpew {
     height: 500px;
     width: 500px;

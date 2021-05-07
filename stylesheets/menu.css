@@ -124,12 +124,12 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 668px) {
   .screen-menu__subscreen--size--half {
-    max-width: 384px; /* Laptop and Desktop, screen is max 768px */
+    max-width: 334px; /* Laptop and Desktop, screen is max 668px */
   }
   .screen-menu__subscreen--size--full {
-    max-width: 768px;
+    max-width: 668px;
   }
 }
 
@@ -151,8 +151,8 @@
 /* Button CSS                             */
 /* ************************************** */
 
-.button--margin-5 {
-  margin: 5%;
+.button--margin-2 {
+  margin: 2%;
 }
 
 @keyframes flashEnterBattleButton {

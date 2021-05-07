@@ -28,11 +28,7 @@ var battleData = {
     time: null,
     shipsRemaining: null,
   },
-  ships: {
-    ship0: null,
-    ship1: null,
-    ship2: null,
-  },
+  ships: [],
 };
 
 /**
@@ -47,22 +43,54 @@ function initializeGameValues() {
   battleData.gameOverConditions.time =
     CONFIGURATION.BATTLE_TIMING.BATTLE_TIME_INITIAL;
 
-  const squadron = Math.random() > 0.5 ? [3, 3, 3] : [2, 3, 4];
-  console.log("dealing with this squad:");
-  console.log(squadron);
+  // get ship lengths
+  const squadronLengths = Math.random() > 0.5 ? [3, 3, 3] : [2, 3, 4];
+  //console.log("dealing with this squad:");
+  console.log(squadronLengths);
 
-  battleData.ships.ship0 = new AlienShip(0, true, squadron[0]);
-  battleData.ships.ship1 = new AlienShip(1, true, squadron[1]);
-  battleData.ships.ship2 = new AlienShip(2, true, squadron[2]);
+  // create ships with id and length (ships make their own cells)
+  battleData.ships[0] = new AlienShip(0, squadronLengths[0]);
+  battleData.ships[1] = new AlienShip(1, squadronLengths[1]);
+  battleData.ships[2] = new AlienShip(2, squadronLengths[2]);
+
+  // place the ships on the grid (tsi = this ship index)
+  for (let tsi = 0; tsi < battleData.ships.length; tsi++) {
+    console.log("Working with ship number: " + tsi);
+    let occupiedCells = getCellsOccupiedByOtherShips(tsi);
+    battleData.ships[tsi].placeShip(occupiedCells);
+  }
 
   console.log("let us see some ships");
-  console.log(battleData.ships.ship0);
-  console.log(battleData.ships.ship1);
-  console.log(battleData.ships.ship2);
+  console.log(battleData.ships[0]);
+  console.log(battleData.ships[1]);
+  console.log(battleData.ships[2]);
 
-  console.log(
-    "now that we have ships, let us place them! and update those cells"
-  );
+  /**
+   * Gets all of the cells occupied by other ships
+   * For reference:
+   * -- TSI = this ship's index
+   * -- OSI = other ship's index
+   * -- CCI = current cell's index
+   * @returns array[string] cells occupied by other ships
+   */
+  function getCellsOccupiedByOtherShips(tsi) {
+    //console.log("starting to get cells occupied by other ships");
+    let occupiedCells = [];
+    for (let osi = 0; osi < battleData.ships.length; osi++) {
+      if (tsi != osi) {
+        //console.log("We need the cells of every OTHER ship, such as: " + osi);
+        for (let cci = 0; cci < battleData.ships[osi].length; cci++) {
+          if (battleData.ships[osi].cells[cci].location != null) {
+            //console.log("Adding occupied cell: " +battleData.ships[osi].cells[cci].location);
+            occupiedCells.push(battleData.ships[osi].cells[cci].location);
+          }
+        } // end cci
+      }
+    } // end osi
+    console.log("done getting occupied cells, here they are");
+    console.log(occupiedCells);
+    return occupiedCells;
+  }
 }
 
 /**

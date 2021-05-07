@@ -30,6 +30,12 @@ https://nolongeralone.netlify.app
 - Sometimes sounds are delayed on mobile because of inability to preload or buffer.
 - In brief, while mobile is okay... desktop is a very nice experience.
 
+## Original Sketches
+
+- The original sketches are right here on GitHub, just not included in the downloaded project.
+- Link: https://github.com/pauljstales/nolongeralone/tree/main/sketches
+- The FIRST ever sketch was "superSecretGame"   
+  
 ## Contributing
 
 - Improvements to the non-English languages are welcome and open!

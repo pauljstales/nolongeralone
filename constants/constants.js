@@ -261,7 +261,7 @@ const CONSTANTS = {
     SCREEN_MENU_SUBSCREEN_BOTTOM: "screen-menu__subscreen-bottom",
     SCREEN_IMAGE_DEEPSPACE: "screen__image-deepspace",
     SCREEN_IMAGE_ADMIRAL: "screen__image-admiral",
-    BUTTON_MARGIN_5: "button--margin-5",
+    BUTTON_MARGIN_5: "button--margin-2",
     SCREEN_TUTORIAL: "screen-tutorial",
     SCREEN_TUTORIAL_GRID_PLAY: "screen-tutorial--grid--play",
     SCREEN_TUTORIAL_GRID_WIN: "screen-tutorial--grid--win",
@@ -294,8 +294,10 @@ const CONSTANTS = {
     SCREEN_BATTLE_SHOT_STATUS: "screen-battle__shot-status",
     SCREEN_BATTLE_TIMER: "screen-battle__timer",
     SCREEN_BATTLE_ENERGY: "screen-battle__energy",
-    SCREEN_BATTLE_WEAPON_READY_GREEN: "screen-battle__weapon-ready-indicator--color-green",
-    SCREEN_BATTLE_WEAPON_READY_RED: "screen-battle__weapon-ready-indicator--color-red",
+    SCREEN_BATTLE_WEAPON_READY_GREEN:
+      "screen-battle__weapon-ready-indicator--color-green",
+    SCREEN_BATTLE_WEAPON_READY_RED:
+      "screen-battle__weapon-ready-indicator--color-red",
     SCREEN_BATTLE_WEAPON: "screen-battle__weapon",
     SCREEN_BATTLE_BOTTOM: "screen-battle__bottom",
     SCREEN_CREDITS_IMAGE: "screen-credits__image",

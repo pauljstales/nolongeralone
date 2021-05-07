@@ -4,7 +4,7 @@
 
 .screen-credits__image {
   height: 30vh;
-  margin: 20px;
+  margin-bottom: 40px;
 }
 
 .screen-credits__pmgr {
@@ -80,8 +80,8 @@
   }
 }
 
-/* Laptop and Desktop, screen is 768px max */
-@media screen and (min-width: 768px) {
+/* Laptop and Desktop, screen is 668px max */
+@media screen and (min-width: 668px) {
   .screen-credits__image-gameover {
     max-height: 300px;
     max-width: 300px;

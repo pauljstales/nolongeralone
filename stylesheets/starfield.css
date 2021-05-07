@@ -17,7 +17,7 @@
 
 /* ******************************** */
 /* Screen Media Queries             */
-/* Limit screen to 570px and 768px  */
+/* Limit screen to 570px and 668px  */
 /* ******************************** */
 
 /* Tablet, screen is 570px max */
@@ -27,9 +27,9 @@
   }
 }
 
-/* Laptop and Desktop, screen is 768px max */
-@media screen and (min-width: 768px) {
+/* Laptop and Desktop, screen is 668px max */
+@media screen and (min-width: 668px) {
   .starfield {
-    max-width: 768px;
+    max-width: 668px;
   }
 }

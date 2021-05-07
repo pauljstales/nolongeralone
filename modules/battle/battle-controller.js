@@ -32,8 +32,8 @@ function hideBattleScreen() {
  * Sets the special weapon (this is chosen on the menu screen)
  * The GAME coordinates the passing of data from menu to battle
  */
-function setSpecialWeaponName(specialWeapon) {
-  BATTLE_MODEL.setSpecialWeaponName(specialWeapon);
+function setSpecialWeaponName(specialWeaponName) {
+  BATTLE_MODEL.setSpecialWeaponName(specialWeaponName);
 }
 
 /**
@@ -48,7 +48,7 @@ function startBattleLoop() {
   BATTLE_VIEW.initializeGameValues();
   BATTLE_MODEL.initializeGameValues();
   let intervalID = setInterval(() => {
-    BATTLE_MODEL.DEV_printBattleData();
+    //BATTLE_MODEL.DEV_printBattleData();
     gameLoopUpdateTime();
     gameLoopAlienShipsAttemptToMove();
     gameLoopCheckIfGameOverFromTime(intervalID);
@@ -136,7 +136,7 @@ function fireWeaponSequence(cellID) {
     stopWeaponSounds();
     BATTLE_MODEL.setWeaponFireable(false);
     BATTLE_VIEW.setWeaponFireable(false);
-    
+
     let weapon = BATTLE_MODEL.determineWeaponToBeFired();
     fireWeapon(weapon.weaponSound, weapon.weaponType, cellID);
     updateEnergy(weapon.weaponEnergyCost);
@@ -163,8 +163,6 @@ function fireWeaponSequence(cellID) {
     SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
   }
-
-
 
   /**
    * Fire weapon actually fires the selected weapon.
@@ -202,7 +200,7 @@ function fireWeaponSequence(cellID) {
     console.log("remaining energy? " + BATTLE_MODEL.getEnergy());
     if (BATTLE_MODEL.getEnergy() < costOfSpecialWeapon) {
       console.log("energy is too low to use special weapon, disable it");
-      BATTLE_MODEL.setSpecialWeaponNameReadyForFireToFalse();
+      BATTLE_MODEL.setSpecialWeaponReadyToFire(false);
       BATTLE_VIEW.disableSpecialWeapon();
     }
   }
@@ -228,7 +226,7 @@ function registerSpecialWeaponButtonEventListener() {
     () => {
       console.log("clicked the special weapon button");
       BATTLE_VIEW.disableSpecialWeapon();
-      BATTLE_MODEL.setSpecialWeaponNameReadyForFireToTrue();
+      BATTLE_MODEL.setSpecialWeaponReadyToFire(true);
     }
   );
 }

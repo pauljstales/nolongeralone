@@ -13,30 +13,30 @@ import { CONSTANTS } from "../../constants/constants.js";
  * Encapsulated data object for menu
  */
 var menuModelData = {
-  selectedWeapon: CONSTANTS.GAME.RADAR, // default
+  selectedWeaponName: CONSTANTS.GAME.RADAR, // default
 };
 
 /**
  * Getter for the special weapon's name
  * @returns string representing the selected weapon
  */
-function getSelectedWeapon() {
-  return menuModelData.selectedWeapon;
+function getSelectedWeaponName() {
+  return menuModelData.selectedWeaponName;
 }
 
 /**
  * Sets the special weapon's name to a string value
  * @param {string} selectedWeapon
  */
-function setSelectedWeapon(selectedWeapon) {
-  menuModelData.selectedWeapon = selectedWeapon;
+function setSelectedWeaponName(selectedWeaponName) {
+  menuModelData.selectedWeaponName = selectedWeaponName;
 }
 
 /**
  * Exported model for menu
  */
 const MENU_MODEL = {
-  getSelectedWeapon: getSelectedWeapon,
-  setSelectedWeapon: setSelectedWeapon,
+  getSelectedWeaponName: getSelectedWeaponName,
+  setSelectedWeaponName: setSelectedWeaponName,
 };
 export { MENU_MODEL };

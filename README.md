@@ -49,15 +49,15 @@ R.J. Vince Soundcloud: ~
 
 ## FAQ (Frequently Asked Questions)
 
-1. Why didn't you use Phaser, React, framework, or library? _I wanted to demonstrate core HTML5, CSS3, and JavaScript/ES6 skills._
-2. Why didn't you use Canvas? _Canvas is HTML5, but I wanted to demonstrate an understanding of DOM manipulation._
+1. Why didn't you use Phaser, React, framework, or library? _I wanted to demonstrate core HTML5, CSS3, and JavaScript/ES6 skills. I will definitely use more frameworks, libraries, etc. in future games._
+2. Why didn't you use Canvas? _Canvas is HTML5, but I wanted to demonstrate an understanding of DOM manipulation. I will definitely use canvas in future games._  
 3. Why didn't you use Web Components? _I would have used React or Angular if I was going to use components!_
 4. Are you using BEM? _Somewhat, the blocks, elements belonging to blocks, the modifiers, the naming…_
 5. Why not a library for the internationalization? _Similar to #1, I wanted to demonstrate the core technology free of libraries._
 6. Why are you using constants, but still have hard-coded strings? _I wanted to use constants to refer to the same things via constant in the JS, but without templates, libraries, etc. it would be quite difficult to have a single, central “source” of constants._
-7. Why Battleship? _It is a very boring game that could be so much better with some adjustments… and here are some of those adjustments._
+7. Why Battleship? _I have always felt it is a very boring game that could be so much better with some adjustments… and here are some of those adjustments._
 8. Why is everything inside index.html? _It was not, at first, until I discovered iOS blocks just about every form of audio audioplay possible. Without frameworks and libraries, this was the best solution._
-9. How did you get the idea for the game? _The sketches have a lot of my rough ideas, and the "super secret game" file was the original, original idea. The starfield effect was actually the first code written - I wanted to see if I could do it. As far as the name, I thought if a bunch of alien ships did come, what would be the most terrifying about it? The fact that we are "no longer alone", because not only are the aliens here, there may be many others with various motivations. Other sketches have more ideas as the game concepts went on._
+9. How did you get the idea for the game? _I was thinking about battleship and space. What is most terrifying about space? Discovering that we are "no longer alone" with hostile aliens. That's the gameplay, setting, and title - shoot alien ships in space, after realizing we are no longer alone._
 
 ## License
 

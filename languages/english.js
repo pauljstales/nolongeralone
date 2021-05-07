@@ -94,8 +94,8 @@ const ENGLISH = {
   ENERGY: "ENERGY",
   WEAPON_READY: "WEAPON READY",
   USE_SPECIAL_WEAPON: "USE SPECIAL WEAPON",
-  PROGRAMMING: "Concept/Programming/CSS-Animation",
-  ART: "Artwork/Music/Sound",
+  PROGRAMMING: "Concept / Code / CSS-Animation",
+  ART: "Artwork / Music / Sound",
   OTHER_CREDITS: "Other Contributors: See readme.md",
   START_NEW_GAME: "START NEW GAME",
 };

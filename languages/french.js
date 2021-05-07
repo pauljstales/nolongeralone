@@ -97,7 +97,7 @@ const FRENCH = {
   ENERGY: "ÉNERGIE",
   WEAPON_READY: "ARME PRÊT",
   USE_SPECIAL_WEAPON: "UTILISER UNE ARME SPÉCIALE ",
-  PROGRAMMING: "Concept / programmation / animation css",
+  PROGRAMMING: "Concept / Programmation / Animation CSS",
   ART: "Ouvrages d'art / Musique / Son",
   OTHER_CREDITS: "Autres contributeurs: voir readme.md",
   START_NEW_GAME: "COMMENCER UNE NOUVELLE PARTIE",

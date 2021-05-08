@@ -233,6 +233,50 @@ function DEV_printBattleData() {
   //console.log("----------------------------------------");
 }
 
+function fireWeapon(gridLocationID, typeOfProjectile) {
+  /* go through the cells and see if anyone was hit */
+  console.log("user fired a " + typeOfProjectile);
+  console.log("user shot at " + gridLocationID);
+  battleData.ships.forEach((ship) => {
+    ship.cells.forEach((cell) => {
+      if (cell.location == gridLocationID) {
+        console.log(
+          "ship " + ship.shipID + "'s cell was hit at " + cell.location
+        );
+        console.log("now we can pass this info to the hit ship");
+        updateCell(ship, cell, typeOfProjectile);
+      }
+    });
+  });
+}
+
+function updateCell(ship, cell, typeOfProjectile) {
+  console.log("Updating ship");
+  console.log(ship);
+  console.log("Updating cell");
+  console.log(cell);
+  console.log("for typeOfProjectile " + typeOfProjectile);
+  if (typeOfProjectile == CONSTANTS.GAME.LASER) {
+    // laser needs to damage this cell and make it visible
+    // then check other cells for damage and determine if ship dead
+    // dead ships dont move
+    // and if ship dead then check if all ships dead
+  } else if (typeOfProjectile == CONSTANTS.GAME.RADAR) {
+    // make all cells visible
+    // set timeout make them hidden again
+  } else if (typeOfProjectile == CONSTANTS.GAME.EMP) {
+    // make all ships cant move
+    // set timeout they can move again
+  } else if (typeOfProjectile == CONSTANTS.GAME.PAUL) {
+    // for each cell in this ship, destroy it
+    // then check if we destroyed ship
+    // dead ships dont move
+    // and if ship dead then check if all ships dead
+  } else {
+    console.log("Updating cell failed.");
+  }
+}
+
 /**
  * Exportable model for battle
  */
@@ -250,6 +294,7 @@ const BATTLE_MODEL = {
   decreaseTime: decreaseTime,
   determineWeaponToBeFired: determineWeaponToBeFired,
   getShips: getShips,
+  fireWeapon: fireWeapon,
   DEV_printBattleData: DEV_printBattleData,
 };
 export { BATTLE_MODEL };

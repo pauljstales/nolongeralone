@@ -172,7 +172,8 @@ function fireWeaponSequence(cellID) {
    */
   function fireWeapon(weaponSound, weaponType, cellID) {
     SOUND.playAudio(weaponSound);
-    BATTLE_VIEW.fireWeapon(weaponType, cellID);
+    BATTLE_VIEW.fireWeapon(cellID, weaponType);
+    BATTLE_MODEL.fireWeapon(cellID, weaponType);
     setTimeout(() => {
       BATTLE_MODEL.setWeaponFireable(true);
       BATTLE_VIEW.setWeaponFireable(true);

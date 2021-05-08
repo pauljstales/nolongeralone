@@ -198,36 +198,6 @@ class AlienShip {
       }
     } while (failedToPlaceShip);
   }
-
-  didShotHit(battlefieldGridLocationID, typeOfProjectile) {
-    /* go through the cells and see if anyone was hit */
-    //console.log("user fired a " + typeOfProjectile);
-    //console.log("user shot at " + battlefieldGridLocationID);
-    this.cells.forEach((currentCell) => {
-      //console.log("current cell " + currentCell);
-      if (battlefieldGridLocationID == currentCell.location) {
-        //console.log("looks like a hit");
-        //console.log("by a " + typeOfProjectile);
-      } else {
-        //console.log("looks like a miss");
-      }
-    });
-  }
-
-  hitShip(battlefieldGridLocationID, typeOfProjectile) {
-    /* what was it hit by */
-    /*
-    radar means all cells are visible
-    emp means ship cannot move
-    paulnuke means all cells hit
-    */
-    // ------------------------------------------
-    /* if the ship was hit, a cell was hit
-    update the cell
-    see if all cells are damaged, if so, this ship is destroyed
-    and then if a ship is destroyed we need to check if all ships are destroyed
-    */
-  }
 }
 
 export { AlienShip };

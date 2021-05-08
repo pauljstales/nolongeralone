@@ -17,7 +17,7 @@ let introTextBaseTime = 3000; // dev 1000, prod 3000
 
 const CONFIGURATION = {
   STAR: {
-    AVERAGE_STAR_LIFETIME: 60000, // prod 60000
+    AVERAGE_STAR_LIFETIME: 90000, // prod 90000
     VARIABLE_ADDITIONAL_STAR_LIFETIME: 30000, // prod 30000
     STAR_MAX_HEIGHT: 3, // prod 3
     STAR_MAX_WIDTH: 3, // prod 3

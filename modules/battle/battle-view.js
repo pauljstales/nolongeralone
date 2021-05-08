@@ -126,11 +126,10 @@ function setWeaponFireable(weaponFireableStatus) {
 /**
  * Fire weapon actually fires the selected weapon.
  * The sound of the weapon is played, a DIV is created and given a class to represent the weapon, after BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME seconds the DIV is removed.
- * @param {audioFire} weaponSound
- * @param {string} weaponType
  * @param {string} cellID
+ * @param {string} weaponType
  */
-function fireWeapon(weaponType, cellID) {
+function fireWeapon(cellID, weaponType) {
   const weaponProjectile = document.createElement("div");
   weaponProjectile.classList.add(weaponType);
   document.getElementById(cellID).appendChild(weaponProjectile);

@@ -212,10 +212,10 @@ export function endGame(gameResult) {
   STARFIELD.activate();
   SOUND.stopAudio(SOUND.MUSIC.BATTLE);
   if (gameResult == CONSTANTS.GAME.WIN) {
-    console.log("win");
+    //console.log("win");
     SOUND.playAudio(SOUND.MUSIC.CREDITS_WIN);
   } else if (gameResult == CONSTANTS.GAME.LOSE) {
-    console.log("lose");
+    //console.log("lose");
     SOUND.playAudio(SOUND.MUSIC.CREDITS_LOSE);
   }
   BATTLE_CONTROLLER.hideBattleScreen();

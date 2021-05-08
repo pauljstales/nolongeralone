@@ -45,8 +45,8 @@ function initializeGameValues() {
 
   // get ship lengths
   const squadronLengths = Math.random() > 0.5 ? [3, 3, 3] : [2, 3, 4];
-  //console.log("dealing with this squad:");
-  console.log(squadronLengths);
+  ////console.log("dealing with this squad:");
+  //console.log(squadronLengths);
 
   // create ships with id and length (ships make their own cells)
   battleData.ships[0] = new AlienShip(0, squadronLengths[0]);
@@ -55,15 +55,15 @@ function initializeGameValues() {
 
   // place the ships on the grid (tsi = this ship index)
   for (let tsi = 0; tsi < battleData.ships.length; tsi++) {
-    console.log("Working with ship number: " + tsi);
+    //console.log("Working with ship number: " + tsi);
     let occupiedCells = getCellsOccupiedByOtherShips(tsi);
     battleData.ships[tsi].placeShip(occupiedCells);
   }
 
-  console.log("let us see some ships");
-  console.log(battleData.ships[0]);
-  console.log(battleData.ships[1]);
-  console.log(battleData.ships[2]);
+  //console.log("let us see some ships");
+  //console.log(battleData.ships[0]);
+  //console.log(battleData.ships[1]);
+  //console.log(battleData.ships[2]);
   battleData.ships[0].testColor = "blue";
   battleData.ships[1].testColor = "yellow";
   battleData.ships[2].testColor = "green";
@@ -77,21 +77,21 @@ function initializeGameValues() {
    * @returns array[string] cells occupied by other ships
    */
   function getCellsOccupiedByOtherShips(tsi) {
-    //console.log("starting to get cells occupied by other ships");
+    ////console.log("starting to get cells occupied by other ships");
     let occupiedCells = [];
     for (let osi = 0; osi < battleData.ships.length; osi++) {
       if (tsi != osi) {
-        //console.log("We need the cells of every OTHER ship, such as: " + osi);
+        ////console.log("We need the cells of every OTHER ship, such as: " + osi);
         for (let cci = 0; cci < battleData.ships[osi].length; cci++) {
           if (battleData.ships[osi].cells[cci].location != null) {
-            //console.log("Adding occupied cell: " +battleData.ships[osi].cells[cci].location);
+            ////console.log("Adding occupied cell: " +battleData.ships[osi].cells[cci].location);
             occupiedCells.push(battleData.ships[osi].cells[cci].location);
           }
         } // end cci
       }
     } // end osi
-    console.log("done getting occupied cells, here they are");
-    console.log(occupiedCells);
+    //console.log("done getting occupied cells, here they are");
+    //console.log(occupiedCells);
     return occupiedCells;
   }
 }
@@ -135,7 +135,7 @@ function setSpecialWeaponReadyToFire(isFireableBoolean) {
  * @returns boolean concerning if any weapon can be fired
  */
 function isWeaponFireable() {
-  //console.log("battleData.isWeaponFireable: " + battleData.weapon.isReadyToFire);
+  ////console.log("battleData.isWeaponFireable: " + battleData.weapon.isReadyToFire);
   return battleData.weapon.isReadyToFire;
 }
 
@@ -145,7 +145,7 @@ function isWeaponFireable() {
  * @param {boolean} weaponFireableStatus
  */
 function setWeaponFireable(weaponFireableStatus) {
-  //console.log("Setting weaponFireableStatus: " + weaponFireableStatus);
+  ////console.log("Setting weaponFireableStatus: " + weaponFireableStatus);
   battleData.weapon.isReadyToFire = weaponFireableStatus;
 }
 
@@ -226,13 +226,11 @@ function getShips() {
 }
 
 function DEV_printBattleData() {
-  console.log("specialWeapon.name: " + battleData.specialWeapon.name);
-  console.log(
-    "specialWeapon.isReadyToFire: " + battleData.specialWeapon.isReadyToFire
-  );
-  console.log("energy: " + battleData.gameOverConditions.energy);
-  console.log("time: " + battleData.gameOverConditions.time);
-  console.log("----------------------------------------");
+  //console.log("specialWeapon.name: " + battleData.specialWeapon.name);
+  //console.log("specialWeapon.isReadyToFire: " + battleData.specialWeapon.isReadyToFire);
+  //console.log("energy: " + battleData.gameOverConditions.energy);
+  //console.log("time: " + battleData.gameOverConditions.time);
+  //console.log("----------------------------------------");
 }
 
 /**

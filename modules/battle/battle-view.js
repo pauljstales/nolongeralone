@@ -66,7 +66,7 @@ function initializeGameValues(ships) {
     CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN
   );
 
-  console.log("did we get any ships here at view");
+  //console.log("did we get any ships here at view");
   console.log(ships);
   ships.forEach((ship) => {
     renderShip(ship);
@@ -74,13 +74,15 @@ function initializeGameValues(ships) {
 }
 
 function renderShip(ship) {
-  let testColor = ship.testColor;
   for (let i = 0; i < ship.cells.length; i++) {
-    console.log("location? " + ship.cells[i].location);
     let cell = document.getElementById(ship.cells[i].location);
-    cell.style.backgroundColor = ship.testColor;
-    console.log("cell?");
-    console.log(cell);
+    //cell.style.backgroundColor = ship.testColor;
+    cell.style.backgroundImage = "url(" + ship.cells[i].image + ")";
+    cell.style.backgroundSize = "contain";
+    if (ship.getOrientation() == "horizontal") {
+      cell.style.transform = "rotate(-90deg)";
+    }
+    //cell.innerText = ship.cells[i].location;
   }
 }
 

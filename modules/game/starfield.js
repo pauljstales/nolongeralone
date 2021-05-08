@@ -48,11 +48,7 @@ function DEV_starPerformanceChecker() {
   let count = 0;
   let intervalID = setInterval(() => {
     count++;
-    console.log(
-      "There are " +
-        document.getElementById("STARFIELD").childElementCount +
-        " stars."
-    );
+    //console.log("There are " +document.getElementById("STARFIELD").childElementCount +" stars.");
     if (
       count > 120 ||
       document.getElementById("STARFIELD").childElementCount == 0

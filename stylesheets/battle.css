@@ -110,8 +110,8 @@
     max-width: calc(7 * 100px);
   }
   .screen-battle__cell {
-    height: 100px;
-    width: 100px;
+    height: 94px;
+    width: 94px;
   }
 }
 
@@ -257,8 +257,8 @@
 .paul {
   height: 40px;
   width: 40px;
-  background-color: darkred;
-  border-color: red;
+  background-color: darkblue;
+  border-color: blue;
   border-style: dashed;
   border-width: 3px;
   border-radius: 50%;

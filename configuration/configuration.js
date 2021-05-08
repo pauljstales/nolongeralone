@@ -29,7 +29,7 @@ const CONFIGURATION = {
     TIME_UNTIL_TITLE_LINK_AS_BUTTON: introTextBaseTime * 6, // prod *6
   },
   LANDING: {
-    TIME_PER_PROGRESS_BAR_INTERVAL: 1, // dev 2, prod 20
+    TIME_PER_PROGRESS_BAR_INTERVAL: 3, // dev 2, prod 20
   },
   BATTLE_TIMING: {
     BATTLE_TIME_INITIAL: 115000, // in ms, prod 115000

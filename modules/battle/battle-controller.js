@@ -44,9 +44,10 @@ function setSpecialWeaponName(specialWeaponName) {
  * Every gameloop updates the time/energy and checks for game over conditions.
  * Any game over condition ends this set interval.
  */
-function startBattleLoop() {
-  BATTLE_VIEW.initializeGameValues();
-  BATTLE_MODEL.initializeGameValues();
+async function startBattleLoop() {
+  await BATTLE_MODEL.initializeGameValues();
+  await BATTLE_VIEW.initializeGameValues(BATTLE_MODEL.getShips());
+
   let intervalID = setInterval(() => {
     //BATTLE_MODEL.DEV_printBattleData();
     gameLoopUpdateTime();
@@ -90,7 +91,7 @@ function startBattleLoop() {
      * @param {intervalID} intervalID
      */
     function gameLoopCheckIfGameOverFromTime(intervalID) {
-      if (BATTLE_MODEL.getTime() == 0) {
+      if (BATTLE_MODEL.getTime() <= 0) {
         console.log("time is up, end the game on a loss");
         BATTLE_MODEL.setWeaponFireable(false);
         clearInterval(intervalID);

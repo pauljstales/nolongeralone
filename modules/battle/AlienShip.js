@@ -91,7 +91,6 @@ class AlienShip {
         location: null,
         isVisible: false,
         isDamaged: false,
-        temporaryText: this.cellID,
         image: null,
       };
       this.cells.push(cell);
@@ -108,11 +107,11 @@ class AlienShip {
    * @returns
    */
   placeShip(occupiedCells) {
-    let failedToPlaceShip = true;
-    while (failedToPlaceShip) {
+    let failedToPlaceShip = null;
+    do {
       // 1 get ship orientation
-      let orientation = Math.random() > 0.5 ? "horizontal" : "vertical";
-      console.log("ship orientation: " + orientation);
+      this.orientation = Math.random() > 0.5 ? "horizontal" : "vertical";
+      console.log("ship orientation: " + this.orientation);
 
       // 2 ensuring we remain in borders
       let tempCells = [];
@@ -121,7 +120,7 @@ class AlienShip {
 
       // 3 get cells
       for (let i = 0; i < this.length; i++) {
-        if (orientation == "horizontal") {
+        if (this.orientation == "horizontal") {
           tempCells.push("R" + parseInt(row + i) + "_C" + col);
         } else {
           tempCells.push("R" + row + "_C" + parseInt(col + i));
@@ -129,7 +128,7 @@ class AlienShip {
         console.log(
           "Ship " +
             this.shipID +
-            ", cell" +
+            ", cell " +
             i +
             " is located at: " +
             tempCells[i]
@@ -139,34 +138,62 @@ class AlienShip {
       //console.log(tempCells);
 
       // 3 make sure we do not collide with other ships
-      tempCells.forEach((tempCell) => {
-        if (occupiedCells.includes(tempCell)) {
-          console.log("collision at: " + tempCell);
-          console.log("try again");
-        } else {
-          failedToPlaceShip = false;
+      for (let i = 0; i < tempCells.length; i++) {
+        console.log("checking for collisions");
+        if (occupiedCells.includes(tempCells[i])) {
+          console.log("collision at: " + tempCells[i]);
+          failedToPlaceShip = true;
+          break; // out of for loop
         }
-      });
+        failedToPlaceShip = false;
+      }
 
       // 4 if we found no collisions, then add the locations
-      if (!failedToPlaceShip) {
+      if (failedToPlaceShip) {
+        console.log("Because of the collision, we need to try again.");
+      } else {
         console.log("if you see this, the ship placed successfully");
+        failedToPlaceShip = false;
         for (let i = 0; i < this.cells.length; i++) {
           this.cells[i].location = tempCells[i];
+          if (this.length == 2) {
+            if (i == 0) {
+              this.cells[i].image = "../../images/ship-head-shaded.png";
+            } else {
+              this.cells[i].image = "../../images/ship-tail-shaded.png";
+            }
+          } else if (this.length == 3) {
+            if (i == 0) {
+              this.cells[i].image = "../../images/ship-head-shaded.png";
+            } else if (i == 1) {
+              this.cells[i].image = "../../images/ship-body-shaded.png";
+            } else if (i == 2) {
+              this.cells[i].image = "../../images/ship-tail-shaded.png";
+            }
+          } else if (this.length == 4) {
+            if (i == 0) {
+              this.cells[i].image = "../../images/ship-head-shaded.png";
+            } else if (i == 1 || i == 2) {
+              this.cells[i].image = "../../images/ship-body-shaded.png";
+            } else if (i == 4) {
+              this.cells[i].image = "../../images/ship-tail-shaded.png";
+            }
+          }
         }
         console.log("tempCells:");
         console.log(tempCells);
         console.log("ship cells:");
         console.log(this.getCells());
+        console.log("**************************************************");
       }
-    }
+    } while (failedToPlaceShip);
   }
 
   didShotHit(battlefieldGridLocationID, typeOfProjectile) {
     /* go through the cells and see if anyone was hit */
     console.log("user fired a " + typeOfProjectile);
     console.log("user shot at " + battlefieldGridLocationID);
-    _cells.forEach((currentCell) => {
+    this.cells.forEach((currentCell) => {
       console.log("current cell " + currentCell);
       if (battlefieldGridLocationID == currentCell.location) {
         console.log("looks like a hit");

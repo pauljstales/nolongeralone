@@ -36,7 +36,7 @@ function hideBattleScreen() {
 /**
  * Setter for energy in the view
  */
- function setEnergy(currentEnergy) {
+function setEnergy(currentEnergy) {
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_ENERGY_TEXT.innerText = currentEnergy;
 }
 
@@ -50,7 +50,7 @@ function setTime(currentTime) {
 /**
  * Initialize the game values for the view; setting the time and energy, and making the special weapon button available
  */
-function initializeGameValues() {
+function initializeGameValues(ships) {
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_ENERGY_TEXT.innerText =
     CONFIGURATION.BATTLE_ENERGY.ENERGY_INITIAL;
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_TIMER_TEXT.innerText =
@@ -62,7 +62,26 @@ function initializeGameValues() {
     CONSTANTS.CSS.BUTTON_COLOR_RED
   );
   CONSTANTS.HTML.BATTLE.BUTTON_ARM_SPECIAL_WEAPON.removeAttribute("disabled");
-  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN);
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(
+    CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN
+  );
+
+  console.log("did we get any ships here at view");
+  console.log(ships);
+  ships.forEach((ship) => {
+    renderShip(ship);
+  });
+}
+
+function renderShip(ship) {
+  let testColor = ship.testColor;
+  for (let i = 0; i < ship.cells.length; i++) {
+    console.log("location? " + ship.cells[i].location);
+    let cell = document.getElementById(ship.cells[i].location);
+    cell.style.backgroundColor = ship.testColor;
+    console.log("cell?");
+    console.log(cell);
+  }
 }
 
 /**
@@ -84,32 +103,40 @@ function disableSpecialWeapon() {
 /**
  * When a user fires a weapon, there is a cooldown before the user can fire again. This sets the WEAPON READY indicator to red, a visual cue the weapon cannot be fired again.
  */
- function setWeaponFireable(weaponFireableStatus) {
+function setWeaponFireable(weaponFireableStatus) {
   if (weaponFireableStatus) {
-    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN);
-    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.remove(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_RED);
+    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(
+      CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN
+    );
+    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.remove(
+      CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_RED
+    );
   } else {
-    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_RED);
-    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.remove(CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN);
+    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(
+      CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_RED
+    );
+    CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.remove(
+      CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN
+    );
   }
 }
 
- /**
-   * Fire weapon actually fires the selected weapon.
-   * The sound of the weapon is played, a DIV is created and given a class to represent the weapon, after BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME seconds the DIV is removed.
-   * @param {audioFire} weaponSound
-   * @param {string} weaponType
-   * @param {string} cellID
-   */
-  function fireWeapon(weaponType, cellID) {
-    const weaponProjectile = document.createElement("div");
-    weaponProjectile.classList.add(weaponType);
-    document.getElementById(cellID).appendChild(weaponProjectile);
+/**
+ * Fire weapon actually fires the selected weapon.
+ * The sound of the weapon is played, a DIV is created and given a class to represent the weapon, after BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME seconds the DIV is removed.
+ * @param {audioFire} weaponSound
+ * @param {string} weaponType
+ * @param {string} cellID
+ */
+function fireWeapon(weaponType, cellID) {
+  const weaponProjectile = document.createElement("div");
+  weaponProjectile.classList.add(weaponType);
+  document.getElementById(cellID).appendChild(weaponProjectile);
 
-    setTimeout(() => {
-      document.getElementById(cellID).removeChild(weaponProjectile);
-    }, CONFIGURATION.BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME);
-  }
+  setTimeout(() => {
+    document.getElementById(cellID).removeChild(weaponProjectile);
+  }, CONFIGURATION.BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME);
+}
 
 /**
  * Exported View for Battle

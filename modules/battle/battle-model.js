@@ -64,6 +64,9 @@ function initializeGameValues() {
   console.log(battleData.ships[0]);
   console.log(battleData.ships[1]);
   console.log(battleData.ships[2]);
+  battleData.ships[0].testColor = "blue";
+  battleData.ships[1].testColor = "yellow";
+  battleData.ships[2].testColor = "green";
 
   /**
    * Gets all of the cells occupied by other ships
@@ -214,6 +217,14 @@ function determineWeaponToBeFired() {
   return weapon;
 }
 
+/**
+ * Getter for ships
+ * @returns array[AlienShip] an array of alien ships
+ */
+function getShips() {
+  return battleData.ships;
+}
+
 function DEV_printBattleData() {
   console.log("specialWeapon.name: " + battleData.specialWeapon.name);
   console.log(
@@ -240,6 +251,7 @@ const BATTLE_MODEL = {
   getTime: getTime,
   decreaseTime: decreaseTime,
   determineWeaponToBeFired: determineWeaponToBeFired,
+  getShips: getShips,
   DEV_printBattleData: DEV_printBattleData,
 };
 export { BATTLE_MODEL };

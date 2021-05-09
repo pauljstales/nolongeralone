@@ -72,7 +72,7 @@ function registerButtonSelectRadarEventListener() {
       CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR
     );
     MENU_CONTROLLER.setSelectedWeaponName(CONSTANTS.GAME.RADAR);
-    SOUND.playAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
+    SOUND.playAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
   });
 }
 
@@ -87,7 +87,7 @@ function registerButtonSelectEMPEventListener() {
       CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP
     );
     MENU_CONTROLLER.setSelectedWeaponName(CONSTANTS.GAME.EMP);
-    SOUND.playAudio(SOUND.SFX.BATTLE_EMP_FIRE);
+    SOUND.playAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
   });
 }
 
@@ -102,7 +102,7 @@ function registerButtonSelectPaulEventListener() {
       CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL
     );
     MENU_CONTROLLER.setSelectedWeaponName(CONSTANTS.GAME.PAUL);
-    SOUND.playAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
+    SOUND.playAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
   });
 }
 

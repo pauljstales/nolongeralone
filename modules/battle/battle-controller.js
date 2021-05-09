@@ -145,6 +145,7 @@ function fireWeaponSequence(cellID) {
     determineIfEnoughEnergyForSpecialWeapon();
     checkRemainingEnergyForGameOverCondition();
   } else {
+    SOUND.playAudio(SOUND.SFX.BATTLE_WEAPON_NOT_READY);
     //console.log("Trying to fire and cannot: \nEither out of energy\nOr firing too soon\nOr time is up");
     // play error sound
   }

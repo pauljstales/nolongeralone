@@ -1,3 +1,5 @@
+import { AlienShipCell } from "./AlienShipCell.js";
+
 /**
  * Class for the alien ship.
  */
@@ -103,13 +105,7 @@ class AlienShip {
    */
   generateCells(length) {
     for (let i = 0; i < length; i++) {
-      const cell = {
-        cellID: this.shipID + "-" + i,
-        location: null,
-        isVisible: false,
-        isDamaged: false,
-        image: null,
-      };
+      const cell = new AlienShipCell(this.shipID + "-" + i);
       this.cells.push(cell);
     }
     ////console.log("Let us see those cells!");

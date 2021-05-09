@@ -118,7 +118,7 @@ function moveStar(star) {
       Math.random() * (window.innerHeight / 4) * (Math.random() > 0.5 ? 1 : -1);
 
     star.style.transition = `all ${t / 1000}s`;
-    star.style.transform = `rotate(${d}deg) translateX(${x}px) translateY(${y}px) scale(0.1)`;
+    star.style.transform = `rotate(${d}deg) translateX(${x}px) translateY(${y}px) scale(0.2)`;
   }, 1);
 
   setTimeout(() => {

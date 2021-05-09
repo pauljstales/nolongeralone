@@ -330,6 +330,11 @@ const CONSTANTS = {
     LAPTOP_1200K: 1200000, // laptop is 1024*1366~1400K
     DESKTOP_1800K: 1800000, // desktop is 1920*1080~2050K
   },
+  SHIP_PART: {
+    HEAD: "head",
+    BODY: "body",
+    TAIL: "tail",
+  },
 };
 
 export { CONSTANTS };

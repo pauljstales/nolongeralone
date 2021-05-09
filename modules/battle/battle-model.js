@@ -10,12 +10,11 @@
 import { CONFIGURATION } from "../../configuration/configuration.js";
 import { SOUND } from "../../sound/sound-manager.js";
 import { CONSTANTS } from "../../constants/constants.js";
-import { AlienShip } from "./AlienShip.js";
 
 /**
  * Encapsulated data for the battle
  */
-var battleData = {
+const battleData = {
   specialWeapon: {
     name: null,
     isReadyToFire: null,
@@ -26,7 +25,7 @@ var battleData = {
   gameOverConditions: {
     energy: null,
     time: null,
-    shipsRemaining: null,
+    shipsRemaining: 3,
   },
   ships: [],
 };
@@ -42,57 +41,22 @@ function initializeGameValues() {
     CONFIGURATION.BATTLE_ENERGY.ENERGY_INITIAL;
   battleData.gameOverConditions.time =
     CONFIGURATION.BATTLE_TIMING.BATTLE_TIME_INITIAL;
-
-  // get ship lengths
-  const squadronLengths = Math.random() > 0.5 ? [3, 3, 3] : [2, 3, 4];
-  ////console.log("dealing with this squad:");
-  //console.log(squadronLengths);
-
-  // create ships with id and length (ships make their own cells)
-  battleData.ships[0] = new AlienShip(0, squadronLengths[0]);
-  battleData.ships[1] = new AlienShip(1, squadronLengths[1]);
-  battleData.ships[2] = new AlienShip(2, squadronLengths[2]);
-
-  // place the ships on the grid (tsi = this ship index)
-  for (let tsi = 0; tsi < battleData.ships.length; tsi++) {
-    //console.log("Working with ship number: " + tsi);
-    let occupiedCells = getCellsOccupiedByOtherShips(tsi);
-    battleData.ships[tsi].placeShip(occupiedCells);
-  }
-
-  //console.log("let us see some ships");
-  //console.log(battleData.ships[0]);
-  //console.log(battleData.ships[1]);
-  //console.log(battleData.ships[2]);
-  battleData.ships[0].testColor = "blue";
-  battleData.ships[1].testColor = "yellow";
-  battleData.ships[2].testColor = "green";
+  initializeShips();
 
   /**
-   * Gets all of the cells occupied by other ships
-   * For reference:
-   * -- TSI = this ship's index
-   * -- OSI = other ship's index
-   * -- CCI = current cell's index
-   * @returns array[string] cells occupied by other ships
+   * Initialize all 3 alien ships, and sets them onto the BattleData object.
    */
-  function getCellsOccupiedByOtherShips(tsi) {
-    ////console.log("starting to get cells occupied by other ships");
-    let occupiedCells = [];
-    for (let osi = 0; osi < battleData.ships.length; osi++) {
-      if (tsi != osi) {
-        ////console.log("We need the cells of every OTHER ship, such as: " + osi);
-        for (let cci = 0; cci < battleData.ships[osi].length; cci++) {
-          if (battleData.ships[osi].cells[cci].location != null) {
-            ////console.log("Adding occupied cell: " +battleData.ships[osi].cells[cci].location);
-            occupiedCells.push(battleData.ships[osi].cells[cci].location);
-          }
-        } // end cci
-      }
-    } // end osi
-    //console.log("done getting occupied cells, here they are");
-    //console.log(occupiedCells);
-    return occupiedCells;
+  function initializeShips() {
+    // get ship lengths
+    const squadronLengths = Math.random() > 0.5 ? [3, 3, 3] : [2, 3, 4];
+
+    // create ships with id and length (ships make their own cells)
+    battleData.ships[0] = new AlienShip(0, squadronLengths[0]);
+    battleData.ships[1] = new AlienShip(1, squadronLengths[1]);
+    battleData.ships[2] = new AlienShip(2, squadronLengths[2]);
+
+    // place all the ships
+    placeAllShips();
   }
 }
 
@@ -145,7 +109,6 @@ function isWeaponFireable() {
  * @param {boolean} weaponFireableStatus
  */
 function setWeaponFireable(weaponFireableStatus) {
-  ////console.log("Setting weaponFireableStatus: " + weaponFireableStatus);
   battleData.weapon.isReadyToFire = weaponFireableStatus;
 }
 
@@ -180,6 +143,14 @@ function getTime() {
 function decreaseTime() {
   battleData.gameOverConditions.time -=
     CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP;
+}
+
+/**
+ * Getter for shipsRemaining (there is no setter, fire weapon updates this)
+ * @returns number representing the ships remaining
+ */
+function getShipsRemaining() {
+  return battleData.gameOverConditions.shipsRemaining;
 }
 
 /**
@@ -225,29 +196,31 @@ function getShips() {
   return battleData.ships;
 }
 
-function DEV_printBattleData() {
-  //console.log("specialWeapon.name: " + battleData.specialWeapon.name);
-  //console.log("specialWeapon.isReadyToFire: " + battleData.specialWeapon.isReadyToFire);
-  //console.log("energy: " + battleData.gameOverConditions.energy);
-  //console.log("time: " + battleData.gameOverConditions.time);
-  //console.log("----------------------------------------");
-}
-
 function fireWeapon(gridLocationID, typeOfProjectile) {
-  /* go through the cells and see if anyone was hit */
   console.log("user fired a " + typeOfProjectile);
   console.log("user shot at " + gridLocationID);
+
   battleData.ships.forEach((ship) => {
     ship.cells.forEach((cell) => {
       if (cell.location == gridLocationID) {
-        console.log(
-          "ship " + ship.shipID + "'s cell was hit at " + cell.location
-        );
-        console.log("now we can pass this info to the hit ship");
-        updateCell(ship, cell, typeOfProjectile);
+        if (cell.damaged == false && typeOfProjectile == CONSTANTS.GAME.LASER) {
+          console.log("Undamaged ship hit by laser");
+          updateCell(ship, cell, typeOfProjectile);
+        } else if (typeOfProjectile == CONSTANTS.GAME.PAUL) {
+          console.log("Paul destroys any ship, even if it hits a damaged part");
+          updateCell(ship, cell, typeOfProjectile);
+        }
       }
     });
   });
+
+  if (
+    typeOfProjectile == CONSTANTS.GAME.RADAR ||
+    typeOfProjectile == CONSTANTS.GAME.EMP
+  ) {
+    console.log("Radar and EMP work all the time.");
+    updateCell(null, null, typeOfProjectile);
+  }
 }
 
 function updateCell(ship, cell, typeOfProjectile) {
@@ -257,26 +230,44 @@ function updateCell(ship, cell, typeOfProjectile) {
   console.log(cell);
   console.log("for typeOfProjectile " + typeOfProjectile);
   if (typeOfProjectile == CONSTANTS.GAME.LASER) {
-    cell.setIsDamaged(true);
-    cell.setIsVisible(true, typeOfProjectile);
-
-    // laser needs to damage this cell and make it visible
-    // then check other cells for damage and determine if ship dead
-    // dead ships dont move
-    // and if ship dead then check if all ships dead
+    cell.setDamaged(true);
+    cell.setVisible(true, typeOfProjectile);
+    ship.setHealth(ship.getHealth() - 1);
+    if (ship.getHealth() == 0) {
+      ship.setMovable(false, typeOfProjectile);
+    }
   } else if (typeOfProjectile == CONSTANTS.GAME.RADAR) {
-    // make all cells visible
-    // set timeout make them hidden again
+    battleData.ships.forEach((ship) => {
+      ship.cells.forEach((cell) => {
+        cell.setVisible(true, typeOfProjectile);
+      });
+    });
   } else if (typeOfProjectile == CONSTANTS.GAME.EMP) {
-    // make all ships cant move
-    // set timeout they can move again
+    battleData.ships.forEach((ship) => {
+      ship.setMovable(false, typeOfProjectile);
+    });
   } else if (typeOfProjectile == CONSTANTS.GAME.PAUL) {
-    // for each cell in this ship, destroy it
-    // then check if we destroyed ship
-    // dead ships dont move
-    // and if ship dead then check if all ships dead
+    // The Plasma Arc Ultra Laser is nothing more than a more powerful
+    // laser that can destroy the entire ship
+    ship.setHealth(0);
+    ship.setMovable(false, CONSTANTS.GAME.LASER);
+    ship.cells.forEach((cell) => {
+      cell.setDamaged(true);
+      cell.setVisible(true, CONSTANTS.GAME.LASER);
+    });
   } else {
     console.log("Updating cell failed.");
+  }
+
+  if (ship !== null) {
+    console.log("IMPORTANT, THIS SHIP's HEALTH IS: " + ship.getHealth());
+    if (ship.getHealth() == 0) {
+      battleData.gameOverConditions.shipsRemaining -= 1;
+      console.log(
+        "IMPORTANT, SHIPs REMAINING: " +
+          battleData.gameOverConditions.shipsRemaining
+      );
+    }
   }
 }
 
@@ -297,7 +288,332 @@ const BATTLE_MODEL = {
   decreaseTime: decreaseTime,
   determineWeaponToBeFired: determineWeaponToBeFired,
   getShips: getShips,
+  getShipsRemaining: getShipsRemaining,
   fireWeapon: fireWeapon,
-  DEV_printBattleData: DEV_printBattleData,
+  placeAllShips: placeAllShips,
 };
 export { BATTLE_MODEL };
+
+/* ******************************************
+ * ******* Ship Placement *******
+ * ******************************************/
+
+// place the ships on the grid (csi = current ship index)
+function placeAllShips() {
+  for (let csi = 0; csi < battleData.ships.length; csi++) {
+    //console.log("Working with ship number: " + csi);
+    let occupiedCells = getCellsOccupiedByOtherShips(csi);
+    placeShip(occupiedCells, battleData.ships[csi]);
+  }
+}
+
+/**
+ * Gets all of the cells occupied by other ships
+ * For reference:
+ * -- CSI = current ship's index
+ * -- OSI = other ship's index
+ * -- CCI = current cell's index
+ * @returns array[string] cells occupied by other ships
+ */
+function getCellsOccupiedByOtherShips(csi) {
+  ////console.log("starting to get cells occupied by other ships");
+  let occupiedCells = [];
+  for (let osi = 0; osi < battleData.ships.length; osi++) {
+    if (csi != osi) {
+      ////console.log("We need the cells of every OTHER ship, such as: " + osi);
+      for (let cci = 0; cci < battleData.ships[osi].length; cci++) {
+        if (battleData.ships[osi].cells[cci].location != null) {
+          ////console.log("Adding occupied cell: " +battleData.ships[osi].cells[cci].location);
+          occupiedCells.push(battleData.ships[osi].cells[cci].location);
+        }
+      } // end cci
+    }
+  } // end osi
+  //console.log("done getting occupied cells, here they are");
+  //console.log(occupiedCells);
+  return occupiedCells;
+}
+
+/**
+ * Ships cannot extend past the grid border, or collide with other ships.
+ * The start of the ship must be within "6-length" to stay in borders.
+ * The ship cannot exist in any cell where there is already a ship cell.
+ * @param {array[Object]} occupiedCells - array of all battlefield cells with an alien ship cell present
+ * @returns
+ */
+function placeShip(occupiedCells, ship) {
+  // dead ships dont move
+  if (!ship.isMovable) {
+    return;
+  }
+
+  let failedToPlaceShip = null;
+  do {
+    // 1 get ship orientation
+    ship.orientation = Math.random() > 0.5 ? "horizontal" : "vertical";
+    //console.log("ship orientation: " + ship.orientation);
+
+    // 2 ensuring we remain in borders
+    let row = Math.ceil(Math.random() * (7 - ship.length));
+    let col = Math.ceil(Math.random() * (7 - ship.length));
+
+    // 3 get temporary, possible cell locations
+    let possibleCellLocations = [];
+    for (let i = 0; i < ship.length; i++) {
+      if (ship.orientation == "horizontal") {
+        possibleCellLocations.push("R" + row + "_C" + parseInt(col + i));
+      } else {
+        possibleCellLocations.push("R" + parseInt(row + i) + "_C" + col);
+      }
+      //console.log("Ship " +ship.shipID +", cell " +i +" is located at: " +possibleCellLocations[i]);
+    }
+    ////console.log("ships total cells");
+    ////console.log(possibleCellLocations);
+
+    // 4 make sure we do not collide with other ships
+    for (let i = 0; i < possibleCellLocations.length; i++) {
+      //console.log("checking for collisions");
+      if (occupiedCells.includes(possibleCellLocations[i])) {
+        //console.log("collision at: " + possibleCellLocations[i]);
+        failedToPlaceShip = true;
+        break; // out of for loop
+      }
+      failedToPlaceShip = false;
+    }
+
+    // 5 if we found no collisions, then add the locations
+    if (failedToPlaceShip) {
+      //console.log("Because of the collision, we need to try again.");
+    } else {
+      //console.log("if you see this, the ship placed successfully");
+      for (let i = 0; i < ship.cells.length; i++) {
+        ship.cells[i].setLocation(possibleCellLocations[i]);
+        if (i == 0) {
+          ship.cells[i].setShipPart(CONSTANTS.SHIP_PART.HEAD);
+        } else if (i == ship.cells.length - 1) {
+          ship.cells[i].setShipPart(CONSTANTS.SHIP_PART.TAIL);
+        } else {
+          ship.cells[i].setShipPart(CONSTANTS.SHIP_PART.BODY);
+        }
+      }
+    }
+  } while (failedToPlaceShip);
+}
+
+/* ******************************************
+ * ******* Ship and Ship Cell Objects *******
+ * ******************************************/
+
+/**
+ * Class for Alien Ship.
+ * This class is NOT available oucside of BATTLE_MODEL.
+ */
+class AlienShip {
+  /**
+   * Constructor for Alien Ship
+   * @param {string} shipID unique ID for a ship
+   * @param {number} length the length/size of a ship
+   */
+  constructor(shipID, length) {
+    this.shipID = shipID;
+    this.length = length;
+    this.health = length;
+    this.orientation = null;
+    this.isMovable = true;
+    this.cells = [];
+    this.generateCells(this.length);
+  }
+
+  /**
+   * A "cell" is part of the ship, one battlefield grid box is one cell.
+   * @param {number} length - number of cells to create
+   */
+  generateCells(length) {
+    for (let i = 0; i < length; i++) {
+      const cell = new AlienShipCell(this.shipID + "-" + i);
+      this.cells.push(cell);
+    }
+  }
+
+  /**
+   * Getter for the ship ID
+   * @returns number ID of the ship
+   */
+  getShipID() {
+    return this.shipID;
+  }
+
+  /**
+   * Setter for ID
+   * @param {number} id
+   */
+  setShipID(id) {
+    this.shipID = id;
+  }
+
+  /**
+   * Getter for isMovable
+   * Alien ships are moveable UNLESS they are under the effects of an EMP or completely destroyed.
+   * @returns boolean whether or not the ship is moveable
+   */
+  isMovable() {
+    return this.isMovable;
+  }
+
+  /**
+   * Setter for isMovable
+   * @param {boolean} booleanMovable boolean value that determines ship mobility
+   */
+  setMovable(booleanMovable, typeOfProjectile) {
+    // EMP makes this temporarily not moveable, not permanent
+    if (this.isMovable == true && typeOfProjectile == CONSTANTS.GAME.EMP) {
+      setTimeout(() => {
+        this.isMovable = true;
+      }, CONFIGURATION.BATTLE_WEAPONS.EMP_DURATION);
+    }
+    this.isMovable = booleanMovable;
+  }
+
+  /**
+   * Getter for length (number of cells)
+   * @returns number, number of cells AKA "length"
+   */
+  getLength() {
+    return this.length;
+  }
+
+  /**
+   * Setter for length (number of cells)
+   * @param {number} length is the number of cells of the ship
+   */
+  setLength(length) {
+    this.length = length;
+  }
+
+  /**
+   * Getter for the ship health
+   * @returns number of health remaining for the ship
+   */
+  getHealth() {
+    return this.health;
+  }
+
+  /**
+   *  Getter for the ship health
+   * @param {number} health - numeric representation of ship health
+   */
+  setHealth(health) {
+    this.health = health;
+  }
+
+  /**
+   * Getter for the orientation
+   * @returns string - orientation
+   */
+  getOrientation() {
+    return this.orientation;
+  }
+
+  /**
+   * Setter for orientation
+   * @param {string} orientation
+   */
+  setOrientation(orientation) {
+    this.orientation = orientation;
+  }
+
+  /**
+   * Getter for an individual cell by cellID
+   * @returns object AlienShipCell
+   */
+  getCell(cellID) {
+    return this.cells[cellID];
+  }
+
+  /**
+   * Getter for cells
+   * @returns array
+   */
+  getCells() {
+    return this.cells;
+  }
+
+  /**
+   * Setter for cells
+   * @param {number} length is the number of cells of the ship
+   */
+  setCells(cells) {
+    this.cells = cells;
+  }
+}
+
+/**
+ * Class for Alien Ship Cells.
+ * This class is NOT available oucside of BATTLE_MODEL.
+ */
+class AlienShipCell {
+  constructor(cellID) {
+    this.cellID = cellID;
+    this.location = null;
+    this.visible = false;
+    this.damaged = false;
+    this.shipPart = null;
+    this.image = null;
+  }
+
+  getCellID() {
+    return this.cellID;
+  }
+
+  setCellID(cellID) {
+    this.cellID = cellID;
+  }
+
+  getLocation() {
+    return this.location;
+  }
+
+  setLocation(location) {
+    this.location = location;
+  }
+
+  isVisible() {
+    return this.visible;
+  }
+
+  setVisible(visible, typeOfProjectile) {
+    // radar makes this temporarily visible, not permanent
+    if (this.visible == false && typeOfProjectile == CONSTANTS.GAME.RADAR) {
+      setTimeout(() => {
+        if (!this.isDamaged()) {
+          this.visible = false;
+        }
+      }, CONFIGURATION.BATTLE_WEAPONS.RADAR_DURATION);
+    }
+    this.visible = visible;
+  }
+
+  isDamaged() {
+    return this.damaged;
+  }
+
+  setDamaged(damaged) {
+    this.damaged = damaged;
+  }
+
+  getShipPart() {
+    return this.shipPart;
+  }
+
+  setShipPart(shipPart) {
+    this.shipPart = shipPart;
+  }
+
+  getImage() {
+    return this.image;
+  }
+
+  setImage(image) {
+    this.image = image;
+  }
+}

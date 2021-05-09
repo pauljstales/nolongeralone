@@ -8,6 +8,8 @@
 
 import { CONFIGURATION } from "../../configuration/configuration.js";
 import { CONSTANTS } from "../../constants/constants.js";
+import { AlienShip } from "../battle/AlienShip.js";
+import { AlienShipCell } from "../battle/AlienShipCell.js";
 
 /**
  * Shows the battle screen
@@ -75,12 +77,28 @@ function initializeGameValues(ships) {
 
 function renderShip(ship) {
   for (let i = 0; i < ship.cells.length; i++) {
-    let cell = document.getElementById(ship.cells[i].location);
+    /*console.log("What is ship?");
+    console.log(ship);
+    console.log("What is cells?");
+    console.log(ship.cells);
+    console.log("What is cell?");
+    console.log(ship.cells[0]);*/
+    //let cell = document.getElementById(ship.cells[i].location);
+    let cell = ship.cells[i];
     //cell.style.backgroundColor = ship.testColor;
-    cell.style.backgroundImage = "url(" + ship.cells[i].image + ")";
-    cell.style.backgroundSize = "contain";
+    let cellDOM = document.getElementById(cell.getLocation());
+
+    cellDOM.style.backgroundImage = "url(" + ship.cells[i].image + ")";
+    cellDOM.style.backgroundSize = "contain";
     if (ship.getOrientation() == "horizontal") {
-      cell.style.transform = "rotate(-90deg)";
+      cellDOM.style.transform = "rotate(-90deg)";
+    }
+    if (cell.getIsVisible()) {
+      //cellDOM.innerText = ""; this was causing issues with the projectile
+      cellDOM.style.backgroundColor = "red";
+    } else {
+      //cellDOM.innerText = "INVISIBLE";
+      cellDOM.style.backgroundColor = "blue";
     }
     //cell.innerText = ship.cells[i].location;
   }
@@ -129,7 +147,7 @@ function setWeaponFireable(weaponFireableStatus) {
  * @param {string} cellID
  * @param {string} weaponType
  */
-function fireWeapon(cellID, weaponType) {
+function fireWeapon(ships, cellID, weaponType) {
   const weaponProjectile = document.createElement("div");
   weaponProjectile.classList.add(weaponType);
   document.getElementById(cellID).appendChild(weaponProjectile);
@@ -151,5 +169,6 @@ const BATTLE_VIEW = {
   initializeGameValues: initializeGameValues,
   fireWeapon: fireWeapon,
   setWeaponFireable: setWeaponFireable,
+  renderShip: renderShip,
 };
 export { BATTLE_VIEW };

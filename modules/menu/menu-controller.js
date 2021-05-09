@@ -27,16 +27,6 @@ function hideMenuScreen() {
 }
 
 /**
- * This stops all weapon sounds on the menu, either because a new weapon was
- * selected, or because the menu screen is being exited.
- */
-function stopAllBattleWeaponSelectionSounds() {
-  SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
-  SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
-  SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
-}
-
-/**
  * Whenever an HTML Button representing a special weapon is clicked, this function highlights that button (and de-highlights the others)
  * @param {HTML_Element} selectedWeaponButton
  */
@@ -67,7 +57,7 @@ function setSelectedWeaponName(selectedWeaponName) {
  */
 function registerButtonSelectRadarEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR.addEventListener("click", () => {
-    stopAllBattleWeaponSelectionSounds();
+    SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR
     );
@@ -82,7 +72,7 @@ function registerButtonSelectRadarEventListener() {
  */
 function registerButtonSelectEMPEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP.addEventListener("click", () => {
-    stopAllBattleWeaponSelectionSounds();
+    SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP
     );
@@ -97,7 +87,7 @@ function registerButtonSelectEMPEventListener() {
  */
 function registerButtonSelectPaulEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL.addEventListener("click", () => {
-    stopAllBattleWeaponSelectionSounds();
+    SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL
     );

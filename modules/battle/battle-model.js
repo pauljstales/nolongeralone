@@ -257,6 +257,9 @@ function updateCell(ship, cell, typeOfProjectile) {
   console.log(cell);
   console.log("for typeOfProjectile " + typeOfProjectile);
   if (typeOfProjectile == CONSTANTS.GAME.LASER) {
+    cell.setIsDamaged(true);
+    cell.setIsVisible(true, typeOfProjectile);
+
     // laser needs to damage this cell and make it visible
     // then check other cells for damage and determine if ship dead
     // dead ships dont move

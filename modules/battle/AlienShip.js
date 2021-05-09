@@ -99,6 +99,17 @@ class AlienShip {
     this.cells = cells;
   }
 
+  getIsDestroyed() {
+    for (let i = 0; i < this.cells.length; i++) {
+      if (this.cells[i].getIsDamaged() == false) {
+        console.log("undamaged cell found, this ship is not destroyed");
+        return false;
+      }
+    }
+    console.log("only damaged cells found, this ship is destroyed");
+    return true;
+  }
+
   /**
    * A "cell" is part of the ship, one battlefield grid box is one cell.
    * @param {number} length number of cells to create

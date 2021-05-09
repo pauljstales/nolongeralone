@@ -50,6 +50,9 @@ async function startBattleLoop() {
 
   let intervalID = setInterval(() => {
     //BATTLE_MODEL.DEV_printBattleData();
+    BATTLE_MODEL.getShips().forEach((ship) => {
+      BATTLE_VIEW.renderShip(ship);
+    });
     gameLoopUpdateTime();
     gameLoopAlienShipsAttemptToMove();
     gameLoopCheckIfTimerOrEnergyLow();
@@ -127,9 +130,19 @@ async function startBattleLoop() {
      * @param {intervalID} intervalID
      */
     function gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID) {
-      // somebody should implement this.
-      // it's probably me. (it is)
-      // ah, well...
+      let ships = BATTLE_MODEL.getShips();
+      for (let i = 0; i < ships.length; i++) {
+        if (ships[i].getIsDestroyed() == false) {
+          console.log("One or more alien ships are alive. Game is not won.");
+          return;
+        }
+      }
+      console.log("All alien ships are destroyed. Game is won.");
+      BATTLE_MODEL.getShips().forEach((ship) => {
+        BATTLE_VIEW.renderShip(ship);
+      });
+      BATTLE_MODEL.setWeaponFireable(false);
+      clearInterval(intervalID);
     }
   }, CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);
 }
@@ -182,8 +195,9 @@ function fireWeaponSequence(cellID) {
    */
   function fireWeapon(weaponSound, weaponType, cellID) {
     SOUND.playAudio(weaponSound);
-    BATTLE_VIEW.fireWeapon(cellID, weaponType);
+
     BATTLE_MODEL.fireWeapon(cellID, weaponType);
+    BATTLE_VIEW.fireWeapon(BATTLE_MODEL.getShips(), cellID, weaponType);
     setTimeout(() => {
       BATTLE_MODEL.setWeaponFireable(true);
       BATTLE_VIEW.setWeaponFireable(true);

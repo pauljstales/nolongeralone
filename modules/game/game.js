@@ -178,9 +178,7 @@ function registerButtonStartBattleEventListener() {
     STARFIELD.activate();
     SOUND.playAudio(SOUND.MUSIC.BATTLE);
     SOUND.stopAudio(SOUND.MUSIC.MENU);
-    SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
-    SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
-    SOUND.stopAudio(SOUND.SFX.BATTLE_PAUL_FIRE);
+    SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
     MENU_CONTROLLER.hideMenuScreen();
     BATTLE_CONTROLLER.setSpecialWeaponName(
       MENU_CONTROLLER.getSelectedWeaponName()

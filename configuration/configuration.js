@@ -45,6 +45,10 @@ const CONFIGURATION = {
     ENERGY_COST_PAUL: 4, // prod 4 - subject to change for game balance
     GET_SPECIAL_WEAPON_ENERGY_COST: getSpecialWeaponNameEnergyCost,
   },
+  BATTLE_WEAPONS: {
+    RADAR_DURATION: 2000, // prod 2000 - subject to change for game balance
+    EMP_DURATION: 3000, // prod 3000 - subject to change for game balance
+  },
 };
 
 /**

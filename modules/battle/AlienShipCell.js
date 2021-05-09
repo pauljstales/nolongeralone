@@ -1,3 +1,6 @@
+import { CONSTANTS } from "../../constants/constants.js";
+import { CONFIGURATION } from "../../configuration/configuration.js";
+
 /**
  * Class for the alien ship cells.
  */
@@ -10,8 +13,8 @@ class AlienShipCell {
   constructor(cellID) {
     this.cellID = cellID;
     this.location = null;
-    this.isVisible = null;
-    this.isDamaged = null;
+    this.isVisible = false;
+    this.isDamaged = false;
     this.image = null;
   }
 
@@ -35,7 +38,13 @@ class AlienShipCell {
     return this.isVisible;
   }
 
-  setIsVisible(isVisible) {
+  setIsVisible(isVisible, typeOfProjectile) {
+    // radar makes this temporarily visible, not permanent
+    if (this.isVisible == false && typeOfProjectile == CONSTANTS.GAME.RADAR) {
+      setTimeout(() => {
+        this.isVisible = false;
+      }, CONFIGURATION.BATTLE_WEAPONS.RADAR_DURATION);
+    }
     this.isVisible = isVisible;
   }
 

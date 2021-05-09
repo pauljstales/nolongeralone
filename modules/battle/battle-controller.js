@@ -52,6 +52,7 @@ async function startBattleLoop() {
     //BATTLE_MODEL.DEV_printBattleData();
     gameLoopUpdateTime();
     gameLoopAlienShipsAttemptToMove();
+    gameLoopCheckIfTimerOrEnergyLow();
     gameLoopCheckIfGameOverFromTime(intervalID);
     gameLoopCheckIfGameOverFromEnergy(intervalID);
     gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID);
@@ -85,6 +86,12 @@ async function startBattleLoop() {
       }
     }
 
+    function gameLoopCheckIfTimerOrEnergyLow() {
+      if (BATTLE_MODEL.getTime() <= 10000 || BATTLE_MODEL.getEnergy() <= 5) {
+        SOUND.playAudio(SOUND.SFX.BATTLE_TIMER_OR_ENERGY_LOW);
+      }
+    }
+
     /**
      * Checks for the LOSS condition "is there time left?"
      * If not, stop the game loop and begin the end game sequence.
@@ -92,6 +99,7 @@ async function startBattleLoop() {
      */
     function gameLoopCheckIfGameOverFromTime(intervalID) {
       if (BATTLE_MODEL.getTime() <= 0) {
+        SOUND.playAudio(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
         //console.log("time is up, end the game on a loss");
         BATTLE_MODEL.setWeaponFireable(false);
         clearInterval(intervalID);
@@ -106,6 +114,7 @@ async function startBattleLoop() {
      */
     function gameLoopCheckIfGameOverFromEnergy(intervalID) {
       if (BATTLE_MODEL.getEnergy() <= 0) {
+        SOUND.playAudioLooped(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
         //console.log("energy is exhausted, end the game on a loss");
         clearInterval(intervalID);
         //endGame(CONSTANTS.GAME.LOSE);

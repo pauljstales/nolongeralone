@@ -25,18 +25,24 @@ const SOUND = {
     BATTLE_PAUL_FIRE: new Audio("sound/sfx/plasma.mp3"),
     BATTLE_SHIP_MOVE: new Audio("sound/sfx/warp.mp3"),
     BATTLE_SHIP_HIT: new Audio("sound/sfx/hit.mp3"),
-    BATTLE_WEAPON_NOT_READY: new Audio("sound/sfx/weaponNotReady.mp3"),
-    BATTLE_TIMER_LOW: new Audio("sound/sfx/timerLow.mp3"),
-    BATTLE_ALIEN_WEAPON_CHARGE: new Audio("sound/sfx/alienWeaponCharge.mp3"),
+    BATTLE_WEAPON_NOT_READY: new Audio("sound/sfx/weapon-not-ready.mp3"),
+    BATTLE_TIMER_OR_ENERGY_LOW: new Audio("sound/sfx/timer-or-energy-low.mp3"),
+    BATTLE_ALIEN_WEAPON_CHARGE: new Audio("sound/sfx/alien-weapon-charge.mp3"),
     //BATTLE_EASTEREGG_LANDING: new Audio("sound/sfx/fire.mp3"),
     //BATTLE_EASTEREGG_ADMIRAL: new Audio("sound/sfx/fire.mp3"),
     //BATTLE_EASTEREGG_EARTH: new Audio("sound/sfx/fire.mp3"),
   },
   playAudio: playAudio,
+  playAudioLooped: playAudioLooped,
   stopAudio: stopAudio,
 };
 
 function playAudio(audioFile) {
+  audioFile.play();
+}
+
+function playAudioLooped(audioFile) {
+  audioFile.loop = true;
   audioFile.play();
 }
 

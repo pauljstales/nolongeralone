@@ -83,18 +83,6 @@ const GERMAN = {
   HIGH_SCORE: "* Wird es Highscores geben? Derzeit keine Pläne.",
   SEND_ME_MONEY:
     "* NEIN. Was auch immer es ist, nein. Es sei denn, Sie möchten mir Geld schicken. Dann ja. Kaffee und Kartoffelpuffer werden ebenfalls akzeptiert.",
-  SHOT_STATUS: "SCHUSSSTATUS",
-  HIT: "Schlagen",
-  MISS: "Fräulein",
-  AT: "beim",
-  COORDINATES: "R0_C3",
-  THE: ", das",
-  ALIEN_SHIP_STATUS: "Außerirdische Schiff scheint zu sein",
-  DAMAGED: "beschädigt, aber lebendig.",
-  DESTROYED: "zerstört!",
-  SW_SELECTED: "Spezialwaffe ausgewählt, Spezialwaffe abfeuern!",
-  SW_FIRED:
-    "Spezialwaffe wurde abgefeuert, sie kann nicht mehr abgefeuert werden.",
   TIMER: "TIMER",
   ENERGY: "ENERGIE",
   WEAPON_READY: "WAFFE BEREIT",

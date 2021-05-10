@@ -64,7 +64,7 @@ async function startBattleLoop() {
 
   let intervalID = setInterval(() => {
     //BATTLE_MODEL.DEV_printBattleData();
-    BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
+
     gameLoopUpdateTime();
     gameLoopAlienShipsAttemptToMove();
     gameLoopCheckIfTimerOrEnergyLow();
@@ -97,8 +97,9 @@ async function startBattleLoop() {
           CONFIGURATION.BATTLE_TIMING.TIME_PER_WARP ==
         0
       ) {
-        console.log("ships should warp now");
+        //console.log("ships should warp now");
         BATTLE_MODEL.placeAllShips();
+        BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
         SOUND.playAudio(SOUND.SFX.BATTLE_SHIP_MOVE);
       }
     }
@@ -117,14 +118,14 @@ async function startBattleLoop() {
     function gameLoopCheckIfGameOverFromTime(intervalID) {
       if (BATTLE_MODEL.getTime() <= 0) {
         //SOUND.playAudio(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
-        //console.log("time is up, end the game on a loss");
+        ////console.log("time is up, end the game on a loss");
         BATTLE_MODEL.setWeaponFireable(false);
         clearInterval(intervalID);
         setTimeout(() => {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.LOSE);
           endGame(CONSTANTS.GAME.LOSE);
-        }, timeout);
+        }, 2000);
       }
     }
 
@@ -136,7 +137,7 @@ async function startBattleLoop() {
     function gameLoopCheckIfGameOverFromEnergy(intervalID) {
       if (BATTLE_MODEL.getEnergy() <= 0) {
         //SOUND.playAudioLooped(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
-        //console.log("energy is exhausted, end the game on a loss");
+        ////console.log("energy is exhausted, end the game on a loss");
         clearInterval(intervalID);
         setTimeout(() => {
           hideBattleScreen();
@@ -174,11 +175,9 @@ async function startBattleLoop() {
  * @param {string} cellID
  */
 function fireWeaponSequence(cellID) {
-  console.log("firing sequence");
-  console.log("BATTLE_MODEL.getEnergy() " + BATTLE_MODEL.getEnergy());
-  console.log(
-    "BATTLE_MODEL.isWeaponFireable() " + BATTLE_MODEL.isWeaponFireable()
-  );
+  //console.log("firing sequence");
+  //console.log("BATTLE_MODEL.getEnergy() " + BATTLE_MODEL.getEnergy());
+  //console.log("BATTLE_MODEL.isWeaponFireable() " + BATTLE_MODEL.isWeaponFireable());
   if (BATTLE_MODEL.getEnergy() > 0 && BATTLE_MODEL.isWeaponFireable()) {
     stopWeaponSounds();
     BATTLE_MODEL.setWeaponFireable(false);
@@ -192,7 +191,7 @@ function fireWeaponSequence(cellID) {
     checkRemainingEnergyForGameOverCondition();
   } else {
     SOUND.playAudio(SOUND.SFX.BATTLE_WEAPON_NOT_READY);
-    //console.log("Trying to fire and cannot: \nEither out of energy\nOr firing too soon\nOr time is up");
+    ////console.log("Trying to fire and cannot: \nEither out of energy\nOr firing too soon\nOr time is up");
   }
 
   // ---------------------------------------------------
@@ -220,6 +219,7 @@ function fireWeaponSequence(cellID) {
     SOUND.playAudio(weaponSound);
     BATTLE_MODEL.fireWeapon(cellID, weaponType);
     BATTLE_VIEW.fireWeapon(BATTLE_MODEL.getShips(), cellID, weaponType);
+    BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
     setTimeout(() => {
       if (BATTLE_MODEL.getShipsRemaining() > 0) {
         BATTLE_MODEL.setWeaponFireable(true);
@@ -244,10 +244,10 @@ function fireWeaponSequence(cellID) {
     let costOfSpecialWeapon = CONFIGURATION.BATTLE_ENERGY.GET_SPECIAL_WEAPON_ENERGY_COST(
       BATTLE_MODEL.getSpecialWeaponName()
     );
-    //console.log("cost of special weapon? " + costOfSpecialWeapon);
-    //console.log("remaining energy? " + BATTLE_MODEL.getEnergy());
+    ////console.log("cost of special weapon? " + costOfSpecialWeapon);
+    ////console.log("remaining energy? " + BATTLE_MODEL.getEnergy());
     if (BATTLE_MODEL.getEnergy() < costOfSpecialWeapon) {
-      //console.log("energy is too low to use special weapon, disable it");
+      ////console.log("energy is too low to use special weapon, disable it");
       BATTLE_MODEL.setSpecialWeaponReadyToFire(false);
       BATTLE_VIEW.disableSpecialWeapon();
     }
@@ -272,7 +272,7 @@ function registerSpecialWeaponButtonEventListener() {
   CONSTANTS.HTML.BATTLE.BUTTON_ARM_SPECIAL_WEAPON.addEventListener(
     "click",
     () => {
-      //console.log("clicked the special weapon button");
+      ////console.log("clicked the special weapon button");
       BATTLE_VIEW.disableSpecialWeapon();
       BATTLE_MODEL.setSpecialWeaponReadyToFire(true);
     }

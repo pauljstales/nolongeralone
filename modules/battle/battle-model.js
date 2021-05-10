@@ -96,7 +96,7 @@ function setSpecialWeaponReadyToFire(isFireableBoolean) {
  * @returns boolean concerning if any weapon can be fired
  */
 function isWeaponFireable() {
-  ////console.log("battleData.isWeaponFireable: " + battleData.weapon.isReadyToFire);
+  //////console.log("battleData.isWeaponFireable: " + battleData.weapon.isReadyToFire);
   return battleData.weapon.isReadyToFire;
 }
 /**
@@ -187,17 +187,17 @@ function getShips() {
 }
 
 function fireWeapon(gridLocationID, typeOfProjectile) {
-  console.log("user fired a " + typeOfProjectile);
-  console.log("user shot at " + gridLocationID);
+  //console.log("user fired a " + typeOfProjectile);
+  //console.log("user shot at " + gridLocationID);
 
   battleData.ships.forEach((ship) => {
     ship.cells.forEach((cell) => {
       if (cell.location == gridLocationID) {
         if (cell.damaged == false && typeOfProjectile == CONSTANTS.GAME.LASER) {
-          console.log("Undamaged ship hit by laser");
+          //console.log("Undamaged ship hit by laser");
           updateCell(ship, cell, typeOfProjectile);
         } else if (typeOfProjectile == CONSTANTS.GAME.PAUL) {
-          console.log("Paul destroys any ship, even if it hits a damaged part");
+          //console.log("Paul destroys any ship, even if it hits a damaged part");
           updateCell(ship, cell, typeOfProjectile);
         }
       }
@@ -208,17 +208,17 @@ function fireWeapon(gridLocationID, typeOfProjectile) {
     typeOfProjectile == CONSTANTS.GAME.RADAR ||
     typeOfProjectile == CONSTANTS.GAME.EMP
   ) {
-    console.log("Radar and EMP work all the time.");
+    //console.log("Radar and EMP work all the time.");
     updateCell(null, null, typeOfProjectile);
   }
 }
 
 function updateCell(ship, cell, typeOfProjectile) {
-  console.log("Updating ship");
-  console.log(ship);
-  console.log("Updating cell");
-  console.log(cell);
-  console.log("for typeOfProjectile " + typeOfProjectile);
+  //console.log("Updating ship");
+  //console.log(ship);
+  //console.log("Updating cell");
+  //console.log(cell);
+  //console.log("for typeOfProjectile " + typeOfProjectile);
   if (typeOfProjectile == CONSTANTS.GAME.LASER) {
     cell.setDamaged(true);
     cell.setVisible(true, typeOfProjectile);
@@ -246,17 +246,13 @@ function updateCell(ship, cell, typeOfProjectile) {
       cell.setVisible(true, CONSTANTS.GAME.LASER);
     });
   } else {
-    console.log("Updating cell failed.");
+    //console.log("Updating cell failed.");
   }
 
   if (ship !== null) {
-    console.log("IMPORTANT, THIS SHIP's HEALTH IS: " + ship.getHealth());
+    //console.log("IMPORTANT, THIS SHIP's HEALTH IS: " + ship.getHealth());
     if (ship.getHealth() == 0) {
       battleData.gameOverConditions.shipsRemaining -= 1;
-      console.log(
-        "IMPORTANT, SHIPs REMAINING: " +
-          battleData.gameOverConditions.shipsRemaining
-      );
     }
   }
 }
@@ -291,7 +287,7 @@ export { BATTLE_MODEL };
 // place the ships on the grid (csi = current ship index)
 function placeAllShips() {
   for (let csi = 0; csi < battleData.ships.length; csi++) {
-    //console.log("Working with ship number: " + csi);
+    ////console.log("Working with ship number: " + csi);
     let occupiedCells = getCellsOccupiedByOtherShips(csi);
     placeShip(occupiedCells, battleData.ships[csi]);
   }
@@ -306,21 +302,21 @@ function placeAllShips() {
  * @returns array[string] cells occupied by other ships
  */
 function getCellsOccupiedByOtherShips(csi) {
-  ////console.log("starting to get cells occupied by other ships");
+  //////console.log("starting to get cells occupied by other ships");
   let occupiedCells = [];
   for (let osi = 0; osi < battleData.ships.length; osi++) {
     if (csi != osi) {
-      ////console.log("We need the cells of every OTHER ship, such as: " + osi);
+      //////console.log("We need the cells of every OTHER ship, such as: " + osi);
       for (let cci = 0; cci < battleData.ships[osi].length; cci++) {
         if (battleData.ships[osi].cells[cci].location != null) {
-          ////console.log("Adding occupied cell: " +battleData.ships[osi].cells[cci].location);
+          //////console.log("Adding occupied cell: " +battleData.ships[osi].cells[cci].location);
           occupiedCells.push(battleData.ships[osi].cells[cci].location);
         }
       } // end cci
     }
   } // end osi
-  //console.log("done getting occupied cells, here they are");
-  //console.log(occupiedCells);
+  ////console.log("done getting occupied cells, here they are");
+  ////console.log(occupiedCells);
   return occupiedCells;
 }
 
@@ -341,7 +337,7 @@ function placeShip(occupiedCells, ship) {
   do {
     // 1 get ship orientation
     ship.orientation = Math.random() > 0.5 ? "horizontal" : "vertical";
-    //console.log("ship orientation: " + ship.orientation);
+    ////console.log("ship orientation: " + ship.orientation);
 
     // 2 ensuring we remain in borders
     let row = Math.ceil(Math.random() * (7 - ship.length));
@@ -355,16 +351,16 @@ function placeShip(occupiedCells, ship) {
       } else {
         possibleCellLocations.push("R" + parseInt(row + i) + "_C" + col);
       }
-      //console.log("Ship " +ship.shipID +", cell " +i +" is located at: " +possibleCellLocations[i]);
+      ////console.log("Ship " +ship.shipID +", cell " +i +" is located at: " +possibleCellLocations[i]);
     }
-    ////console.log("ships total cells");
-    ////console.log(possibleCellLocations);
+    //////console.log("ships total cells");
+    //////console.log(possibleCellLocations);
 
     // 4 make sure we do not collide with other ships
     for (let i = 0; i < possibleCellLocations.length; i++) {
-      //console.log("checking for collisions");
+      ////console.log("checking for collisions");
       if (occupiedCells.includes(possibleCellLocations[i])) {
-        //console.log("collision at: " + possibleCellLocations[i]);
+        ////console.log("collision at: " + possibleCellLocations[i]);
         failedToPlaceShip = true;
         break; // out of for loop
       }
@@ -373,9 +369,9 @@ function placeShip(occupiedCells, ship) {
 
     // 5 if we found no collisions, then add the locations
     if (failedToPlaceShip) {
-      //console.log("Because of the collision, we need to try again.");
+      ////console.log("Because of the collision, we need to try again.");
     } else {
-      //console.log("if you see this, the ship placed successfully");
+      ////console.log("if you see this, the ship placed successfully");
       for (let i = 0; i < ship.cells.length; i++) {
         ship.cells[i].setLocation(possibleCellLocations[i]);
         if (i == 0) {

@@ -55,7 +55,7 @@ function showBattleResultScreen(result) {
       CONSTANTS.CSS.SCREEN_DISPLAY_NONE
     );
   } else {
-    console.log("Error in ending game.");
+    //console.log("Error in ending game.");
   }
 }
 
@@ -110,58 +110,61 @@ function initializeGameValues(ships) {
     CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN
   );
 
-  //console.log("did we get any ships here at view");
-  console.log(ships);
+  ////console.log("did we get any ships here at view");
+  //console.log(ships);
   renderShips(ships);
 }
 
 function renderShips(ships) {
-  previousShipLocations.forEach((previousShipLocation) => {
-    previousShipLocation.style.transform = null;
-    previousShipLocation.style.backgroundSize = null;
-    previousShipLocation.style.backgroundImage = null;
-    previousShipLocation.style.backgroundImage = null;
-    previousShipLocation.style.backgroundColor = null;
-  });
+  for (let i = 0; i < previousShipLocations.length; i++) {
+    previousShipLocations[i].style.transform = null;
+    previousShipLocations[i].style.backgroundSize = null;
+    previousShipLocations[i].style.backgroundImage = null;
+    previousShipLocations[i].style.backgroundImage = null;
+    previousShipLocations[i].style.backgroundColor = null;
+  }
 
   previousShipLocations = [];
 
-  ships.forEach((ship) => {
-    ship.getCells().forEach((cell) => {
-      /*console.log("What is ship?");
-    console.log(ship);
-    console.log("What is cells?");
-    console.log(ship.cells);
-    console.log("What is cell?");
-    console.log(ship.cells[0]);*/
-      //let cell = document.getElementById(ship.cells[i].location);
-      //cell.style.backgroundColor = ship.testColor;
-
-      let gridCellDOM = document.getElementById(cell.getLocation());
+  for (let i = 0; i < ships.length; i++) {
+    for (let j = 0; j < ships[i].length; j++) {
+      let gridCellDOM = document.getElementById(
+        ships[i].cells[j].getLocation()
+      );
       previousShipLocations.push(gridCellDOM);
 
-      if (ship.getOrientation() == "horizontal") {
-        gridCellDOM.style.transform = "rotate(-90deg)";
+      gridCellDOM.style.backgroundSize = "contain";
+
+      let horizontalFix = "";
+      if (ships[i].getOrientation() == "horizontal") {
+        horizontalFix = "-H";
       }
 
-      let shipPart = cell.getShipPart();
-      let shipStatus = cell.isDamaged() ? "damage" : "shaded";
-      cell.setImage("../images/ship-" + shipPart + "-" + shipStatus + ".png");
-      gridCellDOM.style.backgroundSize = "contain";
-      if (cell.isVisible()) {
-        gridCellDOM.style.backgroundImage = "url(" + cell.getImage() + ")";
+      let shipStatus = ships[i].cells[j].isDamaged() ? "damage" : "shaded";
+      ships[i].cells[j].setImage(
+        "../images/ship-" +
+          ships[i].cells[j].shipPart +
+          "-" +
+          shipStatus +
+          horizontalFix +
+          ".png"
+      );
+
+      if (ships[i].cells[j].isVisible()) {
+        gridCellDOM.style.backgroundImage =
+          "url(" + ships[i].cells[j].getImage() + ")";
       } else {
         gridCellDOM.style.backgroundImage = null;
-        if (ship.getShipID() == 0) {
-          //gridCellDOM.style.backgroundColor = "green";
-        } else if (ship.getShipID() == 1) {
-          //gridCellDOM.style.backgroundColor = "yellow";
-        } else if (ship.getShipID() == 2) {
-          //gridCellDOM.style.backgroundColor = "blue";
-        }
+        //if (ship.getShipID() == 0) {
+        //gridCellDOM.style.backgroundColor = "green";
+        //} else if (ship.getShipID() == 1) {
+        //gridCellDOM.style.backgroundColor = "yellow";
+        //} else if (ship.getShipID() == 2) {
+        //gridCellDOM.style.backgroundColor = "blue";
+        //}
       }
-    });
-  });
+    }
+  }
 }
 
 /**

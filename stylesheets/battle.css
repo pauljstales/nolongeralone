@@ -171,7 +171,7 @@
   border-width: 1px;
   border-radius: 50%;
   margin: auto;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-name: fireStandardLaser;
 }
 
@@ -201,7 +201,7 @@
   border-width: 0.01px;
   border-radius: 50%;
   margin: auto;
-  animation-duration: 0.34s;
+  animation-duration: 0.67s;
   animation-name: fireRadar;
   animation-iteration-count: 3;
   opacity: 0.4;
@@ -226,7 +226,7 @@
   border-style: solid;
   border-width: 2px;
   margin: auto;
-  animation-duration: 0.1s;
+  animation-duration: 0.2s;
   animation-iteration-count: 10;
   animation-name: fireEMP;
   opacity: 0.2;
@@ -252,7 +252,7 @@
   border-width: 3px;
   border-radius: 50%;
   margin: auto;
-  animation-duration: 1s;
+  animation-duration: 2s;
   animation-name: firePAUL;
 }
 
@@ -272,31 +272,6 @@
 }
 
 /* *************** ALIEN SHIP HIT *************** */
-
-.hit {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(255, 29, 29);
-  margin: auto;
-  animation-duration: 1s;
-  animation-name: shipHit;
-  opacity: 0.5;
-}
-
-@keyframes shipHit {
-  0% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-}
 
 /* ****************************** */
 /* Bottom Div                     */

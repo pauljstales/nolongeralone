@@ -116,28 +116,13 @@ function initializeGameValues(ships) {
 }
 
 function renderShips(ships) {
-  for (let i = 0; i < previousShipLocations.length; i++) {
-    previousShipLocations[i].style.transform = null;
-    previousShipLocations[i].style.backgroundSize = null;
-    previousShipLocations[i].style.backgroundImage = null;
-    previousShipLocations[i].style.backgroundImage = null;
-    previousShipLocations[i].style.backgroundColor = null;
-  }
-
-  previousShipLocations = [];
-
+  let currentShipLocations = [];
   for (let i = 0; i < ships.length; i++) {
-    if (ships[i].getHealth() == 0) {
-      console.log("don't render dead ships.");
-      continue;
-    }
     for (let j = 0; j < ships[i].length; j++) {
       let gridCellDOM = document.getElementById(
         ships[i].cells[j].getLocation()
       );
-      previousShipLocations.push(gridCellDOM);
-
-      gridCellDOM.style.backgroundSize = "contain";
+      currentShipLocations.push(ships[i].cells[j].getLocation());
 
       let horizontalFix = "";
       if (ships[i].getOrientation() == "horizontal") {
@@ -145,30 +130,41 @@ function renderShips(ships) {
       }
 
       let shipStatus = ships[i].cells[j].isDamaged() ? "damage" : "shaded";
-      ships[i].cells[j].setImage(
-        "../images/ship-" +
+      if (ships[i].cells[j].isVisible()) {
+        gridCellDOM.style.backgroundImage =
+          "url(../images/ship-" +
           ships[i].cells[j].shipPart +
           "-" +
           shipStatus +
           horizontalFix +
-          ".png"
-      );
-
-      if (ships[i].cells[j].isVisible()) {
-        gridCellDOM.style.backgroundImage =
-          "url(" + ships[i].cells[j].getImage() + ")";
+          ".png)";
       } else {
         gridCellDOM.style.backgroundImage = null;
-        //if (ship.getShipID() == 0) {
-        //gridCellDOM.style.backgroundColor = "green";
-        //} else if (ship.getShipID() == 1) {
-        //gridCellDOM.style.backgroundColor = "yellow";
-        //} else if (ship.getShipID() == 2) {
-        //gridCellDOM.style.backgroundColor = "blue";
-        //}
+      }
+
+      //if (ship.getShipID() == 0) {
+      //gridCellDOM.style.backgroundColor = "green";
+      //} else if (ship.getShipID() == 1) {
+      //gridCellDOM.style.backgroundColor = "yellow";
+      //} else if (ship.getShipID() == 2) {
+      //gridCellDOM.style.backgroundColor = "blue";
+      //}
+    } // end for j
+  } // end for i
+
+  if (previousShipLocations.length > 0) {
+    for (let i = 0; i < previousShipLocations.length; i++) {
+      if (!currentShipLocations.includes(previousShipLocations[i])) {
+        document.getElementById(
+          previousShipLocations[i]
+        ).style.backgroundImage = null;
+      } else {
+        //console.log("don't render dead ships");
       }
     }
   }
+
+  previousShipLocations = currentShipLocations;
 }
 
 /**

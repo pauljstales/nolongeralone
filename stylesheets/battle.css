@@ -62,6 +62,7 @@
   height: 45px;
   width: 45px;
   cursor: crosshair;
+  background-size: contain;
 }
 
 .screen-battle__cell:hover {

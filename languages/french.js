@@ -86,6 +86,8 @@ const FRENCH = {
   ENERGY: "ÉNERGIE",
   WEAPON_READY: "ARME PRÊT",
   USE_SPECIAL_WEAPON: "UTILISER UNE ARME SPÉCIALE ",
+  VICTORY_TEXT:
+    "Bien joué, commandant. Avec les extraterrestres détruits, nous sommes à nouveau seuls et devenons les maîtres de cette galaxie",
   PROGRAMMING: "Concept / Programmation / Animation CSS",
   ART: "Ouvrages d'art / Musique / Son",
   OTHER_CREDITS: "Autres contributeurs: voir readme.md",

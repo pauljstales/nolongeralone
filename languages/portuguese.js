@@ -85,6 +85,8 @@ const PORTUGUESE = {
   ENERGY: "ENERGIA",
   WEAPON_READY: "ARMA PRONTA",
   USE_SPECIAL_WEAPON: "USAR ARMA ESPECIAL",
+  VICTORY_TEXT:
+    "Muito bem, comandante. Com os alienígenas sendo destruídos, estamos sozinhos novamente e nos tornamos os mestres desta galáxia",
   PROGRAMMING: "Conceito / Programação / CSS-Animação",
   ART: "Arte / Música / Som",
   OTHER_CREDITS: "Outros contribuidores: Veja readme.md",

@@ -77,6 +77,8 @@ const CHINESE = {
   ENERGY: "活力",
   WEAPON_READY: "准备好武器",
   USE_SPECIAL_WEAPON: "使用特殊武器",
+  VICTORY_TEXT:
+    "做得好，司令。 随着外星人被摧毁，我们再次孤独，成为这个银河系的主人",
   PROGRAMMING: "概念 / 编程 / CSS动画",
   ART: "艺术品 / 音乐 / 声音",
   OTHER_CREDITS: "其他贡献者：请参阅readme.md",

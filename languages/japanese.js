@@ -83,6 +83,8 @@ const JAPANESE = {
   ENERGY: "エネルギー",
   WEAPON_READY: "武器の準備ができました",
   USE_SPECIAL_WEAPON: "特別な武器を使用する",
+  VICTORY_TEXT:
+    "よくやった、司令官。 エイリアンが破壊されると、私たちは再び一人になり、この銀河のマスターになります",
   PROGRAMMING: "コンセプト / プログラミング / CSS-アニメーション",
   ART: "アートワーク / 音楽 / サウンド",
   OTHER_CREDITS: "その他の寄稿者：readme.mdを参照",

@@ -87,6 +87,8 @@ const GERMAN = {
   ENERGY: "ENERGIE",
   WEAPON_READY: "WAFFE BEREIT",
   USE_SPECIAL_WEAPON: "BENUTZEN SIE SPEZIELLE WAFFE",
+  VICTORY_TEXT:
+    "Gut gemacht, Commander. Nachdem die Außerirdischen zerstört wurden, sind wir wieder allein und werden die Meister dieser Galaxie",
   PROGRAMMING: "Konzept / Programmierung / CSS-Animation",
   ART: "Grafik / Musik / Ton",
   OTHER_CREDITS: "Andere Mitwirkende: Siehe readme.md",

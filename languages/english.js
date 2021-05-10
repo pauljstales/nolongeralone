@@ -83,6 +83,8 @@ const ENGLISH = {
   ENERGY: "ENERGY",
   WEAPON_READY: "WEAPON READY",
   USE_SPECIAL_WEAPON: "USE SPECIAL WEAPON",
+  VICTORY_TEXT:
+    "Excellent work, Commander. With the aliens destroyed, we are once again alone, masters of this galaxy.",
   PROGRAMMING: "Concept / Code / CSS-Animation",
   ART: "Artwork / Music / Sound",
   OTHER_CREDITS: "Other Contributors: See readme.md",

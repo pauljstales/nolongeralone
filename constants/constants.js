@@ -4,7 +4,6 @@
  * @author Paul J Stales <https://twitter.com/pauljstales>
  * Copyright (c) 2021
  */
-
 /**
  * This constants object will be used throughout the game to allow JavaScript
  * code to refer to HTML, CSS, Battlefield, or game itself from one central
@@ -92,9 +91,9 @@ const CONSTANTS = {
     },
     BATTLE: {
       SCREEN_BATTLE: document.getElementById("SCREEN_BATTLE"),
+      BATTLEFIELD_TABLE: document.getElementById("BATTLEFIELD_TABLE"),
       SCREEN_BATTLE_VICTORY: document.getElementById("SCREEN_BATTLE_VICTORY"),
       SCREEN_BATTLE_DEFEAT: document.getElementById("SCREEN_BATTLE_DEFEAT"),
-      BATTLEFIELD_TABLE: document.getElementById("BATTLEFIELD_TABLE"),
       BATTLE_TEXT_TIMER_TITLE: document.getElementById(
         "BATTLE_TEXT_TIMER_TITLE"
       ),
@@ -113,6 +112,9 @@ const CONSTANTS = {
       ),
       BUTTON_ARM_SPECIAL_WEAPON: document.getElementById(
         "BUTTON_ARM_SPECIAL_WEAPON"
+      ),
+      SCREEN_BATTLE_VICTORY_TEXT: document.getElementById(
+        "SCREEN_BATTLE_VICTORY_TEXT"
       ),
       BATTLEFIELD_CELL_IDS: {
         R0_C0: document.getElementById("R0_C0"),
@@ -309,6 +311,10 @@ const CONSTANTS = {
     LAPTOP_1200K: 1200000, // laptop is 1024*1366~1400K
     DESKTOP_1800K: 1800000, // desktop is 1920*1080~2050K
   },
+  SHIP_PART: {
+    HEAD: "head",
+    BODY: "body",
+    TAIL: "tail",
+  },
 };
-
 export { CONSTANTS };

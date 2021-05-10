@@ -118,7 +118,13 @@ function initializeGameValues(ships) {
   renderShips(ships);
 }
 
-function revealAllShips() {}
+function revealAllShips(ships) {
+  ships.forEach((ship) => {
+    ship.getCells().forEach((cell) => {
+      cell.setVisible(true, CONSTANTS.GAME.LASER);
+    });
+  });
+}
 
 function renderShips(ships) {
   let currentShipLocations = [];

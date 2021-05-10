@@ -66,6 +66,7 @@ R.J. Vince Soundcloud: ~
 7. Why Battleship? _I have always felt it is a very boring game that could be so much better with some adjustments… and here are some of those adjustments._
 8. Why is everything inside index.html? _It was not, at first, until I discovered iOS blocks just about every form of audio audioplay possible. Without frameworks and libraries, this was the best solution._
 9. How did you get the idea for the game? _I was thinking about battleship and space. What is most terrifying about space? Discovering that we are "no longer alone" with hostile aliens. That's the gameplay, setting, and title - shoot alien ships in space, after realizing we are no longer alone._
+10. What is that alien language on the loss screen? _A Ceaser cipher, the letters (in the English language) are shifted by 7. You can play around with it here! http://practicalcryptography.com/ciphers/caesar-cipher/. Also note the squad names are the same Ceaser cipher._
 
 ## License
 

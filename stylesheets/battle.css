@@ -136,6 +136,14 @@
   background-color: black;
 }
 
+.screen-battle__text-weapon-ready--opacity--show {
+  opacity: 1;
+}
+
+.screen-battle__text-weapon-ready--opacity--hide {
+  opacity: 0;
+}
+
 .screen-battle__weapon-ready-indicator {
   height: 50%;
   width: 100%;

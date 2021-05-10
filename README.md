@@ -6,7 +6,7 @@ The player has limited time and energy/shots to defeat the enemy.
 
 ![image](https://user-images.githubusercontent.com/31250302/115094006-0b0efe80-9eea-11eb-9ea6-3ef84de2efa4.png)
 
-VERSION: As of 2021-05-10, the game is in beta, beta 1.4 "red square edition".
+VERSION: As of 2021-05-10, the game is in beta, beta 1.5 "the admiral lifts" edition.
 
 ## Purpose
 

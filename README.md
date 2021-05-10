@@ -6,6 +6,8 @@ The player has limited time and energy/shots to defeat the enemy.
 
 ![image](https://user-images.githubusercontent.com/31250302/115094006-0b0efe80-9eea-11eb-9ea6-3ef84de2efa4.png)
 
+VERSION: As of 2021-05-10, the game is in beta, beta 1.3.1 "don't render dead ships edition".
+
 ## Purpose
 
 - The purpose of this game is to demonstrate core competencies with plain HTML5, CSS3, and JavaScript/ES6.
@@ -34,8 +36,8 @@ https://nolongeralone.netlify.app
 
 - The original sketches are right here on GitHub, just not included in the downloaded project.
 - Link: https://github.com/pauljstales/nolongeralone/tree/main/sketches
-- The FIRST ever sketch was "superSecretGame"   
-  
+- The FIRST ever sketch was "superSecretGame"
+
 ## Contributing
 
 - Improvements to the non-English languages are welcome and open!
@@ -56,7 +58,7 @@ R.J. Vince Soundcloud: ~
 ## FAQ (Frequently Asked Questions)
 
 1. Why didn't you use Phaser, React, framework, or library? _I wanted to demonstrate core HTML5, CSS3, and JavaScript/ES6 skills. I will definitely use more frameworks, libraries, etc. in future games._
-2. Why didn't you use Canvas? _Canvas is HTML5, but I wanted to demonstrate an understanding of DOM manipulation. I will definitely use canvas in future games._  
+2. Why didn't you use Canvas? _Canvas is HTML5, but I wanted to demonstrate an understanding of DOM manipulation. I will definitely use canvas in future games._
 3. Why didn't you use Web Components? _I would have used React or Angular if I was going to use components!_
 4. Are you using BEM? _Somewhat, the blocks, elements belonging to blocks, the modifiers, the naming…_
 5. Why not a library for the internationalization? _Similar to #1, I wanted to demonstrate the core technology free of libraries._

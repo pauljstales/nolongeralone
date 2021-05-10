@@ -40,8 +40,8 @@ const CONFIGURATION = {
   BATTLE_ENERGY: {
     ENERGY_INITIAL: 27, // prod 27 - subject to change for game balance
     ENERGY_COST_LASER: 1, // prod 1 - subject to change for game balance
-    ENERGY_COST_RADAR: 3, // prod 3 - subject to change for game balance
-    ENERGY_COST_EMP: 2, // prod 2 - subject to change for game balance
+    ENERGY_COST_RADAR: 5, // prod 5 - subject to change for game balance
+    ENERGY_COST_EMP: 3, // prod 3 - subject to change for game balance
     ENERGY_COST_PAUL: 7, // prod 7 - subject to change for game balance
     GET_SPECIAL_WEAPON_ENERGY_COST: getSpecialWeaponNameEnergyCost,
   },

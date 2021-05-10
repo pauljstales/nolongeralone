@@ -207,15 +207,15 @@ function registerButtonStartNewGameEventListener() {
  * Exported function so battle can inform game that the battle is over
  */
 export function endGame(gameResult) {
-  STARFIELD.activate();
-  SOUND.stopAudio(SOUND.MUSIC.BATTLE);
-  if (gameResult == CONSTANTS.GAME.WIN) {
-    //console.log("win");
-    SOUND.playAudio(SOUND.MUSIC.CREDITS_WIN);
-  } else if (gameResult == CONSTANTS.GAME.LOSE) {
-    //console.log("lose");
-    SOUND.playAudio(SOUND.MUSIC.CREDITS_LOSE);
-  }
-  BATTLE_CONTROLLER.hideBattleScreen();
-  CREDITS_CONTROLLER.showCreditsScreen();
+  setTimeout(() => {
+    STARFIELD.activate();
+    SOUND.stopAudio(SOUND.MUSIC.BATTLE);
+    if (gameResult == CONSTANTS.GAME.WIN) {
+      SOUND.playAudio(SOUND.MUSIC.CREDITS_WIN);
+    } else if (gameResult == CONSTANTS.GAME.LOSE) {
+      SOUND.playAudio(SOUND.MUSIC.CREDITS_LOSE);
+    }
+    BATTLE_CONTROLLER.hideBattleResultScreen();
+    CREDITS_CONTROLLER.showCreditsScreen();
+  }, 5000);
 }

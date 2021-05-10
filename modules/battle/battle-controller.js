@@ -29,6 +29,20 @@ function hideBattleScreen() {
 }
 
 /**
+ * Shows the battle result screen
+ */
+function showBattleResultScreen(result) {
+  BATTLE_VIEW.showBattleResultScreen(result);
+}
+
+/**
+ * Hides the battle result screen
+ */
+function hideBattleResultScreen() {
+  BATTLE_VIEW.hideBattleResultScreen();
+}
+
+/**
  * Sets the special weapon (this is chosen on the menu screen)
  * The GAME coordinates the passing of data from menu to battle
  */
@@ -102,11 +116,15 @@ async function startBattleLoop() {
      */
     function gameLoopCheckIfGameOverFromTime(intervalID) {
       if (BATTLE_MODEL.getTime() <= 0) {
-        SOUND.playAudio(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
+        //SOUND.playAudio(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
         //console.log("time is up, end the game on a loss");
         BATTLE_MODEL.setWeaponFireable(false);
         clearInterval(intervalID);
-        //endGame(CONSTANTS.GAME.LOSE);
+        setTimeout(() => {
+          hideBattleScreen();
+          showBattleResultScreen(CONSTANTS.GAME.LOSE);
+          endGame(CONSTANTS.GAME.LOSE);
+        }, timeout);
       }
     }
 
@@ -117,10 +135,14 @@ async function startBattleLoop() {
      */
     function gameLoopCheckIfGameOverFromEnergy(intervalID) {
       if (BATTLE_MODEL.getEnergy() <= 0) {
-        SOUND.playAudioLooped(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
+        //SOUND.playAudioLooped(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
         //console.log("energy is exhausted, end the game on a loss");
         clearInterval(intervalID);
-        //endGame(CONSTANTS.GAME.LOSE);
+        setTimeout(() => {
+          hideBattleScreen();
+          showBattleResultScreen(CONSTANTS.GAME.LOSE);
+          endGame(CONSTANTS.GAME.LOSE);
+        }, 2000);
       }
     }
 
@@ -134,6 +156,11 @@ async function startBattleLoop() {
         BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
         BATTLE_MODEL.setWeaponFireable(false);
         clearInterval(intervalID);
+        setTimeout(() => {
+          hideBattleScreen();
+          showBattleResultScreen(CONSTANTS.GAME.WIN);
+          endGame(CONSTANTS.GAME.WIN);
+        }, 2000);
       }
     }
   }, CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);
@@ -276,6 +303,8 @@ function registerInternalBattleEvents() {
 const BATTLE_CONTROLLER = {
   showBattleScreen: showBattleScreen,
   hideBattleScreen: hideBattleScreen,
+  showBattleResultScreen: showBattleResultScreen,
+  hideBattleResultScreen: hideBattleResultScreen,
   registerInternalBattleEvents: registerInternalBattleEvents,
   setSpecialWeaponName: setSpecialWeaponName,
   startBattleLoop: startBattleLoop,

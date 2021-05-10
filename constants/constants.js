@@ -92,30 +92,9 @@ const CONSTANTS = {
     },
     BATTLE: {
       SCREEN_BATTLE: document.getElementById("SCREEN_BATTLE"),
+      SCREEN_BATTLE_VICTORY: document.getElementById("SCREEN_BATTLE_VICTORY"),
+      SCREEN_BATTLE_DEFEAT: document.getElementById("SCREEN_BATTLE_DEFEAT"),
       BATTLEFIELD_TABLE: document.getElementById("BATTLEFIELD_TABLE"),
-      BTSST_HIT: document.getElementById("BTSST_HIT"),
-      BTSST_MISS: document.getElementById("BTSST_MISS"),
-      BTSST_AT: document.getElementById("BTSST_AT"),
-      BTSST_COORDINATES: document.getElementById("BTSST_COORDINATES"),
-      BTSST_THE: document.getElementById("BTSST_THE"),
-      BTSST_SHIP: document.getElementById("BTSST_SHIP"),
-      BTSST_ALIEN_SHIP_STATUS: document.getElementById(
-        "BTSST_ALIEN_SHIP_STATUS"
-      ),
-      BTSST_DAMAGED: document.getElementById("BTSST_DAMAGED"),
-      BTSST_DESTROYED: document.getElementById("BTSST_DESTROYED"),
-      BTSST_SPECIAL_WEAPON_SELECTED: document.getElementById(
-        "BTSST_SPECIAL_WEAPON_SELECTED"
-      ),
-      BTSST_SPECIAL_WEAPON_FIRED: document.getElementById(
-        "BTSST_SPECIAL_WEAPON_FIRED"
-      ),
-      BATTLE_TEXT_SHOT_STATUS_TITLE: document.getElementById(
-        "BATTLE_TEXT_SHOT_STATUS_TITLE"
-      ),
-      BATTLE_TEXT_SHOT_STATUS_TEXT: document.getElementById(
-        "BATTLE_TEXT_SHOT_STATUS_TEXT"
-      ),
       BATTLE_TEXT_TIMER_TITLE: document.getElementById(
         "BATTLE_TEXT_TIMER_TITLE"
       ),

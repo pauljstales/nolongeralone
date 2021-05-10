@@ -307,3 +307,28 @@
   width: 100%;
   background-color: var(--color-gray-dark);
 }
+
+/* ************************ */
+/* Images                   */
+/* ************************ */
+
+.screen-battle__image-gameover {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+/* Tablet, screen is 570px max */
+@media screen and (min-width: 400px) {
+  .screen-battle__image-gameover {
+    max-height: 240px;
+    max-width: 240px;
+  }
+}
+
+/* Laptop and Desktop, screen is 668px max */
+@media screen and (min-width: 668px) {
+  .screen-battle__image-gameover {
+    max-height: 300px;
+    max-width: 300px;
+  }
+}

@@ -37,6 +37,47 @@ function hideBattleScreen() {
 }
 
 /**
+ * Shows the battle result screen
+ */
+function showBattleResultScreen(result) {
+  if (result == CONSTANTS.GAME.WIN) {
+    CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_VICTORY.classList.add(
+      CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+    );
+    CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_VICTORY.classList.remove(
+      CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+    );
+  } else if (result == CONSTANTS.GAME.LOSE) {
+    CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.add(
+      CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+    );
+    CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.remove(
+      CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+    );
+  } else {
+    console.log("Error in ending game.");
+  }
+}
+
+/**
+ * Hides the battle result screen
+ */
+function hideBattleResultScreen() {
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_VICTORY.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_VICTORY.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+  );
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+  );
+}
+
+/**
  * Setter for energy in the view
  */
 function setEnergy(currentEnergy) {
@@ -189,5 +230,7 @@ const BATTLE_VIEW = {
   fireWeapon: fireWeapon,
   setWeaponFireable: setWeaponFireable,
   renderShips: renderShips,
+  showBattleResultScreen: showBattleResultScreen,
+  hideBattleResultScreen: hideBattleResultScreen,
 };
 export { BATTLE_VIEW };

@@ -32,7 +32,7 @@ const CONFIGURATION = {
     TIME_PER_PROGRESS_BAR_INTERVAL: 3, // dev 2, prod 20
   },
   BATTLE_TIMING: {
-    BATTLE_TIME_INITIAL: 8000, //116000, // in ms, prod 116000
+    BATTLE_TIME_INITIAL: 116000, // in ms, prod 116000
     BATTLE_FIRE_WEAPON_TIME: 2000, // 1s, must match battle.css firing animations
     TIME_PER_WARP: Math.ceil(3 + Math.random() * 3), // in ms, prod 4000-6000
     TIME_PER_GAMELOOP: 1000, // in ms, prod 250, must equal 1000 at some point

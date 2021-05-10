@@ -25,7 +25,7 @@ const battleData = {
   gameOverConditions: {
     energy: null,
     time: null,
-    shipsRemaining: 3,
+    shipsRemaining: null,
   },
   ships: [],
 };
@@ -34,12 +34,14 @@ const battleData = {
  */
 function initializeGameValues() {
   // battleData.specialWeapon.name set by another function
-  battleData.specialWeapon.isReadyToFire = null;
+  battleData.specialWeapon.isReadyToFire = false;
   battleData.weapon.isReadyToFire = true;
   battleData.gameOverConditions.energy =
     CONFIGURATION.BATTLE_ENERGY.ENERGY_INITIAL;
   battleData.gameOverConditions.time =
     CONFIGURATION.BATTLE_TIMING.BATTLE_TIME_INITIAL;
+  battleData.gameOverConditions.shipsRemaining = 3;
+  battleData.ships = [];
   initializeShips();
 
   /**

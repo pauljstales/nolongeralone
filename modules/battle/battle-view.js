@@ -153,11 +153,11 @@ function renderShips(ships) {
       } else {
         gridCellDOM.style.backgroundImage = null;
         if (ship.getShipID() == 0) {
-          gridCellDOM.style.backgroundColor = "green";
+          //gridCellDOM.style.backgroundColor = "green";
         } else if (ship.getShipID() == 1) {
-          gridCellDOM.style.backgroundColor = "yellow";
+          //gridCellDOM.style.backgroundColor = "yellow";
         } else if (ship.getShipID() == 2) {
-          gridCellDOM.style.backgroundColor = "blue";
+          //gridCellDOM.style.backgroundColor = "blue";
         }
       }
     });

@@ -38,7 +38,7 @@ const CONFIGURATION = {
     TIME_PER_GAMELOOP: 1000, // in ms, prod 250, must equal 1000 at some point
   },
   BATTLE_ENERGY: {
-    ENERGY_INITIAL: 20, // prod 20 - subject to change for game balance
+    ENERGY_INITIAL: 27, // prod 27 - subject to change for game balance
     ENERGY_COST_LASER: 1, // prod 1 - subject to change for game balance
     ENERGY_COST_RADAR: 1, // prod 1 - subject to change for game balance
     ENERGY_COST_EMP: 2, // prod 2 - subject to change for game balance

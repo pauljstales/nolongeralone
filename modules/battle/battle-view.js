@@ -124,22 +124,50 @@ function renderShips(ships) {
       );
       currentShipLocations.push(ships[i].cells[j].getLocation());
 
-      let horizontalFix = "";
-      if (ships[i].getOrientation() == "horizontal") {
-        horizontalFix = "-H";
-      }
+      // extract these to consts file
+      const urlPart1url = "url(../images/ship-";
+      const urlPart3space = "-";
+      const urlPart4shaded = "shaded";
+      const urlPart4damage = "damage";
+      const urlPart5orient =
+        ships[i].getOrientation() == "horizontal" ? "-H" : "";
+      const urlPart6 = ".png)";
 
-      let shipStatus = ships[i].cells[j].isDamaged() ? "damage" : "shaded";
       if (ships[i].cells[j].isVisible()) {
-        gridCellDOM.style.backgroundImage =
-          "url(../images/ship-" +
-          ships[i].cells[j].shipPart +
-          "-" +
-          shipStatus +
-          horizontalFix +
-          ".png)";
+        if (!ships[i].cells[j].isDamaged()) {
+          console.log(
+            "cell visible, cell not damaged, ship not destroyed, SHOW RAW SHIP"
+          );
+          gridCellDOM.style.backgroundColor = null;
+          gridCellDOM.style.backgroundImage =
+            urlPart1url +
+            ships[i].cells[j].getShipPart() +
+            urlPart3space +
+            urlPart4shaded +
+            urlPart5orient +
+            urlPart6;
+        } else if (ships[i].cells[j].isDamaged() && ships[i].getHealth() > 0) {
+          console.log(
+            "cell visible, cell damaged, ship not destroyed, SHOW RED SQUARE"
+          );
+          gridCellDOM.style.backgroundColor = "red";
+        } else if (ships[i].cells[j].isDamaged() && ships[i].getHealth() <= 0) {
+          console.log(
+            "cell visible, cell damaged, ship destroyed, SHOW DESTROYED SHIP"
+          );
+          gridCellDOM.style.backgroundImage =
+            urlPart1url +
+            ships[i].cells[j].getShipPart() +
+            urlPart3space +
+            urlPart4damage +
+            urlPart5orient +
+            urlPart6;
+          gridCellDOM.style.backgroundColor = null;
+        }
       } else {
+        console.log("cell is NOT visible");
         gridCellDOM.style.backgroundImage = null;
+        gridCellDOM.style.backgroundColor = null;
       }
 
       //if (ship.getShipID() == 0) {
@@ -158,6 +186,9 @@ function renderShips(ships) {
         document.getElementById(
           previousShipLocations[i]
         ).style.backgroundImage = null;
+        document.getElementById(
+          previousShipLocations[i]
+        ).style.backgroundColor = null;
       } else {
         //console.log("don't render dead ships");
       }

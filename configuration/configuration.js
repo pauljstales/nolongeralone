@@ -13,7 +13,7 @@ import { CONSTANTS } from "../constants/constants.js";
 /**
  * This "introTextBaseTime" variable determines the speed that the intro text comes on the introduction screen. All text is derived from this time.
  */
-let introTextBaseTime = 3000; // dev 1000, prod 3000
+let introTextBaseTime = 3000; // prod 3000
 
 const CONFIGURATION = {
   STAR: {
@@ -29,13 +29,13 @@ const CONFIGURATION = {
     TIME_UNTIL_TITLE_LINK_AS_BUTTON: introTextBaseTime * 6, // prod *6
   },
   LANDING: {
-    TIME_PER_PROGRESS_BAR_INTERVAL: 3, // dev 2, prod 20
+    TIME_PER_PROGRESS_BAR_INTERVAL: 20, // prod 20
   },
   BATTLE_TIMING: {
     BATTLE_TIME_INITIAL: 116000, // in ms, prod 116000
-    BATTLE_FIRE_WEAPON_TIME: 2000, // 1s, must match battle.css firing animations
+    BATTLE_FIRE_WEAPON_TIME: 2000, // 2s, must match battle.css animations
     TIME_PER_WARP: Math.ceil(3 + Math.random() * 3), // in ms, prod 4000-6000
-    TIME_PER_GAMELOOP: 1000, // in ms, prod 250, must equal 1000 at some point
+    TIME_PER_GAMELOOP: 1000, // prod 1000
   },
   BATTLE_ENERGY: {
     ENERGY_INITIAL: 27, // prod 27 - subject to change for game balance
@@ -46,8 +46,8 @@ const CONFIGURATION = {
     GET_SPECIAL_WEAPON_ENERGY_COST: getSpecialWeaponNameEnergyCost,
   },
   BATTLE_WEAPONS: {
-    RADAR_DURATION: 1500, // prod 2000 - subject to change for game balance
-    EMP_DURATION: 5000, // prod 3000 - subject to change for game balance
+    RADAR_DURATION: 2000, // prod 2000 - subject to change for game balance
+    EMP_DURATION: 5000, // prod 5000 - subject to change for game balance
   },
 };
 

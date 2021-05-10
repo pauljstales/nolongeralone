@@ -115,16 +115,18 @@ async function startBattleLoop() {
      * @param {intervalID} intervalID
      */
     function gameLoopCheckIfGameOverFromTime(intervalID) {
-      if (BATTLE_MODEL.getTime() <= 0) {
+      if (BATTLE_MODEL.getTime() <= 0 && BATTLE_MODEL.getShipsRemaining() > 0) {
         //SOUND.playAudio(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
         ////console.log("time is up, end the game on a loss");
         BATTLE_MODEL.setWeaponFireable(false);
+        BATTLE_VIEW.revealAllShips(BATTLE_MODEL.getShips());
+        BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
         clearInterval(intervalID);
         setTimeout(() => {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.LOSE);
           endGame(CONSTANTS.GAME.LOSE);
-        }, 2000);
+        }, 3000);
       }
     }
 
@@ -134,15 +136,21 @@ async function startBattleLoop() {
      * @param {intervalID} intervalID
      */
     function gameLoopCheckIfGameOverFromEnergy(intervalID) {
-      if (BATTLE_MODEL.getEnergy() <= 0) {
+      if (
+        BATTLE_MODEL.getEnergy() <= 0 &&
+        BATTLE_MODEL.getShipsRemaining() > 0
+      ) {
         //SOUND.playAudioLooped(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
         ////console.log("energy is exhausted, end the game on a loss");
+        BATTLE_MODEL.setWeaponFireable(false);
+        BATTLE_VIEW.revealAllShips(BATTLE_MODEL.getShips());
+        BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
         clearInterval(intervalID);
         setTimeout(() => {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.LOSE);
           endGame(CONSTANTS.GAME.LOSE);
-        }, 2000);
+        }, 3000);
       }
     }
 
@@ -153,14 +161,15 @@ async function startBattleLoop() {
      */
     function gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID) {
       if (BATTLE_MODEL.getShipsRemaining() <= 0) {
-        BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
         BATTLE_MODEL.setWeaponFireable(false);
+        BATTLE_VIEW.revealAllShips(BATTLE_MODEL.getShips());
+        BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
         clearInterval(intervalID);
         setTimeout(() => {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.WIN);
           endGame(CONSTANTS.GAME.WIN);
-        }, 2000);
+        }, 3000);
       }
     }
   }, CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);

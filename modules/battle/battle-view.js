@@ -106,6 +106,9 @@ function initializeGameValues(ships) {
     CONSTANTS.CSS.BUTTON_COLOR_RED
   );
   CONSTANTS.HTML.BATTLE.BUTTON_ARM_SPECIAL_WEAPON.removeAttribute("disabled");
+  CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.remove(
+    CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_RED
+  );
   CONSTANTS.HTML.BATTLE.BATTLE_TEXT_WEAPON_READY_INDICATOR.classList.add(
     CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN
   );
@@ -114,6 +117,8 @@ function initializeGameValues(ships) {
   //console.log(ships);
   renderShips(ships);
 }
+
+function revealAllShips() {}
 
 function renderShips(ships) {
   let currentShipLocations = [];
@@ -267,5 +272,6 @@ const BATTLE_VIEW = {
   renderShips: renderShips,
   showBattleResultScreen: showBattleResultScreen,
   hideBattleResultScreen: hideBattleResultScreen,
+  revealAllShips: revealAllShips,
 };
 export { BATTLE_VIEW };

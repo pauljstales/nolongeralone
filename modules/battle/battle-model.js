@@ -223,8 +223,10 @@ function updateCell(ship, cell, typeOfProjectile) {
     cell.setDamaged(true);
     cell.setVisible(true, typeOfProjectile);
     ship.setHealth(ship.getHealth() - 1);
+    SOUND.playAudio(SOUND.SFX.BATTLE_SHIP_HIT);
     if (ship.getHealth() == 0) {
       ship.setMovable(false, typeOfProjectile);
+      SOUND.playAudio(SOUND.SFX.BATTLE_SHIP_DESTROYED);
     }
   } else if (typeOfProjectile == CONSTANTS.GAME.RADAR) {
     battleData.ships.forEach((ship) => {
@@ -244,6 +246,7 @@ function updateCell(ship, cell, typeOfProjectile) {
     ship.cells.forEach((cell) => {
       cell.setDamaged(true);
       cell.setVisible(true, CONSTANTS.GAME.LASER);
+      SOUND.playAudio(SOUND.SFX.BATTLE_SHIP_DESTROYED);
     });
   } else {
     //console.log("Updating cell failed.");

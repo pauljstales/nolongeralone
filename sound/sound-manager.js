@@ -25,6 +25,7 @@ const SOUND = {
     BATTLE_PAUL_FIRE: new Audio("sound/sfx/plasma.mp3"),
     BATTLE_SHIP_MOVE: new Audio("sound/sfx/warp.mp3"),
     BATTLE_SHIP_HIT: new Audio("sound/sfx/hit.mp3"),
+    BATTLE_SHIP_DESTROYED: new Audio("sound/sfx/kaboom.mp3"),
     BATTLE_WEAPON_NOT_READY: new Audio("sound/sfx/weapon-not-ready.mp3"),
     BATTLE_TIMER_OR_ENERGY_LOW: new Audio("sound/sfx/timer-or-energy-low.mp3"),
     BATTLE_ALIEN_WEAPON_CHARGE: new Audio("sound/sfx/alien-weapon-charge.mp3"),

@@ -32,7 +32,7 @@ const CONFIGURATION = {
     TIME_PER_PROGRESS_BAR_INTERVAL: 3, // dev 2, prod 20
   },
   BATTLE_TIMING: {
-    BATTLE_TIME_INITIAL: 115000, // in ms, prod 115000
+    BATTLE_TIME_INITIAL: 116000, // in ms, prod 116000
     BATTLE_FIRE_WEAPON_TIME: 2000, // 1s, must match battle.css firing animations
     TIME_PER_WARP: Math.ceil(3 + Math.random() * 3), // in ms, prod 4000-6000
     TIME_PER_GAMELOOP: 1000, // in ms, prod 250, must equal 1000 at some point
@@ -40,9 +40,9 @@ const CONFIGURATION = {
   BATTLE_ENERGY: {
     ENERGY_INITIAL: 27, // prod 27 - subject to change for game balance
     ENERGY_COST_LASER: 1, // prod 1 - subject to change for game balance
-    ENERGY_COST_RADAR: 1, // prod 1 - subject to change for game balance
+    ENERGY_COST_RADAR: 2, // prod 2 - subject to change for game balance
     ENERGY_COST_EMP: 2, // prod 2 - subject to change for game balance
-    ENERGY_COST_PAUL: 4, // prod 4 - subject to change for game balance
+    ENERGY_COST_PAUL: 5, // prod 5 - subject to change for game balance
     GET_SPECIAL_WEAPON_ENERGY_COST: getSpecialWeaponNameEnergyCost,
   },
   BATTLE_WEAPONS: {

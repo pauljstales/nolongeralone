@@ -34,8 +34,8 @@ const CONFIGURATION = {
   BATTLE_TIMING: {
     BATTLE_TIME_INITIAL: 115000, // in ms, prod 115000
     BATTLE_FIRE_WEAPON_TIME: 1000, // 1s, must match battle.css firing animations
-    TIME_PER_WARP: Math.ceil(2 + Math.random() * 3), // in ms, prod 3000-5000
-    TIME_PER_GAMELOOP: 500, // in ms, prod 250, must equal 1000 at some point
+    TIME_PER_WARP: Math.ceil(3 + Math.random() * 3), // in ms, prod 4000-6000
+    TIME_PER_GAMELOOP: 250, // in ms, prod 250, must equal 1000 at some point
   },
   BATTLE_ENERGY: {
     ENERGY_INITIAL: 24, // prod 24 - subject to change for game balance
@@ -47,7 +47,7 @@ const CONFIGURATION = {
   },
   BATTLE_WEAPONS: {
     RADAR_DURATION: 2000, // prod 2000 - subject to change for game balance
-    EMP_DURATION: 3000, // prod 3000 - subject to change for game balance
+    EMP_DURATION: 5000, // prod 3000 - subject to change for game balance
   },
 };
 

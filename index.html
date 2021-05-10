@@ -525,29 +525,6 @@ You should have received a copy of the GNU General Public License along with thi
           </table>
         </div>
         <div
-          class="screen-battle__subscreen screen-battle--grid--shot-status screen-battle__shot-status screen--display--flexCol"
-        >
-          <p
-            id="BATTLE_TEXT_SHOT_STATUS_TITLE"
-            class="screen__text screen__text--size--small"
-          ></p>
-          <p
-            id="BATTLE_TEXT_SHOT_STATUS_TEXT"
-            class="screen__text screen__text--size--small"
-          >
-            <span id="BTSST_HIT"></span>
-            <span id="BTSST_MISS"></span>
-            <span id="BTSST_AT"></span>
-            <span id="BTSST_COORDINATES"></span>
-            <span id="BTSST_THE"></span>
-            <span id="BTSST_SHIP"></span>
-            <span id="BTSST_DAMAGED"></span>
-            <span id="BTSST_DESTROYED"></span>
-            <span id="BTSST_SPECIAL_WEAPON_SELECTED"></span>
-            <span id="BTSST_SPECIAL_WEAPON_FIRED"></span>
-          </p>
-        </div>
-        <div
           class="screen-battle__subscreen screen-battle--grid--timer screen-battle__timer screen--display--flexCol"
         >
           <p
@@ -598,6 +575,31 @@ You should have received a copy of the GNU General Public License along with thi
         <div
           class="screen-battle__subscreen screen-battle--grid--bottom screen-battle__bottom"
         ></div>
+      </div>
+    </div>
+    <div id="SCREEN_BATTLE_VICTORY" class="screen--display--none">
+      <div class="screen screen--display--flexCol screen-battle">
+        <img
+          class="screen-battle__image-gameover"
+          src="./images/comm-admiral.png"
+          alt=""
+        />
+        <p>
+          ADM BOBERTS: We have defended the Earth! Excellent work, commander.
+        </p>
+      </div>
+    </div>
+    <div id="SCREEN_BATTLE_DEFEAT" class="screen--display--none">
+      <div class="screen screen--display--flexCol screen-battle">
+        <img
+          class="screen-battle__image-gameover"
+          src="./images/game-over-clear.png"
+          alt=""
+        />
+        <p>
+          HSPLU JVTTHUKLY: Aol obthuz hyl leapuja, huk aolpy aoylha av aol
+          nhshef pz uv svunly.
+        </p>
       </div>
     </div>
 

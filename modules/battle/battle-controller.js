@@ -29,6 +29,20 @@ function hideBattleScreen() {
 }
 
 /**
+ * Shows the battle result screen
+ */
+function showBattleResultScreen(result) {
+  BATTLE_VIEW.showBattleResultScreen(result);
+}
+
+/**
+ * Hides the battle result screen
+ */
+function hideBattleResultScreen() {
+  BATTLE_VIEW.hideBattleResultScreen();
+}
+
+/**
  * Sets the special weapon (this is chosen on the menu screen)
  * The GAME coordinates the passing of data from menu to battle
  */
@@ -50,15 +64,13 @@ async function startBattleLoop() {
 
   let intervalID = setInterval(() => {
     //BATTLE_MODEL.DEV_printBattleData();
-    BATTLE_MODEL.getShips().forEach((ship) => {
-      BATTLE_VIEW.renderShip(ship);
-    });
+    BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
     gameLoopUpdateTime();
     gameLoopAlienShipsAttemptToMove();
     gameLoopCheckIfTimerOrEnergyLow();
+    gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID);
     gameLoopCheckIfGameOverFromTime(intervalID);
     gameLoopCheckIfGameOverFromEnergy(intervalID);
-    gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID);
 
     // ---------------------------------------------------
     // ---------- Battle Loop Nested Functions -----------
@@ -85,7 +97,9 @@ async function startBattleLoop() {
           CONFIGURATION.BATTLE_TIMING.TIME_PER_WARP ==
         0
       ) {
-        //console.log("ships should warp now");
+        console.log("ships should warp now");
+        BATTLE_MODEL.placeAllShips();
+        SOUND.playAudio(SOUND.SFX.BATTLE_SHIP_MOVE);
       }
     }
 
@@ -102,11 +116,15 @@ async function startBattleLoop() {
      */
     function gameLoopCheckIfGameOverFromTime(intervalID) {
       if (BATTLE_MODEL.getTime() <= 0) {
-        SOUND.playAudio(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
+        //SOUND.playAudio(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
         //console.log("time is up, end the game on a loss");
         BATTLE_MODEL.setWeaponFireable(false);
         clearInterval(intervalID);
-        //endGame(CONSTANTS.GAME.LOSE);
+        setTimeout(() => {
+          hideBattleScreen();
+          showBattleResultScreen(CONSTANTS.GAME.LOSE);
+          endGame(CONSTANTS.GAME.LOSE);
+        }, timeout);
       }
     }
 
@@ -117,10 +135,14 @@ async function startBattleLoop() {
      */
     function gameLoopCheckIfGameOverFromEnergy(intervalID) {
       if (BATTLE_MODEL.getEnergy() <= 0) {
-        SOUND.playAudioLooped(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
+        //SOUND.playAudioLooped(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
         //console.log("energy is exhausted, end the game on a loss");
         clearInterval(intervalID);
-        //endGame(CONSTANTS.GAME.LOSE);
+        setTimeout(() => {
+          hideBattleScreen();
+          showBattleResultScreen(CONSTANTS.GAME.LOSE);
+          endGame(CONSTANTS.GAME.LOSE);
+        }, 2000);
       }
     }
 
@@ -130,19 +152,16 @@ async function startBattleLoop() {
      * @param {intervalID} intervalID
      */
     function gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID) {
-      let ships = BATTLE_MODEL.getShips();
-      for (let i = 0; i < ships.length; i++) {
-        if (ships[i].getIsDestroyed() == false) {
-          console.log("One or more alien ships are alive. Game is not won.");
-          return;
-        }
+      if (BATTLE_MODEL.getShipsRemaining() <= 0) {
+        BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
+        BATTLE_MODEL.setWeaponFireable(false);
+        clearInterval(intervalID);
+        setTimeout(() => {
+          hideBattleScreen();
+          showBattleResultScreen(CONSTANTS.GAME.WIN);
+          endGame(CONSTANTS.GAME.WIN);
+        }, 2000);
       }
-      console.log("All alien ships are destroyed. Game is won.");
-      BATTLE_MODEL.getShips().forEach((ship) => {
-        BATTLE_VIEW.renderShip(ship);
-      });
-      BATTLE_MODEL.setWeaponFireable(false);
-      clearInterval(intervalID);
     }
   }, CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);
 }
@@ -155,6 +174,11 @@ async function startBattleLoop() {
  * @param {string} cellID
  */
 function fireWeaponSequence(cellID) {
+  console.log("firing sequence");
+  console.log("BATTLE_MODEL.getEnergy() " + BATTLE_MODEL.getEnergy());
+  console.log(
+    "BATTLE_MODEL.isWeaponFireable() " + BATTLE_MODEL.isWeaponFireable()
+  );
   if (BATTLE_MODEL.getEnergy() > 0 && BATTLE_MODEL.isWeaponFireable()) {
     stopWeaponSounds();
     BATTLE_MODEL.setWeaponFireable(false);
@@ -169,7 +193,6 @@ function fireWeaponSequence(cellID) {
   } else {
     SOUND.playAudio(SOUND.SFX.BATTLE_WEAPON_NOT_READY);
     //console.log("Trying to fire and cannot: \nEither out of energy\nOr firing too soon\nOr time is up");
-    // play error sound
   }
 
   // ---------------------------------------------------
@@ -195,12 +218,13 @@ function fireWeaponSequence(cellID) {
    */
   function fireWeapon(weaponSound, weaponType, cellID) {
     SOUND.playAudio(weaponSound);
-
     BATTLE_MODEL.fireWeapon(cellID, weaponType);
     BATTLE_VIEW.fireWeapon(BATTLE_MODEL.getShips(), cellID, weaponType);
     setTimeout(() => {
-      BATTLE_MODEL.setWeaponFireable(true);
-      BATTLE_VIEW.setWeaponFireable(true);
+      if (BATTLE_MODEL.getShipsRemaining() > 0) {
+        BATTLE_MODEL.setWeaponFireable(true);
+        BATTLE_VIEW.setWeaponFireable(true);
+      }
     }, CONFIGURATION.BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME);
   }
 
@@ -209,7 +233,7 @@ function fireWeaponSequence(cellID) {
    */
   function checkRemainingEnergyForGameOverCondition() {
     if (BATTLE_MODEL.getEnergy() <= 0) {
-      //console.log("energy is exhausted, disable table, game loop will end it");
+      BATTLE_MODEL.setWeaponFireable(false);
     }
   }
 
@@ -279,6 +303,8 @@ function registerInternalBattleEvents() {
 const BATTLE_CONTROLLER = {
   showBattleScreen: showBattleScreen,
   hideBattleScreen: hideBattleScreen,
+  showBattleResultScreen: showBattleResultScreen,
+  hideBattleResultScreen: hideBattleResultScreen,
   registerInternalBattleEvents: registerInternalBattleEvents,
   setSpecialWeaponName: setSpecialWeaponName,
   startBattleLoop: startBattleLoop,

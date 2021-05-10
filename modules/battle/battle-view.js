@@ -8,8 +8,9 @@
 
 import { CONFIGURATION } from "../../configuration/configuration.js";
 import { CONSTANTS } from "../../constants/constants.js";
-import { AlienShip } from "../battle/AlienShip.js";
-import { AlienShipCell } from "../battle/AlienShipCell.js";
+
+// Used by renderShips to clear cells where ships used to be
+let previousShipLocations = [];
 
 /**
  * Shows the battle screen
@@ -31,6 +32,47 @@ function hideBattleScreen() {
     CONSTANTS.CSS.SCREEN_DISPLAY_NONE
   );
   CONSTANTS.HTML.BATTLE.SCREEN_BATTLE.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+  );
+}
+
+/**
+ * Shows the battle result screen
+ */
+function showBattleResultScreen(result) {
+  if (result == CONSTANTS.GAME.WIN) {
+    CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_VICTORY.classList.add(
+      CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+    );
+    CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_VICTORY.classList.remove(
+      CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+    );
+  } else if (result == CONSTANTS.GAME.LOSE) {
+    CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.add(
+      CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+    );
+    CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.remove(
+      CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+    );
+  } else {
+    console.log("Error in ending game.");
+  }
+}
+
+/**
+ * Hides the battle result screen
+ */
+function hideBattleResultScreen() {
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_VICTORY.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_VICTORY.classList.remove(
+    CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
+  );
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.add(
+    CONSTANTS.CSS.SCREEN_DISPLAY_NONE
+  );
+  CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.remove(
     CONSTANTS.CSS.SCREEN_DISPLAY_BLOCK
   );
 }
@@ -70,38 +112,56 @@ function initializeGameValues(ships) {
 
   //console.log("did we get any ships here at view");
   console.log(ships);
-  ships.forEach((ship) => {
-    renderShip(ship);
-  });
+  renderShips(ships);
 }
 
-function renderShip(ship) {
-  for (let i = 0; i < ship.cells.length; i++) {
-    /*console.log("What is ship?");
+function renderShips(ships) {
+  previousShipLocations.forEach((previousShipLocation) => {
+    previousShipLocation.style.transform = null;
+    previousShipLocation.style.backgroundSize = null;
+    previousShipLocation.style.backgroundImage = null;
+    previousShipLocation.style.backgroundImage = null;
+    previousShipLocation.style.backgroundColor = null;
+  });
+
+  previousShipLocations = [];
+
+  ships.forEach((ship) => {
+    ship.getCells().forEach((cell) => {
+      /*console.log("What is ship?");
     console.log(ship);
     console.log("What is cells?");
     console.log(ship.cells);
     console.log("What is cell?");
     console.log(ship.cells[0]);*/
-    //let cell = document.getElementById(ship.cells[i].location);
-    let cell = ship.cells[i];
-    //cell.style.backgroundColor = ship.testColor;
-    let cellDOM = document.getElementById(cell.getLocation());
+      //let cell = document.getElementById(ship.cells[i].location);
+      //cell.style.backgroundColor = ship.testColor;
 
-    cellDOM.style.backgroundImage = "url(" + ship.cells[i].image + ")";
-    cellDOM.style.backgroundSize = "contain";
-    if (ship.getOrientation() == "horizontal") {
-      cellDOM.style.transform = "rotate(-90deg)";
-    }
-    if (cell.getIsVisible()) {
-      //cellDOM.innerText = ""; this was causing issues with the projectile
-      cellDOM.style.backgroundColor = "red";
-    } else {
-      //cellDOM.innerText = "INVISIBLE";
-      cellDOM.style.backgroundColor = "blue";
-    }
-    //cell.innerText = ship.cells[i].location;
-  }
+      let gridCellDOM = document.getElementById(cell.getLocation());
+      previousShipLocations.push(gridCellDOM);
+
+      if (ship.getOrientation() == "horizontal") {
+        gridCellDOM.style.transform = "rotate(-90deg)";
+      }
+
+      let shipPart = cell.getShipPart();
+      let shipStatus = cell.isDamaged() ? "damage" : "shaded";
+      cell.setImage("../images/ship-" + shipPart + "-" + shipStatus + ".png");
+      gridCellDOM.style.backgroundSize = "contain";
+      if (cell.isVisible()) {
+        gridCellDOM.style.backgroundImage = "url(" + cell.getImage() + ")";
+      } else {
+        gridCellDOM.style.backgroundImage = null;
+        if (ship.getShipID() == 0) {
+          gridCellDOM.style.backgroundColor = "green";
+        } else if (ship.getShipID() == 1) {
+          gridCellDOM.style.backgroundColor = "yellow";
+        } else if (ship.getShipID() == 2) {
+          gridCellDOM.style.backgroundColor = "blue";
+        }
+      }
+    });
+  });
 }
 
 /**
@@ -169,6 +229,8 @@ const BATTLE_VIEW = {
   initializeGameValues: initializeGameValues,
   fireWeapon: fireWeapon,
   setWeaponFireable: setWeaponFireable,
-  renderShip: renderShip,
+  renderShips: renderShips,
+  showBattleResultScreen: showBattleResultScreen,
+  hideBattleResultScreen: hideBattleResultScreen,
 };
 export { BATTLE_VIEW };

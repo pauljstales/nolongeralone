@@ -5,7 +5,6 @@
 .screen-battle {
   grid-template-areas:
     "btl btl btl btl"
-    "stt stt stt stt"
     "tmr nrg las wep"
     "btm btm btm btm";
 }
@@ -14,28 +13,24 @@
   grid-area: btl; /* row 1 */
 }
 
-.screen-battle--grid--shot-status {
-  grid-area: stt; /* row 2 */
-}
-
 .screen-battle--grid--timer {
-  grid-area: tmr; /* row 3, col 1 */
+  grid-area: tmr; /* row 2, col 1 */
 }
 
 .screen-battle--grid--energy {
-  grid-area: nrg; /* row 3, col 2 */
+  grid-area: nrg; /* row 2, col 2 */
 }
 
 .screen-battle--grid--las {
-  grid-area: las; /* row 3, col 3 */
+  grid-area: las; /* row 2, col 3 */
 }
 
 .screen-battle--grid--weapon {
-  grid-area: wep; /* row 3, col 4 */
+  grid-area: wep; /* row 2, col 4 */
 }
 
 .screen-battle--grid--bottom {
-  grid-area: btm; /* row 4 */
+  grid-area: btm; /* row 3 */
 }
 
 /* ****************************** */
@@ -119,30 +114,24 @@
 /* User Controls                  */
 /* ****************************** */
 
-.screen-battle__shot-status {
-  height: 100%;
-  width: 100%;
-  background-color: black;
-}
-
 .screen-battle__timer {
   height: 100%;
   width: 100%;
-  max-height: 10vh;
+  max-height: 20vh;
   background-color: black;
 }
 
 .screen-battle__energy {
   height: 100%;
   width: 100%;
-  max-height: 10vh;
+  max-height: 20vh;
   background-color: black;
 }
 
 .screen-battle__laser {
   height: 100%;
   width: 100%;
-  max-height: 10vh;
+  max-height: 20vh;
   background-color: black;
 }
 
@@ -163,7 +152,7 @@
 .screen-battle__weapon {
   height: 100%;
   width: 100%;
-  max-height: 10vh;
+  max-height: 20vh;
   background-color: black;
 }
 
@@ -317,4 +306,29 @@
   height: 25vh;
   width: 100%;
   background-color: var(--color-gray-dark);
+}
+
+/* ************************ */
+/* Images                   */
+/* ************************ */
+
+.screen-battle__image-gameover {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+/* Tablet, screen is 570px max */
+@media screen and (min-width: 400px) {
+  .screen-battle__image-gameover {
+    max-height: 240px;
+    max-width: 240px;
+  }
+}
+
+/* Laptop and Desktop, screen is 668px max */
+@media screen and (min-width: 668px) {
+  .screen-battle__image-gameover {
+    max-height: 300px;
+    max-width: 300px;
+  }
 }

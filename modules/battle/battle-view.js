@@ -130,66 +130,15 @@ function renderShips(ships) {
   let currentShipLocations = [];
   for (let i = 0; i < ships.length; i++) {
     for (let j = 0; j < ships[i].length; j++) {
-      let gridCellDOM = document.getElementById(
-        ships[i].cells[j].getLocation()
+      let cellLocationID = ships[i].cells[j].getLocation();
+      let gridCellDOM = document.getElementById(cellLocationID);
+      currentShipLocations.push(cellLocationID);
+      gridCellDOM.style.backgroundImage = imageUrlBuilder(
+        ships[i],
+        ships[i].cells[j]
       );
-      currentShipLocations.push(ships[i].cells[j].getLocation());
-
-      // extract these to consts file
-      const urlPart1url = "url(../images/ship-";
-      const urlPart3space = "-";
-      const urlPart4shaded = "shaded";
-      const urlPart4damage = "damage";
-      const urlPart5orient =
-        ships[i].getOrientation() == "horizontal" ? "-H" : "";
-      const urlPart6 = ".png)";
-
-      if (ships[i].cells[j].isVisible()) {
-        if (!ships[i].cells[j].isDamaged()) {
-          console.log(
-            "cell visible, cell not damaged, ship not destroyed, SHOW RAW SHIP"
-          );
-          gridCellDOM.style.backgroundColor = null;
-          gridCellDOM.style.backgroundImage =
-            urlPart1url +
-            ships[i].cells[j].getShipPart() +
-            urlPart3space +
-            urlPart4shaded +
-            urlPart5orient +
-            urlPart6;
-        } else if (ships[i].cells[j].isDamaged() && ships[i].getHealth() > 0) {
-          console.log(
-            "cell visible, cell damaged, ship not destroyed, SHOW RED SQUARE"
-          );
-          gridCellDOM.style.backgroundColor = "red";
-        } else if (ships[i].cells[j].isDamaged() && ships[i].getHealth() <= 0) {
-          console.log(
-            "cell visible, cell damaged, ship destroyed, SHOW DESTROYED SHIP"
-          );
-          gridCellDOM.style.backgroundImage =
-            urlPart1url +
-            ships[i].cells[j].getShipPart() +
-            urlPart3space +
-            urlPart4damage +
-            urlPart5orient +
-            urlPart6;
-          gridCellDOM.style.backgroundColor = null;
-        }
-      } else {
-        console.log("cell is NOT visible");
-        gridCellDOM.style.backgroundImage = null;
-        gridCellDOM.style.backgroundColor = null;
-      }
-
-      //if (ship.getShipID() == 0) {
-      //gridCellDOM.style.backgroundColor = "green";
-      //} else if (ship.getShipID() == 1) {
-      //gridCellDOM.style.backgroundColor = "yellow";
-      //} else if (ship.getShipID() == 2) {
-      //gridCellDOM.style.backgroundColor = "blue";
-      //}
-    } // end for j
-  } // end for i
+    }
+  }
 
   if (previousShipLocations.length > 0) {
     for (let i = 0; i < previousShipLocations.length; i++) {
@@ -207,6 +156,26 @@ function renderShips(ships) {
   }
 
   previousShipLocations = currentShipLocations;
+}
+
+function imageUrlBuilder(ship, cell) {
+  const URL_1 = "url(../images/ship-";
+  const URL_2 = cell.getShipPart();
+  const URL_3 = "-";
+  const URL_4 = cell.isDamaged() ? "damage" : "shaded";
+  const URL_5 = ship.getOrientation() == "horizontal" ? "-H" : "";
+  const URL_6 = ".png)";
+  const FULL_URL = URL_1 + URL_2 + URL_3 + URL_4 + URL_5 + URL_6;
+
+  let imageURL;
+  if (!cell.isVisible()) {
+    imageURL = null;
+  } else if (cell.isDamaged() && ship.getHealth() > 0) {
+    imageURL = "url(../images/cell-damaged-ship-alive.png)";
+  } else {
+    imageURL = FULL_URL;
+  }
+  return imageURL;
 }
 
 /**

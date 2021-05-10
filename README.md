@@ -48,8 +48,8 @@ https://nolongeralone.netlify.app
 
 **Game Concept, Programmer, and CSS Animations**: Paul J Stales  
 **Graphic Design, Music, and Sound Effects**: R.J. Vince  
+**Testing**: Cameron Candelori, Kamil Nuzha, Samuel Soto  
 **Localization**: tbd  
-**Testing**: Samuel Soto, Kamil Nuzha
 
 Paul J Stales Twitter: https://twitter.com/pauljstales  
 R.J. Vince Instagram: ~  

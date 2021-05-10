@@ -37,7 +37,7 @@ const ENGLISH = {
   MENU: "MENU",
   CLICK_BUTTON: "* Click a button above to learn more.",
   CLICK_SQUARE:
-    "* Click a square on the battlefield grid to fire your laser weapon.",
+    "* Click a square on the battlefield grid to fire your laser weapon. It has a cooldown, so do not click too fast!",
   LIMITED_ENERGY:
     "* You have limited energy, and each laser shot takes 1 energy!",
   USING_SPECIAL_WEAPON:

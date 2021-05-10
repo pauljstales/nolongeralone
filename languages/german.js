@@ -39,7 +39,7 @@ const GERMAN = {
   CLICK_BUTTON:
     "* Klicken Sie oben auf eine Schaltfläche, um mehr zu erfahren.",
   CLICK_SQUARE:
-    "* Klicke auf ein Feld im Schlachtfeldgitter, um deine Laserwaffe abzufeuern.",
+    "* Klicke auf ein Feld im Schlachtfeldgitter, um deine Laserwaffe abzufeuern. Es hat eine Abklingzeit, also klicke nicht zu schnell!",
   LIMITED_ENERGY:
     "* Sie haben nur begrenzte Energie und jeder Laserschuss benötigt 1 Energie!",
   USING_SPECIAL_WEAPON:

@@ -39,7 +39,7 @@ const SPANISH = {
   CLICK_BUTTON:
     "* Haz clic en un cuadrado de la cuadrícula del campo de batalla para disparar tu arma láser.",
   CLICK_SQUARE:
-    "* Haz clic en un cuadrado de la cuadrícula del campo de batalla para disparar tu arma de energía.",
+    "* Haz clic en un cuadrado de la cuadrícula del campo de batalla para disparar tu arma láser. Tiene un tiempo de reutilización, ¡así que no hagas clic demasiado rápido!",
   LIMITED_ENERGY:
     "* ¡Tienes energía limitada y cada disparo de láser requiere 1 energía!",
   USING_SPECIAL_WEAPON:

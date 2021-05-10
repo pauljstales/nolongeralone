@@ -38,7 +38,7 @@ const FRENCH = {
   MENU: "MENU",
   CLICK_BUTTON: "* Cliquez sur un bouton ci-dessus pour en savoir plus.",
   CLICK_SQUARE:
-    "* Cliquez sur une case de la grille du champ de bataille pour tirer votre arme laser.",
+    "* Cliquez sur une case de la grille du champ de bataille pour tirer votre arme laser. Il a un temps de recharge, alors ne cliquez pas trop vite!",
   LIMITED_ENERGY:
     "* Vous avez une énergie limitée et chaque tir laser prend 1 énergie!",
   USING_SPECIAL_WEAPON:

@@ -38,7 +38,7 @@ const PORTUGUESE = {
   MENU: "CARDÁPIO",
   CLICK_BUTTON: "* Clique em um botão acima para saber mais.",
   CLICK_SQUARE:
-    "* Clique em um quadrado na grade do campo de batalha para disparar sua arma a laser.",
+    "* Clique em um quadrado na grade do campo de batalha para disparar sua arma a laser. Tem um tempo de espera, então não clique muito rápido!",
   LIMITED_ENERGY:
     "* Você tem energia limitada e cada disparo de laser consome 1 energia!",
   USING_SPECIAL_WEAPON:

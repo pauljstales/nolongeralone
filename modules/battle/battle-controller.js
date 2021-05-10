@@ -64,7 +64,6 @@ async function startBattleLoop() {
 
   let intervalID = setInterval(() => {
     //BATTLE_MODEL.DEV_printBattleData();
-
     gameLoopUpdateTime();
     gameLoopAlienShipsAttemptToMove();
     gameLoopCheckIfTimerOrEnergyLow();
@@ -219,7 +218,6 @@ function fireWeaponSequence(cellID) {
     SOUND.playAudio(weaponSound);
     BATTLE_MODEL.fireWeapon(cellID, weaponType);
     BATTLE_VIEW.fireWeapon(BATTLE_MODEL.getShips(), cellID, weaponType);
-    BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
     setTimeout(() => {
       if (BATTLE_MODEL.getShipsRemaining() > 0) {
         BATTLE_MODEL.setWeaponFireable(true);

@@ -127,6 +127,10 @@ function renderShips(ships) {
   previousShipLocations = [];
 
   for (let i = 0; i < ships.length; i++) {
+    if (ships[i].getHealth() == 0) {
+      console.log("don't render dead ships.");
+      continue;
+    }
     for (let j = 0; j < ships[i].length; j++) {
       let gridCellDOM = document.getElementById(
         ships[i].cells[j].getLocation()
@@ -211,6 +215,7 @@ function setWeaponFireable(weaponFireableStatus) {
  * @param {string} weaponType
  */
 function fireWeapon(ships, cellID, weaponType) {
+  renderShips(ships);
   const weaponProjectile = document.createElement("div");
   weaponProjectile.classList.add(weaponType);
   document.getElementById(cellID).appendChild(weaponProjectile);

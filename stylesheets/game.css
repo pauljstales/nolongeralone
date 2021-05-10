@@ -25,6 +25,8 @@
   --color-gray-light: #9caea9;
   --color-red-dark: #770000;
   --color-red-light: #ff4b4b;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {

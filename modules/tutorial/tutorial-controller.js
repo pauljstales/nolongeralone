@@ -8,6 +8,7 @@
  */
 
 import { CONSTANTS } from "../../constants/constants.js";
+import { SOUND } from "../../../sound/sound-manager.js";
 import { TUTORIAL_VIEW } from "/modules/tutorial/tutorial-view.js";
 
 /**

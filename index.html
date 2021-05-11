@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 
 <!-- 
-nolongeralone is a pure HTML5-CSS3-JavaScript/ES6 game designed to show off 
-mastery of these core technologies in a fun way.
-Copyright (C) 2021 Paul J Stales
-
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
@@ -14,19 +10,6 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
 -->
-
-<!--
-/**
- * NOTE TO READER/REVIEWER
- * The game is a technical demo of HTML5, CSS3, and JavaScript/ES6 without the use of libraries, frameworks, etc.
- * Because of this, some choices were made to accomplish things that may seem weird - had I used React, Angular, etc. I would have done them much differently!
- * But those libraries and frameworks hide manual DOM manipulation, understanding the cascade in CSS, etc., and I wanted to demonstrate I know these concepts.
- * So keep in mind any "odd" programming choices were likely chosen for a reason, such as
- * -- All HTML on one page -> workaround for iOS not allowing autoplay
- * -- MVC -> Understanding of patterns, even if MVC is not the best for web
- * -- And other things I am sure you will discover... enjoy the code!
- */
- -->
 
 <html lang="en">
   <head>
@@ -71,13 +54,25 @@ You should have received a copy of the GNU General Public License along with thi
     <!-- ~~~~~~~~~~~~~~~~~~~~ Title ~~~~~~~~~~~~~~~~~~~~ -->
     <title>No Longer Alone</title>
   </head>
+
+  <!-- 
+  nolongeralone is a pure HTML5-CSS3-JavaScript/ES6 game designed to show off
+  mastery of these core technologies in a fun way.
+  Copyright (C) 2021 Paul J Stales
+  -->
+
+  <!--
+  * NOTE TO READER/REVIEWER
+  * The game is a technical demo of HTML5, CSS3, and JavaScript/ES6 without the use of libraries, frameworks, etc.
+  * Because of this, some choices were made to accomplish things that may seem weird - had I used React, Angular, etc. I would have done them much differently!
+  * But those libraries and frameworks hide manual DOM manipulation, understanding the cascade in CSS, etc., and I wanted to demonstrate I know these concepts.
+  * So keep in mind any "odd" programming choices were likely chosen for a reason, such as
+  >> All HTML on one page -> workaround for iOS not allowing autoplay
+  >> MVC -> Understanding of patterns, even if MVC is not the best for web
+  >> And other things I am sure you will discover... enjoy the code!
+  -->
+
   <body>
-    <!-- 
-      If you are asking "why is everything in one index.html?" 
-      The answers are
-      1 This is a no-framework project
-      2 iOS won't play music unless the user interacted with the current page, and this was the best no-framework solution
-    -->
     <!-- ***************** STARFIELD ***************** -->
     <div id="STARFIELD" class="starfield"></div>
     <!-- *************** SCREEN_LANDING *************** -->
@@ -513,7 +508,6 @@ You should have received a copy of the GNU General Public License along with thi
               button__text--size--small
               button--width--84
             "
-            href="\screens\menu\menu.html"
           ></button>
         </div>
         <!-- Tutorial Text: Default -->
@@ -951,7 +945,6 @@ You should have received a copy of the GNU General Public License along with thi
               button__text--size--medium
               button--width--96
             "
-            href="\screens\intro\intro.html"
           ></button>
         </div>
         <div class="screen-credits__btm"></div>

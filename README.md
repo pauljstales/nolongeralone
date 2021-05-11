@@ -2,7 +2,7 @@
 
 "no longer alone" is a Battleship-inspired game.  
 Instead of the sea, the battle takes place in space.  
-The player has limited time and energy/shots to defeat the enemy.
+The player has limited time and energy/shots to defeat the enemy... and the ships _move_!
 
 ![image](https://user-images.githubusercontent.com/31250302/115094006-0b0efe80-9eea-11eb-9ea6-3ef84de2efa4.png)
 
@@ -31,12 +31,6 @@ https://nolongeralone.netlify.app
 - Many of the nicer graphical effects are simplified or non-existent on mobile.
 - Sometimes sounds are delayed on mobile because of inability to preload or buffer.
 - In brief, while mobile is okay... desktop is a very nice experience.
-
-## Original Sketches
-
-- The original sketches are right here on GitHub, just not included in the downloaded project.
-- Link: https://github.com/pauljstales/nolongeralone/tree/main/sketches
-- The FIRST ever sketch was "superSecretGame"
 
 ## Contributing
 

@@ -1,6 +1,7 @@
 /**
  * @fileoverview All of the game's text can be translated into supported languages by the translator.js file - this source is for TEMPLATE_LANGUAGE.
- * @summary TEMPLATE_LANGUAGE language file
+ * Translate the TEMPLATE TEXT into the target language and then replace the
+ * @summary TEMPLATE_LANGUAGE language file TEMPLATE_LANGUAGE placeholders.
  * @author Paul J Stales <https:twitter.com/pauljstales>
  * Copyright (c) 2021
  */

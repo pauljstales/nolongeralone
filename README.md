@@ -6,7 +6,7 @@ The player has limited time and energy/shots to defeat the enemy.
 
 ![image](https://user-images.githubusercontent.com/31250302/115094006-0b0efe80-9eea-11eb-9ea6-3ef84de2efa4.png)
 
-VERSION: As of 2021-05-10, the game is in beta, beta 1.5 "the admiral lifts" edition.
+VERSION: As of 2021-05-11, the game is in beta, beta 2.0 "the BIIIIG refactor" edition.
 
 ## Purpose
 
@@ -49,7 +49,7 @@ https://nolongeralone.netlify.app
 **Game Concept, Programmer, and CSS Animations**: Paul J Stales  
 **Graphic Design, Music, and Sound Effects**: R.J. Vince  
 **Testing**: Cameron Candelori, Kamil Nuzha, Samuel Soto  
-**Localization**: Aleksey Gorshenin (Russian), Samuel Soto (Spanish), "Shadow" (Portuguese)  
+**Localization**: Aleksey Gorshenin (Russian), Samuel Soto (Spanish), "Shadow" (Portuguese)
 
 Paul J Stales Twitter: https://twitter.com/pauljstales  
 R.J. Vince Instagram: ~  

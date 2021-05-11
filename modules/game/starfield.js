@@ -10,7 +10,7 @@ import { CONSTANTS } from "../../../constants/constants.js";
 import { CONFIGURATION } from "../../configuration/configuration.js";
 
 /**
- * Constant values and variable values
+ * The number of stars for this particular screen size.
  */
 const NUM_STARS = calculateStarToPixelDensity();
 
@@ -41,29 +41,14 @@ function calculateStarToPixelDensity() {
  */
 function activate() {
   generateStarfield();
-  //DEV_starPerformanceChecker();
-}
-
-function DEV_starPerformanceChecker() {
-  let count = 0;
-  let intervalID = setInterval(() => {
-    count++;
-    ////console.log("There are " +document.getElementById("STARFIELD").childElementCount +" stars.");
-    if (
-      count > 120 ||
-      document.getElementById("STARFIELD").childElementCount == 0
-    ) {
-      clearInterval(intervalID);
-    }
-  }, 1000);
 }
 
 /**
  * Generate starfield clears all stars on every call.
  * It then creates a pre-determined number of stars (calculated by
- * calculateStarToPixelDensity) and finally animates them.
+ * calculateStarToPixelDensity) and animates them.
  * The average star's life is determined by constant AVERAGE_STAR_LIFE,
- * which was originally set to 60 (seconds).
+ * which was originally set to 90000 (90 seconds), and an additional 1-30 seconds to make stars have different lifetimes.
  */
 function generateStarfield() {
   CONSTANTS.HTML.STARFIELD.innerHTML = "";
@@ -125,7 +110,7 @@ function moveStar(star) {
     try {
       CONSTANTS.HTML.STARFIELD.removeChild(star);
     } catch (e) {
-      // Attempted to remove a star was already cleared from starfield via hitting the next screen's button. Suppressing this "error".
+      /* When a new screen is selected, the starfield is reset. The setTimeouts still fire, attempting to remove stars that are no longer there. This is an error (trying to remove a non-existent element). This error is being suppressed because it is expected behavior. */
     }
   }, t);
 }

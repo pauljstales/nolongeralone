@@ -5,8 +5,11 @@
  * Copyright (c) 2021
  */
 
-import { CONSTANTS } from "../../constants/constants.js";
-
+/**
+ * The SOUND object acts as an API for getting both music and sound effects.
+ * All of the music and sound effects were created by R.J. Vince.
+ * You can see more of his work in links in the credits or on GitHub's README
+ */
 const SOUND = {
   MUSIC: {
     INTRO: new Audio("sound/music/NLA-01-Title.mp3"),
@@ -16,8 +19,7 @@ const SOUND = {
     CREDITS_WIN: new Audio("sound/music/NLA-05-Victory-March.mp3"),
   },
   SFX: {
-    //BUTTON_HOVER: new Audio("sound/sfx/fire.mp3"),
-    //BUTTON_PRESS: new Audio("sound/sfx/fire.mp3"),
+    BUTTON_PRESS: new Audio("sound/sfx/button-click.mp3"),
     SPECIAL_WEAPON_SELECTED: new Audio("sound/sfx/weapon-swap.mp3"),
     BATTLE_BASIC_LASER_FIRE: new Audio("sound/sfx/fire.mp3"),
     BATTLE_RADAR_FIRE: new Audio("sound/sfx/radar.mp3"),
@@ -28,28 +30,29 @@ const SOUND = {
     BATTLE_SHIP_DESTROYED: new Audio("sound/sfx/kaboom.mp3"),
     BATTLE_WEAPON_NOT_READY: new Audio("sound/sfx/weapon-not-ready.mp3"),
     BATTLE_TIMER_OR_ENERGY_LOW: new Audio("sound/sfx/timer-or-energy-low.mp3"),
-    BATTLE_ALIEN_WEAPON_CHARGE: new Audio("sound/sfx/alien-weapon-charge.mp3"),
-    //BATTLE_EASTEREGG_LANDING: new Audio("sound/sfx/fire.mp3"),
-    //BATTLE_EASTEREGG_ADMIRAL: new Audio("sound/sfx/fire.mp3"),
-    //BATTLE_EASTEREGG_EARTH: new Audio("sound/sfx/fire.mp3"),
   },
   playAudio: playAudio,
-  playAudioLooped: playAudioLooped,
   stopAudio: stopAudio,
 };
 
+/**
+ * Plays an audio file object.
+ * @param {audioFileObject} audioFile
+ */
 function playAudio(audioFile) {
   audioFile.play();
 }
 
-function playAudioLooped(audioFile) {
-  audioFile.loop = true;
-  audioFile.play();
-}
-
+/**
+ * Stops a playing audio file object.
+ * @param {audioFileObject} audioFile
+ */
 function stopAudio(audioFile) {
   audioFile.pause();
   audioFile.currentTime = 0;
 }
 
+/**
+ * Exported sound object
+ */
 export { SOUND };

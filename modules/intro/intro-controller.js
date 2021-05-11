@@ -1,5 +1,5 @@
 /**
- * @fileoverview Intro's controller (MVC pattern), responsible for coordinating "user actions, model data, and view ui".
+ * @fileoverview Intro's controller (MVC pattern), responsible for coordinating "user actions, model data, and view UI".
  * Controller acts as the only communication to and from the intro code.
  * The front/main controller "game" coordinates all controllers.
  * @summary controller object for intro screen

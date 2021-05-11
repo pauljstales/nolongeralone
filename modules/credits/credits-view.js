@@ -1,5 +1,5 @@
 /**
- * @fileoverview Credits's view (MVC pattern), responsible for the view/ui.
+ * @fileoverview Credits's view (MVC pattern), responsible for the view/UI.
  * Credits's controller is the only access into the view.
  * @summary view object for credits screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
@@ -32,7 +32,9 @@ function hideCreditsScreen() {
   );
 }
 
-/** Exported object for credits view */
+/**
+ * Exported object for credits view
+ */
 const CREDITS_VIEW = {
   showCreditsScreen: showCreditsScreen,
   hideCreditsScreen: hideCreditsScreen,

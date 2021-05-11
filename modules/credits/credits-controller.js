@@ -1,5 +1,5 @@
 /**
- * @fileoverview Credit's controller (MVC pattern), responsible for coordinating "user actions, model data, and view ui".
+ * @fileoverview Credit's controller (MVC pattern), responsible for coordinating "user actions, model data, and view UI".
  * Controller acts as the only communication to and from the credit code.
  * The front/main controller "game" coordinates all controllers.
  * @summary controller object for credits screen

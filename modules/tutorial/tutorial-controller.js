@@ -1,5 +1,5 @@
 /**
- * @fileoverview Tutorial's controller (MVC pattern), responsible for coordinating "user actions, model data, and view ui".
+ * @fileoverview Tutorial's controller (MVC pattern), responsible for coordinating "user actions, model data, and view UI".
  * Controller acts as the only communication to and from the tutorial code.
  * The front/main controller "game" coordinates all controllers.
  * @summary controller object for tutorial screen
@@ -31,6 +31,7 @@ function hideTutorialScreen() {
  */
 function addButtonHowToPlayEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_PLAY.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     TUTORIAL_VIEW.highlightTutorialButton(
       CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_PLAY
     );
@@ -47,6 +48,7 @@ function addButtonHowToPlayEventListener() {
  */
 function addButtonHowToWinEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_WIN.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     TUTORIAL_VIEW.highlightTutorialButton(
       CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_WIN
     );
@@ -63,6 +65,7 @@ function addButtonHowToWinEventListener() {
  */
 function addButtonHowToLoseEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_LOSE.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     TUTORIAL_VIEW.highlightTutorialButton(
       CONSTANTS.HTML.TUTORIAL.BUTTON_HOW_TO_LOSE
     );
@@ -81,6 +84,7 @@ function addButtonSpecialWeaponsEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_SPECIAL_WEAPONS.addEventListener(
     "click",
     () => {
+      SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
       TUTORIAL_VIEW.highlightTutorialButton(
         CONSTANTS.HTML.TUTORIAL.BUTTON_SPECIAL_WEAPONS
       );
@@ -98,6 +102,7 @@ function addButtonSpecialWeaponsEventListener() {
  */
 function addButtonOtherEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_OTHER.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     TUTORIAL_VIEW.highlightTutorialButton(CONSTANTS.HTML.TUTORIAL.BUTTON_OTHER);
     TUTORIAL_VIEW.showTutorialText(CONSTANTS.HTML.TUTORIAL.TUTORIAL_TEXT_OTHER);
   });

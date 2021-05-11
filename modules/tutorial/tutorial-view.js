@@ -1,5 +1,5 @@
 /**
- * @fileoverview Tutorial's view (MVC pattern), responsible for the view/ui.
+ * @fileoverview Tutorial's view (MVC pattern), responsible for the view/UI.
  * Tutorial's controller is the only access into the view.
  * @summary view object for tutorial screen
  * @author Paul J Stales <https://twitter.com/pauljstales>

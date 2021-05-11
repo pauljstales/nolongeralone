@@ -1,5 +1,5 @@
 /**
- * @fileoverview Intro's view (MVC pattern), responsible for the view/ui.
+ * @fileoverview Intro's view (MVC pattern), responsible for the view/UI.
  * Intros's controller is the only access into the view.
  * @summary view object for intro screen
  * @author Paul J Stales <https://twitter.com/pauljstales>
@@ -50,6 +50,14 @@ function loadIntroScrollingText() {
   showTitleText();
   showPrepareForBattleButton();
 
+  /* *******************************************************
+   * Nested helper functions for loadIntroScrollingText
+   * ******************************************************/
+
+  /**
+   * Shows the first 5 parts of the intro text on the first half of the intro.
+   * The text is always there - just invisible. This changes the opacity.
+   */
   function showIntroText() {
     const INTRO_TEXT_ELEMENTS = [
       CONSTANTS.HTML.INTRO.INTRO_TEXT_1,
@@ -70,6 +78,9 @@ function loadIntroScrollingText() {
     }
   }
 
+  /**
+   * Hides the first half of the intro.
+   */
   function hideIntroText() {
     setTimeout(() => {
       CONSTANTS.HTML.INTRO.SCREEN_INTRO_PART_1.classList.add(
@@ -88,6 +99,9 @@ function loadIntroScrollingText() {
     }, CONFIGURATION.INTRO_TIMING.TIME_UNTIL_TITLE_TEXT);
   }
 
+  /**
+   * Shows the "NO LONGER ALONE" title.
+   */
   function showTitleText() {
     setTimeout(() => {
       CONSTANTS.HTML.INTRO.INTRO_TEXT_6.classList.remove(
@@ -99,6 +113,9 @@ function loadIntroScrollingText() {
     }, CONFIGURATION.INTRO_TIMING.TIME_UNTIL_TITLE_TEXT);
   }
 
+  /**
+   * Shows the "Prepare for Battle" button.
+   */
   function showPrepareForBattleButton() {
     setTimeout(() => {
       CONSTANTS.HTML.INTRO.BUTTON_PREPAREFORBATTLE.classList.remove(

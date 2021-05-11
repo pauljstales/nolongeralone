@@ -1,5 +1,5 @@
 /**
- * @fileoverview Landing's view (MVC pattern), responsible for the view/ui.
+ * @fileoverview Landing's view (MVC pattern), responsible for the view/UI.
  * Landing's controller is the only access into the view.
  * @summary view object for landing screen
  * @author Paul J Stales <https://twitter.com/pauljstales>

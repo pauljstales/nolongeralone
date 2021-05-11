@@ -17,7 +17,7 @@ var menuModelData = {
 };
 
 /**
- * Getter for the special weapon's name
+ * Getter for the special-weapon's name
  * @returns string representing the selected weapon
  */
 function getSelectedWeaponName() {
@@ -25,7 +25,7 @@ function getSelectedWeaponName() {
 }
 
 /**
- * Sets the special weapon's name to a string value
+ * Sets the special-weapon's name to a string value
  * @param {string} selectedWeapon
  */
 function setSelectedWeaponName(selectedWeaponName) {

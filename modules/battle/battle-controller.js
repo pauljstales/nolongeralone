@@ -1,5 +1,5 @@
 /**
- * @fileoverview Battle's controller (MVC pattern), responsible for coordinating "user actions, model data, and view ui".
+ * @fileoverview Battle's controller (MVC pattern), responsible for coordinating "user actions, model data, and view/UI".
  * Controller acts as the only communication to and from the battle code.
  * The front/main controller "game" coordinates all controllers.
  * @summary controller object for battle screen
@@ -30,6 +30,7 @@ function hideBattleScreen() {
 
 /**
  * Shows the battle result screen
+ * @param {string} result string of win or lose
  */
 function showBattleResultScreen(result) {
   BATTLE_VIEW.showBattleResultScreen(result);
@@ -43,12 +44,17 @@ function hideBattleResultScreen() {
 }
 
 /**
- * Sets the special weapon (this is chosen on the menu screen)
- * The GAME coordinates the passing of data from menu to battle
+ * Sets the special weapon (this is chosen on the menu screen).
+ * The GAME coordinates the passing of data from menu to battle.
+ * @param {spring} specialWeaponName name of the special weapon
  */
 function setSpecialWeaponName(specialWeaponName) {
   BATTLE_MODEL.setSpecialWeaponName(specialWeaponName);
 }
+
+/* *************************************************************************
+ * Battle Loop
+ * ************************************************************************/
 
 /**
  * Battle Loop
@@ -57,13 +63,13 @@ function setSpecialWeaponName(specialWeaponName) {
  * The loop runs on a set interval that "ticks" according to the configuration's "time per gameloop".
  * Every gameloop updates the time/energy and checks for game over conditions.
  * Any game over condition ends this set interval.
+ * As of beta 2.0.0, it also renders on every loop. This may change if performance issues occur, but so far all hardware handled fine.
  */
 async function startBattleLoop() {
   await BATTLE_MODEL.initializeGameValues();
   await BATTLE_VIEW.initializeGameValues(BATTLE_MODEL.getShips());
 
   let intervalID = setInterval(() => {
-    //BATTLE_MODEL.DEV_printBattleData();
     gameLoopUpdateTime();
     gameLoopAlienShipsAttemptToMove();
     gameLoopCheckIfTimerOrEnergyLow();
@@ -89,7 +95,7 @@ async function startBattleLoop() {
 
     /**
      * If "time-per-warp" time has passed, the aliens attempt to move.
-     * If an EMP bomb has gone off, or another condition, they will not be able to move on this attempt.
+     * Destroyed ships and ships affected by an EMP cannot move.
      */
     function gameLoopAlienShipsAttemptToMove() {
       if (
@@ -97,13 +103,15 @@ async function startBattleLoop() {
           CONFIGURATION.BATTLE_TIMING.TIME_PER_WARP ==
         0
       ) {
-        //console.log("ships should warp now");
         BATTLE_MODEL.placeAllShips();
         BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
         SOUND.playAudio(SOUND.SFX.BATTLE_SHIP_MOVE);
       }
     }
 
+    /**
+     * This sets off an annoying alarm that indicates you are either low on time or energy. If you didn't want to hear an annoying alarm, maybe you should have beaten the game faster and with less energy.
+     */
     function gameLoopCheckIfTimerOrEnergyLow() {
       if (BATTLE_MODEL.getTime() <= 10000 || BATTLE_MODEL.getEnergy() <= 5) {
         SOUND.playAudio(SOUND.SFX.BATTLE_TIMER_OR_ENERGY_LOW);
@@ -112,13 +120,12 @@ async function startBattleLoop() {
 
     /**
      * Checks for the LOSS condition "is there time left?"
-     * If not, stop the game loop and begin the end game sequence.
+     * If there is no time left, stop the game loop and begin the end game sequence.
+     * Note that this only triggers if there are alien ships left, to avoid assigning a player a loss if they destroyed the last ship as time ran out.
      * @param {intervalID} intervalID
      */
     function gameLoopCheckIfGameOverFromTime(intervalID) {
       if (BATTLE_MODEL.getTime() <= 0 && BATTLE_MODEL.getShipsRemaining() > 0) {
-        //SOUND.playAudio(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
-        ////console.log("time is up, end the game on a loss");
         BATTLE_MODEL.setWeaponFireable(false);
         BATTLE_VIEW.revealAllShips(BATTLE_MODEL.getShips());
         BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
@@ -127,13 +134,14 @@ async function startBattleLoop() {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.LOSE);
           endGame(CONSTANTS.GAME.LOSE);
-        }, 3000);
+        }, CONFIGURATION.BATTLE_TIMING.TIME_UNTIL_RESULTS_SCREEN);
       }
     }
 
     /**
      * Checks for the LOSS condition "is there energy left?"
-     * If not, stop the game loop and begin the end game sequence.
+     * If there is no energy left, stop the game loop and begin the end game sequence.
+     * Note that this only triggers if there are alien ships left, to avoid assigning a player a loss if they destroyed with their final energy.
      * @param {intervalID} intervalID
      */
     function gameLoopCheckIfGameOverFromEnergy(intervalID) {
@@ -141,8 +149,6 @@ async function startBattleLoop() {
         BATTLE_MODEL.getEnergy() <= 0 &&
         BATTLE_MODEL.getShipsRemaining() > 0
       ) {
-        //SOUND.playAudioLooped(SOUND.SFX.BATTLE_ALIEN_WEAPON_CHARGE);
-        ////console.log("energy is exhausted, end the game on a loss");
         BATTLE_MODEL.setWeaponFireable(false);
         BATTLE_VIEW.revealAllShips(BATTLE_MODEL.getShips());
         BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
@@ -151,7 +157,7 @@ async function startBattleLoop() {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.LOSE);
           endGame(CONSTANTS.GAME.LOSE);
-        }, 3000);
+        }, CONFIGURATION.BATTLE_TIMING.TIME_UNTIL_RESULTS_SCREEN);
       }
     }
 
@@ -170,23 +176,28 @@ async function startBattleLoop() {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.WIN);
           endGame(CONSTANTS.GAME.WIN);
-        }, 3000);
+        }, CONFIGURATION.BATTLE_TIMING.TIME_UNTIL_RESULTS_SCREEN);
       }
     }
   }, CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);
 }
 
+/* *************************************************************************
+ * Firing Sequence
+ * ************************************************************************/
+
 /**
- * Check if the weapon is fireable (weapons can only be fired every so often, controlled by BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME), and if not, play an error sound.
- * If the weapon CAN be fired, set it to not fireable (it will become fireable again after function fireWeapon's setTimeout sets it back to fireable).
- * Stop all other weapon sounds, determine which weapon to fire (in case a special weapon was armed), and fire that weapon.
- * Afterwards update the energy and perform different checks on the energy - if we are out of energy disable firing until the game loop registers game over.
+ * Weapons can only be fired every so often, controlled by BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME.
+ * If the weapon is currently not fireable, play an error sound.
+ * If the weapon can be fired,
+ * 1 Set it to not fireable (it will become fireable again after function fireWeapon's setTimeout sets it back to fireable)
+ * 2 Stop all other weapon sounds
+ * 3 Determine which weapon to fire (in case a special weapon was armed)
+ * 4 Fire that weapon
+ * Afterwards update the energy and check if energy is 0 - if energy IS 0 then disable firing and wait for the next game loop to detect the loss.
  * @param {string} cellID
  */
 function fireWeaponSequence(cellID) {
-  //console.log("firing sequence");
-  //console.log("BATTLE_MODEL.getEnergy() " + BATTLE_MODEL.getEnergy());
-  //console.log("BATTLE_MODEL.isWeaponFireable() " + BATTLE_MODEL.isWeaponFireable());
   if (BATTLE_MODEL.getEnergy() > 0 && BATTLE_MODEL.isWeaponFireable()) {
     stopWeaponSounds();
     BATTLE_MODEL.setWeaponFireable(false);
@@ -200,11 +211,10 @@ function fireWeaponSequence(cellID) {
     checkRemainingEnergyForGameOverCondition();
   } else {
     SOUND.playAudio(SOUND.SFX.BATTLE_WEAPON_NOT_READY);
-    ////console.log("Trying to fire and cannot: \nEither out of energy\nOr firing too soon\nOr time is up");
   }
 
   // ---------------------------------------------------
-  // ----- Prepare to Fire Weapon Nested Functions -----
+  // ------ Fire Weapon Sequence Nested Functions ------
   // ---------------------------------------------------
 
   /**
@@ -219,7 +229,8 @@ function fireWeaponSequence(cellID) {
 
   /**
    * Fire weapon actually fires the selected weapon.
-   * The sound of the weapon is played, a DIV is created and given a class to represent the weapon, after BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME seconds the DIV is removed.
+   * Weapon projectiles are represented by a newly created DIV with a class.
+   * After BATTLE_TIMING.BATTLE_FIRE_WEAPON_TIME seconds the DIV is removed.
    * @param {audioFire} weaponSound
    * @param {string} weaponType
    * @param {string} cellID
@@ -237,7 +248,7 @@ function fireWeaponSequence(cellID) {
   }
 
   /**
-   * If the energy level reaches 0 (or below in case of a bug), the game ends.
+   * To avoid players firing once there is 0 energy and before the game loop detects the losing condition, firing is disabled.
    */
   function checkRemainingEnergyForGameOverCondition() {
     if (BATTLE_MODEL.getEnergy() <= 0) {
@@ -249,20 +260,18 @@ function fireWeaponSequence(cellID) {
    * If the special weapon costs more energy than remaining energy, disable the special weapon for the remainder of the battle.
    */
   function determineIfEnoughEnergyForSpecialWeapon() {
-    let costOfSpecialWeapon = CONFIGURATION.BATTLE_ENERGY.GET_SPECIAL_WEAPON_ENERGY_COST(
-      BATTLE_MODEL.getSpecialWeaponName()
-    );
-    ////console.log("cost of special weapon? " + costOfSpecialWeapon);
-    ////console.log("remaining energy? " + BATTLE_MODEL.getEnergy());
+    let costOfSpecialWeapon =
+      CONFIGURATION.BATTLE_ENERGY.GET_SPECIAL_WEAPON_ENERGY_COST(
+        BATTLE_MODEL.getSpecialWeaponName()
+      );
     if (BATTLE_MODEL.getEnergy() < costOfSpecialWeapon) {
-      ////console.log("energy is too low to use special weapon, disable it");
       BATTLE_MODEL.setSpecialWeaponReadyToFire(false);
       BATTLE_VIEW.disableSpecialWeapon();
     }
   }
 
   /**
-   * Update the model and view with the new energy amount after firing the weapon.
+   * After firing the weapon, update model and view with the new energy amount.
    * @param {number} weaponEnergyCost
    */
   function updateEnergy(weaponEnergyCost) {
@@ -273,14 +282,13 @@ function fireWeaponSequence(cellID) {
 
 /**
  * Registers the special weapon button.
- * Fires the weapon, changes the button color, and disables the button.
- * Also changes the model's data.
+ * Arms the special weapon, changes the button color, disables the button, and changes the model's data.
  */
 function registerSpecialWeaponButtonEventListener() {
   CONSTANTS.HTML.BATTLE.BUTTON_ARM_SPECIAL_WEAPON.addEventListener(
     "click",
     () => {
-      ////console.log("clicked the special weapon button");
+      SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
       BATTLE_VIEW.disableSpecialWeapon();
       BATTLE_MODEL.setSpecialWeaponReadyToFire(true);
     }
@@ -298,7 +306,7 @@ function registerBattleCellsViaEventDelegation() {
 }
 
 /**
- * Register the internal battle events on game startup
+ * Register the exposed battle events on game startup
  */
 function registerInternalBattleEvents() {
   registerSpecialWeaponButtonEventListener();

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Menu's controller (MVC pattern), responsible for coordinating "user actions, model data, and view ui".
+ * @fileoverview Menu's controller (MVC pattern), responsible for coordinating "user actions, model data, and view UI".
  * Controller acts as the only communication to and from the menu code.
  * The front/main controller "game" coordinates all controllers.
  * @summary controller object for menu screen
@@ -58,6 +58,7 @@ function setSelectedWeaponName(selectedWeaponName) {
 function registerButtonSelectRadarEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR.addEventListener("click", () => {
     SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR
     );
@@ -73,6 +74,7 @@ function registerButtonSelectRadarEventListener() {
 function registerButtonSelectEMPEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP.addEventListener("click", () => {
     SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP
     );
@@ -88,6 +90,7 @@ function registerButtonSelectEMPEventListener() {
 function registerButtonSelectPaulEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL.addEventListener("click", () => {
     SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL
     );

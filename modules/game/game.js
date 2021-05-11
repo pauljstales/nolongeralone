@@ -1,6 +1,7 @@
 /**
  * @fileoverview Game is the "front controller" of this entire application.
  * It interacts with the individual screen controllers, allowing for screen transitions, passing of data, etc., as the individual controllers do not coordinate among themselves - they go through game.
+ * Note that there is ONE HTML file for the entire project - this was to ensure sounds could play on mobile given the restrictive rules. The screens are changed by clicking the buttons and showing/hiding the correct screen. The logic for those screen transitions are here.
  * For the entire game, this is the key logic.
  * For the battle portion of the game, see the battle controller.
  * The only portion of game accessible to a controller is the game over function available to battle.
@@ -9,9 +10,6 @@
  * Copyright (c) 2021
  */
 
-/**
- * Imports
- */
 import { CONSTANTS } from "../../constants/constants.js";
 import { TRANSLATE_INTO_LANGUAGE } from "../../languages/translator.js";
 import { STARFIELD } from "./starfield.js";
@@ -22,10 +20,11 @@ import { MENU_CONTROLLER } from "/modules/menu/menu-controller.js";
 import { TUTORIAL_CONTROLLER } from "/modules/tutorial/tutorial-controller.js";
 import { BATTLE_CONTROLLER } from "/modules/battle/battle-controller.js";
 import { CREDITS_CONTROLLER } from "/modules/credits/credits-controller.js";
+import { CONFIGURATION } from "../../configuration/configuration.js";
 
 /**
  * The game startup loads the progress bar and registers all event listeners.
- * After that, the game is event-driven by user actions.
+ * After that, the game is event-driven by user actions or data conditions.
  */
 window.onload = gameStartup;
 
@@ -63,6 +62,7 @@ function registerAllEventListeners() {
  */
 function registerButtonStartGameEventListener() {
   CONSTANTS.HTML.LANDING.BUTTON_START_GAME.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     STARFIELD.activate();
     SOUND.playAudio(SOUND.MUSIC.INTRO);
     LANDING_CONTROLLER.hideLandingScreen();
@@ -77,6 +77,7 @@ function registerButtonStartGameEventListener() {
  */
 function registerButtonShowCreditsEventListener() {
   CONSTANTS.HTML.LANDING.BUTTON_SHOW_CREDITS.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     STARFIELD.activate();
     Math.random() > 0.5
       ? SOUND.playAudio(SOUND.MUSIC.CREDITS_LOSE)
@@ -96,6 +97,7 @@ function registerSelectLanguageEventListener() {
   CONSTANTS.HTML.LANDING.SELECT_LANGUAGE.addEventListener(
     "change",
     function (e) {
+      SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
       TRANSLATE_INTO_LANGUAGE(e.target.value);
     }
   );
@@ -108,6 +110,7 @@ function registerSelectLanguageEventListener() {
  */
 function registerButtonSkipIntroEventListener() {
   CONSTANTS.HTML.INTRO.BUTTON_SKIP_INTRO.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     STARFIELD.activate();
     SOUND.stopAudio(SOUND.MUSIC.INTRO);
     SOUND.playAudio(SOUND.MUSIC.MENU);
@@ -122,6 +125,7 @@ function registerButtonSkipIntroEventListener() {
  */
 function registerButtonPrepareForBattleEventListener() {
   CONSTANTS.HTML.INTRO.BUTTON_PREPAREFORBATTLE.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     STARFIELD.activate();
     SOUND.stopAudio(SOUND.MUSIC.INTRO);
     SOUND.playAudio(SOUND.MUSIC.MENU);
@@ -137,6 +141,7 @@ function registerButtonPrepareForBattleEventListener() {
  */
 function registerButtonStartTutorialEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_START_TUTORIAL.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     STARFIELD.activate();
     SOUND.stopAudio(SOUND.SFX.BATTLE_RADAR_FIRE);
     SOUND.stopAudio(SOUND.SFX.BATTLE_EMP_FIRE);
@@ -154,6 +159,7 @@ function addButtonReturnToMenuEventListener() {
   CONSTANTS.HTML.TUTORIAL.BUTTON_RETURN_TO_MENU.addEventListener(
     "click",
     () => {
+      SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
       STARFIELD.activate();
       MENU_CONTROLLER.showMenuScreen();
       TUTORIAL_CONTROLLER.hideTutorialScreen();
@@ -167,6 +173,7 @@ function addButtonReturnToMenuEventListener() {
  */
 function registerButtonStartBattleEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_START_BATTLE.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     STARFIELD.activate();
     SOUND.playAudio(SOUND.MUSIC.BATTLE);
     SOUND.stopAudio(SOUND.MUSIC.MENU);
@@ -186,6 +193,7 @@ function registerButtonStartBattleEventListener() {
  */
 function registerButtonStartNewGameEventListener() {
   CONSTANTS.HTML.CREDITS.BUTTON_START_NEW_GAME.addEventListener("click", () => {
+    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     STARFIELD.activate();
     SOUND.stopAudio(SOUND.MUSIC.CREDITS_WIN);
     SOUND.stopAudio(SOUND.MUSIC.CREDITS_LOSE);
@@ -209,5 +217,5 @@ export function endGame(gameResult) {
     }
     BATTLE_CONTROLLER.hideBattleResultScreen();
     CREDITS_CONTROLLER.showCreditsScreen();
-  }, 5000);
+  }, CONFIGURATION.BATTLE_TIMING.TIME_UNTIL_CREDITS_SCREEN);
 }

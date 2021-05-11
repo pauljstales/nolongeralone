@@ -1,5 +1,5 @@
 /**
- * @fileoverview Battle's view (MVC pattern), responsible for the view/ui.
+ * @fileoverview Battle's view (MVC pattern), responsible for the view/UI.
  * Battle's controller is the only access into the view.
  * @summary view object for battle screen
  * @author Paul J Stales <https://twitter.com/pauljstales>

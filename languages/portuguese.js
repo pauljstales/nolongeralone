@@ -2,10 +2,9 @@
  * @fileoverview All of the game's text can be translated into supported languages by the translator.js file - this source is for Portuguese.
  * @summary Portuguese language file
  * @author Paul J Stales <https://twitter.com/pauljstales>
+ * Translated by Google Translate, verified by "shadow"
  * Copyright (c) 2021
  */
-
-import { CONFIGURATION } from "../configuration/configuration.js";
 
 const PORTUGUESE = {
   GAME_LOADING: "CARREGANDO O JOGO",
@@ -17,14 +16,14 @@ const PORTUGUESE = {
   UN_LAUNCHED: "A ONU lançou uma espaçonave para investigar",
   SHORTLY_AFTER:
     "Pouco depois do lançamento, as espaçonaves da ONU foram destruídas",
-  WE_ARE: "Nós somos",
+  WE_ARE: "Não estamos mais...",
   SKIP_INTRO: "PULAR INTRODUÇÃO",
-  NO_LONGER_ALONE: "não está mais sozinho",
+  NO_LONGER_ALONE: "Sozinhos na galáxia",
   PREPARE_FOR_BATTLE: "PREPARE-SE PARA A BATALHA",
   LIMITED_TIME_ENERGY:
-    "Temos tempo e energia limitados. A defesa da Terra depende da sua capacidade de clicar em uma grade com rapidez e precisão. Boa sorte.",
+    "Temos tempo e energia limitados. A defesa da Terra depende da sua capacidade de clicar nos quadrados com rapidez e precisão. Boa sorte.",
   MISSION_INFO:
-    "INFORMAÇÕES DA MISSÃO: As naves alienígenas estão camufladas, mas todas as partes danificadas se tornam visíveis. As naves também podem se mover aleatoriamente.",
+    "INFORMAÇÕES DA MISSÃO: As naves alienígenas estão camufladas, mas quando danificadas as partes se tornam visíveis. As naves também podem se mover aleatoriamente.",
   SELECT_SPECIAL_WEAPON: "Selecione a arma especial",
   RADAR: "RADAR",
   EMP_BOMB: "BOMBA EMP",
@@ -40,13 +39,13 @@ const PORTUGUESE = {
   CLICK_SQUARE:
     "* Clique em um quadrado na grade do campo de batalha para disparar sua arma a laser. Tem um tempo de espera, então não clique muito rápido!",
   LIMITED_ENERGY:
-    "* Você tem energia limitada e cada disparo de laser consome 1 energia!",
+    "* Você tem energia limitada e cada disparo de laser consome 1 de energia!",
   USING_SPECIAL_WEAPON:
     "* Para disparar sua arma especial, primeiro clique no botão 'usar arma especial' e, em seguida, clique na grade. Clique em 'armas' para saber mais.",
   GRID_APPEARS:
     "* A grade parece vazia porque os alienígenas estão camuflados ... bater em sua nave revelará permanentemente aquela parte da nave.",
   ALIENS_MOVE:
-    "* Navios alienígenas podem se MOVER! Eles podem se mover para uma célula na qual você atirou anteriormente!",
+    "* Navios alienígenas podem se MOVER! Eles podem se mover para um quadrado no qual você atirou anteriormente!",
   TWO_SQUADS: "* Existem duas combinações possíveis de naves alienígenas.",
   HSWOH: "* O esquadrão HSWOH possui 3 navios, de tamanhos 4, 3 e 2.",
   VTLNH: "* O esquadrão VTLNH possui 3 navios, todos de tamanho 3.",
@@ -61,7 +60,7 @@ const PORTUGUESE = {
   ONLY_ENOUGH:
     "* Só há tempo suficiente para equipar sua nave com uma arma especial.",
   EACH_SPECIAL_WEAPON:
-    "* Cada arma especial faz algo diferente e custa energia diferente, mas só pode ser disparada uma vez.",
+    "* Cada arma especial faz algo diferente e custa energia diferente, mas só poderão ser disparadas uma vez.",
   RADAR_USES:
     "* RADAR: Usa energia " +
     CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_RADAR +
@@ -75,12 +74,12 @@ const PORTUGUESE = {
     CONFIGURATION.BATTLE_ENERGY.ENERGY_COST_PAUL +
     " energias e destruirá qualquer nave que atingir.",
   CAN_PAUSE:
-    "* Posso fazer uma pausa? NÃO. Os alienígenas estão vindo para matar todos nós. Você entende a gravidade da situação ?",
+    "* Posso fazer uma pausa? NÃO. Os alienígenas estão vindo para matar todos nós. Você entende a gravidade da situação?",
   ADJUSTABLE_DIFF:
-    "* Haverá dificuldade ajustável? NÃO. Os alienígenas estão vindo para matar todos nós e não serão fáceis para nós.",
+    "* Haverá dificuldade ajustável? NÃO. Os alienígenas estão vindo para matar todos nós e não será fácil para nós.",
   HIGH_SCORE: "* Haverá pontuações altas? Não há planos no momento.",
   SEND_ME_MONEY:
-    "* NÃO FAÇA. Seja o que for, não. A menos que você queira me enviar dinheiro. Então sim. Café e frango piri-piri também são aceitos.",
+    "* NÃO FAÇA. Seja o que for, não. A menos que você queira me enviar dinheiro. Então sim. Pastel e garapa também são aceitos.",
   TIMER: "CRONÔMETRO",
   ENERGY: "ENERGIA",
   WEAPON_READY: "ARMA PRONTA",

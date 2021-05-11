@@ -2,6 +2,7 @@
  * @fileoverview All of the game's text can be translated into supported languages by the translator.js file - this source is for German.
  * @summary German language file
  * @author Paul J Stales <https://twitter.com/pauljstales>
+ * Translated by Google Translate, verified by --------
  * Copyright (c) 2021
  */
 

@@ -5,13 +5,10 @@
  * Copyright (c) 2021
  */
 
-/**
- * Imports
- * */
 import { CONSTANTS } from "../constants/constants.js";
 
 /**
- * This "introTextBaseTime" variable determines the speed that the intro text comes on the introduction screen. All text is derived from this time.
+ * This "introTextBaseTime" variable determines the speed that the intro text comes on the introduction screen. All intro text is derived from this time.
  */
 let introTextBaseTime = 3000; // prod 3000
 
@@ -36,6 +33,8 @@ const CONFIGURATION = {
     BATTLE_FIRE_WEAPON_TIME: 2000, // 2s, must match battle.css animations
     TIME_PER_WARP: Math.ceil(3 + Math.random() * 3), // in ms, prod 4000-6000
     TIME_PER_GAMELOOP: 1000, // prod 1000
+    TIME_UNTIL_RESULTS_SCREEN: 3000, // prod 3000
+    TIME_UNTIL_CREDITS_SCREEN: 5000, // prod 5000
   },
   BATTLE_ENERGY: {
     ENERGY_INITIAL: 27, // prod 27 - subject to change for game balance
@@ -55,6 +54,8 @@ const CONFIGURATION = {
  * Menu allows for the choosing of a special weapon.
  * The name of that special weapon is passed to battle, but battle does not know the cost, only the name.
  * This allows battle to get the cost of a weapon, without having to pass that information around in other places.
+ * @param {string} specialWeapon the name of the special weapon
+ * @returns number the energy cost of the weapon
  */
 function getSpecialWeaponNameEnergyCost(specialWeapon) {
   let energyCostOfSpecialWeapon = -1;

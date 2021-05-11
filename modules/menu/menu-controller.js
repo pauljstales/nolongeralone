@@ -58,7 +58,6 @@ function setSelectedWeaponName(selectedWeaponName) {
 function registerButtonSelectRadarEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR.addEventListener("click", () => {
     SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
-    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_RADAR
     );
@@ -74,7 +73,6 @@ function registerButtonSelectRadarEventListener() {
 function registerButtonSelectEMPEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP.addEventListener("click", () => {
     SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
-    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_EMP
     );
@@ -90,7 +88,6 @@ function registerButtonSelectEMPEventListener() {
 function registerButtonSelectPaulEventListener() {
   CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL.addEventListener("click", () => {
     SOUND.stopAudio(SOUND.SFX.SPECIAL_WEAPON_SELECTED);
-    SOUND.playAudio(SOUND.SFX.BUTTON_PRESS);
     MENU_CONTROLLER.highlightWeaponSelectedButton(
       CONSTANTS.HTML.MENU.BUTTON_SELECT_PAUL
     );

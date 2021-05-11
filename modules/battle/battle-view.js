@@ -146,9 +146,6 @@ function renderShips(ships) {
         document.getElementById(
           previousShipLocations[i]
         ).style.backgroundImage = null;
-        document.getElementById(
-          previousShipLocations[i]
-        ).style.backgroundColor = null;
       } else {
         //console.log("don't render dead ships");
       }

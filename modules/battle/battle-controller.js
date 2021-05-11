@@ -70,6 +70,7 @@ async function startBattleLoop() {
     gameLoopCheckIfGameOverFromAlienShipsDestroyed(intervalID);
     gameLoopCheckIfGameOverFromTime(intervalID);
     gameLoopCheckIfGameOverFromEnergy(intervalID);
+    BATTLE_VIEW.renderShips(BATTLE_MODEL.getShips());
 
     // ---------------------------------------------------
     // ---------- Battle Loop Nested Functions -----------

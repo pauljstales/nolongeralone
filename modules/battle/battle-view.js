@@ -54,8 +54,6 @@ function showBattleResultScreen(result) {
     CONSTANTS.HTML.BATTLE.SCREEN_BATTLE_DEFEAT.classList.remove(
       CONSTANTS.CSS.SCREEN_DISPLAY_NONE
     );
-  } else {
-    //console.log("Error in ending game.");
   }
 }
 
@@ -113,11 +111,13 @@ function initializeGameValues(ships) {
     CONSTANTS.CSS.SCREEN_BATTLE_WEAPON_READY_GREEN
   );
 
-  ////console.log("did we get any ships here at view");
-  //console.log(ships);
   renderShips(ships);
 }
 
+/**
+ * At the end of the game, reveal the ships to the player
+ * @param {array[AlienShip]} ships
+ */
 function revealAllShips(ships) {
   ships.forEach((ship) => {
     ship.getCells().forEach((cell) => {
@@ -126,7 +126,18 @@ function revealAllShips(ships) {
   });
 }
 
+/**
+ * Renders the ships to the screen.
+ * The ship images are placed as the background image to an HTML DOM table cell.
+ * Rendering has 2 parts:
+ * -- 1: Render the images of the ship's cells
+ * -- 2: Render previous locations that changed as blank
+ * @param {array[AlienShip]} ships all the alien ships
+ */
 function renderShips(ships) {
+  // Rendering, Part 1
+  // For every cell, update the corresponding HTML DOM ID
+  // Remeber the cell's location, we need it for the next render
   let currentShipLocations = [];
   for (let i = 0; i < ships.length; i++) {
     for (let j = 0; j < ships[i].length; j++) {
@@ -140,6 +151,11 @@ function renderShips(ships) {
     }
   }
 
+  // Rendering, Part 2
+  // If a previous location is not in the current batch of locations, then that
+  // previous location needs to be rendered as empty (because it is)
+  // For performance, only render differences, do NOT re-render cells that
+  // did not change (such as dead ships!)
   if (previousShipLocations.length > 0) {
     for (let i = 0; i < previousShipLocations.length; i++) {
       if (!currentShipLocations.includes(previousShipLocations[i])) {
@@ -155,6 +171,12 @@ function renderShips(ships) {
   previousShipLocations = currentShipLocations;
 }
 
+/**
+ * Because the paths to the images only differ by a few parameters, I parameterized a function to put together the URL.
+ * @param {AlienShip} ship alien ship object
+ * @param {AlienShipCell} cell alien ship object cell
+ * @returns
+ */
 function imageUrlBuilder(ship, cell) {
   const URL_1 = "url(../images/ship-";
   const URL_2 = cell.getShipPart();

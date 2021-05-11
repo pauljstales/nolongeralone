@@ -42,7 +42,7 @@ You should have received a copy of the GNU General Public License along with thi
     <link rel="stylesheet" href="stylesheets/battle.css" />
     <link rel="stylesheet" href="stylesheets/credits.css" />
     <!-- ~~~~~~~~~~~~~~~~~~~~ Favicon ~~~~~~~~~~~~~~~~~~~~ -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/images/favicon.ico?" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!-- ~~~~~~~~~~~~~~~~~~~~ Font Awesome ~~~~~~~~~~~~~~~~~~~~ -->
     <link
@@ -146,7 +146,7 @@ You should have received a copy of the GNU General Public License along with thi
         </select>
         <div class="screen-landing__bottom"></div>
         <p id="VERSION" class="screen__text--size--small">
-          Version: Beta 2.0 - "the BIIIIG refactor" edition
+          Version: Beta 2.1 - "Happy Admiral and Heroes" edition
         </p>
       </div>
     </div>
@@ -836,12 +836,12 @@ You should have received a copy of the GNU General Public License along with thi
       <div class="screen screen--display--flexCol screen-battle">
         <img
           class="screen-battle__image-gameover"
-          src="./images/comm-admiral.png"
+          src="images/happy-admiral.png"
           alt=""
         />
 
         <p class="screen__text screen__text--size--medium">
-          ADM BOBERTS: <span id="SCREEN_BATTLE_VICTORY_TEXT">gwc</span>
+          ADM BOBERTS: <span id="SCREEN_BATTLE_VICTORY_TEXT"></span>
         </p>
       </div>
     </div>
@@ -849,7 +849,7 @@ You should have received a copy of the GNU General Public License along with thi
       <div class="screen screen--display--flexCol screen-battle">
         <img
           class="screen-battle__image-gameover"
-          src="./images/game-over-clear.png"
+          src="images/game-over-clear.png"
           alt=""
         />
         <!-- Digging through code? This is actually a Caesar cipher. Go figure it out! The squad names are the same cipher... -->
@@ -865,8 +865,9 @@ You should have received a copy of the GNU General Public License along with thi
       <div class="screen screen--display--flexCol screen-credits">
         <div class="screen-credits__image">
           <img
+            id="SCREEN_CREDITS_GAME_OVER_IMAGE"
             class="screen-credits__image-gameover"
-            src="images/game-over-alt-clear.png"
+            src="images/pewpew-square-green.png"
             alt=""
           />
         </div>

@@ -119,6 +119,10 @@ const CONSTANTS = {
     },
     CREDITS: {
       SCREEN_CREDITS: document.getElementById("SCREEN_CREDITS"),
+
+      SCREEN_CREDITS_GAME_OVER_IMAGE: document.getElementById(
+        "SCREEN_CREDITS_GAME_OVER_IMAGE"
+      ),
       CREDITS_TEXT_PROGRAMMING: document.getElementById(
         "CREDITS_TEXT_PROGRAMMING"
       ),
@@ -126,6 +130,11 @@ const CONSTANTS = {
       CREDITS_TEXT_OTHERS: document.getElementById("CREDITS_TEXT_OTHERS"),
       BUTTON_START_NEW_GAME: document.getElementById("BUTTON_START_NEW_GAME"),
     },
+  },
+  IMAGES: {
+    SCREEN_CREDITS_IMAGE_VICTORYMEDAL: "/images/victory-medal.png",
+    SCREEN_CREDITS_IMAGE_GAMEOVERALTCLEAR: "/images/game-over-alt-clear.png",
+    SCREEN_CREDITS_IMAGE_PEWPEWSQUARE: "/images/pewpew-square-green.png",
   },
   CSS: {
     SCREEN_DISPLAY_BLOCK: "screen--display--block",

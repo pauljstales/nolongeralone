@@ -133,6 +133,7 @@ async function startBattleLoop() {
         setTimeout(() => {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.LOSE);
+          setCreditScreenImage(CONSTANTS.GAME.LOSE);
           endGame(CONSTANTS.GAME.LOSE);
         }, CONFIGURATION.BATTLE_TIMING.TIME_UNTIL_RESULTS_SCREEN);
       }
@@ -156,6 +157,7 @@ async function startBattleLoop() {
         setTimeout(() => {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.LOSE);
+          setCreditScreenImage(CONSTANTS.GAME.LOSE);
           endGame(CONSTANTS.GAME.LOSE);
         }, CONFIGURATION.BATTLE_TIMING.TIME_UNTIL_RESULTS_SCREEN);
       }
@@ -175,8 +177,26 @@ async function startBattleLoop() {
         setTimeout(() => {
           hideBattleScreen();
           showBattleResultScreen(CONSTANTS.GAME.WIN);
+          setCreditScreenImage(CONSTANTS.GAME.WIN);
           endGame(CONSTANTS.GAME.WIN);
         }, CONFIGURATION.BATTLE_TIMING.TIME_UNTIL_RESULTS_SCREEN);
+      }
+    }
+
+    /**
+     * Changes the credit's image depending on the result of the game
+     * @param {string} gameResult either win or lose
+     */
+    function setCreditScreenImage(gameResult) {
+      if (gameResult == CONSTANTS.GAME.WIN) {
+        CONSTANTS.HTML.CREDITS.SCREEN_CREDITS_GAME_OVER_IMAGE.src =
+          CONSTANTS.IMAGES.SCREEN_CREDITS_IMAGE_VICTORYMEDAL;
+      } else if (gameResult == CONSTANTS.GAME.LOSE) {
+        CONSTANTS.HTML.CREDITS.SCREEN_CREDITS_GAME_OVER_IMAGE.src =
+          CONSTANTS.IMAGES.SCREEN_CREDITS_IMAGE_GAMEOVERALTCLEAR;
+      } else {
+        CONSTANTS.HTML.CREDITS.SCREEN_CREDITS_GAME_OVER_IMAGE.src =
+          CONSTANTS.IMAGES.SCREEN_CREDITS_IMAGE_PEWPEWSQUARE;
       }
     }
   }, CONFIGURATION.BATTLE_TIMING.TIME_PER_GAMELOOP);

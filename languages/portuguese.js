@@ -6,6 +6,8 @@
  * Copyright (c) 2021
  */
 
+import { CONFIGURATION } from "../configuration/configuration.js";
+
 const PORTUGUESE = {
   GAME_LOADING: "CARREGANDO O JOGO",
   START_GAME: "COMEÇAR O JOGO",

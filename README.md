@@ -46,8 +46,8 @@ https://nolongeralone.netlify.app
 **Localization**: Aleksey Gorshenin (Russian), Samuel Soto (Spanish), "Shadow" (Portuguese)
 
 Paul J Stales Twitter: https://twitter.com/pauljstales  
-R.J. Vince Instagram: ~  
-R.J. Vince Soundcloud: ~
+R.J. Vince Homepage: https://rjvince.com  
+R.J. Vince Instagram: https://instagram.com/by_rjvince
 
 ## FAQ (Frequently Asked Questions)
 
